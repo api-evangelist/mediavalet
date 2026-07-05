@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Open API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{accessToken}}"
+    },
+    "headers": [
+      { "name": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }
+    ]
+  },
+  "items": [
+    {
+      "info": { "name": "Assets", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Search assets.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/search", "params": [{ "name": "q", "value": "", "type": "query", "description": "Full-text search query." }] },
+          "docs": "Search the library for assets matching a query, with pagination and filtering."
+        },
+        {
+          "info": { "name": "Get an asset.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "Retrieve a single asset by its identifier, including metadata and rendition links."
+        },
+        {
+          "info": { "name": "Update an asset.", "type": "http" },
+          "http": { "method": "PUT", "url": "https://api.mediavalet.com/assets/:assetId", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }], "body": { "type": "json", "data": "{}" } },
+          "docs": "Update an asset's editable fields."
+        },
+        {
+          "info": { "name": "List related assets.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/relatedassets", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "List assets related to the given asset."
+        },
+        {
+          "info": { "name": "List asset renditions.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/renditions", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "List the generated renditions (thumbnails, previews, derivatives) for an asset."
+        },
+        {
+          "info": { "name": "Get asset attributes.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/attributes", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "Retrieve the attribute values applied to an asset."
+        },
+        {
+          "info": { "name": "Get asset categories.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/categories", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "List the categories an asset is filed under."
+        },
+        {
+          "info": { "name": "Get asset keywords.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/keywords", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "List the keywords applied to an asset."
+        },
+        {
+          "info": { "name": "Add keywords to an asset.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/assets/:assetId/keywords", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }], "body": { "type": "json", "data": "[]" } },
+          "docs": "Add one or more keywords to an asset."
+        },
+        {
+          "info": { "name": "Remove a keyword from an asset.", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://api.mediavalet.com/assets/:assetId/keyword/:keyword", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }, { "name": "keyword", "value": "", "type": "path", "description": "The keyword to remove." }] },
+          "docs": "Remove a single keyword from an asset."
+        },
+        {
+          "info": { "name": "Get asset comments.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/comments", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "List comments on an asset."
+        },
+        {
+          "info": { "name": "Get asset history.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/history", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the asset." }] },
+          "docs": "Retrieve the change history / audit trail for an asset."
+        },
+        {
+          "info": { "name": "Get video intelligence status.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/status", "params": [{ "name": "assetId", "value": "", "type": "path", "description": "The UUID of the video asset." }] },
+          "docs": "Retrieve the processing status of AI video intelligence for a video asset."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Categories", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List categories.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/categories" },
+          "docs": "List the categories in the library."
+        },
+        {
+          "info": { "name": "Create a category.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/categories", "body": { "type": "json", "data": "{}" } },
+          "docs": "Create a new category in the library tree."
+        },
+        {
+          "info": { "name": "Get a category.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/categories/:categoryId", "params": [{ "name": "categoryId", "value": "", "type": "path", "description": "The UUID of the category." }] },
+          "docs": "Retrieve a single category by its identifier."
+        },
+        {
+          "info": { "name": "List assets in a category.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/categories/:categoryId/assets", "params": [{ "name": "categoryId", "value": "", "type": "path", "description": "The UUID of the category." }] },
+          "docs": "List the assets filed under a category."
+        },
+        {
+          "info": { "name": "List category permission sets.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/categories/permissionSets" },
+          "docs": "List the permission sets that govern access to categories."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Attributes", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List attributes.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/attributes" },
+          "docs": "List the custom attribute (metadata field) definitions in the library."
+        },
+        {
+          "info": { "name": "Create an attribute.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/attributes", "body": { "type": "json", "data": "{}" } },
+          "docs": "Create a new custom attribute definition."
+        },
+        {
+          "info": { "name": "Get an attribute.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/attributes/:attributeId", "params": [{ "name": "attributeId", "value": "", "type": "path", "description": "The UUID of the attribute." }] },
+          "docs": "Retrieve a single attribute definition by its identifier."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Keywords", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List keywords.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/keywords" },
+          "docs": "List the keyword vocabulary for the library."
+        },
+        {
+          "info": { "name": "Create a keyword.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/keywords", "body": { "type": "json", "data": "{}" } },
+          "docs": "Add a new keyword to the library vocabulary."
+        },
+        {
+          "info": { "name": "Get a keyword.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/keywords/:keywordId", "params": [{ "name": "keywordId", "value": "", "type": "path", "description": "The UUID of the keyword." }] },
+          "docs": "Retrieve a single keyword by its identifier."
+        },
+        {
+          "info": { "name": "List keyword groups.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/keywordGroups" },
+          "docs": "List the keyword groups that organize the keyword vocabulary."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Uploads", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create an upload session.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/uploads", "body": { "type": "json", "data": "{}" } },
+          "docs": "Create an upload session for a new file. The response returns the storage location and identifiers used to transfer chunks and commit the upload."
+        },
+        {
+          "info": { "name": "Get an upload session.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/uploads/:uploadId", "params": [{ "name": "uploadId", "value": "", "type": "path", "description": "The UUID of the upload session." }] },
+          "docs": "Retrieve the status of an upload session."
+        },
+        {
+          "info": { "name": "Commit an upload session.", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.mediavalet.com/uploads/:uploadId", "params": [{ "name": "uploadId", "value": "", "type": "path", "description": "The UUID of the upload session." }] },
+          "docs": "Commit a completed upload session so MediaValet processes the file into a managed asset."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Users", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List users.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/users" },
+          "docs": "List the users in the organization."
+        },
+        {
+          "info": { "name": "Get the current user.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/users/current" },
+          "docs": "Retrieve the profile of the authenticated user."
+        },
+        {
+          "info": { "name": "Get the current user's permissions.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/users/current/permissions" },
+          "docs": "Retrieve the effective permissions of the authenticated user."
+        },
+        {
+          "info": { "name": "List approvers.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/users/approvers" },
+          "docs": "List the users who can approve requests within the organizational unit."
+        },
+        {
+          "info": { "name": "List user groups.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.mediavalet.com/groups" },
+          "docs": "List the user groups in the organization."
+        }
+      ]
+    }
+  ]
+}

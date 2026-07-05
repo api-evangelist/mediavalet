@@ -1,0 +1,371 @@
+{
+  "info": {
+    "name": "MediaValet Open API",
+    "description": "RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. Base URL: https://api.mediavalet.com. Every request requires an OAuth 2.0 Bearer access token (from https://login.mediavalet.com/connect/token) and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Access requires a MediaValet subscription and Developer Portal registration.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{accessToken}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.mediavalet.com", "type": "string" },
+    { "key": "accessToken", "value": "", "type": "string" },
+    { "key": "subscriptionKey", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Assets",
+      "item": [
+        {
+          "name": "Search assets",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/search?q=", "host": ["{{baseUrl}}"], "path": ["search"], "query": [{ "key": "q", "value": "" }] },
+            "description": "Search the library for assets matching a query, with pagination and filtering."
+          }
+        },
+        {
+          "name": "Get an asset",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Retrieve a single asset by its identifier, including metadata and rendition links."
+          }
+        },
+        {
+          "name": "Update an asset",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"\",\n  \"description\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/assets/:assetId", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Update an asset's editable fields."
+          }
+        },
+        {
+          "name": "List related assets",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/relatedassets", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "relatedassets"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "List assets related to the given asset."
+          }
+        },
+        {
+          "name": "List asset renditions",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/renditions", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "renditions"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "List the generated renditions (thumbnails, previews, derivatives) for an asset."
+          }
+        },
+        {
+          "name": "Get asset attributes",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/attributes", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "attributes"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Retrieve the attribute values applied to an asset."
+          }
+        },
+        {
+          "name": "Get asset categories",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/categories", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "categories"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "List the categories an asset is filed under."
+          }
+        },
+        {
+          "name": "Get asset keywords",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/keywords", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "keywords"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "List the keywords applied to an asset."
+          }
+        },
+        {
+          "name": "Add keywords to an asset",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "[\n  \"example-keyword\"\n]" },
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/keywords", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "keywords"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Add one or more keywords to an asset."
+          }
+        },
+        {
+          "name": "Remove a keyword from an asset",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/keyword/:keyword", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "keyword", ":keyword"], "variable": [{ "key": "assetId", "value": "" }, { "key": "keyword", "value": "" }] },
+            "description": "Remove a single keyword from an asset."
+          }
+        },
+        {
+          "name": "Get asset comments",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/comments", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "comments"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "List comments on an asset."
+          }
+        },
+        {
+          "name": "Get asset history",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/history", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "history"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Retrieve the change history / audit trail for an asset."
+          }
+        },
+        {
+          "name": "Get video intelligence status",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/assets/:assetId/videoIntelligence/status", "host": ["{{baseUrl}}"], "path": ["assets", ":assetId", "videoIntelligence", "status"], "variable": [{ "key": "assetId", "value": "" }] },
+            "description": "Retrieve the processing status of AI video intelligence for a video asset."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "List categories",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/categories", "host": ["{{baseUrl}}"], "path": ["categories"] },
+            "description": "List the categories in the library."
+          }
+        },
+        {
+          "name": "Create a category",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"\",\n  \"parentId\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/categories", "host": ["{{baseUrl}}"], "path": ["categories"] },
+            "description": "Create a new category in the library tree."
+          }
+        },
+        {
+          "name": "Get a category",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/categories/:categoryId", "host": ["{{baseUrl}}"], "path": ["categories", ":categoryId"], "variable": [{ "key": "categoryId", "value": "" }] },
+            "description": "Retrieve a single category by its identifier."
+          }
+        },
+        {
+          "name": "List assets in a category",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/categories/:categoryId/assets", "host": ["{{baseUrl}}"], "path": ["categories", ":categoryId", "assets"], "variable": [{ "key": "categoryId", "value": "" }] },
+            "description": "List the assets filed under a category."
+          }
+        },
+        {
+          "name": "List category permission sets",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/categories/permissionSets", "host": ["{{baseUrl}}"], "path": ["categories", "permissionSets"] },
+            "description": "List the permission sets that govern access to categories."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attributes",
+      "item": [
+        {
+          "name": "List attributes",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/attributes", "host": ["{{baseUrl}}"], "path": ["attributes"] },
+            "description": "List the custom attribute (metadata field) definitions in the library."
+          }
+        },
+        {
+          "name": "Create an attribute",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"\",\n  \"type\": \"text\"\n}" },
+            "url": { "raw": "{{baseUrl}}/attributes", "host": ["{{baseUrl}}"], "path": ["attributes"] },
+            "description": "Create a new custom attribute definition."
+          }
+        },
+        {
+          "name": "Get an attribute",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/attributes/:attributeId", "host": ["{{baseUrl}}"], "path": ["attributes", ":attributeId"], "variable": [{ "key": "attributeId", "value": "" }] },
+            "description": "Retrieve a single attribute definition by its identifier."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Keywords",
+      "item": [
+        {
+          "name": "List keywords",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/keywords", "host": ["{{baseUrl}}"], "path": ["keywords"] },
+            "description": "List the keyword vocabulary for the library."
+          }
+        },
+        {
+          "name": "Create a keyword",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/keywords", "host": ["{{baseUrl}}"], "path": ["keywords"] },
+            "description": "Add a new keyword to the library vocabulary."
+          }
+        },
+        {
+          "name": "Get a keyword",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/keywords/:keywordId", "host": ["{{baseUrl}}"], "path": ["keywords", ":keywordId"], "variable": [{ "key": "keywordId", "value": "" }] },
+            "description": "Retrieve a single keyword by its identifier."
+          }
+        },
+        {
+          "name": "List keyword groups",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/keywordGroups", "host": ["{{baseUrl}}"], "path": ["keywordGroups"] },
+            "description": "List the keyword groups that organize the keyword vocabulary."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Uploads",
+      "item": [
+        {
+          "name": "Create an upload session",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"filename\": \"\",\n  \"fileSize\": 0,\n  \"categoryId\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/uploads", "host": ["{{baseUrl}}"], "path": ["uploads"] },
+            "description": "Create an upload session for a new file. The response returns the storage location and identifiers used to transfer chunks and commit the upload."
+          }
+        },
+        {
+          "name": "Get an upload session",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/uploads/:uploadId", "host": ["{{baseUrl}}"], "path": ["uploads", ":uploadId"], "variable": [{ "key": "uploadId", "value": "" }] },
+            "description": "Retrieve the status of an upload session."
+          }
+        },
+        {
+          "name": "Commit an upload session",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/uploads/:uploadId", "host": ["{{baseUrl}}"], "path": ["uploads", ":uploadId"], "variable": [{ "key": "uploadId", "value": "" }] },
+            "description": "Commit a completed upload session so MediaValet processes the file into a managed asset."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "description": "List the users in the organization."
+          }
+        },
+        {
+          "name": "Get the current user",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/users/current", "host": ["{{baseUrl}}"], "path": ["users", "current"] },
+            "description": "Retrieve the profile of the authenticated user."
+          }
+        },
+        {
+          "name": "Get the current user's permissions",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/users/current/permissions", "host": ["{{baseUrl}}"], "path": ["users", "current", "permissions"] },
+            "description": "Retrieve the effective permissions of the authenticated user."
+          }
+        },
+        {
+          "name": "List approvers",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/users/approvers", "host": ["{{baseUrl}}"], "path": ["users", "approvers"] },
+            "description": "List the users who can approve requests within the organizational unit."
+          }
+        },
+        {
+          "name": "List user groups",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Ocp-Apim-Subscription-Key", "value": "{{subscriptionKey}}" }],
+            "url": { "raw": "{{baseUrl}}/groups", "host": ["{{baseUrl}}"], "path": ["groups"] },
+            "description": "List the user groups in the organization."
+          }
+        }
+      ]
+    }
+  ]
+}

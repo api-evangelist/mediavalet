@@ -1,0 +1,91 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: MediaValet
+providerId: mediavalet
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Digital Asset Management
+- DAM
+- Media
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of MediaValet spend. MediaValet is an enterprise, subscription-based
+  SaaS DAM billed by contract - typically an annual agreement scaled on users,
+  storage volume, and enabled modules. The Open API is included in the platform
+  subscription rather than metered separately, so API usage does not carry its own
+  line-item charge; the cost drivers are seats, stored asset volume, and premium
+  modules (for example Brand Portals, Creative Connect, or Video Intelligence).
+  There is no public usage-based API pricing to meter, so cost management here is
+  about right-sizing the subscription (users, storage, modules) rather than
+  optimizing per-call spend.
+notes: >-
+  Per-unit list prices are not published; MediaValet is quote-based. Reconcile
+  actual contract terms, storage tiers, and module fees with MediaValet during a
+  costing exercise.
+sources:
+- https://www.mediavalet.com/
+- https://www.mediavalet.com/product/open-api
+- https://developer.mediavalet.com/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: MediaValet
+serviceCategory: Digital Asset Management
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: MediaValet DAM
+  ServiceCategory: Digital Asset Management
+  ProviderName: MediaValet
+  PublisherName: MediaValet
+  InvoiceIssuerName: MediaValet
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: users
+  description: Named users / seats licensed on the MediaValet platform.
+  unit: users
+  aggregation: max
+  dimensions:
+  - account
+- name: storage_volume
+  description: Volume of digital assets stored in the library.
+  unit: bytes
+  aggregation: max
+  dimensions:
+  - account
+  - library
+- name: modules
+  description: Premium modules enabled on the subscription (Brand Portals, Video Intelligence, etc.).
+  unit: modules
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track licensed seats, stored asset volume, and enabled modules against the contracted subscription.
+- name: Allocation
+  description: Map libraries, brand portals, and user groups to internal teams so DAM cost maps to cost centers.
+- name: Optimization
+  description: Reclaim inactive seats, archive or purge stale assets to control storage, and enable only the modules in active use.
+- name: Accountability
+  description: Assign a DAM owner to review the annual subscription, storage growth, and module usage before renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

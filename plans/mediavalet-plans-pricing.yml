@@ -1,0 +1,86 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: MediaValet
+providerId: mediavalet
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Digital Asset Management
+- DAM
+- Media
+- Assets
+- Plans
+description: >-
+  MediaValet is sold as an enterprise digital asset management platform with
+  custom, quote-based pricing rather than public self-service tiers. Pricing is
+  arranged with MediaValet sales and typically scales on number of users, storage
+  volume, enabled modules (such as Brand Portals, Creative Connect, or Video
+  Intelligence), and support level. API access is delivered through the MediaValet
+  Developer Portal: after signing in you subscribe to an API plan and, once the
+  subscription is approved, you receive a subscription key. The API is available to
+  MediaValet customers as part of their platform subscription. Exact list prices are
+  not published and are not reconciled here.
+notes: >-
+  The plans below are honestly modeled from MediaValet's contact-sales,
+  enterprise DAM positioning and the Developer Portal subscription flow. Verify
+  current packaging, module availability, and any API-tier limits directly with
+  MediaValet sales or in the Developer Portal during reconciliation.
+sources:
+- https://www.mediavalet.com/
+- https://www.mediavalet.com/product/open-api
+- https://developer.mediavalet.com/
+- https://support.mediavalet.com/hc/en-us/articles/5550696271380-How-do-I-sign-up-to-use-the-MediaValet-API
+plans:
+- id: mediavalet-platform
+  name: MediaValet DAM Platform
+  type: enterprise
+  description: >-
+    The core cloud DAM subscription - storage, cataloging, search, sharing, and
+    administration - priced by quote based on users, storage, and enabled modules.
+    The Open API is included and enabled for customers through the Developer Portal.
+  entries:
+  - label: Platform Subscription
+    name: platform_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: true
+  elements:
+  - name: Cloud Digital Asset Management
+  - name: Categories and Attributes
+  - name: Keywords and Auto-Tagging
+  - name: Open API Access
+  - name: Webhooks
+- id: mediavalet-api-subscription
+  name: Developer Portal API Subscription
+  type: enterprise
+  description: >-
+    API access provisioned through the MediaValet Developer Portal. You sign in,
+    subscribe to an API plan, and after approval receive a subscription key used in
+    the Ocp-Apim-Subscription-Key header alongside an OAuth 2.0 access token. Bundled
+    with the platform subscription for MediaValet customers.
+  entries:
+  - label: API Subscription
+    name: api_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: included with platform subscription (contact sales)
+    userMultiplied: false
+  elements:
+  - name: OAuth 2.0 Authentication
+  - name: Per-Account Subscription Key
+  - name: Assets, Categories, Attributes, Keywords, Uploads, Users APIs
+  - name: Webhooks
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

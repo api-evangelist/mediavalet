@@ -1,0 +1,58 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: MediaValet
+providerId: mediavalet
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Digital Asset Management
+- DAM
+- Media
+- Rate Limiting
+- Quotas
+description: >-
+  MediaValet does not publish fixed numeric rate limits for its Open API. The API
+  is fronted by Azure API Management, which enforces throttling per subscription
+  key; when limits are exceeded the gateway returns HTTP 429 Too Many Requests.
+  MediaValet also provides a Bulk endpoint that batches multiple operations into a
+  single HTTP request, which is the recommended way to reduce request volume for
+  high-throughput workflows such as mass metadata updates. Verify any account- or
+  plan-specific request quotas with MediaValet.
+notes: >-
+  No public per-minute or per-day request numbers are documented as of the review
+  date. Treat 429 responses as the throttling signal, honor any Retry-After header,
+  and prefer the Bulk endpoint plus pagination for large jobs.
+sources:
+- https://docs.mediavalet.com/
+- https://developer.mediavalet.com/
+- https://www.mediavalet.com/product/open-api
+responseCodes:
+  throttled: 429
+limits:
+- name: API Requests per Subscription Key
+  scope: subscription
+  metric: requests
+  limit: not published
+  notes: Throttled by Azure API Management per subscription key; exact numbers are not documented.
+- name: Bulk Batch Size
+  scope: request
+  metric: operations
+  limit: configurable per bulk request
+  notes: The Bulk endpoint packs multiple operations into one HTTP call to reduce request count.
+- name: Search / List Pagination
+  scope: request
+  metric: records
+  limit: paged
+  notes: List and search endpoints return paginated results via offset/count style parameters.
+policies:
+- name: Throttling
+  description: The Azure API Management gateway returns HTTP 429 when a subscription key exceeds its allowance.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor any Retry-After header on 429 responses.
+- name: Batching
+  description: Use the Bulk endpoint to combine multiple operations into a single request for high-volume metadata work.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

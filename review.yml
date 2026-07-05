@@ -1,0 +1,109 @@
+aid: mediavalet
+name: MediaValet
+review:
+  question: Does MediaValet expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. MediaValet's public Open API is
+    request/response REST over HTTPS, fronted by Azure API Management at
+    https://api.mediavalet.com. Its event-driven surface is delivered by
+    Webhooks - MediaValet POSTs event notifications to a customer-configured
+    HTTP endpoint - which is server-to-endpoint HTTP, not a WebSocket or SSE
+    stream on MediaValet's own API. There is no server-push streaming transport
+    on MediaValet's own API to model as AsyncAPI as of the review date.
+findings:
+  summary: |
+    MediaValet does not publish a documented public WebSocket API. MediaValet is
+    a cloud digital asset management (DAM) platform. Its Open API is a RESTful,
+    JSON, hypermedia-driven interface at https://api.mediavalet.com, secured with
+    OAuth 2.0 (OIDC) access tokens obtained from
+    https://login.mediavalet.com/connect/token plus a per-account subscription
+    key sent in the Ocp-Apim-Subscription-Key header. All documented operations -
+    across Assets, Categories, Attributes, Keywords, Uploads, and Users - are
+    HTTPS REST. MediaValet's event-driven capability is provided via Webhooks
+    (outbound HTTP callbacks to a customer endpoint), not a bidirectional or
+    streaming WebSocket (ws:// or wss://) endpoint. No realtime WebSocket surface
+    is documented.
+  accessModel: |
+    Access requires a MediaValet subscription and Developer Portal registration.
+    A developer signs in to the Developer Portal, subscribes to an API plan, and
+    after approval receives a subscription key. Every call carries both an OAuth
+    2.0 Bearer access token and the Ocp-Apim-Subscription-Key header. The API is
+    fronted by Azure API Management, which enforces per-key throttling (HTTP 429).
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.mediavalet.com
+      documented: true
+      note: All Open API operations are request/response REST over HTTPS.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: MediaValet POSTs event notifications to a customer-configured HTTP endpoint. Outbound HTTP callback, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in MediaValet's Open API reference or Developer Portal as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.mediavalet.com/search
+    - GET    https://api.mediavalet.com/assets/{assetId}
+    - PUT    https://api.mediavalet.com/assets/{assetId}
+    - GET    https://api.mediavalet.com/assets/{assetId}/relatedassets
+    - GET    https://api.mediavalet.com/assets/{assetId}/renditions
+    - GET    https://api.mediavalet.com/assets/{assetId}/attributes
+    - GET    https://api.mediavalet.com/assets/{assetId}/categories
+    - GET    https://api.mediavalet.com/assets/{assetId}/keywords
+    - POST   https://api.mediavalet.com/assets/{assetId}/keywords
+    - DELETE https://api.mediavalet.com/assets/{assetId}/keyword/{keyword}
+    - GET    https://api.mediavalet.com/assets/{assetId}/comments
+    - GET    https://api.mediavalet.com/assets/{assetId}/history
+    - GET    https://api.mediavalet.com/assets/{assetId}/videoIntelligence/status
+    - GET    https://api.mediavalet.com/categories
+    - POST   https://api.mediavalet.com/categories
+    - GET    https://api.mediavalet.com/categories/{categoryId}
+    - GET    https://api.mediavalet.com/categories/{categoryId}/assets
+    - GET    https://api.mediavalet.com/categories/permissionSets
+    - GET    https://api.mediavalet.com/attributes
+    - POST   https://api.mediavalet.com/attributes
+    - GET    https://api.mediavalet.com/attributes/{attributeId}
+    - GET    https://api.mediavalet.com/keywords
+    - POST   https://api.mediavalet.com/keywords
+    - GET    https://api.mediavalet.com/keywords/{keywordId}
+    - GET    https://api.mediavalet.com/keywordGroups
+    - POST   https://api.mediavalet.com/uploads
+    - GET    https://api.mediavalet.com/uploads/{uploadId}
+    - POST   https://api.mediavalet.com/uploads/{uploadId}
+    - GET    https://api.mediavalet.com/users
+    - GET    https://api.mediavalet.com/users/current
+    - GET    https://api.mediavalet.com/users/current/permissions
+    - GET    https://api.mediavalet.com/users/approvers
+    - GET    https://api.mediavalet.com/groups
+    - POST   https://login.mediavalet.com/connect/token
+sources:
+  - url: https://docs.mediavalet.com/
+    type: Documentation
+    note: MediaValet API reference; RESTful hypermedia service, OAuth 2.0 (OIDC) auth. No WebSocket mentioned.
+  - url: https://developer.mediavalet.com/
+    type: APIReference
+    note: Developer Experience portal - sign up, subscribe to an API plan, receive a subscription key. REST endpoints and Webhooks.
+  - url: https://www.mediavalet.com/product/open-api
+    type: ProductPage
+    note: Open API product page - RESTful JSON, Basic auth and OAuth 2, CRUD with pagination and webhooks. No WebSocket.
+  - url: https://support.mediavalet.com/hc/en-us/articles/5550696271380-How-do-I-sign-up-to-use-the-MediaValet-API
+    type: Support
+    note: Sign-up flow - create Developer Portal account, subscribe to a plan, receive approval email and subscription key.
+  - url: https://github.com/armstro-ca/mvsdk
+    type: SourceCode
+    note: Community Python SDK grounding resource paths (assets, categories, attributes, keywords, uploads, users, groups) and the connect/token OAuth flow. All REST.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. MediaValet's own public API is
+    request/response REST over HTTPS, and its event-driven delivery is via
+    outbound Webhooks rather than a server-push stream on MediaValet's API. No
+    AsyncAPI document was created because there is no WebSocket or SSE transport
+    on MediaValet's own API to model.
