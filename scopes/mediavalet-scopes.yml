@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mediavalet-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/mediavalet-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token
+    using the authorization code flow (interactive apps) or password / client-credential grants,
+    with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+scopes:
+- scope: api
+  description: Access the MediaValet API
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-openapi.yml
+- scope: offline_access
+  description: Obtain a refresh token
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-openapi.yml
+- scope: openid
+  description: OpenID Connect identity
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-openapi.yml

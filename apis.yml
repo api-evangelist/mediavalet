@@ -161,6 +161,8 @@ apis:
     and approvers within an organizational unit - the identity and access context that
     governs who can view and act on assets across the library.
 common:
+- type: OAuthScopes
+  url: scopes/mediavalet-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/mediavalet
 - type: Website
