@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mediavalet-openapi.yml
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+    scopes: 3
+  description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token
+    using the authorization code flow (interactive apps) or password / client-credential grants,
+    with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+  sources:
+  - openapi/mediavalet-openapi.yml
+- name: subscriptionKey
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  description: Per-account API subscription key issued through the MediaValet Developer Portal.
+  sources:
+  - openapi/mediavalet-openapi.yml

@@ -161,6 +161,12 @@ apis:
     and approvers within an organizational unit - the identity and access context that
     governs who can view and act on assets across the library.
 common:
+- type: TrustCenter
+  url: security/mediavalet-trust-center.yml
+- type: DomainSecurity
+  url: security/mediavalet-domain-security.yml
+- type: Authentication
+  url: authentication/mediavalet-authentication.yml
 - type: OAuthScopes
   url: scopes/mediavalet-scopes.yml
 - type: LinkedIn
