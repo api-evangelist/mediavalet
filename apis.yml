@@ -161,6 +161,8 @@ apis:
     and approvers within an organizational unit - the identity and access context that
     governs who can view and act on assets across the library.
 common:
+- type: AgenticAccess
+  url: agentic-access/mediavalet-agentic-access.yml
 - type: TrustCenter
   url: security/mediavalet-trust-center.yml
 - type: DomainSecurity
