@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Open Assets Attributes API
+  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://www.mediavalet.com
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2: []
+  subscriptionKey: []
+tags:
+- name: Attributes
+  description: Custom metadata fields and their values on assets.
+paths:
+  /attributes:
+    get:
+      operationId: listAttributes
+      tags:
+      - Attributes
+      summary: List attributes
+      description: List the custom attribute (metadata field) definitions in the library.
+      responses:
+        '200':
+          description: A list of attribute definitions.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAttribute
+      tags:
+      - Attributes
+      summary: Create an attribute
+      description: Create a new custom attribute definition.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attribute'
+      responses:
+        '201':
+          description: The created attribute.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attribute'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /attributes/{attributeId}:
+    get:
+      operationId: getAttribute
+      tags:
+      - Attributes
+      summary: Get an attribute
+      description: Retrieve a single attribute definition by its identifier.
+      parameters:
+      - name: attributeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested attribute.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attribute'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed - missing or invalid access token or subscription key.
+    NotFound:
+      description: The requested resource was not found.
+  schemas:
+    Attribute:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+          description: The data type of the attribute, e.g. text, number, date, list.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal.

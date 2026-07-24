@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Open Assets Uploads API
+  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://www.mediavalet.com
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2: []
+  subscriptionKey: []
+tags:
+- name: Uploads
+  description: Chunked ingest of new files into a library.
+paths:
+  /uploads:
+    post:
+      operationId: createUpload
+      tags:
+      - Uploads
+      summary: Create an upload session
+      description: Create an upload session for a new file. The response returns the storage location and identifiers used to transfer file chunks and, once all chunks are transferred, to commit the upload for processing into an asset.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadRequest'
+      responses:
+        '201':
+          description: The created upload session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Upload'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /uploads/{uploadId}:
+    get:
+      operationId: getUpload
+      tags:
+      - Uploads
+      summary: Get an upload session
+      description: Retrieve the status of an upload session.
+      parameters:
+      - name: uploadId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The upload session status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Upload'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: commitUpload
+      tags:
+      - Uploads
+      summary: Commit an upload session
+      description: Commit a completed upload session so MediaValet processes the transferred file into a managed asset with generated renditions.
+      parameters:
+      - name: uploadId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: The upload was accepted for processing.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed - missing or invalid access token or subscription key.
+  schemas:
+    Upload:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        filename:
+          type: string
+        status:
+          type: string
+          description: The processing status of the upload session.
+        storageLocation:
+          type: string
+          description: The location to which file chunks are transferred.
+    UploadRequest:
+      type: object
+      required:
+      - filename
+      properties:
+        filename:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        categoryId:
+          type: string
+          format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal.

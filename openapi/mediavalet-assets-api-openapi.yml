@@ -1,0 +1,345 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Open Assets API
+  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://www.mediavalet.com
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2: []
+  subscriptionKey: []
+tags:
+- name: Assets
+  description: Core digital asset objects and their derivatives.
+paths:
+  /search:
+    get:
+      operationId: searchAssets
+      tags:
+      - Assets
+      summary: Search assets
+      description: Search the library for assets matching a query, with pagination and filtering.
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Full-text search query.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A paginated list of matching assets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}:
+    get:
+      operationId: getAsset
+      tags:
+      - Assets
+      summary: Get an asset
+      description: Retrieve a single asset by its identifier, including metadata and rendition links.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The requested asset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateAsset
+      tags:
+      - Assets
+      summary: Update an asset
+      description: Update an asset's editable fields.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+      responses:
+        '200':
+          description: The updated asset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/relatedassets:
+    get:
+      operationId: getRelatedAssets
+      tags:
+      - Assets
+      summary: List related assets
+      description: List assets related to the given asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: A list of related assets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/renditions:
+    get:
+      operationId: getAssetRenditions
+      tags:
+      - Assets
+      summary: List asset renditions
+      description: List the generated renditions (thumbnails, previews, derivatives) for an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: A list of renditions.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/attributes:
+    get:
+      operationId: getAssetAttributes
+      tags:
+      - Assets
+      summary: Get asset attributes
+      description: Retrieve the attribute values applied to an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The asset's attribute values.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/categories:
+    get:
+      operationId: getAssetCategories
+      tags:
+      - Assets
+      summary: Get asset categories
+      description: List the categories an asset is filed under.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The categories for the asset.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/keywords:
+    get:
+      operationId: getAssetKeywords
+      tags:
+      - Assets
+      summary: Get asset keywords
+      description: List the keywords applied to an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The keywords for the asset.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: addAssetKeywords
+      tags:
+      - Assets
+      summary: Add keywords to an asset
+      description: Add one or more keywords to an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: Keywords added.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/keyword/{keyword}:
+    delete:
+      operationId: removeAssetKeyword
+      tags:
+      - Assets
+      summary: Remove a keyword from an asset
+      description: Remove a single keyword from an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      - name: keyword
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Keyword removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/comments:
+    get:
+      operationId: getAssetComments
+      tags:
+      - Assets
+      summary: Get asset comments
+      description: List comments on an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The asset's comments.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/history:
+    get:
+      operationId: getAssetHistory
+      tags:
+      - Assets
+      summary: Get asset history
+      description: Retrieve the change history / audit trail for an asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The asset's history.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /assets/{assetId}/videoIntelligence/status:
+    get:
+      operationId: getVideoIntelligenceStatus
+      tags:
+      - Assets
+      summary: Get video intelligence status
+      description: Retrieve the processing status of AI video intelligence for a video asset.
+      parameters:
+      - $ref: '#/components/parameters/AssetId'
+      responses:
+        '200':
+          description: The video intelligence status.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Asset:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        filename:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        mediaType:
+          type: string
+          description: The kind of media, e.g. image, video, document.
+        createdDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+    AssetList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        offset:
+          type: integer
+        count:
+          type: integer
+        payload:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+  parameters:
+    AssetId:
+      name: assetId
+      in: path
+      required: true
+      description: The unique identifier (UUID) of the asset.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    Unauthorized:
+      description: Authentication failed - missing or invalid access token or subscription key.
+    NotFound:
+      description: The requested resource was not found.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal.

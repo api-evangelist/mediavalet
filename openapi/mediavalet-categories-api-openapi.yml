@@ -1,0 +1,189 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Open Assets Categories API
+  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://www.mediavalet.com
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2: []
+  subscriptionKey: []
+tags:
+- name: Categories
+  description: Hierarchical folders that organize assets.
+paths:
+  /categories:
+    get:
+      operationId: listCategories
+      tags:
+      - Categories
+      summary: List categories
+      description: List the categories in the library.
+      responses:
+        '200':
+          description: A list of categories.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCategory
+      tags:
+      - Categories
+      summary: Create a category
+      description: Create a new category in the library tree.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          description: The created category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /categories/{categoryId}:
+    get:
+      operationId: getCategory
+      tags:
+      - Categories
+      summary: Get a category
+      description: Retrieve a single category by its identifier.
+      parameters:
+      - $ref: '#/components/parameters/CategoryId'
+      responses:
+        '200':
+          description: The requested category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /categories/{categoryId}/assets:
+    get:
+      operationId: getCategoryAssets
+      tags:
+      - Categories
+      summary: List assets in a category
+      description: List the assets filed under a category.
+      parameters:
+      - $ref: '#/components/parameters/CategoryId'
+      responses:
+        '200':
+          description: A list of assets in the category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /categories/permissionSets:
+    get:
+      operationId: listCategoryPermissionSets
+      tags:
+      - Categories
+      summary: List category permission sets
+      description: List the permission sets that govern access to categories.
+      responses:
+        '200':
+          description: A list of permission sets.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    CategoryId:
+      name: categoryId
+      in: path
+      required: true
+      description: The unique identifier (UUID) of the category.
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        parentId:
+          type: string
+          format: uuid
+        assetCount:
+          type: integer
+    Asset:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        filename:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        mediaType:
+          type: string
+          description: The kind of media, e.g. image, video, document.
+        createdDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+    AssetList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        offset:
+          type: integer
+        count:
+          type: integer
+        payload:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+  responses:
+    Unauthorized:
+      description: Authentication failed - missing or invalid access token or subscription key.
+    NotFound:
+      description: The requested resource was not found.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal.

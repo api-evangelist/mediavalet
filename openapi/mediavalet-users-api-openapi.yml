@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Open Assets Users API
+  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://www.mediavalet.com
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2: []
+  subscriptionKey: []
+tags:
+- name: Users
+  description: Users, groups, and permissions.
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      tags:
+      - Users
+      summary: List users
+      description: List the users in the organization.
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/current:
+    get:
+      operationId: getCurrentUser
+      tags:
+      - Users
+      summary: Get the current user
+      description: Retrieve the profile of the authenticated user.
+      responses:
+        '200':
+          description: The current user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/current/permissions:
+    get:
+      operationId: getCurrentUserPermissions
+      tags:
+      - Users
+      summary: Get the current user's permissions
+      description: Retrieve the effective permissions of the authenticated user.
+      responses:
+        '200':
+          description: The current user's permissions.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/approvers:
+    get:
+      operationId: listApprovers
+      tags:
+      - Users
+      summary: List approvers
+      description: List the users who can approve requests within the organizational unit.
+      responses:
+        '200':
+          description: A list of approvers.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /groups:
+    get:
+      operationId: listUserGroups
+      tags:
+      - Users
+      summary: List user groups
+      description: List the user groups in the organization.
+      responses:
+        '200':
+          description: A list of user groups.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        role:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed - missing or invalid access token or subscription key.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal.
