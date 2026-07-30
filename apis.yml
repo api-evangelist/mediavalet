@@ -8,7 +8,20 @@ description: MediaValet is a cloud-native digital asset management (DAM) platfor
   RESTful, JSON, hypermedia-driven service (base https://api.mediavalet.com) secured with
   OAuth 2.0 plus a per-account subscription key, letting teams automate uploading,
   cataloging, searching, and governing assets, categories, attributes, keywords, and users.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mediavalet.png
 tags:
 - Digital Asset Management
 - DAM
@@ -23,143 +36,112 @@ specificationVersion: '0.19'
 apis:
 - aid: mediavalet:mediavalet-assets-api
   name: MediaValet Assets API
+  description: Core digital asset objects and their derivatives.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
   tags:
   - Assets
-  - Media
-  - Search
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
   properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Retrieve, update, search, and inspect digital assets and their derivatives -
-    get an asset and its renditions, list related assets, read comments and history,
-    manage per-asset attributes and keywords, and check video intelligence status.
-    Assets are the core media objects (images, video, documents) stored in a library.
-- aid: mediavalet:mediavalet-categories-api
-  name: MediaValet Categories API
-  tags:
-  - Categories
-  - Organization
-  - Taxonomy
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Create, list, and read the hierarchical categories that organize a MediaValet
-    library, retrieve the assets filed under a category, and manage category permission
-    sets that govern which users and groups can see and act on each branch of the tree.
+  - type: OpenAPI
+    url: openapi/mediavalet-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
 - aid: mediavalet:mediavalet-attributes-api
   name: MediaValet Attributes API
+  description: Custom metadata fields and their values on assets.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
   tags:
   - Attributes
-  - Metadata
-  - Custom Fields
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-attributes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
+- aid: mediavalet:mediavalet-categories-api
+  name: MediaValet Categories API
+  description: Hierarchical folders that organize assets.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
+  tags:
+  - Categories
   properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Define and read custom metadata fields (attributes) for a library and apply
-    or remove attribute values on individual assets, enabling structured, searchable
-    metadata beyond built-in fields.
+  - type: OpenAPI
+    url: openapi/mediavalet-categories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
 - aid: mediavalet:mediavalet-keywords-api
   name: MediaValet Keywords API
+  description: Keyword vocabulary and per-asset tagging.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
   tags:
   - Keywords
-  - Tagging
-  - Metadata
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
   properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Manage the keyword vocabulary used to tag assets - list and read keywords and
-    keyword groups, and add or remove keywords on assets to power search, filtering,
-    and auto-tagging workflows.
+  - type: OpenAPI
+    url: openapi/mediavalet-keywords-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
 - aid: mediavalet:mediavalet-uploads-api
   name: MediaValet Uploads API
+  description: Chunked ingest of new files into a library.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
   tags:
   - Uploads
-  - Ingest
-  - Files
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
   properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Ingest new files into a library through the chunked upload workflow - create an
-    upload session, transfer file chunks to the returned storage location, then commit
-    the upload so MediaValet processes the file into a managed asset with renditions.
+  - type: OpenAPI
+    url: openapi/mediavalet-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
 - aid: mediavalet:mediavalet-users-api
   name: MediaValet Users API
-  tags:
-  - Users
-  - Permissions
-  - Administration
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Users, groups, and permissions.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
+  tags:
+  - Users
   properties:
-  - url: https://docs.mediavalet.com/
-    type: Documentation
-  - url: https://developer.mediavalet.com/
-    type: APIReference
-  - url: openapi/mediavalet-openapi.yml
-    type: OpenAPI
-  - url: collections/mediavalet.postman_collection.json
-    type: PostmanCollection
-  - url: collections/mediavalet.opencollection.json
-    type: OpenCollection
-  description: Read users, user groups, the current authenticated user and their permissions,
-    and approvers within an organizational unit - the identity and access context that
-    governs who can view and act on assets across the library.
+  - type: OpenAPI
+    url: openapi/mediavalet-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://developer.mediavalet.com/
+  - type: PostmanCollection
+    url: collections/mediavalet.postman_collection.json
+  - type: OpenCollection
+    url: collections/mediavalet.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/mediavalet-agentic-access.yml
