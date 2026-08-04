@@ -1,0 +1,24 @@
+{
+  "provider": "mediavalet",
+  "sources": [
+    "mediavalet-assets-api-openapi.yml",
+    "mediavalet-attributes-api-openapi.yml",
+    "mediavalet-categories-api-openapi.yml",
+    "mediavalet-keywords-api-openapi.yml",
+    "mediavalet-uploads-api-openapi.yml",
+    "mediavalet-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "mediavalet-assets-api-openapi.yml",
+    "mediavalet-attributes-api-openapi.yml",
+    "mediavalet-categories-api-openapi.yml",
+    "mediavalet-keywords-api-openapi.yml",
+    "mediavalet-uploads-api-openapi.yml",
+    "mediavalet-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
