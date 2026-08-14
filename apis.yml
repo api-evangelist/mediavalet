@@ -2,12 +2,19 @@ aid: mediavalet
 url: https://raw.githubusercontent.com/api-evangelist/mediavalet/refs/heads/main/apis.yml
 name: MediaValet
 kind: company
-description: MediaValet is a cloud-native digital asset management (DAM) platform, built
-  on Microsoft Azure, for storing, organizing, sharing, and distributing an organization's
-  images, videos, documents, and other brand and marketing assets. Its Open API is a
-  RESTful, JSON, hypermedia-driven service (base https://api.mediavalet.com) secured with
-  OAuth 2.0 plus a per-account subscription key, letting teams automate uploading,
-  cataloging, searching, and governing assets, categories, attributes, keywords, and users.
+description: MediaValet is a cloud-native, Microsoft Azure-based digital asset management (DAM) platform
+  for storing, organizing, governing, sharing and distributing an organization's images, videos, documents
+  and other brand, campaign and product assets. Its Open API is a RESTful, JSON, hypermedia-driven service
+  at https://api.mediavalet.com, fronted by Azure API Management and secured with BOTH an OAuth 2.0
+  / OpenID Connect bearer token (issuer https://iam.mediavalet.com) and a per-account Ocp-Apim-Subscription-Key.
+  The published surface runs to 312 operations across 29 resources - assets, categories, attributes,
+  keywords, uploads, users, user groups, branded portals, lightboxes, direct/CDN links, downloads, sharing,
+  crops, persons, saved searches, reports, notifications, organizational units and third-party integrations
+  - plus SkyHOOK, an event service that delivers CloudEvents 1.0 messages to a webhook or a private
+  Azure Event Grid instance. API versions are selected per request with the x-mv-api-version header
+  (1.0 default, 1.1, 1.2). MediaValet publishes no OpenAPI; its machine-readable contract is a Postman
+  Collection v2.1.0 at docs.mediavalet.com, from which the definitions in this repo are derived. Access
+  requires an existing MediaValet subscription and an approved Developer Portal account.
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -29,14 +36,21 @@ tags:
 - Assets
 - Content
 - Marketing
+- Brand Management
 - Cloud Storage
+- Metadata
+- Video
+- Images
+- Webhooks
+- Azure
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 apis:
 - aid: mediavalet:mediavalet-assets-api
   name: MediaValet Assets API
-  description: Core digital asset objects and their derivatives.
+  description: Core digital asset objects, their media files, renditions, versions, comments, history,
+    faces and video clips. The centre of the MediaValet data model. 54 operations.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
@@ -47,32 +61,38 @@ apis:
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
     url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
-- aid: mediavalet:mediavalet-attributes-api
-  name: MediaValet Attributes API
-  description: Custom metadata fields and their values on assets.
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-branded-portals-api
+  name: MediaValet BrandedPortals API
+  description: Branded Portals — externally shareable, branded, permissioned views onto a subset of
+    the asset library, with their own sections and theming. 46 operations.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
-  - Attributes
+  - BrandedPortals
   properties:
   - type: OpenAPI
-    url: openapi/mediavalet-attributes-api-openapi.yml
+    url: openapi/mediavalet-branded-portals-api-openapi.yml
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
     url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
+    url: collections/mediavalet-api.postman_collection.json
 - aid: mediavalet:mediavalet-categories-api
   name: MediaValet Categories API
-  description: Hierarchical folders that organize assets.
+  description: Hierarchical categories (folders) that organize assets and carry the permission sets
+    granted to user groups. 18 operations.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
@@ -83,50 +103,16 @@ apis:
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
-    url: https://developer.mediavalet.com/
-  - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
-- aid: mediavalet:mediavalet-keywords-api
-  name: MediaValet Keywords API
-  description: Keyword vocabulary and per-asset tagging.
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  tags:
-  - Keywords
-  properties:
-  - type: OpenAPI
-    url: openapi/mediavalet-keywords-api-openapi.yml
-  - type: Documentation
     url: https://docs.mediavalet.com/
-  - type: APIReference
+  - type: DeveloperPortal
     url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
-- aid: mediavalet:mediavalet-uploads-api
-  name: MediaValet Uploads API
-  description: Chunked ingest of new files into a library.
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  tags:
-  - Uploads
-  properties:
-  - type: OpenAPI
-    url: openapi/mediavalet-uploads-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mediavalet.com/
-  - type: APIReference
-    url: https://developer.mediavalet.com/
-  - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
+    url: collections/mediavalet-api.postman_collection.json
 - aid: mediavalet:mediavalet-users-api
   name: MediaValet Users API
-  description: Users, groups, and permissions.
+  description: Users, their profiles, permissions, entitlements and public self-registration. 18 operations.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
@@ -137,38 +123,618 @@ apis:
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
     url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
-    url: collections/mediavalet.postman_collection.json
-  - type: OpenCollection
-    url: collections/mediavalet.opencollection.json
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-lightbox-api
+  name: MediaValet Lightbox API
+  description: Lightboxes — user-curated collections of assets that can be shared by share code. 15
+    operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Lightbox
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-lightbox-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-org-unit-api
+  name: MediaValet OrgUnit API
+  description: Organizational units (libraries) — the MediaValet tenancy root that every asset, category
+    and event is scoped to. 15 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - OrgUnit
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-org-unit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-direct-links-api
+  name: MediaValet DirectLinks API
+  description: Durable CDN direct links to assets and renditions, for distributing assets outside the
+    DAM without expiring SAS URLs. 12 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - DirectLinks
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-direct-links-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-integrations-api
+  name: MediaValet Integrations API
+  description: Third-party integration registration — apps, allowed origins for iframe embedding, subscriptions,
+    users and entitlements. 12 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-uploads-api
+  name: MediaValet Uploads API
+  description: Chunked ingest of new files and new asset versions into a library, via MediaValet-issued
+    Azure blob upload URLs. 11 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-attributes-api
+  name: MediaValet Attributes API
+  description: Custom metadata attribute definitions, their data types (including the Status type added
+    in API version 1.1) and embedded-data mappings. 10 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Attributes
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-attributes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-reports-api
+  name: MediaValet Reports API
+  description: Usage and activity reporting across the library. 10 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-reports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-downloads-api
+  name: MediaValet Downloads API
+  description: Asset download requests, packaged downloads and download presets. 9 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Downloads
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-downloads-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-notification-api
+  name: MediaValet Notification API
+  description: In-product notifications and notification preferences. 9 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Notification
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-notification-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-sharing-api
+  name: MediaValet Sharing API
+  description: Sharing of assets and lightboxes with external recipients by share code. 9 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Sharing
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-sharing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-crop-api
+  name: MediaValet Crop API
+  description: Server-side cropping of image assets, including reusable crop templates. 8 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Crop
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-crop-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-persons-api
+  name: MediaValet Persons API
+  description: Person and face recognition records used to tag the people appearing in assets. 8 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Persons
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-persons-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-saved-searches-api
+  name: MediaValet SavedSearches API
+  description: Saved search definitions and their re-execution. 8 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - SavedSearches
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-saved-searches-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-user-groups-api
+  name: MediaValet UserGroups API
+  description: User groups and group membership — the unit that category permissions are granted to.
+    7 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - UserGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-user-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-attribute-groups-api
+  name: MediaValet AttributeGroups API
+  description: Groupings of custom metadata attributes. Gated by a per-library feature flag. 6 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - AttributeGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-attribute-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-keyword-groups-api
+  name: MediaValet KeywordGroups API
+  description: Hierarchical groupings of controlled-vocabulary keywords. 5 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - KeywordGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-keyword-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-webhooks-api
+  name: MediaValet Webhooks API
+  description: SkyHOOK webhook and Azure Event Grid subscription management for MediaValet events. 5
+    operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+  - type: AsyncAPI
+    url: asyncapi/mediavalet-skyhook-asyncapi.yml
+  - type: Webhooks
+    url: asyncapi/mediavalet-skyhook-asyncapi.yml
+- aid: mediavalet:mediavalet-authorization-api
+  name: MediaValet Authorization API
+  description: Authorization and permission checks for the calling user. 3 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Authorization
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-authorization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-keywords-api
+  name: MediaValet Keywords API
+  description: The controlled keyword vocabulary and per-asset tagging, with keyword approval workflow.
+    3 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-keywords-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-searches-api
+  name: MediaValet Searches API
+  description: Search across the library, including the filter and facet grammar. 3 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Searches
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-searches-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-config-api
+  name: MediaValet Config API
+  description: Library and account configuration. 2 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Config
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-config-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-home-api
+  name: MediaValet Home API
+  description: The hypermedia entry point and the bulk batching endpoint. 2 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Home
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-home-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-reports-v2-api
+  name: MediaValet ReportsV2 API
+  description: Version 2 of the MediaValet usage and activity reporting surface. 2 operations.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - ReportsV2
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-reports-v2-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-introduction-and-help-api
+  name: MediaValet IntroductionAndHelp API
+  description: Introductory and help resources served by the API. 1 operation.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - IntroductionAndHelp
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-terms-and-conditions-api
+  name: MediaValet TermsAndConditions API
+  description: Terms and conditions acceptance. 1 operation.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - TermsAndConditions
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
 common:
 - type: AgenticAccess
   url: agentic-access/mediavalet-agentic-access.yml
-- type: TrustCenter
-  url: security/mediavalet-trust-center.yml
-- type: DomainSecurity
-  url: security/mediavalet-domain-security.yml
 - type: Authentication
   url: authentication/mediavalet-authentication.yml
 - type: OAuthScopes
   url: scopes/mediavalet-scopes.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/mediavalet
-- type: Website
-  url: https://www.mediavalet.com
-- type: Documentation
-  url: https://docs.mediavalet.com/
-- type: DeveloperPortal
-  url: https://developer.mediavalet.com/
+- type: Conventions
+  url: conventions/mediavalet-conventions.yml
+- type: ErrorCatalog
+  url: errors/mediavalet-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/mediavalet-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/mediavalet-lifecycle.yml
+- type: ChangeLog
+  url: changelog/mediavalet-changelog.yml
+- type: DataModel
+  url: data-model/mediavalet-data-model.yml
+- type: Conformance
+  url: conformance/mediavalet-conformance.yml
+- type: Compliance
+  url: conformance/mediavalet-conformance.yml
+- type: Sandbox
+  url: sandbox/mediavalet-sandbox.yml
+- type: Components
+  url: components/mediavalet-components.yml
+- type: Packages
+  url: packages/mediavalet-packages.yml
+- type: MCPServer
+  url: mcp/mediavalet-mcp.yml
+- type: AsyncAPI
+  url: asyncapi/mediavalet-skyhook-asyncapi.yml
+- type: Webhooks
+  url: asyncapi/mediavalet-skyhook-asyncapi.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/mediavalet-openapi-overlay.yaml
+- type: LLMsTxt
+  url: llms/mediavalet-llms.txt
+- type: WellKnown
+  url: well-known/mediavalet-well-known.yml
+- type: OpenIDConnect
+  url: well-known/mediavalet-openid-configuration.json
+- type: Postman
+  url: collections/mediavalet-api.postman_collection.json
+- type: PostmanCollection
+  url: collections/mediavalet-api.postman_collection.json
+- type: TrustCenter
+  url: security/mediavalet-trust-center.yml
+- type: DomainSecurity
+  url: security/mediavalet-domain-security.yml
 - type: Plans
   url: plans/mediavalet-plans-pricing.yml
 - type: RateLimits
   url: rate-limits/mediavalet-rate-limits.yml
 - type: FinOps
   url: finops/mediavalet-finops.yml
+- type: Website
+  url: https://www.mediavalet.com
+- type: DeveloperPortal
+  url: https://developer.mediavalet.com/
+- type: Documentation
+  url: https://docs.mediavalet.com/
+- type: APIReference
+  url: https://docs.mediavalet.com/
+- type: GettingStarted
+  url: https://developer.mediavalet.com/getting-started
+- type: SignUp
+  url: https://developer.mediavalet.com/signup
+- type: Login
+  url: https://developer.mediavalet.com/signin
+- type: Pricing
+  url: https://www.mediavalet.com/pricing
+- type: Support
+  url: https://support.mediavalet.com/hc/en-us
+- type: TermsOfService
+  url: https://www.mediavalet.com/terms-and-condition
+- type: PrivacyPolicy
+  url: https://www.mediavalet.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/MediaValet
 - type: Blog
   url: https://www.mediavalet.com/blog
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mediavalet
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 45
+  pass: local-v1
