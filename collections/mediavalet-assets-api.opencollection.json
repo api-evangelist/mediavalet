@@ -1,0 +1,1551 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Assets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check-In Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assetCheckIn/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "ChecksIn an asset and returns newly created asset media file information."
+        },
+        {
+          "info": {
+            "name": "Update Checked-In Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/assetCheckIn/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update asset's checked-in."
+        },
+        {
+          "info": {
+            "name": "Assets Get Faces In Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/faces",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Assets Get Faces In Asset"
+        },
+        {
+          "info": {
+            "name": "Retrieve Video Clip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/clip/:clipId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "clipId",
+                "value": "",
+                "type": "path",
+                "description": "clipId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves Video Clip details."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Related Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/relatedassets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve related assets based on the asset id."
+        },
+        {
+          "info": {
+            "name": "Create Association with Asset and Related Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/relatedassets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add related assets to an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Video Intelligence Limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/videoIntelligence/limits",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves video intelligence limits and usage information."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/:metadataType",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "metadataType",
+                "value": "",
+                "type": "path",
+                "description": "metadataType path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve meta data for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Video Insights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoInsights",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve video insights for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Video Transcript",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoTranscript",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve video insights for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Related Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/searchRelatedAssets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Search for assets and exclude asset that match search criteria to retrieve assets that can be related to current asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Related Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/assets/:id/relatedasset/:token",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "token path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve related assets for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Related Asset Gallery Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/relatedAssetsGalleryUrl",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve the url for use with related assets gallery application."
+        },
+        {
+          "info": {
+            "name": "Retrieve Video Intelligence Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/status",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve video intelligence analysis status for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Video Intelligence Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/insights",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves video intelligence insights for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Assets With Search Criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Search for assets within a library that match optional search criteria."
+        },
+        {
+          "info": {
+            "name": "Create Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an asset and returns newly created asset information."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve an asset based on the asset id parameter."
+        },
+        {
+          "info": {
+            "name": "Update Upload Process To Complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completes upload process for asset and updates description for now."
+        },
+        {
+          "info": {
+            "name": "Update Asset With Patch Operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an asset with a list of patch operations."
+        },
+        {
+          "info": {
+            "name": "Remove Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "isHardDelete",
+                "value": "",
+                "type": "query",
+                "description": "isHardDelete query parameter."
+              }
+            ]
+          },
+          "docs": "Deletes an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Video Indexer Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/token",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "allowEdit",
+                "value": "",
+                "type": "query",
+                "description": "allowEdit query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves video indexer subscription metadata for an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/history",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves asset history."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Autotags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/autotags",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves autotags associated with specified asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/comments",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves asset comments."
+        },
+        {
+          "info": {
+            "name": "Create Asset Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/comments",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds comments to the asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/keywords",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve Asset Keywords"
+        },
+        {
+          "info": {
+            "name": "Create Association of Assets And Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/keywords",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associates list of keywords to specified asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Media File Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/versions",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Gets an asset's media file versions."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/attributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves attributes associated with an asset."
+        },
+        {
+          "info": {
+            "name": "Create Asset Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/attributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add attributes to an asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Renditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/renditions",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves an asset's renditions."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Renditions By Kind",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/renditions/:renditionKindId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "renditionKindId",
+                "value": "",
+                "type": "path",
+                "description": "renditionKindId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves an asset's renditions."
+        },
+        {
+          "info": {
+            "name": "Retrieve Asset Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/assets/:assetId/categories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              },
+              {
+                "name": "categoryFeatures",
+                "value": "",
+                "type": "query",
+                "description": "categoryFeatures query parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of categories an asset belongs to"
+        },
+        {
+          "info": {
+            "name": "Create Association of Asset And Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/categories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associates Asset into list of categories"
+        },
+        {
+          "info": {
+            "name": "Update Association of Asset And Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/assets/:assetId/categories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associates specified asset into list of categories, replacing previous list with provided list"
+        },
+        {
+          "info": {
+            "name": "Retrieve Assets With Search Criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/search",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for assets within a library that match optional search criteria. This method allows for longer query strings."
+        },
+        {
+          "info": {
+            "name": "Create a Trim of the Video Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/clip",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Given a Start and End time, trims the video asset to create a new video clip to download."
+        },
+        {
+          "info": {
+            "name": "Validate Asset Deletion Rollback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/undeleteValidate",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether assets can be undeleted or not."
+        },
+        {
+          "info": {
+            "name": "Create Asset Rating",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/rating",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets rating for asset."
+        },
+        {
+          "info": {
+            "name": "Remove Asset Rating",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId/rating",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes rating from an asset."
+        },
+        {
+          "info": {
+            "name": "Create View Count Increment For Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/viewed",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Increments view count for asset."
+        },
+        {
+          "info": {
+            "name": "Create Asset Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/uploads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an asset upload and returns newly created asset information."
+        },
+        {
+          "info": {
+            "name": "Check-Out Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/checkOut",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ChecksOut an asset and returns the current blob URL."
+        },
+        {
+          "info": {
+            "name": "Validate Check-In Filename",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assetCheckIn/:id/validate",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Validate asset check-in filename."
+        },
+        {
+          "info": {
+            "name": "Report Downloaded Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/downloaded",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Reports that the asset was downloaded."
+        },
+        {
+          "info": {
+            "name": "Create Keywords And Associate With Asset [Cognitive]",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/autotags/keywords",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more keywords in the default Cognitive Keyword Group,\nand assigns the keyword to the asset specified in the URL."
+        },
+        {
+          "info": {
+            "name": "Create Video Intelligence Analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/analyze",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Create the video intelligence analysis."
+        },
+        {
+          "info": {
+            "name": "Create Keywords And Associate With Asset [Audio And Video]",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/keywords",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more keywords in the default Audio and Video Keyword Group and assigns the keyword to the asset specified in the URL."
+        },
+        {
+          "info": {
+            "name": "Create Intelligence Analysis Insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/assets/:assetId/videoIntelligence/insightsupdated",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Create video intelligence analysis for an asset."
+        },
+        {
+          "info": {
+            "name": "Remove Asset Autotag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId/autotags/:autotag",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "autotag",
+                "value": "",
+                "type": "path",
+                "description": "autotag path parameter."
+              }
+            ]
+          },
+          "docs": "Removes autotag from an asset."
+        },
+        {
+          "info": {
+            "name": "Remove Asset Keyword",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId/keywords/:keyword",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "path",
+                "description": "keyword path parameter."
+              }
+            ]
+          },
+          "docs": "Removes keyword from asset."
+        },
+        {
+          "info": {
+            "name": "Remove Asset Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId/categories/:categoryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes the category from the asset."
+        },
+        {
+          "info": {
+            "name": "Remove Related Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/assets/:assetId/relatedassets/:relatedAssetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "relatedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "relatedAssetId path parameter."
+              }
+            ]
+          },
+          "docs": "Remove related asset based on asset id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

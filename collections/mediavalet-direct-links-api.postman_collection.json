@@ -1,0 +1,4811 @@
+{
+  "item": [
+    {
+      "id": "6d0261d3-4946-468c-b0df-154674490800",
+      "name": "DirectLinks",
+      "description": {
+        "content": "Direct/CDN links to assets and renditions for external distribution.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db3e8400-c785-45c2-ba0b-d06c11911ec5",
+          "name": "Retrieve Direct Links",
+          "request": {
+            "name": "Retrieve Direct Links",
+            "description": {
+              "content": "Returns a zip file of collection of direct links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c24c7d3d-f32d-40ee-9bae-ba4507bc2509",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b62641d-922f-488d-a8b0-8576a7b359e9",
+              "name": "Library does not contain direct link",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "549f88c4-3131-462e-a810-978111f3a107",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b67a0cca-770c-4b3b-ac51-f81939f4c879",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e206ab1-4379-4f18-af1d-1710ed8fc8b8",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1ce536b-5b53-44f8-a886-79b89bb89867",
+          "name": "Retrieve Direct Links",
+          "request": {
+            "name": "Retrieve Direct Links",
+            "description": {
+              "content": "Returns a collection of direct links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeSoftDeleted",
+                  "value": "<string>",
+                  "description": "includeSoftDeleted query parameter."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cc32dab-063a-4056-9bb5-e2277edf5542",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSoftDeleted",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Broken\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"mollit2f\": {},\n      \"qui0\": {}\n    },\n    \"interpolations\": {\n      \"pariatur8\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLink\",\n      \"asset:shareAsCdnLink\"\n    ]\n  },\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Active\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"quis_91b\": {}\n    },\n    \"interpolations\": {\n      \"magna23\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsZippedFile\",\n      \"asset:shareAsBrandedPortal\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5bc88cd-e7ce-435f-b1a3-5bb473f98b2a",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSoftDeleted",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d9cbfe0-9591-41ca-a532-f474cf06969e",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSoftDeleted",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfcb1dee-89f9-4797-8be4-caf3fa83a6e7",
+              "name": "The asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSoftDeleted",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ba24ec3-c995-481a-81b4-2a60c5e7c8ca",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSoftDeleted",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91db3926-b0f1-47f7-a344-90fdf0aa3fe5",
+          "name": "Create A Direct Link",
+          "request": {
+            "name": "Create A Direct Link",
+            "description": {
+              "content": "Generates a direct link for an orginal or renditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"<string>\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae6d143f-5cd6-46bb-8464-90041424717e",
+              "name": "The direct link was successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"directLinkId\": \"<uuid>\",\n  \"cdnLink\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolore_1b\": {}\n  },\n  \"interpolations\": {\n    \"ea_f5_\": {},\n    \"voluptate_358\": {},\n    \"in2\": {}\n  },\n  \"permissions\": [\n    \"lightbox:viewAsset\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ca18b99-3527-4a35-826c-b0b00b945337",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89647581-247c-4e2f-a628-81f4738f175f",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fbb11ed-c4d3-4896-9117-5f07989fcf4f",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1981a87a-c22d-4b69-b7fd-00898de7478c",
+              "name": "The asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2dd7ff04-f07d-4d83-9008-508ace2ae6d3",
+              "name": "Conflict has occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49967386-2b85-4f72-a672-f992ffec848a",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RenditionSettings\": {\n    \"Size\": {\n      \"Type\": \"Small\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\"\n    },\n    \"Format\": \"<string>\"\n  },\n  \"LinkSettings\": {\n    \"IsDevModeEnabled\": \"<boolean>\",\n    \"LinkName\": \"<string>\",\n    \"IsEmbedCode\": \"<boolean>\",\n    \"IsUniqueLink\": \"<boolean>\",\n    \"TurnSubtitlesOn\": \"<boolean>\",\n    \"ChosenLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86250af0-a0c5-44fa-b03e-cd16770cec05",
+          "name": "List All Direct Links",
+          "request": {
+            "name": "List All Direct Links",
+            "description": {
+              "content": "Returns a paginated list of all direct links for the current library, including asset metadata and analytics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>",
+                  "description": "offset query parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<string>",
+                  "description": "count query parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a62bf517-d296-4211-a6cc-e3b90aeacc74",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiVersion\": \"string\",\n  \"buildVersion\": \"string\",\n  \"warnings\": [\n    \"string\"\n  ],\n  \"errors\": [\n    \"string\"\n  ],\n  \"payload\": [\n    {\n      \"assetId\": \"00000000-0000-0000-0000-000000000000\",\n      \"cdnLink\": \"string\",\n      \"createdAt\": \"2026-04-30T00:58:36.906Z\",\n      \"directLinkId\": \"00000000-0000-0000-0000-000000000000\",\n      \"linkName\": \"string\",\n      \"modifiedDateTime\": \"2026-04-30T00:58:36.906Z\",\n      \"state\": \"string\",\n      \"totalViews\": 0,\n      \"uniqueViews\": 0,\n      \"totalBandwidth\": 0,\n      \"assetFileName\": \"string\",\n      \"assetCategoryNames\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"recordCount\": {\n    \"totalRecordsFound\": 0,\n    \"startingRecord\": 0,\n    \"recordsReturned\": 0\n  },\n  \"meta\": {\n    \"metaInformation\": {},\n    \"createdAt\": \"2026-04-30T00:58:36.906Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e8df61c-aa05-4470-9c14-22ab3a8fa805",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24496e13-6993-4387-94b8-6bb6e2d47693",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "895b51b0-5c4e-4ac9-825b-39605697089a",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8496ec24-71a0-48cb-b9bc-074df1625f54",
+          "name": "Retrieves CDN report for a given time period.",
+          "request": {
+            "name": "Retrieves CDN report for a given time period.",
+            "description": {
+              "content": "Retrieves CDN report for a given time period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                "exportByTime"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<dateTime>",
+                  "description": "startDate query parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>",
+                  "description": "offset query parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<string>",
+                  "description": "count query parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<dateTime>",
+                  "description": "endDate query parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c3e10b3-0eea-4782-b580-a5b2b9674b22",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "exportByTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiVersion\": \"<string>\",\n  \"buildVersion\": \"<string>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"payload\": {\n    \"startDate\": \"<string>\",\n    \"endDate\": \"<string>\",\n    \"analyticData\": [\n      {\n        \"assetId\": \"<string>\",\n        \"mediaFileId\": \"<string>\",\n        \"totalViews\": \"<long>\",\n        \"uniqueViews\": \"<long>\",\n        \"totalBandwidth\": \"<double>\",\n        \"linkName\": \"<string>\",\n        \"modifiedDateTime\": \"<dateTime>\"\n      },\n      {\n        \"assetId\": \"<string>\",\n        \"mediaFileId\": \"<string>\",\n        \"totalViews\": \"<long>\",\n        \"uniqueViews\": \"<long>\",\n        \"totalBandwidth\": \"<double>\",\n        \"linkName\": \"<string>\",\n        \"modifiedDateTime\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"recordCount\": {\n    \"totalRecordsFound\": \"<integer>\",\n    \"startingRecord\": \"<integer>\",\n    \"recordsReturned\": \"<integer>\"\n  },\n  \"meta\": {\n    \"metaInformation\": {\n      \"ullamcoe\": {},\n      \"laboris_\": {}\n    },\n    \"createdAt\": \"<dateTime>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb053db9-d204-42c0-87c2-d391b3e52077",
+              "name": "Library does not contain direct link",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "exportByTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f86ee8be-abde-46f0-bba2-09d1ac3123c5",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "exportByTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fe2f7db-a07d-4268-8097-bf9bfc058258",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "exportByTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ddf3a22-7a32-400e-930f-3bb227fc54a3",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "exportByTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6d44932-ff5c-4a14-9186-e117dcc651ad",
+          "name": "Activate All Direct Links",
+          "request": {
+            "name": "Activate All Direct Links",
+            "description": {
+              "content": "Activate all direct links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directLinks",
+                ":assetId",
+                "activateAll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ad9462f-1ef3-42f0-ae32-10bbd9ebf101",
+              "name": "All direct links were successfully activated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Broken\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"mollit2f\": {},\n      \"qui0\": {}\n    },\n    \"interpolations\": {\n      \"pariatur8\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLink\",\n      \"asset:shareAsCdnLink\"\n    ]\n  },\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Active\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"quis_91b\": {}\n    },\n    \"interpolations\": {\n      \"magna23\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsZippedFile\",\n      \"asset:shareAsBrandedPortal\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5587e23-8675-4d7e-8706-2ee3291e3bf1",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f747835-20e0-4d9e-9fd1-760d8c7fcc21",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40567485-776f-41aa-9dfa-8590248dca92",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c030558e-11d4-42f7-9c06-1b319de701af",
+              "name": "The direct link for Asset does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27ff478f-8009-4cb7-a1f4-fb8e64762c04",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea2da77a-1f42-476c-98c5-1d465ddaa2fc",
+          "name": "Deactivate All Direct Links",
+          "request": {
+            "name": "Deactivate All Direct Links",
+            "description": {
+              "content": "Deactivate all direct links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directLinks",
+                ":assetId",
+                "deactivateAll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c509af82-cb1e-4d1a-820a-a053d3273614",
+              "name": "All direct links were successfully deactivated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Broken\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"mollit2f\": {},\n      \"qui0\": {}\n    },\n    \"interpolations\": {\n      \"pariatur8\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLink\",\n      \"asset:shareAsCdnLink\"\n    ]\n  },\n  {\n    \"assetId\": \"<uuid>\",\n    \"directLinkId\": \"<uuid>\",\n    \"cdnLink\": \"<string>\",\n    \"linkName\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"user\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"selectedOptions\": \"<string>\",\n    \"state\": \"Active\",\n    \"modifiedDateTime\": \"<dateTime>\",\n    \"uniqueViews\": \"<integer>\",\n    \"totalViews\": \"<integer>\",\n    \"totalBandwidth\": \"<double>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"quis_91b\": {}\n    },\n    \"interpolations\": {\n      \"magna23\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsZippedFile\",\n      \"asset:shareAsBrandedPortal\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47de2c6f-9447-4c50-a263-e213b4c09579",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4941292-d485-4768-b625-8d237b536cfc",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ccfe006-286d-496f-b60a-b615cf65718d",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88ac184c-f356-4eb3-b4c9-d10269b3f85b",
+              "name": "The direct link for Asset does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2d92a383-37ba-4f8c-9373-2c0f9ac87913",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivateAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "884486ec-fd69-4789-8a1e-2460d59e88a0",
+          "name": "Archive Direct Link",
+          "request": {
+            "name": "Archive Direct Link",
+            "description": {
+              "content": "Archive direct link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directLinks",
+                ":assetId",
+                "archive",
+                ":directLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "directLinkId",
+                  "description": "(Required) directLinkId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "204a70a7-c930-4385-acaa-8a99ee412401",
+              "name": "The direct link was successfully archived.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<uuid>\",\n  \"directLinkId\": \"<uuid>\",\n  \"cdnLink\": \"<string>\",\n  \"linkName\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"user\": {\n    \"id\": \"<uuid>\",\n    \"username\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"selectedOptions\": \"<string>\",\n  \"state\": \"Active\",\n  \"modifiedDateTime\": \"<dateTime>\",\n  \"uniqueViews\": \"<integer>\",\n  \"totalViews\": \"<integer>\",\n  \"totalBandwidth\": \"<double>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laborum__b\": {}\n  },\n  \"interpolations\": {\n    \"elit_b98\": {},\n    \"dolored7\": {}\n  },\n  \"permissions\": [\n    \"lightbox:editDetails\",\n    \"lightbox:assignAsset\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb1c8d10-45f2-488f-8dc7-63fd83810743",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0004d9ac-bd33-45d9-91fb-109e62d76cba",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e122d1e8-4020-4c48-a091-1a41f7b12023",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe67bf67-e03c-4cf2-b9cc-cd0571213581",
+              "name": "The direct link for Asset does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1acba23a-1235-4956-88b7-929b68936da3",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "archive",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "190f5aca-c339-4f7e-bf66-bf9a4f4a501a",
+          "name": "Activate Direct Link",
+          "request": {
+            "name": "Activate Direct Link",
+            "description": {
+              "content": "Activate direct link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directLinks",
+                ":assetId",
+                "activate",
+                ":directLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "directLinkId",
+                  "description": "(Required) directLinkId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "072a6427-e9c3-41fa-a97d-56f0a7c15ee8",
+              "name": "The direct link was successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<uuid>\",\n  \"directLinkId\": \"<uuid>\",\n  \"cdnLink\": \"<string>\",\n  \"linkName\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"user\": {\n    \"id\": \"<uuid>\",\n    \"username\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"selectedOptions\": \"<string>\",\n  \"state\": \"Active\",\n  \"modifiedDateTime\": \"<dateTime>\",\n  \"uniqueViews\": \"<integer>\",\n  \"totalViews\": \"<integer>\",\n  \"totalBandwidth\": \"<double>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laborum__b\": {}\n  },\n  \"interpolations\": {\n    \"elit_b98\": {},\n    \"dolored7\": {}\n  },\n  \"permissions\": [\n    \"lightbox:editDetails\",\n    \"lightbox:assignAsset\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2a31075-492a-45a3-878b-8334fc402851",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9d05607-61d9-4b3b-9db3-9e7f35520feb",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3df74bfb-37ae-4ca0-922d-aca68c1bfee8",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04653429-78e0-46f9-abb9-834567d96b04",
+              "name": "The direct link for Asset does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9ceea15a-36f4-4910-8ab6-228a1453e8b8",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "activate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb6d6b2a-0a46-4303-8a0c-8c24d74268ab",
+          "name": "Deactivate Direct Link",
+          "request": {
+            "name": "Deactivate Direct Link",
+            "description": {
+              "content": "Deactivate direct link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directLinks",
+                ":assetId",
+                "deactivate",
+                ":directLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "directLinkId",
+                  "description": "(Required) directLinkId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d23ee22e-1616-4cfc-a1f8-63ad3b36080c",
+              "name": "The direct link was successfully deactivated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<uuid>\",\n  \"directLinkId\": \"<uuid>\",\n  \"cdnLink\": \"<string>\",\n  \"linkName\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"user\": {\n    \"id\": \"<uuid>\",\n    \"username\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"selectedOptions\": \"<string>\",\n  \"state\": \"Active\",\n  \"modifiedDateTime\": \"<dateTime>\",\n  \"uniqueViews\": \"<integer>\",\n  \"totalViews\": \"<integer>\",\n  \"totalBandwidth\": \"<double>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laborum__b\": {}\n  },\n  \"interpolations\": {\n    \"elit_b98\": {},\n    \"dolored7\": {}\n  },\n  \"permissions\": [\n    \"lightbox:editDetails\",\n    \"lightbox:assignAsset\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d464b1f-6fb4-4df3-9427-aec6b2d348cc",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7487c92a-c59c-46b1-b76d-afd16b337825",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f02e43b8-d657-4493-81f9-524850970a4a",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "761a2203-40ff-4b8f-9926-8abba8cdc8d9",
+              "name": "The direct link for Asset does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ab45e28-3150-4e21-9394-6a06d4b77b3b",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directLinks",
+                    ":assetId",
+                    "deactivate",
+                    ":directLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "directLinkId",
+                      "description": "(Required) directLinkId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a650c6dc-93b8-40e5-a90d-f83cff5f571d",
+          "name": "Validate Asset In All Direct Links",
+          "request": {
+            "name": "Validate Asset In All Direct Links",
+            "description": {
+              "content": "Validate assets in all direct links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                "validate",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6af01fdb-d66d-42a1-a934-7d455a265939",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "validate",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "070cd1a0-88a7-47a8-abd5-988ef5a66f4c",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "validate",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a50e9ee-1aa1-43c4-8790-1bf3b4c68881",
+              "name": "The asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "validate",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ac079e1-d367-497f-8921-6d7ac42d9793",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    "validate",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a05f0243-916d-4437-9542-8e423cdf961b",
+          "name": "Validate a Direct Link",
+          "request": {
+            "name": "Validate a Direct Link",
+            "description": {
+              "content": "Validate a direct link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "directlinks",
+                ":assetId",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "linkName",
+                  "value": "<string>",
+                  "description": "linkName query parameter."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "161316c8-58de-47eb-be18-ffdcc8c15d63",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "281c30b4-e9d5-4be6-b6e5-186dca255876",
+              "name": "There was a problem with the data sent with the request. Link name is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dca59f8f-1ee3-4e5e-a283-16c2adacf145",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2171ce79-bc11-473d-bec8-cddb35003790",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a6be4ff-624c-4c2d-93d3-bef4e9ff6bfa",
+              "name": "The asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec56ebeb-33cc-4aab-a290-1c5093c6f141",
+              "name": "Conflict has occurred. Link name is not unique.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ef8c7f4-0b84-459a-a3d1-adc813dbe3c5",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "directlinks",
+                    ":assetId",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "db8b3d10-9df1-4ef0-bbf6-aed604d63605",
+    "name": "MediaValet DirectLinks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

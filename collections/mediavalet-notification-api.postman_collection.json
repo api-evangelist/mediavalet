@@ -1,0 +1,2435 @@
+{
+  "item": [
+    {
+      "id": "1d7017f7-ef62-4f20-ab07-50d75e794ea6",
+      "name": "Notification",
+      "description": {
+        "content": "In-product notifications and notification preferences.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed094bf4-3f08-478a-a52e-5a4bb8593265",
+          "name": "Notification Get Asset Followers",
+          "request": {
+            "name": "Notification Get Asset Followers",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "assets",
+                ":assetId",
+                "followers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8e89def-7186-4eae-b709-2bc993182a99",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"userId\": \"<uuid>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"isCurrentUser\": \"<boolean>\"\n  },\n  {\n    \"userId\": \"<uuid>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"isCurrentUser\": \"<boolean>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4db65c5d-9268-4d00-ba41-1d7f88430e42",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a51e7c34-a813-43df-9bb9-317aae472319",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7bdb1e90-a7b8-4c40-835d-02fe1f534fb5",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "followers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd097c8a-5395-4a26-b30b-a4cc7115a721",
+          "name": "Notification Get In App Notifications",
+          "request": {
+            "name": "Notification Get In App Notifications",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "inApp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bypassCache",
+                  "value": "<string>",
+                  "description": "bypassCache query parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bd831eb-7b69-4d1a-8ccc-3fd7d1b7f50f",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "inApp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bypassCache",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"notificationId\": \"<uuid>\",\n    \"displayNotificationId\": \"<string>\",\n    \"sender\": {\n      \"id\": \"<uuid>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"notificationCategory\": \"<string>\",\n    \"relativeUrl\": \"<string>\",\n    \"message\": \"<string>\",\n    \"markedAsRead\": \"<boolean>\",\n    \"timestamp\": \"<string>\",\n    \"entityIds\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  },\n  {\n    \"notificationId\": \"<uuid>\",\n    \"displayNotificationId\": \"<string>\",\n    \"sender\": {\n      \"id\": \"<uuid>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"notificationCategory\": \"<string>\",\n    \"relativeUrl\": \"<string>\",\n    \"message\": \"<string>\",\n    \"markedAsRead\": \"<boolean>\",\n    \"timestamp\": \"<string>\",\n    \"entityIds\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8052e2aa-5084-4c5f-b6c2-cc185e97c17b",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "inApp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bypassCache",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7eb7e354-5a72-482f-96c6-fb6eb4c6668c",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "inApp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bypassCache",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "796096c5-8365-4325-9b72-0e843d916395",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "inApp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bypassCache",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c108e8b-6efa-469e-936f-7cd1ebdb6168",
+          "name": "Notification Mark All In App Notification As Read",
+          "request": {
+            "name": "Notification Mark All In App Notification As Read",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "markAllAsRead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55ac3d7f-0ced-43bf-874e-186318d33c5d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAllAsRead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85f0ba4e-ca62-4f3c-b722-a5b66c685218",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAllAsRead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6c0ef71-a6a2-488d-8e5d-4080d020bf76",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAllAsRead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5861bb44-e56c-4d7f-89d9-59071a68bc69",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAllAsRead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4dacecfd-41b0-4d3e-8119-79543d502962",
+          "name": "Notification Mark In App Notification As Read",
+          "request": {
+            "name": "Notification Mark In App Notification As Read",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "markAsRead",
+                ":notificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notificationId",
+                  "description": "(Required) notificationId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d378a65-9717-404b-8947-f9cb3cec0610",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAsRead",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationId",
+                      "description": "(Required) notificationId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20aa7826-cbf2-43b7-8682-320fa28c4b54",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAsRead",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationId",
+                      "description": "(Required) notificationId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a4be7cfc-1703-4e21-9785-b6b3337e90dd",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAsRead",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationId",
+                      "description": "(Required) notificationId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f3807b9-759d-40a1-a1e0-42d44ed741e1",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "markAsRead",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationId",
+                      "description": "(Required) notificationId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b88e51f-f55d-4b0b-b029-fe22c6011bcd",
+          "name": "Notification Send Notification Async",
+          "request": {
+            "name": "Notification Send Notification Async",
+            "description": {},
+            "url": {
+              "path": [
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entityIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"notificationEntityType\": \"<string>\",\n  \"userGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"users\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"userEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3d03391-428d-4564-bf0d-85fecd247bc1",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"notificationEntityType\": \"SavedSearches\",\n  \"userGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"users\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"userEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"validEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"invalidEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"ut9a1\": {},\n    \"elit_18a\": {},\n    \"est27\": {}\n  },\n  \"interpolations\": {\n    \"velitb\": {},\n    \"Lorem_e93\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromMvd\",\n    \"asset:shareAsBrandedPortal\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc66ef19-2155-46eb-a00b-c371f831a70e",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"notificationEntityType\": \"SavedSearches\",\n  \"userGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"users\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"userEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf40cc6c-d1f1-4859-9f5a-3cabf0c14bd7",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"notificationEntityType\": \"SavedSearches\",\n  \"userGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"users\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"userEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5db3eae1-03e8-4ba0-9b0c-2538e1f3e617",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"notificationEntityType\": \"SavedSearches\",\n  \"userGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"users\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"userEmails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0059f65-9370-4cc4-97e9-460be24b82f2",
+          "name": "Notification Search Users And User Groups Post",
+          "request": {
+            "name": "Notification Search Users And User Groups Post",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "usersandusergroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Count\": \"<integer>\",\n  \"Offset\": \"<integer>\",\n  \"SearchTerm\": \"<string>\",\n  \"SelectedUsersAndUserGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"SelectedAssets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67dc3b0e-b916-414b-9027-c97db7133a7b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "usersandusergroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Count\": \"<integer>\",\n  \"Offset\": \"<integer>\",\n  \"SearchTerm\": \"<string>\",\n  \"SelectedUsersAndUserGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"SelectedAssets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"userId\": \"<uuid>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userEmail\": \"<string>\",\n    \"userGroupId\": \"<uuid>\",\n    \"userGroupName\": \"<string>\",\n    \"cardinalityOfGroup\": \"<integer>\",\n    \"roleId\": \"<uuid>\",\n    \"hasPermission\": \"<boolean>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"culpa280\": {},\n      \"mollit90e\": {},\n      \"laborum4_9\": {}\n    },\n    \"interpolations\": {\n      \"Ut_98\": {},\n      \"nostrud0\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsBrandedPortal\",\n      \"asset:shareAsCdnLink\"\n    ]\n  },\n  {\n    \"userId\": \"<uuid>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userEmail\": \"<string>\",\n    \"userGroupId\": \"<uuid>\",\n    \"userGroupName\": \"<string>\",\n    \"cardinalityOfGroup\": \"<integer>\",\n    \"roleId\": \"<uuid>\",\n    \"hasPermission\": \"<boolean>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"aute_e\": {}\n    },\n    \"interpolations\": {\n      \"ut523\": {},\n      \"proident0\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLink\",\n      \"asset:shareAsLink\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d5f89d0-c7f7-43a3-8422-4cbb98d4c43a",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "usersandusergroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Count\": \"<integer>\",\n  \"Offset\": \"<integer>\",\n  \"SearchTerm\": \"<string>\",\n  \"SelectedUsersAndUserGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"SelectedAssets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20becce2-bb53-4ff5-b28c-b2eb9858343e",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "usersandusergroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Count\": \"<integer>\",\n  \"Offset\": \"<integer>\",\n  \"SearchTerm\": \"<string>\",\n  \"SelectedUsersAndUserGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"SelectedAssets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32ab33bc-7922-46ba-b747-033733fc8a60",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "usersandusergroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Count\": \"<integer>\",\n  \"Offset\": \"<integer>\",\n  \"SearchTerm\": \"<string>\",\n  \"SelectedUsersAndUserGroups\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"SelectedAssets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae2fcc9f-2ec1-4485-b622-670eb4bab3cb",
+          "name": "Notification Follow Asset Async",
+          "request": {
+            "name": "Notification Follow Asset Async",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "assets",
+                ":assetId",
+                "follow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c47e76e-48dc-4122-9024-a02d98b5eb06",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "follow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41c3a07a-70d3-4128-928b-9aececfd23e2",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "follow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb375454-e35f-4346-8496-91a11efb24e4",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "follow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47f7a809-1691-439d-b9f1-05237ac1f876",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "follow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28ee4da6-d810-4328-b2bb-f5d88a4a2d69",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "assets",
+                    ":assetId",
+                    "follow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"follow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c062c05-dcec-4513-8a27-72f1cd983ce6",
+          "name": "Create Video Intelligence Trial Request",
+          "request": {
+            "name": "Create Video Intelligence Trial Request",
+            "description": {
+              "content": "Starts a video intelligence trial.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification",
+                "videointelligence",
+                "trial-request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea68a62a-c40d-4a5d-9357-6ecbf2ddda70",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "videointelligence",
+                    "trial-request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b67d0d0-96f4-46b6-982b-52d6c69b85cb",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "videointelligence",
+                    "trial-request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34f942c0-6acb-44d5-a9c6-689ba4a03b48",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "videointelligence",
+                    "trial-request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8724b182-9b42-4c05-8e6c-e2e3b9e328e3",
+          "name": "Notification Validate User Email Address",
+          "request": {
+            "name": "Notification Validate User Email Address",
+            "description": {},
+            "url": {
+              "path": [
+                "notification",
+                "users",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "emailAddress",
+                  "value": "<string>",
+                  "description": "emailAddress query parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e289ad49-96f9-4e94-9ad6-6983273ceb12",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "users",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exists\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51b0174b-53c4-46fa-89b5-228f41f2f34b",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "users",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1efcc91d-e44e-447c-866f-dcb44c21704c",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "users",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4637e559-4be5-45ba-8d00-5199a4ddaf8d",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "users",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0266ee10-e50e-4630-98ae-0e1a0d4eb490",
+    "name": "MediaValet Notification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

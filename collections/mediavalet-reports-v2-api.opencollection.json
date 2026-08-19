@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet ReportsV2 API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ReportsV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of all available reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/v2/reports",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns a list of available reports."
+        },
+        {
+          "info": {
+            "name": "Retrieve an embed token for the specified report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/v2/reports/:reportId/embed",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "reportId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a report embed token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

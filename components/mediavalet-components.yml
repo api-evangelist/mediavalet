@@ -1,0 +1,76 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE — "Packaged Business Capabilities
+  (PBCs) > Asset Picker" in MediaValet's published Postman collection, plus the Integrations
+  endpoints (allowed origins / third-party app registration) that gate it.
+docs: https://docs.mediavalet.com/
+description: >-
+  MediaValet ships one embeddable client-side component: the Asset Picker, a "Packaged Business
+  Capability" that drops the MediaValet DAM into another application as an iframe. It is not
+  distributed as an npm package or a script tag — it is a hosted surface at
+  assetpicker.mediavalet.com embedded via iframe, with a postMessage contract for getting selected
+  assets back out. Enabling it is a manual request to MediaValet support plus origin whitelisting
+  through the Integrations API.
+component_count: 1
+loader_libraries: []
+families:
+- name: Packaged Business Capabilities (PBCs)
+  description: MediaValet's term for reusable, embeddable capability surfaces that a customer or partner integrates into their own application.
+  components:
+  - name: Asset Picker
+    type: hosted-iframe
+    url: https://assetpicker.mediavalet.com
+    local_development_url: http://localhost:5174
+    description: >-
+      "An embedded, resizable, and mobile-ready window that allows users to search, browse, and
+      insert MediaValet assets without leaving the tool they're working in." A reusable component any
+      customer or partner with a MediaValet developer account can integrate via a simple iframe.
+    embedding:
+      method: iframe
+      src: https://assetpicker.mediavalet.com
+      communication: window postMessage
+      message_shape: '{ type: string; payload: T }'
+      events:
+      - name: insertedAssets
+        payload_fields:
+        - >-
+          assets — array of selected asset objects, each { asset: IAsset, size: "original" | "xl" |
+          "lg" | "md" | "sm", insertionType: "assetLink" | "assetFile" | "categoryLink" | "cdnLink",
+          plus the corresponding link value }
+        - meta — additional selection context including categoryId and categoryName
+      security_requirement: >-
+        The host page MUST validate event.origin against https://assetpicker.mediavalet.com before
+        trusting the message — MediaValet's own code sample does this first.
+    enablement:
+      self_serve: false
+      process: >-
+        Email support@mediavalet.com with the portal URL (if applicable), the domain URL that will
+        embed the Asset Picker, and a brief description of how it will be used.
+      api_support: >-
+        Origins are whitelisted programmatically through the Integrations API —
+        POST /integrations/allowed-origins (whitelistAnOriginForAnIntegration),
+        GET /integrations/allowed-origins (listWhitelistedOriginsForAnIntegration),
+        DELETE /integrations/allowed-origins/batch (removeOneOrMoreAllowedOrigins) — after
+        registering the app with POST /integrations/apps (registerANewThirdPartyIntegration).
+      openapi: openapi/mediavalet-integrations-api-openapi.yml
+related_surfaces:
+- name: Branded Portals / Experience Portals
+  type: hosted-application
+  description: >-
+    MediaValet's externally shareable, branded views onto a subset of the library. Not an embeddable
+    component — a hosted portal — but it is configured entirely through the API (46 operations, the
+    second-largest resource in the surface).
+  openapi: openapi/mediavalet-branded-portals-api-openapi.yml
+- name: First-party product integrations
+  type: prebuilt-integrations
+  description: >-
+    MediaValet ships prebuilt integrations for Asana, WordPress, Marq, monday.com and OneDrive under
+    its "Unify" integration framework. These are installable connectors rather than developer
+    components.
+  url: https://www.mediavalet.com/integrations
+gaps:
+- No npm/CDN-distributed web component or element library — the only distribution is an iframe URL.
+- No published version or changelog for the Asset Picker; the iframe floats to whatever MediaValet has deployed.
+- Enablement requires a human email to support, so the component cannot be adopted programmatically.
+checked: '2026-08-13'

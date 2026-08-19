@@ -1,0 +1,4605 @@
+{
+  "item": [
+    {
+      "id": "31b771e5-c1cf-483f-beb6-1c040be92637",
+      "name": "Users",
+      "description": {
+        "content": "Users, their profiles, permissions and entitlements.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14334f19-8ed2-4ef5-9251-6bfc2a87695b",
+          "name": "Retrieve Users",
+          "request": {
+            "name": "Retrieve Users",
+            "description": {
+              "content": "Retrieves a collection of users details belonging to the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c24f8db5-4fe0-4447-a370-f0ce85c886f6",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"address\": \"<string>\",\n    \"orgUnitId\": \"<uuid>\",\n    \"applicationName\": \"<string>\",\n    \"defaultGroup\": \"<string>\",\n    \"userDomain\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"department\": \"<string>\",\n    \"position\": \"<string>\",\n    \"title\": \"<string>\",\n    \"officeNumber\": \"<string>\",\n    \"cellularNumber\": \"<string>\",\n    \"faxNumber\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"defaultSkin\": \"<string>\",\n    \"additionalMessage\": \"<string>\",\n    \"adminNotes\": \"<string>\",\n    \"lastActiveAt\": \"<dateTime>\",\n    \"lastLockedOutAt\": \"<dateTime>\",\n    \"lastLoginAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"expiresAt\": \"<dateTime>\",\n    \"termsandconditionsacceptedat\": \"<dateTime>\",\n    \"termsConditionsAcceptanceStatus\": \"Accepted\",\n    \"website\": \"<string>\",\n    \"alertsEnabled\": \"<boolean>\",\n    \"newUserNotification\": \"<boolean>\",\n    \"password\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"isLockedOut\": \"<boolean>\",\n    \"isSuspended\": \"<boolean>\",\n    \"isApproved\": \"<boolean>\",\n    \"userType\": \"AzureActiveDirectory\",\n    \"isExternalUser\": \"<boolean>\",\n    \"roleId\": \"<uuid>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"cillum34\": {},\n      \"mollit_1c1\": {}\n    },\n    \"interpolations\": {\n      \"anim_f\": {}\n    },\n    \"permissions\": [\n      \"asset:assignCategory\",\n      \"asset:assignCategory\"\n    ]\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"address\": \"<string>\",\n    \"orgUnitId\": \"<uuid>\",\n    \"applicationName\": \"<string>\",\n    \"defaultGroup\": \"<string>\",\n    \"userDomain\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"department\": \"<string>\",\n    \"position\": \"<string>\",\n    \"title\": \"<string>\",\n    \"officeNumber\": \"<string>\",\n    \"cellularNumber\": \"<string>\",\n    \"faxNumber\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"defaultSkin\": \"<string>\",\n    \"additionalMessage\": \"<string>\",\n    \"adminNotes\": \"<string>\",\n    \"lastActiveAt\": \"<dateTime>\",\n    \"lastLockedOutAt\": \"<dateTime>\",\n    \"lastLoginAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"expiresAt\": \"<dateTime>\",\n    \"termsandconditionsacceptedat\": \"<dateTime>\",\n    \"termsConditionsAcceptanceStatus\": \"Accepted\",\n    \"website\": \"<string>\",\n    \"alertsEnabled\": \"<boolean>\",\n    \"newUserNotification\": \"<boolean>\",\n    \"password\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"isLockedOut\": \"<boolean>\",\n    \"isSuspended\": \"<boolean>\",\n    \"isApproved\": \"<boolean>\",\n    \"userType\": \"MediaValet\",\n    \"isExternalUser\": \"<boolean>\",\n    \"roleId\": \"<uuid>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"mollit_b7\": {},\n      \"commodo_145\": {}\n    },\n    \"interpolations\": {\n      \"tempor_5a\": {}\n    },\n    \"permissions\": [\n      \"lightbox:editDetails\",\n      \"None\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f90e9ee-c640-4723-b44d-cfa1ceecd7f8",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a893b6d-8271-4bd0-922f-a3fe85ee6b15",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "007ada58-b5ea-4ede-a49b-5e200e3afcfe",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fedf356-3409-43dd-bc89-d72368ddea1b",
+          "name": "Create User",
+          "request": {
+            "name": "Create User",
+            "description": {
+              "content": "Creates a new user in the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"<string>\",\n    \"PasswordFormat\": \"<string>\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f9ef492-2737-4017-9de4-b3929a448666",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5519de6-4885-469e-88ef-2ed91d49275b",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c769c723-75ce-4af7-9cdd-ff1d3d820562",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54986c6d-0aa3-4ed7-957f-06c5367e9f83",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "254140e6-46e2-49a8-b1bb-3c270e99b3d7",
+              "name": "A user with same username already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "514e4200-b485-4112-b900-c4d63b4a3853",
+          "name": "Retrieve Current User",
+          "request": {
+            "name": "Retrieve Current User",
+            "description": {
+              "content": "Retrieves the user details for the current user in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2fff6cd-a0dc-4da0-bb5b-f71155057ba5",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a757a67f-7576-4565-8f54-06307ba6ec57",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10f5da12-b7bf-4f75-a115-e44bf7804c68",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc220061-505f-4ce3-ba9a-a2f9df02e15e",
+          "name": "Update Current User",
+          "request": {
+            "name": "Update Current User",
+            "description": {
+              "content": "Update the current user details with a list of patch operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2620e20-d474-4cd6-8fb4-e9941c17b64e",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1e9402e-44e4-430c-894d-e0cc7f098a10",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1f91cad-b766-4460-895d-035fb93f0652",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b97a3ef-b907-4cd4-b4a8-2878b90a24ac",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a46b765e-7d46-48c5-936c-9de4ef6241b8",
+          "name": "Retrieve User",
+          "request": {
+            "name": "Retrieve User",
+            "description": {
+              "content": "Retrieves the user details for a given user id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) userId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0d7aec4-c5e9-41bc-a72b-f6cb2f4d5724",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af3ce4a8-263e-45e3-b56a-03d341bbdb8c",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f1d1dd6-3e69-44e5-8e51-331b8eeb5d1d",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c14bfae-f602-4e85-914d-c045c44092a0",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04c1c300-f364-4b77-844e-8cc64582a9b4",
+          "name": "Update User",
+          "request": {
+            "name": "Update User",
+            "description": {
+              "content": "Update the user details for a given user id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) userId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66dadb21-64c7-4d45-aa79-c8c5a3d4fb23",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"Unknown\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d329967-0697-4eff-96e7-f3260a7aab62",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"Unknown\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8f034ea-b5b1-4aa4-9144-c6f49e354876",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"Unknown\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ba4fe7e-2204-4766-909d-7177b630104b",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"Unknown\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f61d439-0c49-49f5-bdf7-6924a3f3e0dc",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"IsApproved\": \"<boolean>\",\n  \"IsSuspended\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAcceptanceStatus\": \"Unknown\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98a15cad-8889-4f16-b449-a6abcbcc0e53",
+          "name": "Remove User",
+          "request": {
+            "name": "Remove User",
+            "description": {
+              "content": "Remove the given user id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) userId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c8b1cd1-aa22-486a-a948-4611edf23dac",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52a83b77-58c2-44fe-a16e-9457b113c072",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4d9e025-5451-4173-8a08-398557a4fd40",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cb6ecff-d2f2-453f-9185-869702df9149",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "929f5d77-5768-44ed-9543-99af4bbeefe8",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bf11cca-0f1c-4f73-a8d0-e6e0ad911bea",
+          "name": "Update User",
+          "request": {
+            "name": "Update User",
+            "description": {
+              "content": "Update the user details for a given user id with a list of patch operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) userId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd86a290-aa6b-4341-8d4c-7a3a5ca04f7f",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b98903d9-5862-4d27-906b-bcb1a31aaf23",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f76c830b-b0a3-46cd-afe1-69692ff616b7",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a03433f-6fa7-49f1-8ffe-91b6e3a8c4bf",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "375b5388-9ecf-44af-97cb-53bd55dc76bf",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) userId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ca25f78-bbc5-4d87-8b47-9c5c0686ec46",
+          "name": "Retrieve Approval Users",
+          "request": {
+            "name": "Retrieve Approval Users",
+            "description": {
+              "content": "Retrieves the approval users in the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "approvers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d2dc943-43ac-4dff-8438-074876a31dea",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "approvers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"id\": \"<uuid>\",\n      \"userName\": \"<string>\",\n      \"address\": \"<string>\",\n      \"orgUnitId\": \"<uuid>\",\n      \"applicationName\": \"<string>\",\n      \"defaultGroup\": \"<string>\",\n      \"userDomain\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"department\": \"<string>\",\n      \"position\": \"<string>\",\n      \"title\": \"<string>\",\n      \"officeNumber\": \"<string>\",\n      \"cellularNumber\": \"<string>\",\n      \"faxNumber\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"defaultSkin\": \"<string>\",\n      \"additionalMessage\": \"<string>\",\n      \"adminNotes\": \"<string>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"lastLockedOutAt\": \"<dateTime>\",\n      \"lastLoginAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"termsandconditionsacceptedat\": \"<dateTime>\",\n      \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n      \"website\": \"<string>\",\n      \"alertsEnabled\": \"<boolean>\",\n      \"newUserNotification\": \"<boolean>\",\n      \"password\": \"<string>\",\n      \"organizationName\": \"<string>\",\n      \"isLockedOut\": \"<boolean>\",\n      \"isSuspended\": \"<boolean>\",\n      \"isApproved\": \"<boolean>\",\n      \"userType\": \"AzureActiveDirectory\",\n      \"isExternalUser\": \"<boolean>\",\n      \"roleId\": \"<uuid>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"sint_8\": {}\n      },\n      \"interpolations\": {\n        \"in_\": {}\n      },\n      \"permissions\": [\n        \"lightbox:transferOwnership\",\n        \"asset:shareAsLightbox\"\n      ]\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"userName\": \"<string>\",\n      \"address\": \"<string>\",\n      \"orgUnitId\": \"<uuid>\",\n      \"applicationName\": \"<string>\",\n      \"defaultGroup\": \"<string>\",\n      \"userDomain\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"department\": \"<string>\",\n      \"position\": \"<string>\",\n      \"title\": \"<string>\",\n      \"officeNumber\": \"<string>\",\n      \"cellularNumber\": \"<string>\",\n      \"faxNumber\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"defaultSkin\": \"<string>\",\n      \"additionalMessage\": \"<string>\",\n      \"adminNotes\": \"<string>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"lastLockedOutAt\": \"<dateTime>\",\n      \"lastLoginAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"termsandconditionsacceptedat\": \"<dateTime>\",\n      \"termsConditionsAcceptanceStatus\": \"Accepted\",\n      \"website\": \"<string>\",\n      \"alertsEnabled\": \"<boolean>\",\n      \"newUserNotification\": \"<boolean>\",\n      \"password\": \"<string>\",\n      \"organizationName\": \"<string>\",\n      \"isLockedOut\": \"<boolean>\",\n      \"isSuspended\": \"<boolean>\",\n      \"isApproved\": \"<boolean>\",\n      \"userType\": \"AzureActiveDirectory\",\n      \"isExternalUser\": \"<boolean>\",\n      \"roleId\": \"<uuid>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"minim_b\": {},\n        \"adipisicing_4\": {},\n        \"veniam13\": {}\n      },\n      \"interpolations\": {\n        \"aliquip_1e\": {},\n        \"aliquip94\": {}\n      },\n      \"permissions\": [\n        \"lightbox:transferOwnership\",\n        \"brandedPortal:view\"\n      ]\n    }\n  ],\n  \"userCount\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd4c124f-9fe4-4b92-9212-8735565cd72a",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "approvers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3cd3fbd-a2f7-40db-886a-4b27f3016c09",
+          "name": "Retrieve Custom Fields From User",
+          "request": {
+            "name": "Retrieve Custom Fields From User",
+            "description": {
+              "content": "Retrieves the collection of custom fields from a given user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "customfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47da2c5f-a94b-407e-ac47-3b2ffeca4ef4",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"label\": \"<string>\",\n    \"value\": {},\n    \"sequence\": \"<integer>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"label\": \"<string>\",\n    \"value\": {},\n    \"sequence\": \"<integer>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb75a03e-5d47-4509-b269-d1b0dec4b5bc",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "332d766c-f036-4312-b17a-bca6d8bffe60",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a840d450-6ca3-487f-bbfc-4fa736f3306c",
+          "name": "Retrieve Custom Fields From Library",
+          "request": {
+            "name": "Retrieve Custom Fields From Library",
+            "description": {
+              "content": "Retrieves all custom fields from current user's library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "registrationfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84284f3a-1511-4008-bfe5-39c104f37ad0",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85ff4808-aae7-4080-b528-2e9bf110f53a",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c99f17e-e18c-47ec-84d0-294c3f94bd36",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3782b72-6bbe-4b19-907d-27d4c53be48f",
+          "name": "Create Custom Fields",
+          "request": {
+            "name": "Create Custom Fields",
+            "description": {
+              "content": "Creates custom fields in the current library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "registrationfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e53c4b42-4e94-4719-9a47-c3e1e48c1327",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f14e9526-3df6-4cfa-91d5-62b8375b4a0a",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40c39959-7aa8-45e3-8384-722295a32794",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4d45bb0-94ea-446c-817b-dd198881de13",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c1d2d81-a70a-4cd8-914d-0a79370c5556",
+              "name": "A user with same username already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "890a7950-1eaa-442c-8c01-f924815a4339",
+          "name": "Retrieve Current User Permissions",
+          "request": {
+            "name": "Retrieve Current User Permissions",
+            "description": {
+              "content": "Retrieves the user permission for the current user in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "current",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e26985ea-4716-4bd8-91b4-61dc9c8232ea",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14086a7e-e125-4068-95a9-1272e5d00cd4",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8952e61-45c4-4744-9650-90923af678a8",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3eb9ffcf-c18d-44f6-aa60-11f1f88197a1",
+          "name": "Retrieve Public Custom Fields",
+          "request": {
+            "name": "Retrieve Public Custom Fields",
+            "description": {
+              "content": "Retrieves the public custom fields for a given domain name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                ":domainName",
+                "users",
+                "registrationfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domainName",
+                  "description": "(Required) domainName path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b21cb7c7-7c6c-4663-b393-0ba93d09f0ec",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7adea093-db86-43a9-bd8a-13c66920297b",
+          "name": "Create Custom Fields",
+          "request": {
+            "name": "Create Custom Fields",
+            "description": {
+              "content": "Creates custom fields for a given domain name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                ":domainName",
+                "users",
+                "registrationfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domainName",
+                  "description": "(Required) domainName path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4fe0404-da72-4cd9-ae6b-d95801968743",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af7fdfdc-949b-4cfa-b326-450501879569",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "474d1f22-94fe-4ed3-aee4-01dada8ea90b",
+              "name": "A user with same username already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "676bf8f0-6637-4e80-8a8f-c51ab24aec96",
+              "name": "Too many requests from the same IP to register an user to the same library, max of 15 requester per minute.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users",
+                    "registrationfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TermsConditionsAcceptanceStatus\": \"<string>\",\n  \"Fields\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a8bb1b3-9fc2-4299-b5db-e298fc5c28ea",
+          "name": "Create User",
+          "request": {
+            "name": "Create User",
+            "description": {
+              "content": "Creates a a new user for a given domain name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                ":domainName",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domainName",
+                  "description": "(Required) domainName path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"<string>\",\n    \"PasswordFormat\": \"<string>\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45b7b627-c568-4298-8b70-74179f0fe002",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"orgUnitId\": \"<uuid>\",\n  \"applicationName\": \"<string>\",\n  \"defaultGroup\": \"<string>\",\n  \"userDomain\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"department\": \"<string>\",\n  \"position\": \"<string>\",\n  \"title\": \"<string>\",\n  \"officeNumber\": \"<string>\",\n  \"cellularNumber\": \"<string>\",\n  \"faxNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"defaultSkin\": \"<string>\",\n  \"additionalMessage\": \"<string>\",\n  \"adminNotes\": \"<string>\",\n  \"lastActiveAt\": \"<dateTime>\",\n  \"lastLockedOutAt\": \"<dateTime>\",\n  \"lastLoginAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"termsandconditionsacceptedat\": \"<dateTime>\",\n  \"termsConditionsAcceptanceStatus\": \"TermsChanged\",\n  \"website\": \"<string>\",\n  \"alertsEnabled\": \"<boolean>\",\n  \"newUserNotification\": \"<boolean>\",\n  \"password\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"isLockedOut\": \"<boolean>\",\n  \"isSuspended\": \"<boolean>\",\n  \"isApproved\": \"<boolean>\",\n  \"userType\": \"AzureActiveDirectory\",\n  \"isExternalUser\": \"<boolean>\",\n  \"roleId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"eiusmod727\": {},\n    \"reprehenderitc1\": {}\n  },\n  \"interpolations\": {\n    \"non6\": {},\n    \"anim0\": {}\n  },\n  \"permissions\": [\n    \"asset:assignCategory\",\n    \"lightbox:editDetails\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e2fae7b-0f64-4416-bff6-22ee1ab9005a",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c41b31dd-ad9a-4391-9e78-dfcc71c7f5b5",
+              "name": "A user with same username already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    ":domainName",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domainName",
+                      "description": "(Required) domainName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdditionalMessage\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"AdminNotes\": \"<string>\",\n  \"CellularNumber\": \"<string>\",\n  \"Comment\": \"<string>\",\n  \"DefaultGroup\": \"<string>\",\n  \"Department\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ExpiresAt\": \"<dateTime>\",\n  \"FaxNumber\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"IsApproved\": \"<boolean>\",\n  \"LastName\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"PasswordInformation\": {\n    \"Password\": \"<string>\",\n    \"PasswordSalt\": \"<string>\",\n    \"RecoveryQuestion\": \"<string>\",\n    \"RecoveryAnswer\": \"<string>\",\n    \"FailedLoginAttemptWindowsStart\": \"<dateTime>\",\n    \"FailedAnswerAttemptWindowsStart\": \"<dateTime>\",\n    \"LastChangedAt\": \"<dateTime>\",\n    \"PasswordStatus\": \"Unknown\",\n    \"PasswordFormat\": \"Clear\",\n    \"ConsecutiveFailedLoginAttempts\": \"<integer>\",\n    \"FailedLoginAttemptWindowStart\": \"<dateTime>\",\n    \"ConsecutiveFailedAnswerAttempts\": \"<integer>\",\n    \"FailedAnswerAttemptsWindowStart\": \"<dateTime>\",\n    \"MustChangePassword\": \"<boolean>\"\n  },\n  \"Position\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Website\": \"<string>\",\n  \"AlertsEnabled\": \"<boolean>\",\n  \"NewUserNotification\": \"<boolean>\",\n  \"OrganizationName\": \"<string>\",\n  \"TermsAndConditionsAcceptedAt\": \"<dateTime>\",\n  \"TermsAndConditionsAccepted\": \"<boolean>\",\n  \"TermsConditionsAcceptanceStatus\": \"Accepted\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94164365-c389-4f65-8d1f-0657f255aca3",
+          "name": "Recover Password",
+          "request": {
+            "name": "Recover Password",
+            "description": {
+              "content": "Recovers the user password for a given username.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "users",
+                "recoverpassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "04750cb0-76f0-42e9-82c3-b6b647df9b12",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5354f28-f774-48f3-a1af-67f58ab99957",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d1b6645-ae92-4833-a77f-bae9795ac686",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15e0a97d-1f5d-426e-b9a8-da47b1930e74",
+              "name": "Pre condition failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05009521-43b8-4db2-9969-8e0a6984388b",
+          "name": "Recover Password",
+          "request": {
+            "name": "Recover Password",
+            "description": {
+              "content": "Defines a new user password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "users",
+                "recoverpassword",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) token path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "e315b1cc-7c87-4353-a2f1-c1447ce9ebe7",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) token path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4681d1e7-c50f-4f8e-8263-2c38c05b5c7a",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) token path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e703aaf3-61a9-430b-85c0-c6125365d1d5",
+              "name": "The user was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "users",
+                    "recoverpassword",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) token path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7872d127-383b-4c9d-9494-edced1eb43c8",
+    "name": "MediaValet Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

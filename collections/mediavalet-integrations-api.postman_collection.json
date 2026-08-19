@@ -1,0 +1,1307 @@
+{
+  "item": [
+    {
+      "id": "a4a30965-af47-4485-99d6-4a93c1b6daaa",
+      "name": "Integrations",
+      "description": {
+        "content": "Third-party integration registration: apps, subscriptions, allowed origins, users and entitlements.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c72f3da7-978d-4fcf-b560-1c84457bbc21",
+          "name": "List whitelisted origins for an integration",
+          "request": {
+            "name": "List whitelisted origins for an integration",
+            "description": {
+              "content": "Return every origin currently whitelisted in the CSP allowlist for the given ThirdParty integration. Used when embedding the integration in an iframe -- only origins on this list may host the embedding page. Pass the integration's id via the appId query parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "allowed-origins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>",
+                  "description": "appId query parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f078ec2-9e37-4836-9fcb-1bd0ec44976e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "allowed-origins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "884d7230-e34c-4c12-9268-910fa1a9f5e7",
+          "name": "Whitelist an origin for an integration",
+          "request": {
+            "name": "Whitelist an origin for an integration",
+            "description": {
+              "content": "Add an origin (scheme + host + optional port) to the CSP allowlist for a ThirdParty integration. The change takes effect immediately -- no cache propagation delay. The response payload is the new allowed-origin id (UUID).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "allowed-origins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"origin\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "54214dce-9134-4f70-8627-99b606f31dda",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "allowed-origins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"00000000-0000-0000-0000-000000000000\",\n  \"origin\": \"https://your-app.example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31763b59-0daf-4f10-bef3-510d6456ef77",
+          "name": "Remove one or more allowed origins",
+          "request": {
+            "name": "Remove one or more allowed origins",
+            "description": {
+              "content": "Remove origins by id. Pass a single-element array to remove just one. Only origins belonging to the calling tenant are affected. Response payload.removed is the count of origins removed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "allowed-origins",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a11fc10d-b6fb-4fc6-bb81-02c9d7a67399",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "allowed-origins",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e876bee7-bd87-4a8f-b467-18ddedfc10e2",
+          "name": "Delete a ThirdParty integration",
+          "request": {
+            "name": "Delete a ThirdParty integration",
+            "description": {
+              "content": "Delete a ThirdParty integration owned by your tenant. Returns 404 if the integration doesn't exist or isn't owned by your tenant. Native integrations cannot be deleted via this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "apps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1dfcce26-e502-464e-9128-a879f30a0c9a",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "apps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a83fbf9b-c583-498e-a944-15bf016c482d",
+          "name": "List your tenant's integrations",
+          "request": {
+            "name": "List your tenant's integrations",
+            "description": {
+              "content": "Return every integration registered to the calling tenant -- both Native (MediaValet-managed: Drupal, WordPress, Monday) and ThirdParty (customer-registered). The response payload is an array of integration objects; recordCount.totalRecordsFound is the total.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "apps",
+                "tenant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccfa44d0-3478-4949-b2d1-887a45d73460",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "apps",
+                    "tenant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "927f7063-4b08-4372-bafe-504b0ce9deff",
+          "name": "Register a new ThirdParty integration",
+          "request": {
+            "name": "Register a new ThirdParty integration",
+            "description": {
+              "content": "Create a new ThirdParty integration for your tenant. Only appName is required in the request body; the other fields (appDescription, iconUrl, currentVersion) are optional partner-facing labels. The response payload.id is the new integration's identifier -- use it as the appId parameter on subsequent calls to manage allowed origins, subscriptions, and user entitlements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a5c871b-7903-4d03-91fb-95f28bcd6365",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"My ThirdParty Integration\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37232758-c197-461d-b867-6868322635d8",
+          "name": "Rename a ThirdParty integration",
+          "request": {
+            "name": "Rename a ThirdParty integration",
+            "description": {
+              "content": "Rename a ThirdParty integration. Native integrations cannot be renamed. Returns the updated integration in the response payload.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "apps",
+                ":id",
+                "name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d22877eb-e433-4bce-8933-a1753855339d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "apps",
+                    ":id",
+                    "name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"My ThirdParty Integration (renamed)\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d987d51-5fc8-409d-a87d-6f4d60cce564",
+          "name": "Get active subscription for an integration",
+          "request": {
+            "name": "Get active subscription for an integration",
+            "description": {
+              "content": "Return the active subscription for the given integration + the calling tenant. Returns 404 if no active subscription exists. Used by license-management UIs to display subscription details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "subscriptions",
+                "app",
+                ":appId",
+                "tenant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) appId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd36be92-6696-4d97-b287-a4e4245eb941",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "subscriptions",
+                    "app",
+                    ":appId",
+                    "tenant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) appId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df27e302-451f-4220-8e81-ef173724eedb",
+          "name": "Get entitlement counts for a subscription",
+          "request": {
+            "name": "Get entitlement counts for a subscription",
+            "description": {
+              "content": "Return active-vs-total entitlement counts for a subscription. Useful for license-management dashboards that show how many seats are in use out of the total licensed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "subscriptions",
+                ":id",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c9cc42f-d01c-4939-8342-3f21c6061570",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "subscriptions",
+                    ":id",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcf80032-f482-4a9c-8e4f-b9e2d8f7bacc",
+          "name": "Invite a user into your tenant",
+          "request": {
+            "name": "Invite a user into your tenant",
+            "description": {
+              "content": "Create a new MediaValet user in your tenant. The user receives an invite email and completes onboarding via the standard MediaValet sign-up flow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userList\": [\n    {\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"subscriptionId\": \"<string>\"\n    },\n    {\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"subscriptionId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbecaa4b-14c0-4a8d-ba2f-abded111ab35",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userList\": [\n    {\n      \"username\": \"partner.user\",\n      \"firstName\": \"Partner\",\n      \"lastName\": \"User\",\n      \"email\": \"partner.user@example.com\",\n      \"subscriptionId\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d7f71ed-86bd-48fd-9060-7a37de10364e",
+          "name": "List user entitlements in a subscription",
+          "request": {
+            "name": "List user entitlements in a subscription",
+            "description": {
+              "content": "Return every user entitlement belonging to the given subscription. Each entitlement maps one user to one subscription with a role and an active/inactive flag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "user-entitlement",
+                "subscription",
+                ":subscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) subscriptionId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ba7ed76-b2c7-47cf-becd-f44e56a45790",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "user-entitlement",
+                    "subscription",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) subscriptionId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ebf129c-31ec-4a10-be85-6b486d25378a",
+          "name": "Update a user entitlement",
+          "request": {
+            "name": "Update a user entitlement",
+            "description": {
+              "content": "Update an existing user entitlement -- toggle the active flag, change the role, etc. The entitlementId field identifies the entitlement to update.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integrations",
+                "user-entitlement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "x-mv-api-version header.",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userEntitlementList\": [\n    {\n      \"entitlementId\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"entitlementId\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa922ade-da75-44c2-aea8-56feea692657",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "user-entitlement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "x-mv-api-version header.",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userEntitlementList\": [\n    {\n      \"entitlementId\": \"00000000-0000-0000-0000-000000000000\",\n      \"status\": \"active\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d856010c-f06f-462c-b46b-904d82317251",
+    "name": "MediaValet Integrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

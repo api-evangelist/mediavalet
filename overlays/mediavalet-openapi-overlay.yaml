@@ -1,0 +1,128 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the MediaValet API
+  version: 1.0.0
+extends: ../openapi/_original/mediavalet-openapi.yml
+x-provenance:
+  generated: '2026-08-13'
+  method: generated
+  source: >-
+    Captures the API Evangelist enrichment layer over the MediaValet contract. The base document is
+    openapi/_original/mediavalet-openapi.yml, itself derived operation-for-operation from
+    MediaValet's own published Postman collection at
+    https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. The per-tag files in openapi/ are
+    tag projections of that same document, so this overlay describes them too.
+  note: >-
+    MediaValet publishes no OpenAPI of its own. This overlay records what API Evangelist adds on top
+    of the derived contract — cross-cutting parameters, the universal response envelope, versioning
+    and error semantics, and links to the artifacts in this repo — without mutating the base
+    document.
+actions:
+  - target: $.info
+    description: Attach the enrichment artifacts and support contacts to the document root.
+    update:
+      x-artifacts:
+        conventions: conventions/mediavalet-conventions.yml
+        authentication: authentication/mediavalet-authentication.yml
+        scopes: scopes/mediavalet-scopes.yml
+        errors: errors/mediavalet-problem-types.yml
+        lifecycle: lifecycle/mediavalet-lifecycle.yml
+        changelog: changelog/mediavalet-changelog.yml
+        rate_limits: rate-limits/mediavalet-rate-limits.yml
+        plans: plans/mediavalet-plans-pricing.yml
+        sandbox: sandbox/mediavalet-sandbox.yml
+        data_model: data-model/mediavalet-data-model.yml
+        conformance: conformance/mediavalet-conformance.yml
+        events: asyncapi/mediavalet-skyhook-asyncapi.yml
+        components: components/mediavalet-components.yml
+        skills: skills/_index.yml
+        source_collection: collections/mediavalet-api.postman_collection.json
+      x-support:
+        email: support@mediavalet.com
+        developer_portal: https://developer.mediavalet.com
+        help_center: https://support.mediavalet.com/hc/en-us
+  - target: $.info
+    description: Record the API versioning contract, which is expressed as a request header rather than in the path.
+    update:
+      x-api-versioning:
+        mechanism: request-header
+        header: x-mv-api-version
+        default: '1.0'
+        current: '1.2'
+        supported: ['1.0', '1.1', '1.2']
+        echoed_in: ApiVersion
+        warning: >-
+          Omitting the header pins the caller to version 1.0, the OLDEST supported version. Features
+          added in 1.1 (the Status attribute data type) return 400 on 1.0.
+  - target: $.info
+    description: Record the universal response envelope, which the base contract describes only in prose.
+    update:
+      x-response-envelope:
+        payload: Payload
+        errors: Meta.Errors
+        warnings: Meta.Warnings
+        processed_at: Meta.CreatedOn
+        version: ApiVersion
+        pagination:
+          total: RecordCount.TotalRecordsFound
+          start: RecordCount.StartingRecord
+          returned: RecordCount.RecordsReturned
+        note: >-
+          Every response — success or failure — uses this envelope. A 200 may still carry entries in
+          Meta.Errors, notably after a PATCH whose instructions were ignored.
+  - target: $.info
+    description: Record the absence of an idempotency mechanism as an explicit, machine-readable fact.
+    update:
+      x-idempotency:
+        supported: false
+        header: null
+        note: >-
+          MediaValet publishes no idempotency key, no replay protection and no safe-retry contract
+          for unsafe methods. Retrying a POST may duplicate work; read before write.
+  - target: $.components.securitySchemes.oauth2
+    description: Point the OAuth 2.0 scheme at MediaValet's live OpenID Connect discovery document.
+    update:
+      x-discovery: https://login.mediavalet.com/.well-known/openid-configuration
+      x-issuer: https://iam.mediavalet.com
+      x-credential-issuance: >-
+        client_id, client_secret and redirect_uri are provisioned by MediaValet support
+        (support@mediavalet.com). They are not self-service.
+  - target: $.components.securitySchemes.subscriptionKey
+    description: Record that the subscription key is required in addition to the bearer token, not as an alternative.
+    update:
+      x-required-with-oauth: true
+      x-issuance: MediaValet Developer Portal profile, after the plan subscription is approved.
+      x-throttling-identity: >-
+        This key is the Azure API Management throttling identity. Plan limits attach to it, and it
+        cannot be sharded to raise throughput.
+  - target: $.paths.*.*
+    description: Document the two headers every operation requires and the version header, which the source collection carries per-request rather than as reusable parameters.
+    update:
+      x-required-headers:
+        - name: Authorization
+          value: bearer <access_token>
+        - name: Ocp-Apim-Subscription-Key
+          value: <subscription_key>
+      x-recommended-headers:
+        - name: x-mv-api-version
+          value: '1.2'
+          reason: Omitting it defaults to API version 1.0.
+  - target: $.paths.*.*.responses['403']
+    description: Flag the version-dependent meaning of a permission failure.
+    update:
+      x-version-note: >-
+        From API version 1.2 (2025-06-13) an authenticated caller lacking permission receives 403.
+        On 1.0 and 1.1 the same condition returns 401. Error handling must be version-aware.
+  - target: $.paths.*.*.responses['202']
+    description: Flag that acceptance is not completion.
+    update:
+      x-async-note: >-
+        Accepted, not complete. Confirm via a follow-up GET or by subscribing to the corresponding
+        SkyHOOK event (asyncapi/mediavalet-skyhook-asyncapi.yml).
+  - target: $.tags
+    description: Note that tags in the derived document correspond to the folder structure of MediaValet's published collection.
+    update:
+      x-tag-provenance: >-
+        Tag names are MediaValet's own "API Endpoints" folder names from the published Postman
+        collection; each maps 1:1 to a per-tag OpenAPI file in openapi/ and to an apis[] entry in
+        apis.yml.

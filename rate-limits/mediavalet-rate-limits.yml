@@ -3,8 +3,15 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: MediaValet
 providerId: mediavalet
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developer.mediavalet.com/plans and the 429 response documented in MediaValet's published
+  Postman collection (https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE), captured in
+  openapi/mediavalet-users-api-openapi.yml.
+docs: https://developer.mediavalet.com/plans
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-08-13'
 reconciled: false
 tags:
 - Digital Asset Management
@@ -13,46 +20,82 @@ tags:
 - Rate Limiting
 - Quotas
 description: >-
-  MediaValet does not publish fixed numeric rate limits for its Open API. The API
-  is fronted by Azure API Management, which enforces throttling per subscription
-  key; when limits are exceeded the gateway returns HTTP 429 Too Many Requests.
-  MediaValet also provides a Bulk endpoint that batches multiple operations into a
-  single HTTP request, which is the recommended way to reduce request volume for
-  high-throughput workflows such as mass metadata updates. Verify any account- or
-  plan-specific request quotas with MediaValet.
+  MediaValet publishes exactly ONE numeric rate limit anywhere in its public surface, and it is not
+  on the pricing or docs pages — it is buried in a 429 response description inside the API contract.
+  Everything else is qualitative: the Developer Plan carries "a limited amount of daily requests"
+  and the Enterprise Plan "a generous limit of API calls", with no numbers attached to either. The
+  API sits behind Azure API Management, which throttles per subscription key and returns 429 on
+  exhaustion. MediaValet documents no rate-limit response headers at all — no X-RateLimit-*, no
+  RateLimit-*, and no Retry-After — so a client cannot read its remaining budget and must infer
+  throttling from the status code alone.
+limit_count: 1
+documented_limits:
+- scope: per-IP, per-library
+  operation: createCustomFields2
+  path: POST /public/{domainName}/users/registrationfields
+  limit: 15
+  window: 1 minute
+  unit: requests
+  description: >-
+    "Too many requests from the same IP to register an user to the same library, max of 15 requester
+    per minute."
+  status_on_exhaustion: 429
+  source: openapi/mediavalet-users-api-openapi.yml
+  note: The only published number. It protects the public self-registration endpoint, not the general API surface.
+plan_limits:
+- plan: Developer Plan
+  scope: per subscription key
+  window: daily
+  limit: null
+  description: '"a limited amount of daily requests to get you started"'
+  source: https://developer.mediavalet.com/plans
+- plan: Enterprise Plan
+  scope: per subscription key
+  window: null
+  limit: null
+  description: '"a generous limit of API calls... a near unlimited number of requests"'
+  source: https://developer.mediavalet.com/plans
+response_signalling:
+  status_on_exhaustion: 429
+  headers: []
+  retry_after: false
+  ratelimit_headers: false
+  note: >-
+    No rate-limit headers are documented on any of the 312 operations in the contract, and none were
+    observable anonymously (api.mediavalet.com returns 401 "Access denied due to missing subscription
+    key" before any limit is evaluated). An agent has no runtime budget signal and must use
+    exponential backoff on 429.
+enforcement:
+  gateway: Azure API Management
+  basis: per subscription key
+  note: >-
+    The Ocp-Apim-Subscription-Key is the throttling identity. Because the key is per-account and
+    provisioned by MediaValet support, an integration cannot shard across keys to raise throughput —
+    the plan upgrade is the only lever.
+mitigations:
+- name: Bulk endpoint
+  path: POST /bulk
+  operationId: homeBulk
+  openapi: openapi/mediavalet-home-api-openapi.yml
+  description: >-
+    MediaValet exposes a bulk endpoint (POST /bulk, operationId homeBulk) for batching work into a
+    single HTTP request — the lever for high-throughput workflows such as mass metadata updates.
+  caveat: >-
+    The operation is present in MediaValet's own collection but carries no description, no request
+    body schema and no example, so the batch envelope is undocumented. Using it requires asking
+    MediaValet support what to send.
+- name: Pagination
+  description: count (default 50) and offset query parameters, with RecordCount.TotalRecordsFound returned so page counts need not be discovered by probing.
+- name: SkyHOOK events
+  description: >-
+    Subscribe to events instead of polling. Enterprise plan only. See
+    asyncapi/mediavalet-skyhook-asyncapi.yml.
 notes: >-
-  No public per-minute or per-day request numbers are documented as of the review
-  date. Treat 429 responses as the throttling signal, honor any Retry-After header,
-  and prefer the Bulk endpoint plus pagination for large jobs.
+  Upgraded from derived to searched on 2026-08-13. The previous revision recorded "no public numeric
+  rate limits"; that was very nearly right, but the 15-per-minute registration limit is genuinely
+  published inside the contract and is now recorded with its scope, window and status code.
 sources:
+- https://developer.mediavalet.com/plans
 - https://docs.mediavalet.com/
-- https://developer.mediavalet.com/
-- https://www.mediavalet.com/product/open-api
-responseCodes:
-  throttled: 429
-limits:
-- name: API Requests per Subscription Key
-  scope: subscription
-  metric: requests
-  limit: not published
-  notes: Throttled by Azure API Management per subscription key; exact numbers are not documented.
-- name: Bulk Batch Size
-  scope: request
-  metric: operations
-  limit: configurable per bulk request
-  notes: The Bulk endpoint packs multiple operations into one HTTP call to reduce request count.
-- name: Search / List Pagination
-  scope: request
-  metric: records
-  limit: paged
-  notes: List and search endpoints return paginated results via offset/count style parameters.
-policies:
-- name: Throttling
-  description: The Azure API Management gateway returns HTTP 429 when a subscription key exceeds its allowance.
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header on 429 responses.
-- name: Batching
-  description: Use the Bulk endpoint to combine multiple operations into a single request for high-volume metadata work.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE
+checked: '2026-08-13'

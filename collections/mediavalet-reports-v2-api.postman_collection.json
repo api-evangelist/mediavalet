@@ -1,0 +1,465 @@
+{
+  "item": [
+    {
+      "id": "2d559a5e-8282-4db5-a4ab-fa483421c75f",
+      "name": "ReportsV2",
+      "description": {
+        "content": "Version 2 of the usage and activity reporting surface.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "179a03d4-6aba-4f7b-910b-fd30c8acaef2",
+          "name": "Retrieve a list of all available reports",
+          "request": {
+            "name": "Retrieve a list of all available reports",
+            "description": {
+              "content": "Returns a list of available reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d62ee68-1d4d-4863-9ddb-7b89fb253a55",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"thumbNailUrl\": \"<string>\",\n  \"type\": \"Video\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolor0\": {}\n  },\n  \"interpolations\": {\n    \"sit3\": {},\n    \"velitf\": {}\n  },\n  \"permissions\": [\n    \"lightbox:assignAsset\",\n    \"lightbox:transferOwnership\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f46ca6f-e404-4e1d-b52f-e10ae344f2c2",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1101ace0-a661-4f10-9506-0c975f767660",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bffe51f4-fc21-48da-9a96-6cb46bdd2d5f",
+          "name": "Retrieve an embed token for the specified report.",
+          "request": {
+            "name": "Retrieve an embed token for the specified report.",
+            "description": {
+              "content": "Returns a report embed token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "reports",
+                ":reportId",
+                "embed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportId",
+                  "description": "(Required) reportId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c630b029-c914-4c2c-8675-c7b08d0b3d4d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports",
+                    ":reportId",
+                    "embed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) reportId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"thumbNailUrl\": \"<string>\",\n  \"type\": \"Video\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolor0\": {}\n  },\n  \"interpolations\": {\n    \"sit3\": {},\n    \"velitf\": {}\n  },\n  \"permissions\": [\n    \"lightbox:assignAsset\",\n    \"lightbox:transferOwnership\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca85cc86-8b8e-4d35-b221-ac6ce392d3be",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports",
+                    ":reportId",
+                    "embed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) reportId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "129ad825-6675-42b9-8117-10535f10dd5a",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports",
+                    ":reportId",
+                    "embed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) reportId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "75074d7c-1406-4ead-96ac-32d09121a795",
+    "name": "MediaValet ReportsV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,4724 @@
+{
+  "item": [
+    {
+      "id": "baada7a0-0d7a-45a8-91ce-40c8b78dce1e",
+      "name": "OrgUnit",
+      "description": {
+        "content": "Organizational units (libraries) and their configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68bbe509-6dc2-42cd-bc87-342a4dd8effb",
+          "name": "Retrieve Org Unit Information By Id",
+          "request": {
+            "name": "Retrieve Org Unit Information By Id",
+            "description": {
+              "content": "Retrieves detailed information for a specific organizational unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59ee4809-6ce9-424e-a8b4-03fd8413f4dc",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"names\": {\n    \"name\": \"<string>\",\n    \"canonicalName\": \"<string>\"\n  },\n  \"contactInformation\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateProvince\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"website\": \"<string>\"\n  },\n  \"storage\": {\n    \"quota\": \"<long>\",\n    \"usage\": \"<long>\"\n  },\n  \"customization\": {\n    \"headerImageAndLogos\": {\n      \"logoImageMedium\": \"<string>\",\n      \"logoImageLarge\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"consequat_e\": {}\n      },\n      \"interpolations\": {\n        \"dolor__d5\": {},\n        \"amet_9_3\": {},\n        \"exercitation_8f9\": {},\n        \"eiusmod23_\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:transferOwnership\"\n      ]\n    },\n    \"doNotDisplayRequestUserLink\": \"<boolean>\",\n    \"skinColors\": {\n      \"backgroundAssetCardColor\": \"<string>\",\n      \"backgroundAssetCardHeaderColor\": \"<string>\",\n      \"backgroundHeaderColor\": \"<string>\",\n      \"backgroundMainColor\": \"<string>\",\n      \"backgroundPageColor\": \"<string>\",\n      \"backgroundReviewActionsColor\": \"<string>\",\n      \"buttonColor\": \"<string>\",\n      \"buttonInactiveColor\": \"<string>\",\n      \"highlightColor\": \"<string>\",\n      \"lineColor\": \"<string>\",\n      \"overlayColor\": \"<string>\",\n      \"tableOddRowColor\": \"<string>\",\n      \"textColor\": \"<string>\",\n      \"textHighlightColor\": \"<string>\",\n      \"textInactiveColor\": \"<string>\",\n      \"treeFolderColor\": \"<string>\",\n      \"textTreeColor\": \"<string>\",\n      \"backgroundTableHeaderColor\": \"<string>\",\n      \"backgroundModalHeaderColor\": \"<string>\",\n      \"focusOutlineColor\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"nisi22\": {},\n        \"adipisicing7e_\": {},\n        \"est_9\": {},\n        \"irure_6\": {}\n      },\n      \"interpolations\": {\n        \"utd\": {}\n      },\n      \"permissions\": [\n        \"user:editEmail\",\n        \"asset:downloadFromMvd\"\n      ]\n    },\n    \"dafaultSkin\": \"<string>\"\n  },\n  \"customRoot\": \"<string>\",\n  \"printUIClientId\": \"<string>\",\n  \"sendForApprovalNotice\": \"<string>\",\n  \"applyWatermark\": \"<boolean>\",\n  \"watermarkFilePath\": \"<string>\",\n  \"isAmsEnabled\": \"<boolean>\",\n  \"launchDarklyConfigs\": {\n    \"clientSideId\": \"<string>\"\n  },\n  \"features\": {\n    \"culpa_e4f\": \"Active\",\n    \"pariatur_435\": \"Experimental\"\n  },\n  \"featuresLastModified\": {\n    \"occaecat2\": \"<dateTime>\"\n  },\n  \"activeDirectoryTenantId\": \"<string>\",\n  \"userIdleTimeOutInMinutes\": \"<integer>\",\n  \"deactivateVersioning\": \"<boolean>\",\n  \"oktaOrgUrl\": \"<string>\",\n  \"iamExternalIdentityProviderName\": \"<string>\",\n  \"overwriteGroups\": \"<boolean>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laboris_ed_\": {},\n    \"amet_183\": {}\n  },\n  \"interpolations\": {\n    \"ut6a6\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromPortal\",\n    \"user:editEmail\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9bc8a5e-fba5-44aa-bdff-d6aea417bc94",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59e149b7-db8c-4a28-bfd5-2b1f4490373a",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8e4d2ff-6a69-4d20-8d68-f27744062deb",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f389027c-fdb3-4acc-bce0-c23cc36a0208",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10cb3246-aaf1-499f-b4be-1ca41714fa20",
+          "name": "Retrieve Current Org Unit Information",
+          "request": {
+            "name": "Retrieve Current Org Unit Information",
+            "description": {
+              "content": "Retrieves detailed information for current organizational unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cba6a46a-dbac-40a9-9abe-dba7993f846d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"names\": {\n    \"name\": \"<string>\",\n    \"canonicalName\": \"<string>\"\n  },\n  \"contactInformation\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateProvince\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"website\": \"<string>\"\n  },\n  \"storage\": {\n    \"quota\": \"<long>\",\n    \"usage\": \"<long>\"\n  },\n  \"customization\": {\n    \"headerImageAndLogos\": {\n      \"logoImageMedium\": \"<string>\",\n      \"logoImageLarge\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"consequat_e\": {}\n      },\n      \"interpolations\": {\n        \"dolor__d5\": {},\n        \"amet_9_3\": {},\n        \"exercitation_8f9\": {},\n        \"eiusmod23_\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:transferOwnership\"\n      ]\n    },\n    \"doNotDisplayRequestUserLink\": \"<boolean>\",\n    \"skinColors\": {\n      \"backgroundAssetCardColor\": \"<string>\",\n      \"backgroundAssetCardHeaderColor\": \"<string>\",\n      \"backgroundHeaderColor\": \"<string>\",\n      \"backgroundMainColor\": \"<string>\",\n      \"backgroundPageColor\": \"<string>\",\n      \"backgroundReviewActionsColor\": \"<string>\",\n      \"buttonColor\": \"<string>\",\n      \"buttonInactiveColor\": \"<string>\",\n      \"highlightColor\": \"<string>\",\n      \"lineColor\": \"<string>\",\n      \"overlayColor\": \"<string>\",\n      \"tableOddRowColor\": \"<string>\",\n      \"textColor\": \"<string>\",\n      \"textHighlightColor\": \"<string>\",\n      \"textInactiveColor\": \"<string>\",\n      \"treeFolderColor\": \"<string>\",\n      \"textTreeColor\": \"<string>\",\n      \"backgroundTableHeaderColor\": \"<string>\",\n      \"backgroundModalHeaderColor\": \"<string>\",\n      \"focusOutlineColor\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"nisi22\": {},\n        \"adipisicing7e_\": {},\n        \"est_9\": {},\n        \"irure_6\": {}\n      },\n      \"interpolations\": {\n        \"utd\": {}\n      },\n      \"permissions\": [\n        \"user:editEmail\",\n        \"asset:downloadFromMvd\"\n      ]\n    },\n    \"dafaultSkin\": \"<string>\"\n  },\n  \"customRoot\": \"<string>\",\n  \"printUIClientId\": \"<string>\",\n  \"sendForApprovalNotice\": \"<string>\",\n  \"applyWatermark\": \"<boolean>\",\n  \"watermarkFilePath\": \"<string>\",\n  \"isAmsEnabled\": \"<boolean>\",\n  \"launchDarklyConfigs\": {\n    \"clientSideId\": \"<string>\"\n  },\n  \"features\": {\n    \"culpa_e4f\": \"Active\",\n    \"pariatur_435\": \"Experimental\"\n  },\n  \"featuresLastModified\": {\n    \"occaecat2\": \"<dateTime>\"\n  },\n  \"activeDirectoryTenantId\": \"<string>\",\n  \"userIdleTimeOutInMinutes\": \"<integer>\",\n  \"deactivateVersioning\": \"<boolean>\",\n  \"oktaOrgUrl\": \"<string>\",\n  \"iamExternalIdentityProviderName\": \"<string>\",\n  \"overwriteGroups\": \"<boolean>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laboris_ed_\": {},\n    \"amet_183\": {}\n  },\n  \"interpolations\": {\n    \"ut6a6\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromPortal\",\n    \"user:editEmail\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4181b1f-e184-41bb-a7a6-c2f650bee59d",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad4d671e-a58b-44f7-8a30-a2fb8a643a52",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26359082-f193-48c7-a342-a17919b43575",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01da757d-6494-4a97-9573-5174e8ce5004",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88ac0c01-61cd-4733-b41d-de25e15463ba",
+          "name": "Retrieves Portals Details For Current Org Unit",
+          "request": {
+            "name": "Retrieves Portals Details For Current Org Unit",
+            "description": {
+              "content": "Retrieves information for portals of current organizational unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "portals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e301ceb-8d15-455c-b5ee-70eb60b653b4",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "portals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"domainName\": \"<string>\",\n    \"hostName\": \"<string>\",\n    \"isDefault\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"euf\": {}\n    },\n    \"interpolations\": {\n      \"in_72d\": {}\n    },\n    \"permissions\": [\n      \"lightbox:assignAsset\",\n      \"lightbox:viewAsset\"\n    ]\n  },\n  {\n    \"domainName\": \"<string>\",\n    \"hostName\": \"<string>\",\n    \"isDefault\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"cupidatat0c\": {},\n      \"sit_6c8\": {}\n    },\n    \"interpolations\": {\n      \"Duisb\": {},\n      \"sed_0\": {},\n      \"dolore_a\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsWebGallery\",\n      \"lightbox:editDetails\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf75da3f-3b85-44c3-9d1c-aa04415dcc04",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "portals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81b17a66-6394-4c42-ac78-cf8f864de5dd",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "portals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "946b3524-0873-45d9-b2a4-6c48f2eb37e0",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "portals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2eebcc5-57db-427d-97be-680eee2f0681",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "portals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b63848a-bced-4bd1-b879-8695986d07df",
+          "name": "Retrieve Current Org Unit Libraries Information",
+          "request": {
+            "name": "Retrieve Current Org Unit Libraries Information",
+            "description": {
+              "content": "Retrieves detailed information for current organizational unit libraries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "libraries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cb8fc0a-bb5b-4bd2-9520-3d4234f056d8",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"orgUnitId\": \"<string>\",\n    \"orgUnitName\": \"<string>\",\n    \"customRootId\": \"<uuid>\",\n    \"customRootName\": \"<string>\",\n    \"storage\": {\n      \"quota\": \"<long>\",\n      \"usage\": \"<long>\"\n    },\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"ut_83\": {},\n      \"ea33_\": {}\n    },\n    \"interpolations\": {\n      \"eiusmodaf9\": {},\n      \"inb4\": {}\n    },\n    \"permissions\": [\n      \"asset:downloadFromMvd\",\n      \"asset:downloadFromMvd\"\n    ]\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"orgUnitId\": \"<string>\",\n    \"orgUnitName\": \"<string>\",\n    \"customRootId\": \"<uuid>\",\n    \"customRootName\": \"<string>\",\n    \"storage\": {\n      \"quota\": \"<long>\",\n      \"usage\": \"<long>\"\n    },\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"laborumf\": {},\n      \"dolor1e\": {}\n    },\n    \"interpolations\": {\n      \"idd3\": {},\n      \"aute01d\": {}\n    },\n    \"permissions\": [\n      \"asset:downloadFromMvd\",\n      \"asset:shareAsZippedFile\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5f5c5b1-f200-45ee-88de-dd2f590f41cf",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39d7cbf4-1fc7-4d0a-8ee7-3bc556bc1303",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dca5f197-1a2e-4f0e-bc34-e959ecfbe41f",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94655de4-67c7-4c0f-ba70-533615fbd553",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e461b74-8286-407b-999b-4de926baed8a",
+          "name": "Retrieve Org Unit Information",
+          "request": {
+            "name": "Retrieve Org Unit Information",
+            "description": {
+              "content": "Retrieves org unit information based on hostname.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "organizationalUnits",
+                ":hostName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hostName",
+                  "description": "(Required) hostName path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b35f7d5b-dba7-47a2-baad-1fbeb534af2d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "organizationalUnits",
+                    ":hostName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hostName",
+                      "description": "(Required) hostName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"names\": {\n    \"name\": \"<string>\",\n    \"canonicalName\": \"<string>\"\n  },\n  \"customization\": {\n    \"headerImageAndLogos\": {\n      \"logoImageMedium\": \"<string>\",\n      \"logoImageLarge\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"tempor_667\": {}\n      },\n      \"interpolations\": {\n        \"dolore1\": {},\n        \"laboris_35e\": {}\n      },\n      \"permissions\": [\n        \"user:editEmail\",\n        \"lightbox:assignAsset\"\n      ]\n    },\n    \"doNotDisplayRequestUserLink\": \"<boolean>\",\n    \"skinColors\": {\n      \"backgroundAssetCardColor\": \"<string>\",\n      \"backgroundAssetCardHeaderColor\": \"<string>\",\n      \"backgroundHeaderColor\": \"<string>\",\n      \"backgroundMainColor\": \"<string>\",\n      \"backgroundPageColor\": \"<string>\",\n      \"backgroundReviewActionsColor\": \"<string>\",\n      \"buttonColor\": \"<string>\",\n      \"buttonInactiveColor\": \"<string>\",\n      \"highlightColor\": \"<string>\",\n      \"lineColor\": \"<string>\",\n      \"overlayColor\": \"<string>\",\n      \"tableOddRowColor\": \"<string>\",\n      \"textColor\": \"<string>\",\n      \"textHighlightColor\": \"<string>\",\n      \"textInactiveColor\": \"<string>\",\n      \"treeFolderColor\": \"<string>\",\n      \"textTreeColor\": \"<string>\",\n      \"backgroundTableHeaderColor\": \"<string>\",\n      \"backgroundModalHeaderColor\": \"<string>\",\n      \"focusOutlineColor\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"veniam_e\": {},\n        \"sit_b0a\": {}\n      },\n      \"interpolations\": {\n        \"sunt_4\": {},\n        \"cillum_7c0\": {},\n        \"ad_8\": {},\n        \"Duis91d\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsZippedFile\",\n        \"None\"\n      ]\n    },\n    \"dafaultSkin\": \"<string>\"\n  },\n  \"onlineGalleryPreviewPaneDefault\": \"<boolean>\",\n  \"termsAndConditions\": {\n    \"displayTermsAndConditions\": \"<boolean>\",\n    \"termsAcceptanceRequiredForLogin\": \"<boolean>\",\n    \"termsAndConditionsNotice\": \"<string>\",\n    \"termsAndConditionsUpdated\": \"<dateTime>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"commodoe96\": {}\n    },\n    \"interpolations\": {\n      \"quis50_\": {},\n      \"incididuntd\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"asset:shareAsZippedFile\"\n    ]\n  },\n  \"launchDarklyConfigs\": {\n    \"clientSideId\": \"<string>\"\n  },\n  \"features\": {\n    \"irure_579\": \"Experimental\"\n  },\n  \"featuresLastModified\": {\n    \"occaecat2f\": \"<dateTime>\",\n    \"exercitation20\": \"<dateTime>\",\n    \"in_13\": \"<dateTime>\"\n  },\n  \"activeDirectoryTenantId\": \"<string>\",\n  \"azureActiveDirectoryDomainName\": \"<string>\",\n  \"oktaOrgUrl\": \"<string>\",\n  \"UserIdleTimeOutInMinutes\": \"<integer>\",\n  \"printUIClientID\": \"<string>\",\n  \"watermarkFilePath\": \"<string>\",\n  \"externalIdentityProviderName\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"Lorem92_\": {},\n    \"etc\": {}\n  },\n  \"interpolations\": {\n    \"et747\": {},\n    \"eu_7\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsCdnLink\",\n    \"user:editEmail\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a2055e6-14b5-4928-a7e8-e10d84793bac",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "organizationalUnits",
+                    ":hostName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hostName",
+                      "description": "(Required) hostName path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61e39d76-3407-4f26-a084-02f2720d65b4",
+          "name": "Retrieve Current Library's Skin Colors",
+          "request": {
+            "name": "Retrieve Current Library's Skin Colors",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "skinColors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5400f78-7c7c-4a49-bece-6e6a3e95b275",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"in34\": {},\n    \"et_a\": {},\n    \"commodo17d\": {},\n    \"ut_f\": {}\n  },\n  \"interpolations\": {\n    \"ipsum__\": {},\n    \"officia5\": {},\n    \"sed_550\": {},\n    \"adipisicing__d\": {}\n  },\n  \"permissions\": [\n    \"lightbox:assignAsset\",\n    \"asset:downloadFromPortal\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22963ec5-f524-456f-8afa-3f8e40d38041",
+              "name": "The current user is not authorized to get the color.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8552ede-3169-41d6-a142-aeaf949d4fb4",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "678d217c-8e0a-4e50-8120-bb5908764fd5",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b246420-6b88-4d70-aed3-2e612e0f8008",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f8c75a2-1bf4-4e58-8e11-57b80d7d613c",
+          "name": "Update Current Library's Skin Colors",
+          "request": {
+            "name": "Update Current Library's Skin Colors",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "skinColors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1598041-2dc2-42ce-bc52-c06a93f0c1e9",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b75e614-e843-4b07-a5d2-0779fc797181",
+              "name": "The current user is not authorized to update the color.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "256b5e9b-71f2-4a6a-b776-517f0658a79e",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8424bfbf-ccc3-4280-9f73-7f291f3882df",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "486a151b-4e9b-4c41-80ad-982c0b3edc86",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47ac8428-d92a-40c4-a274-de67381bd33a",
+          "name": "Retrieve Current Library's Skin Colors",
+          "request": {
+            "name": "Retrieve Current Library's Skin Colors",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                ":portal",
+                "skinColors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "portal",
+                  "description": "(Required) portal path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6fb5be2-6c95-4cd2-a23a-030ea01e738d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"in34\": {},\n    \"et_a\": {},\n    \"commodo17d\": {},\n    \"ut_f\": {}\n  },\n  \"interpolations\": {\n    \"ipsum__\": {},\n    \"officia5\": {},\n    \"sed_550\": {},\n    \"adipisicing__d\": {}\n  },\n  \"permissions\": [\n    \"lightbox:assignAsset\",\n    \"asset:downloadFromPortal\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9f5d9cf-b038-4c71-8110-f0c6ee8f2c12",
+              "name": "The current user is not authorized to get the color.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9defee8-6d07-437c-8bef-65502a85cd77",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9ef9df8-fbf9-4405-8baf-0f9d8115e689",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "255a1db4-09a3-4e38-bab2-c02d7a222493",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b898cce-d44e-474b-be66-12fe992a3e07",
+          "name": "Update Current Library's Skin Colors",
+          "request": {
+            "name": "Update Current Library's Skin Colors",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                ":portal",
+                "skinColors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "portal",
+                  "description": "(Required) portal path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90911c49-6ab1-4022-8254-0c59f02f6784",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04a12aca-87a0-4e9e-a363-7b03f4642bc5",
+              "name": "The current user is not authorized to update the color.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3d9834f2-7daf-4f0e-80ad-74c6f9fe70d9",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e3f0182-475d-4e2c-83c3-7bb380fad0b0",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04ee530d-38d5-46bf-a2a4-48686867edf5",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "skinColors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"backgroundAssetCardColor\": \"<string>\",\n  \"backgroundAssetCardHeaderColor\": \"<string>\",\n  \"backgroundHeaderColor\": \"<string>\",\n  \"backgroundMainColor\": \"<string>\",\n  \"backgroundPageColor\": \"<string>\",\n  \"backgroundReviewActionsColor\": \"<string>\",\n  \"buttonColor\": \"<string>\",\n  \"buttonInactiveColor\": \"<string>\",\n  \"highlightColor\": \"<string>\",\n  \"lineColor\": \"<string>\",\n  \"overlayColor\": \"<string>\",\n  \"tableOddRowColor\": \"<string>\",\n  \"textColor\": \"<string>\",\n  \"textHighlightColor\": \"<string>\",\n  \"textInactiveColor\": \"<string>\",\n  \"treeFolderColor\": \"<string>\",\n  \"textTreeColor\": \"<string>\",\n  \"backgroundTableHeaderColor\": \"<string>\",\n  \"backgroundModalHeaderColor\": \"<string>\",\n  \"focusOutlineColor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5d61e33-0091-4ef2-9abf-a0d88bf0f99a",
+          "name": "Retrieve Org Unit Library By Id",
+          "request": {
+            "name": "Retrieve Org Unit Library By Id",
+            "description": {
+              "content": "Retrieves an organizational unit library by Id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "libraries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b684ac4-97fa-45f5-84bf-24c4c9ae1b65",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"orgUnitId\": \"<string>\",\n  \"orgUnitName\": \"<string>\",\n  \"customRootId\": \"<uuid>\",\n  \"customRootName\": \"<string>\",\n  \"storage\": {\n    \"quota\": \"<long>\",\n    \"usage\": \"<long>\"\n  },\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"elit5b0\": {},\n    \"aute_06_\": {},\n    \"Duiscb\": {}\n  },\n  \"interpolations\": {\n    \"ut_ba\": {},\n    \"nisi_f46\": {}\n  },\n  \"permissions\": [\n    \"asset:createVideoClip\",\n    \"asset:shareAsLink\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b9d0428-b254-462f-bd27-9a6b94503d7f",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "414874ba-8e10-4355-b901-8b467a580448",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a809717-9538-48d2-b022-5842994665db",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6f37b95-2993-42cc-8fe5-dfa731a9465f",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78f5456b-936b-445e-b51f-afdac4feb0e7",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77139070-ca1a-42d8-b43c-6180131e4c24",
+          "name": "Retrieve Print UI Credential For Current Org Unit",
+          "request": {
+            "name": "Retrieve Print UI Credential For Current Org Unit",
+            "description": {
+              "content": "Retrieves print ui auth token and client ID for current organizational unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "integrations",
+                "printui"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da7fbe21-aa99-40dc-9a74-bb8c9e290031",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "integrations",
+                    "printui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"printUIClientId\": \"<string>\",\n  \"printUIAuthCode\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"doloreb0\": {},\n    \"Excepteur7\": {},\n    \"fugiat_d_8\": {}\n  },\n  \"interpolations\": {\n    \"sed56\": {},\n    \"veniam_efa\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"lightbox:transferOwnership\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c8ecca7-c1d4-4000-89b3-b3fc4d155f8d",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "integrations",
+                    "printui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e983a2f-14e5-4f9a-ae39-926a10443d76",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "integrations",
+                    "printui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55c83862-2655-450c-ab21-867f72b171d3",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "integrations",
+                    "printui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63d39d5f-fbba-46c2-bd91-9607a49bd4c8",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "integrations",
+                    "printui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b05707-1c54-4ed2-9a9a-e5b2ae3058fc",
+          "name": "Update Current Library's Logo",
+          "request": {
+            "name": "Update Current Library's Logo",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "logo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9d0172d-b334-4cb4-b759-704ef66317a2",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53c74834-2d40-4e1f-9a74-9c3a0ff78aa6",
+              "name": "The current user is not authorized to update the logo.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5272131-3556-411f-8058-2e6eec77baac",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c33ea3c-74ca-420e-a458-b3d318dcf419",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91a47d93-a51a-4a8e-9884-d2e82d5e5daf",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c200786d-06d1-493f-98d5-5faca643ded4",
+          "name": "Update Current Library's Logo",
+          "request": {
+            "name": "Update Current Library's Logo",
+            "description": {},
+            "url": {
+              "path": [
+                "organizationalunits",
+                ":portal",
+                "logo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "portal",
+                  "description": "(Required) portal path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdc2ebde-38a8-451c-9dc0-2a0eaadd763a",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e27d2daa-665b-4df8-ae6f-a36d64a17b1c",
+              "name": "The current user is not authorized to update the logo.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4758679-dceb-4761-8e90-2136c9050f9a",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ed471f4-0b57-4de3-bdcf-4c1e002c41d4",
+              "name": "An organizational unit was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa2b3661-4cc7-47e7-b4cf-5217ebe6e2df",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    ":portal",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "portal",
+                      "description": "(Required) portal path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5910526-97b5-4128-928f-0040da924fb1",
+          "name": "Update Current Library Name",
+          "request": {
+            "name": "Update Current Library Name",
+            "description": {
+              "content": "Updates the current library name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalUnits",
+                ":libraryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) libraryId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75051327-0957-4737-a1e8-4c647b675d6c",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalUnits",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"names\": {\n    \"name\": \"<string>\",\n    \"canonicalName\": \"<string>\"\n  },\n  \"contactInformation\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateProvince\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"website\": \"<string>\"\n  },\n  \"storage\": {\n    \"quota\": \"<long>\",\n    \"usage\": \"<long>\"\n  },\n  \"customization\": {\n    \"headerImageAndLogos\": {\n      \"logoImageMedium\": \"<string>\",\n      \"logoImageLarge\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"consequat_e\": {}\n      },\n      \"interpolations\": {\n        \"dolor__d5\": {},\n        \"amet_9_3\": {},\n        \"exercitation_8f9\": {},\n        \"eiusmod23_\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:transferOwnership\"\n      ]\n    },\n    \"doNotDisplayRequestUserLink\": \"<boolean>\",\n    \"skinColors\": {\n      \"backgroundAssetCardColor\": \"<string>\",\n      \"backgroundAssetCardHeaderColor\": \"<string>\",\n      \"backgroundHeaderColor\": \"<string>\",\n      \"backgroundMainColor\": \"<string>\",\n      \"backgroundPageColor\": \"<string>\",\n      \"backgroundReviewActionsColor\": \"<string>\",\n      \"buttonColor\": \"<string>\",\n      \"buttonInactiveColor\": \"<string>\",\n      \"highlightColor\": \"<string>\",\n      \"lineColor\": \"<string>\",\n      \"overlayColor\": \"<string>\",\n      \"tableOddRowColor\": \"<string>\",\n      \"textColor\": \"<string>\",\n      \"textHighlightColor\": \"<string>\",\n      \"textInactiveColor\": \"<string>\",\n      \"treeFolderColor\": \"<string>\",\n      \"textTreeColor\": \"<string>\",\n      \"backgroundTableHeaderColor\": \"<string>\",\n      \"backgroundModalHeaderColor\": \"<string>\",\n      \"focusOutlineColor\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"nisi22\": {},\n        \"adipisicing7e_\": {},\n        \"est_9\": {},\n        \"irure_6\": {}\n      },\n      \"interpolations\": {\n        \"utd\": {}\n      },\n      \"permissions\": [\n        \"user:editEmail\",\n        \"asset:downloadFromMvd\"\n      ]\n    },\n    \"dafaultSkin\": \"<string>\"\n  },\n  \"customRoot\": \"<string>\",\n  \"printUIClientId\": \"<string>\",\n  \"sendForApprovalNotice\": \"<string>\",\n  \"applyWatermark\": \"<boolean>\",\n  \"watermarkFilePath\": \"<string>\",\n  \"isAmsEnabled\": \"<boolean>\",\n  \"launchDarklyConfigs\": {\n    \"clientSideId\": \"<string>\"\n  },\n  \"features\": {\n    \"culpa_e4f\": \"Active\",\n    \"pariatur_435\": \"Experimental\"\n  },\n  \"featuresLastModified\": {\n    \"occaecat2\": \"<dateTime>\"\n  },\n  \"activeDirectoryTenantId\": \"<string>\",\n  \"userIdleTimeOutInMinutes\": \"<integer>\",\n  \"deactivateVersioning\": \"<boolean>\",\n  \"oktaOrgUrl\": \"<string>\",\n  \"iamExternalIdentityProviderName\": \"<string>\",\n  \"overwriteGroups\": \"<boolean>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laboris_ed_\": {},\n    \"amet_183\": {}\n  },\n  \"interpolations\": {\n    \"ut6a6\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromPortal\",\n    \"user:editEmail\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16192df1-3541-4723-888d-acb2d84bd16f",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalUnits",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b55b9466-d460-4924-b2a6-b41a9111411e",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalUnits",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "716f4120-4b54-47b4-a187-ea2a387d6cb6",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalUnits",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b957bdc8-31ce-4399-90ed-9a66e9fdffcc",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalUnits",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b68051fe-90df-40fe-8e5d-1c9efdac6391",
+          "name": "Update Current Library's Root Category Name",
+          "request": {
+            "name": "Update Current Library's Root Category Name",
+            "description": {
+              "content": "Updates the library's root category name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizationalunits",
+                "current",
+                "libraries",
+                ":libraryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) libraryId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb880bc0-384e-4eab-a815-4f61d178bfca",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"names\": {\n    \"name\": \"<string>\",\n    \"canonicalName\": \"<string>\"\n  },\n  \"contactInformation\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateProvince\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"website\": \"<string>\"\n  },\n  \"storage\": {\n    \"quota\": \"<long>\",\n    \"usage\": \"<long>\"\n  },\n  \"customization\": {\n    \"headerImageAndLogos\": {\n      \"logoImageMedium\": \"<string>\",\n      \"logoImageLarge\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"consequat_e\": {}\n      },\n      \"interpolations\": {\n        \"dolor__d5\": {},\n        \"amet_9_3\": {},\n        \"exercitation_8f9\": {},\n        \"eiusmod23_\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:transferOwnership\"\n      ]\n    },\n    \"doNotDisplayRequestUserLink\": \"<boolean>\",\n    \"skinColors\": {\n      \"backgroundAssetCardColor\": \"<string>\",\n      \"backgroundAssetCardHeaderColor\": \"<string>\",\n      \"backgroundHeaderColor\": \"<string>\",\n      \"backgroundMainColor\": \"<string>\",\n      \"backgroundPageColor\": \"<string>\",\n      \"backgroundReviewActionsColor\": \"<string>\",\n      \"buttonColor\": \"<string>\",\n      \"buttonInactiveColor\": \"<string>\",\n      \"highlightColor\": \"<string>\",\n      \"lineColor\": \"<string>\",\n      \"overlayColor\": \"<string>\",\n      \"tableOddRowColor\": \"<string>\",\n      \"textColor\": \"<string>\",\n      \"textHighlightColor\": \"<string>\",\n      \"textInactiveColor\": \"<string>\",\n      \"treeFolderColor\": \"<string>\",\n      \"textTreeColor\": \"<string>\",\n      \"backgroundTableHeaderColor\": \"<string>\",\n      \"backgroundModalHeaderColor\": \"<string>\",\n      \"focusOutlineColor\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"nisi22\": {},\n        \"adipisicing7e_\": {},\n        \"est_9\": {},\n        \"irure_6\": {}\n      },\n      \"interpolations\": {\n        \"utd\": {}\n      },\n      \"permissions\": [\n        \"user:editEmail\",\n        \"asset:downloadFromMvd\"\n      ]\n    },\n    \"dafaultSkin\": \"<string>\"\n  },\n  \"customRoot\": \"<string>\",\n  \"printUIClientId\": \"<string>\",\n  \"sendForApprovalNotice\": \"<string>\",\n  \"applyWatermark\": \"<boolean>\",\n  \"watermarkFilePath\": \"<string>\",\n  \"isAmsEnabled\": \"<boolean>\",\n  \"launchDarklyConfigs\": {\n    \"clientSideId\": \"<string>\"\n  },\n  \"features\": {\n    \"culpa_e4f\": \"Active\",\n    \"pariatur_435\": \"Experimental\"\n  },\n  \"featuresLastModified\": {\n    \"occaecat2\": \"<dateTime>\"\n  },\n  \"activeDirectoryTenantId\": \"<string>\",\n  \"userIdleTimeOutInMinutes\": \"<integer>\",\n  \"deactivateVersioning\": \"<boolean>\",\n  \"oktaOrgUrl\": \"<string>\",\n  \"iamExternalIdentityProviderName\": \"<string>\",\n  \"overwriteGroups\": \"<boolean>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"laboris_ed_\": {},\n    \"amet_183\": {}\n  },\n  \"interpolations\": {\n    \"ut6a6\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromPortal\",\n    \"user:editEmail\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e55f297-d231-459f-acce-42a6fd36a8c4",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6d69ba7-4e18-4eb7-9322-d4dd68cd745e",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c7359a2-adae-4e4b-9bb2-457f36ad5d21",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff6b38e3-1f1f-4e0b-b4da-9127a1a30bda",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizationalunits",
+                    "current",
+                    "libraries",
+                    ":libraryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) libraryId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6caa29d4-c21f-442d-b9d0-fddecc3a3166",
+    "name": "MediaValet OrgUnit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/ (312 operations derived from MediaValet's published Postman collection at
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE) + the "API Responses", "PATCH
+  Requests" and "Changelogs" sections of that same collection.
+docs: https://docs.mediavalet.com/
+format: custom-envelope
+rfc9457: false
+description: >-
+  MediaValet does NOT use RFC 9457 (application/problem+json). Errors ride inside the same universal
+  response envelope every MediaValet response uses, in Meta.Errors (with non-fatal problems in
+  Meta.Warnings), alongside the HTTP status code. There is no published registry of machine-readable
+  error codes or error type URIs — the discriminator available to a client is the HTTP status plus
+  the human-readable text in Meta.Errors. Most 4xx/5xx responses in the documented surface return a
+  text/plain body rather than JSON.
+envelope:
+  media_type: application/json
+  error_field: Meta.Errors
+  warning_field: Meta.Warnings
+  timestamp_field: Meta.CreatedOn
+  version_field: ApiVersion
+  shape:
+    ApiVersion: '1.2'
+    Meta:
+      MetaInformation: {}
+      Warnings: []
+      Errors: []
+      CreatedOn: '2024-02-01T00:00:00Z'
+    RecordCount:
+      TotalRecordsFound: 0
+      StartingRecord: 1
+      RecordsReturned: 10
+    Payload: {}
+  note: >-
+    A 200 is not proof of success. Ignored PATCH instructions and unrecognized include/exclude
+    fields are reported in Meta.Errors and Meta.Warnings on an otherwise-successful response, so an
+    agent MUST inspect Meta after every write.
+summary:
+  operations_analyzed: 312
+  distinct_error_statuses: 9
+  responses_with_json_error_body: 6
+  most_common_error: 403
+problem_types:
+- status: 400
+  title: Bad Request
+  occurrences: 90
+  meaning: There was a problem with the data sent with the request.
+  common_causes:
+  - Malformed or invalid request body.
+  - >-
+    Submitting an attribute of type Status against API version 1.0 (the default when
+    x-mv-api-version is omitted) — see changelog 1.1, 2024-03-06.
+  - Naming a field in both the include and exclude query parameters.
+  - An invalid link name when creating a direct link.
+  remediation: >-
+    Validate the payload against the operation schema, and set x-mv-api-version explicitly rather
+    than relying on the 1.0 default. Read Meta.Errors for the specific field.
+  retryable: false
+- status: 401
+  title: Unauthorized
+  occurrences: 124
+  meaning: The current user is not authorized to view this end-point / execute this operation.
+  common_causes:
+  - Missing or expired OAuth 2.0 bearer token (tokens expire in 3600 seconds).
+  - Missing Ocp-Apim-Subscription-Key — the Azure API Management gateway returns "Access denied due to missing subscription key."
+  - On API versions 1.0 and 1.1, an authenticated user who lacks permission (this became 403 in 1.2).
+  remediation: >-
+    Refresh the access token at https://login.mediavalet.com/connect/token using the refresh_token
+    grant, and confirm the subscription key header is present. On 1.2, a 401 means authentication —
+    not authorization — so a token refresh is the correct response.
+  retryable: true
+  version_sensitive: true
+- status: 402
+  title: Payment Required
+  occurrences: 1
+  meaning: The request failed due to payment issues.
+  operations:
+  - createVideoIntelligenceAnalysis
+  common_causes:
+  - Video Intelligence (AI video analysis) is a paid module and the library has no entitlement or exhausted credit.
+  remediation: Contact MediaValet to enable or top up the Video Intelligence module. Not retryable by the client.
+  retryable: false
+- status: 403
+  title: Forbidden
+  occurrences: 265
+  meaning: The user does not have permission to perform this operation.
+  common_causes:
+  - The authenticated user lacks the MediaValet permission for the resource (from API version 1.2 onward this is 403, previously 401).
+  - A feature is not enabled for the library at all, e.g. "Attribute grouping is not enabled for this library."
+  remediation: >-
+    Read the `permissions` array and `_links.functions` on the parent resource before attempting the
+    call — MediaValet publishes per-resource affordances, so a 403 is usually predictable. Escalate
+    to a library administrator; do not retry.
+  retryable: false
+  version_sensitive: true
+  note: The single most common error status in the surface — MediaValet is permission-dense.
+- status: 404
+  title: Not Found
+  occurrences: 130
+  meaning: The named resource was not found.
+  common_causes:
+  - The asset, branded portal, organizational unit, lightbox, category, keyword or subscription id does not exist.
+  - The resource exists but is outside the caller's library (org unit).
+  remediation: Re-resolve the id through a search or list operation. Note that MediaValet also returns 204 in some places where a resource is absent.
+  retryable: false
+- status: 409
+  title: Conflict
+  occurrences: 19
+  meaning: The request conflicts with existing state.
+  common_causes:
+  - A user with the same username already exists.
+  - A crop template with the same id, or the same name plus x and y, already exists.
+  - Duplicate branded-portal name or URL.
+  remediation: >-
+    Read before write. There is no idempotency key on this API, so a 409 on a retry may mean the
+    ORIGINAL request succeeded — verify with a GET before treating it as a failure.
+  retryable: false
+- status: 412
+  title: Precondition Failed
+  occurrences: 1
+  meaning: Pre condition failed.
+  operations:
+  - recoverPassword
+  remediation: Confirm the account state required by the password-recovery flow before calling.
+  retryable: false
+- status: 429
+  title: Too Many Requests
+  occurrences: 1
+  meaning: >-
+    Rate limit exceeded. The one numeric limit MediaValet publishes in its contract: "Too many
+    requests from the same IP to register an user to the same library, max of 15 requester per
+    minute."
+  operations:
+  - createCustomFields2
+  scope: per source IP, per library
+  limit: 15 per minute
+  remediation: >-
+    Back off and retry. MediaValet documents no X-RateLimit-*/RateLimit-* response headers and no
+    Retry-After value, so use exponential backoff. The gateway (Azure API Management) also throttles
+    per subscription key independently of this documented endpoint limit.
+  retryable: true
+  see: rate-limits/mediavalet-rate-limits.yml
+- status: 500
+  title: Internal Server Error
+  occurrences: 265
+  meaning: The request failed because of a problem on the server.
+  remediation: >-
+    Retry with backoff. Because the API has no idempotency mechanism, a retried non-GET may
+    duplicate work — verify state with a GET before retrying a POST.
+  retryable: true
+non_error_statuses_worth_knowing:
+- status: 202
+  occurrences: 38
+  note: >-
+    "Request was accepted." A large part of the write surface is ASYNCHRONOUS — check-in/check-out,
+    uploads and video processing return 202, so success is not confirmation of completion. Poll the
+    resource or subscribe to SkyHOOK events (asyncapi/mediavalet-skyhook-asyncapi.yml).
+- status: 204
+  occurrences: 18
+  note: >-
+    "No Content, Request was successful Response is null." MediaValet also uses 204 in places where
+    a resource is genuinely absent ("A category was not found", "Library does not contain direct
+    link"), so 204 is not always a success signal.
+gaps:
+- No machine-readable error code registry — no numeric or symbolic code accompanies the human text.
+- No RFC 9457 problem+json; no type URIs.
+- Most 4xx/5xx responses are text/plain, so the Meta.Errors envelope is not actually populated on those paths.
+- No Retry-After header documented on 429.
+cross_references:
+  conventions: conventions/mediavalet-conventions.yml
+  rate_limits: rate-limits/mediavalet-rate-limits.yml
+  changelog: changelog/mediavalet-changelog.yml
+checked: '2026-08-13'

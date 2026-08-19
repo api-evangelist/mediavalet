@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Searches API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Searches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Most Viewed Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/mostViewed",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns list of most viewed assets."
+        },
+        {
+          "info": {
+            "name": "Retrieve Facets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/search/facets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns a collection of facets."
+        },
+        {
+          "info": {
+            "name": "Retrieve Recently Uploaded Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/recentlyUploaded",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns list of recently uploaded assets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

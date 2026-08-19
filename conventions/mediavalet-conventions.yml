@@ -1,0 +1,201 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE — MediaValet's published Postman
+  collection, "General Information" section (API Responses, API Versions, Querystring Parameters,
+  PATCH Requests, Search and Filters, Authentication) — cross-checked against openapi/ derived from
+  the same collection.
+docs: https://docs.mediavalet.com/
+description: >-
+  Cross-cutting runtime semantics for the MediaValet API: how requests are versioned, how every
+  response is enveloped, how collections are paged, how partial updates are expressed, and what an
+  agent should expect on failure.
+authentication:
+  style: oauth2-bearer + api-key
+  detail: >-
+    Two credentials on every request: Authorization: bearer <access_token> (OAuth 2.0 / OIDC from
+    login.mediavalet.com) AND Ocp-Apim-Subscription-Key: <key> (Azure API Management per-account
+    subscription key). See authentication/mediavalet-authentication.yml.
+  scopes: scopes/mediavalet-scopes.yml
+versioning:
+  style: request-header
+  header: x-mv-api-version
+  default: '1.0'
+  supported:
+  - '1.0'
+  - '1.1'
+  - '1.2'
+  echoed_in_response: true
+  echo_field: ApiVersion
+  detail: >-
+    "You should use the x-mv-api-version header to specify an API version." Requests without the
+    header default to 1.0. The response body echoes the version that processed the request in the
+    top-level ApiVersion field, so a client can confirm what it actually got. Breaking changes ship
+    as a new version; MediaValet enumerates what counts as breaking (endpoint removal, field
+    removal/rename, changed request/response semantics, parameter removal/rename, authentication
+    changes) and what does not (new endpoints/fields/optional parameters, new query parameters or
+    header values, hostname changes in returned URLs, bug fixes, performance improvements).
+  see: lifecycle/mediavalet-lifecycle.yml
+response_envelope:
+  style: custom
+  rfc9457: false
+  shape:
+    ApiVersion: The version of the API that processed the request.
+    Meta:
+      MetaInformation: Endpoint-dependent context about the request (search parameters, elapsed time, etc.).
+      Warnings: Non-fatal problems. Ignored instructions and unrecognized fields land here.
+      Errors: Errors accumulated while processing the request.
+      CreatedOn: When the request was processed.
+    RecordCount:
+      TotalRecordsFound: Total matching records.
+      StartingRecord: 1-based index of the first record returned.
+      RecordsReturned: How many records are in this Payload.
+    Payload: The serialized result for the request.
+  detail: >-
+    "All responses from the API have the same structure which includes a mix of entity data and
+    meta-data details." An agent should read data from Payload, paging state from RecordCount, and
+    non-fatal problems from Meta.Warnings — a 200 can still carry warnings.
+  example:
+    ApiVersion: 1.0.0.0
+    Meta:
+      MetaInformation: {}
+      Warnings: []
+      Errors: []
+      CreatedOn: '2014-01-01T00:00:00Z'
+    RecordCount:
+      TotalRecordsFound: 0
+      StartingRecord: 1
+      RecordsReturned: 10
+    Payload: {}
+pagination:
+  style: offset-limit
+  params:
+  - name: count
+    in: query
+    default: 50
+    description: Number of records to return. Case-insensitive; valid on any endpoint.
+  - name: offset
+    in: query
+    default: 0
+    description: Number of records to skip in the result set. Case-insensitive; valid on any endpoint.
+  response_fields:
+  - RecordCount.TotalRecordsFound
+  - RecordCount.StartingRecord
+  - RecordCount.RecordsReturned
+  cursor: false
+  detail: >-
+    Offset/count paging, universal across endpoints. RecordCount.TotalRecordsFound gives the agent
+    the loop bound up front, so page counts do not need to be discovered by probing.
+field_selection:
+  include:
+    param: include
+    status: not-implemented
+    detail: 'MediaValet documents include= (sparse fieldsets) but states "This feature has not been implemented yet."'
+  exclude:
+    param: exclude
+    status: not-implemented
+    detail: 'MediaValet documents exclude= but states "This feature has not been implemented yet."'
+  max_length:
+    param: max-length
+    status: not-implemented
+    syntax: max-length=field:value[,field:value]
+    detail: 'Documented field truncation; "This feature has not been implemented yet."'
+  note: >-
+    Documented-but-unimplemented is a real hazard for an agent: the parameters appear in the
+    reference and will be silently ignored (a warning in Meta.Warnings) rather than rejected. Do not
+    depend on them.
+partial_update:
+  style: json-patch
+  standard: RFC 6902 (IETF JSON Patch)
+  content_type: application/json-patch+json
+  method: PATCH
+  operations:
+  - add
+  - remove
+  - replace
+  - test
+  - move
+  - copy
+  extensions:
+  - name: oldValue
+    detail: MediaValet's replace example carries an oldValue alongside value, which is not part of RFC 6902.
+  error_behavior: >-
+    "If op is entered as any value other than an accepted instruction, or if a required field is
+    missing from an instruction the line will be ignored, and an error will be added to the
+    response." A malformed patch line is therefore NOT a request-level failure — it is silently
+    skipped and reported inside Meta.Errors. An unnecessary populated field produces a warning but
+    the instruction still executes. Agents MUST read Meta.Errors after a PATCH rather than trusting
+    the HTTP status.
+  example:
+  - op: test
+    path: /a/b/c
+    value: foo
+  - op: remove
+    path: /a/b/c
+  - op: add
+    path: /a/b/c
+    value:
+    - foo
+    - bar
+  - op: replace
+    path: /a/b/c
+    value: 42
+    oldValue: 31
+  - op: move
+    from: /a/b/c
+    path: /a/b/d
+  - op: copy
+    from: /a/b/d
+    path: /a/b/e
+search:
+  style: filters + facets
+  params:
+  - filters
+  - q
+  detail: >-
+    MediaValet documents a search/filter/facet grammar usable on collection endpoints, plus a
+    dedicated POST /assets/search operation (operationId retrieveAssetsWithSearchCriteria2) for
+    searching by custom attributes, filename, file type and cognitive (AI-generated) metadata.
+  see: openapi/mediavalet-searches-api-openapi.yml
+idempotency:
+  supported: false
+  header: null
+  detail: >-
+    MediaValet publishes NO idempotency key mechanism — there is no Idempotency-Key header, no
+    request-id-based replay protection, and no documented safe-retry contract for POST. The
+    three-step upload flow (request upload URL, PUT to Azure blob, finalize) is the closest thing to
+    a resumable write, and it is resumable only because each step is separately addressable by
+    assetId. Retrying a POST is not safe by default. This is recorded as an honest absence: no
+    Idempotency pointer is emitted in apis.yml.
+hypermedia:
+  supported: true
+  field: _links
+  detail: >-
+    MediaValet describes the API as hypermedia-driven. Resource payloads carry a _links object with
+    `self` and a `functions` array enumerating the operations available on that resource for the
+    calling user, alongside a `permissions` array (for example "asset:downloadFromPortal",
+    "lightbox:share"). An agent can read affordances off the resource rather than hard-coding them.
+rate_limits:
+  detail: See rate-limits/mediavalet-rate-limits.yml. Enforced per subscription key by Azure API Management; 429 on exhaustion.
+  signalling: 429 status; no documented X-RateLimit-* / RateLimit-* response headers.
+errors:
+  detail: See errors/mediavalet-problem-types.yml.
+  note: >-
+    From API version 1.2 (2025-06-13) an authenticated caller lacking permission receives 403
+    Forbidden rather than 401 Unauthorized. On 1.0 and 1.1 the same condition returns 401, so error
+    handling is version-dependent.
+request_tracing:
+  request_id_header: null
+  detail: >-
+    No documented correlation/request-id header. Meta.MetaInformation carries endpoint-dependent
+    request context and Meta.CreatedOn carries the processing timestamp, which is the only
+    per-request trace handle MediaValet publishes.
+cross_references:
+  authentication: authentication/mediavalet-authentication.yml
+  scopes: scopes/mediavalet-scopes.yml
+  errors: errors/mediavalet-problem-types.yml
+  lifecycle: lifecycle/mediavalet-lifecycle.yml
+  rate_limits: rate-limits/mediavalet-rate-limits.yml
+  changelog: changelog/mediavalet-changelog.yml
+  events: asyncapi/mediavalet-skyhook-asyncapi.yml
+checked: '2026-08-13'

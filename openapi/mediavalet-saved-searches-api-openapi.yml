@@ -1,0 +1,649 @@
+openapi: 3.0.3
+info:
+  title: MediaValet SavedSearches API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: SavedSearches
+  description: Saved searches and their execution.
+paths:
+  /savedsearches:
+    get:
+      operationId: retrieveSavedSearches
+      summary: Retrieve Saved Searches
+      description: Retrieves all custom saved searches.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  searchQuery:
+                    type: string
+                  ownerUserId:
+                    type: string
+                  ownerUserName:
+                    type: string
+                  sharedWithOthers:
+                    type: boolean
+                  pinnedSearchForUser:
+                    type: boolean
+                  pinnedSearchForGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      eu_4:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ex_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                searchQuery: <string>
+                ownerUserId: <string>
+                ownerUserName: <string>
+                sharedWithOthers: <boolean>
+                pinnedSearchForUser: <boolean>
+                pinnedSearchForGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eu_4: {}
+                interpolations:
+                  ex_1: {}
+                permissions:
+                - lightbox:assignAsset
+                - None
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createSavedSearch
+      summary: Create Saved Search
+      description: Creates a new custom search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                searchQuery:
+                  type: string
+            example:
+              id: <uuid>
+              name: <string>
+              searchQuery: <string>
+      responses:
+        '201':
+          description: The saved search was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  searchQuery:
+                    type: string
+                  ownerUserId:
+                    type: string
+                  ownerUserName:
+                    type: string
+                  sharedWithOthers:
+                    type: boolean
+                  pinnedSearchForUser:
+                    type: boolean
+                  pinnedSearchForGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      eu_4:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ex_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                searchQuery: <string>
+                ownerUserId: <string>
+                ownerUserName: <string>
+                sharedWithOthers: <boolean>
+                pinnedSearchForUser: <boolean>
+                pinnedSearchForGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eu_4: {}
+                interpolations:
+                  ex_1: {}
+                permissions:
+                - lightbox:assignAsset
+                - None
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /savedsearches/pinned:
+    get:
+      operationId: retrievePinnedSavedSearches
+      summary: Retrieve Pinned Saved Searches
+      description: Retrieves all pinned saved searches.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  searchQuery:
+                    type: string
+                  ownerUserId:
+                    type: string
+                  ownerUserName:
+                    type: string
+                  sharedWithOthers:
+                    type: boolean
+                  pinnedSearchForUser:
+                    type: boolean
+                  pinnedSearchForGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      eu_4:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ex_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                searchQuery: <string>
+                ownerUserId: <string>
+                ownerUserName: <string>
+                sharedWithOthers: <boolean>
+                pinnedSearchForUser: <boolean>
+                pinnedSearchForGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eu_4: {}
+                interpolations:
+                  ex_1: {}
+                permissions:
+                - lightbox:assignAsset
+                - None
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A pinned saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /savedsearches/{savedSearchId}:
+    get:
+      operationId: retrieveSavedSearch
+      summary: Retrieve Saved Search
+      description: Retrieves a custom saved search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: savedSearchId
+        in: path
+        required: true
+        description: savedSearchId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  searchQuery:
+                    type: string
+                  ownerUserId:
+                    type: string
+                  ownerUserName:
+                    type: string
+                  sharedWithOthers:
+                    type: boolean
+                  pinnedSearchForUser:
+                    type: boolean
+                  pinnedSearchForGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      eu_4:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ex_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                searchQuery: <string>
+                ownerUserId: <string>
+                ownerUserName: <string>
+                sharedWithOthers: <boolean>
+                pinnedSearchForUser: <boolean>
+                pinnedSearchForGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eu_4: {}
+                interpolations:
+                  ex_1: {}
+                permissions:
+                - lightbox:assignAsset
+                - None
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    delete:
+      operationId: removeSavedSearch
+      summary: Remove Saved Search
+      description: Removes a custom saved search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: savedSearchId
+        in: path
+        required: true
+        description: savedSearchId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    patch:
+      operationId: updateSavedSearch
+      summary: Update Saved Search
+      description: Update a custom saved search with a list of patch operations.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: savedSearchId
+        in: path
+        required: true
+        description: savedSearchId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /savedsearches/{savedSearchId}/share:
+    get:
+      operationId: retrieveSavedSearchShares
+      summary: Retrieve Saved Search Shares
+      description: Retrieves shares for a saved search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: savedSearchId
+        in: path
+        required: true
+        description: savedSearchId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sharedWithUsers:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+                  sharedWithGroups:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+                  pinnedForGroups:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+              example:
+                sharedWithUsers:
+                - <uuid>
+                - <uuid>
+                sharedWithGroups:
+                - <uuid>
+                - <uuid>
+                pinnedForGroups:
+                - <uuid>
+                - <uuid>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createSavedSearch2
+      summary: Create Saved Search
+      description: Creates a custom saved search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: savedSearchId
+        in: path
+        required: true
+        description: savedSearchId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                savedSearchId:
+                  type: string
+                  format: uuid
+                shareWithUsers:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                shareWithGroups:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+            example:
+              savedSearchId: <uuid>
+              shareWithUsers:
+              - <uuid>
+              - <uuid>
+              shareWithGroups:
+              - <uuid>
+              - <uuid>
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: A saved search was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

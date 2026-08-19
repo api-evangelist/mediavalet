@@ -1,0 +1,2605 @@
+{
+  "item": [
+    {
+      "id": "2b1c23c8-1939-471a-bd9e-fe3def0305b3",
+      "name": "Sharing",
+      "description": {
+        "content": "Asset and collection sharing.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30888b8b-9494-4982-a1b3-27d9da573535",
+          "name": "Retrieve Shared Asset Information",
+          "request": {
+            "name": "Retrieve Shared Asset Information",
+            "description": {
+              "content": "Retrieves shared assets information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdf25210-3cd6-46ad-8161-a9ada60d0f62",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sharedAt\": \"<dateTime>\",\n  \"sharedBy\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"organization\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolor_b\": {},\n    \"fugiat402\": {}\n  },\n  \"interpolations\": {\n    \"magnae\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsBrandedPortal\",\n    \"lightbox:viewAsset\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7838b8d-a81c-430b-beb1-e46ecd65e26a",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09160670-f049-4779-b035-5f1f050eec34",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3e30e9d-12ce-40f6-bc3f-71ef09160cb2",
+          "name": "Retrieve Shared Assets",
+          "request": {
+            "name": "Retrieve Shared Assets",
+            "description": {
+              "content": "Retrieves shared assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7f7b7b8-54e8-4b37-9d6e-07d7fbe7fa4f",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a794b22-400b-4b24-8aa3-7b7a0299b925",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9484bbca-422a-42bd-a352-93616b942c26",
+              "name": "A shared asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ac0b78f-df60-4251-adb1-d6a423897019",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97c9ac65-ee70-4477-b7d3-7ee54b790a0f",
+          "name": "Retrieves Shared Asset's Rendition Types By Share Code",
+          "request": {
+            "name": "Retrieves Shared Asset's Rendition Types By Share Code",
+            "description": {
+              "content": "Retrieves all the rendition types available for the given share code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "renditionKinds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55956bf7-2d6b-4e81-856c-58810d64022b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "renditionKinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"consectetur9de\": {},\n      \"ex_f32\": {}\n    },\n    \"interpolations\": {\n      \"labore16f\": {},\n      \"dolor5\": {},\n      \"amet38d\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsWebGallery\",\n      \"user:editEmail\"\n    ]\n  },\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"veniam_25c\": {},\n      \"qui__ec\": {},\n      \"mollit_c\": {}\n    },\n    \"interpolations\": {\n      \"sit_36d\": {},\n      \"laborumf4\": {},\n      \"quis_1\": {},\n      \"nulla56\": {}\n    },\n    \"permissions\": [\n      \"asset:downloadFromMvd\",\n      \"asset:shareAsLightbox\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "222ffd77-e4d2-45cc-94a7-3f4db9cbd978",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "renditionKinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4361046-2b10-4cd1-8725-bca7a479aef7",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "renditionKinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4383415-ec23-49cb-bd60-ca8f1238d663",
+          "name": "Retrieve Shared Asset",
+          "request": {
+            "name": "Retrieve Shared Asset",
+            "description": {
+              "content": "Retrieves a shared asset for a given share code and asset id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d65a9295-cd81-4a81-9a73-5dbf7c5e70f9",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"media\": {\n    \"type\": \"<string>\",\n    \"small\": \"<string>\",\n    \"thumb\": \"<string>\",\n    \"large\": \"<string>\",\n    \"original\": \"<string>\",\n    \"medium\": \"<string>\",\n    \"download\": \"<string>\",\n    \"downloadRequest\": \"<string>\",\n    \"stream\": \"<string>\",\n    \"streamLoDef\": \"<string>\",\n    \"originalDimensions\": \"<string>\",\n    \"sasExpiry\": \"<long>\",\n    \"sasRenewal\": \"<long>\",\n    \"renditionItemCount\": \"<long>\",\n    \"autodeskUrn\": \"<string>\",\n    \"watermarked\": \"<boolean>\",\n    \"assetId\": \"<uuid>\",\n    \"streamingManifest\": \"<string>\",\n    \"fullStreamAvailable\": \"<boolean>\"\n  },\n  \"file\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"fileName\": \"<string>\",\n    \"md5\": \"<string>\",\n    \"fileType\": \"<string>\",\n    \"sizeInBytes\": \"<long>\",\n    \"description\": \"<string>\",\n    \"keywords\": \"<string>\",\n    \"uploadedAt\": \"<dateTime>\",\n    \"modifiedAt\": \"<dateTime>\",\n    \"approvedAt\": \"<dateTime>\",\n    \"disapprovedAt\": \"<dateTime>\",\n    \"expiresAt\": \"<dateTime>\",\n    \"imageHeight\": \"<long>\",\n    \"imageWidth\": \"<long>\",\n    \"frameRate\": \"<string>\",\n    \"length\": \"<string>\",\n    \"bitRate\": \"<string>\",\n    \"mimeType\": \"<string>\",\n    \"resolution\": \"<string>\",\n    \"colorMode\": \"<string>\",\n    \"aspectRatio\": \"<string>\",\n    \"orientation\": \"<string>\",\n    \"sharedRenditionWidth\": \"<long>\",\n    \"sharedRenditionHeight\": \"<long>\",\n    \"sharedRenditionFileExtension\": \"<string>\",\n    \"sharedRenditionFileSizeInBytes\": \"<long>\"\n  },\n  \"description\": \"<string>\",\n  \"altText\": \"<string>\",\n  \"containerName\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"rating\": {\n    \"average\": \"<integer>\",\n    \"user\": \"<integer>\"\n  },\n  \"attributes\": {\n    \"amet_a0e\": \"<string>\",\n    \"culpa_16\": \"<string>\"\n  },\n  \"record\": {\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"modifiedAt\": \"<dateTime>\",\n    \"modifiedBy\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"softDeletedAt\": \"<dateTime>\",\n    \"softDeletedBy\": {\n      \"id\": \"<uuid>\",\n      \"username\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"version\": {\n      \"version\": \"<integer>\",\n      \"current\": \"<uuid>\",\n      \"head\": \"<uuid>\",\n      \"parentid\": \"<uuid>\",\n      \"isversionable\": \"<boolean>\",\n      \"islatestversion\": \"<boolean>\",\n      \"ismajorversion\": \"<boolean>\"\n    }\n  },\n  \"categories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"keywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"relatedassets\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"assetCheckOutComment\": \"<string>\",\n  \"assetCheckInComment\": \"<string>\",\n  \"checkedOutBy\": \"<uuid>\",\n  \"renderAsPdf\": \"<boolean>\",\n  \"wopiEnabled\": \"<boolean>\",\n  \"userViewCounts\": {\n    \"Ut_86\": \"<long>\",\n    \"consectetur7c\": \"<long>\",\n    \"voluptate_94\": \"<long>\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"hasVideoIntelligenceContent\": \"<boolean>\",\n  \"followed\": \"<boolean>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"nostrud389\": {},\n    \"non186\": {},\n    \"amet_668\": {}\n  },\n  \"interpolations\": {\n    \"incididunt4d\": {},\n    \"in2\": {}\n  },\n  \"permissions\": [\n    \"lightbox:assignAsset\",\n    \"asset:shareAsCdnLink\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "255b9600-fbe0-461f-99a5-310c50b3f0a9",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d2a1cb0-f908-48a9-89d4-20e119471f4e",
+              "name": "A shared asset was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1db554ea-e757-487e-8ad2-82eb430a510d",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0de77f37-098f-4c94-9bce-3e455b534f45",
+          "name": "Retrieves Shared Asset's Rendition Types",
+          "request": {
+            "name": "Retrieves Shared Asset's Rendition Types",
+            "description": {
+              "content": "Retrieves all rendition types for a given shared asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "assets",
+                ":assetId",
+                "renditions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99379fc6-fbf1-46fd-a135-ffd1a0642b6a",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"renditionTypeId\": \"<uuid>\",\n    \"height\": \"<integer>\",\n    \"width\": \"<integer>\",\n    \"length\": \"<integer>\",\n    \"mimeType\": \"<string>\",\n    \"watermarked\": \"<boolean>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"eu_be7\": {},\n      \"quis_be\": {},\n      \"laboree\": {},\n      \"in4b\": {},\n      \"qui88c\": {}\n    },\n    \"interpolations\": {\n      \"velit_69\": {},\n      \"occaecat44\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"asset:createImageCrop\"\n    ]\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"renditionTypeId\": \"<uuid>\",\n    \"height\": \"<integer>\",\n    \"width\": \"<integer>\",\n    \"length\": \"<integer>\",\n    \"mimeType\": \"<string>\",\n    \"watermarked\": \"<boolean>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"labore_b99\": {},\n      \"minim24\": {}\n    },\n    \"interpolations\": {\n      \"fugiat9\": {}\n    },\n    \"permissions\": [\n      \"lightbox:transferOwnership\",\n      \"lightbox:share\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "546b2372-97bc-4151-ae40-40a59a48b27b",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f1399ae-9ca2-498b-80e0-c129396e1a55",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42f0099d-475b-4833-b350-4ae1bd146a40",
+          "name": "Retrieve Shared Asset's Rendition",
+          "request": {
+            "name": "Retrieve Shared Asset's Rendition",
+            "description": {
+              "content": "Retrieves a specific rendition for a given shared asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "assets",
+                ":assetId",
+                "renditions",
+                ":renditionKindId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) assetId path parameter."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "renditionKindId",
+                  "description": "(Required) renditionKindId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1740d991-ca65-465e-94e2-00f623b7ba49",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions",
+                    ":renditionKindId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "renditionKindId",
+                      "description": "(Required) renditionKindId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"renditionUrl\": \"<string>\",\n  \"thumbnailUrl\": \"<string>\",\n  \"pages\": {\n    \"count\": \"<long>\",\n    \"offSet\": \"<integer>\",\n    \"renditions\": [\n      {\n        \"sequence\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"sequence\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    ]\n  },\n  \"sasExpiry\": \"<long>\",\n  \"sasRenewal\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "433dd691-022f-4636-9417-70477eb80787",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions",
+                    ":renditionKindId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "renditionKindId",
+                      "description": "(Required) renditionKindId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f510b56d-21b1-41ad-995d-4cf7bd2730ca",
+              "name": "The asset rendition was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions",
+                    ":renditionKindId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "renditionKindId",
+                      "description": "(Required) renditionKindId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "312424e8-60fa-4303-ba4d-15dc5b6e0886",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "assets",
+                    ":assetId",
+                    "renditions",
+                    ":renditionKindId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) assetId path parameter."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "renditionKindId",
+                      "description": "(Required) renditionKindId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c9bbc35-2617-41ec-826f-400b9f96a7ab",
+          "name": "Create Share",
+          "request": {
+            "name": "Create Share",
+            "description": {
+              "content": "Initiate a share operation for a given set of assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shareAssets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shareTo\": \"<string>\",\n  \"shareVia\": \"<string>\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"<string>\",\n    \"resolution\": \"<string>\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"<string>\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"<string>\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"<string>\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3485c509-f54e-49a6-a793-1c185f861296",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareAssets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shareId\": \"<uuid>\",\n  \"lightboxId\": \"<uuid>\",\n  \"sharedVia\": \"Unknown\",\n  \"link\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "630a5407-f2f5-4c1c-a397-f0657b9c80b1",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareAssets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "00b94d7c-c00a-447f-80db-0bcdcc980705",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareAssets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cf83e6c-32b0-479c-9b0a-a863c6f7dab4",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareAssets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c8dedcb-f8d8-4cf6-8030-eed0adc4680e",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareAssets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cebcc9c4-14a8-4d93-b83c-83befec7e08d",
+          "name": "Create Share For Lightbox Set",
+          "request": {
+            "name": "Create Share For Lightbox Set",
+            "description": {
+              "content": "Initiate a share operation for a given set of lightbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shareLightboxes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shareTo\": \"<string>\",\n  \"shareVia\": \"<string>\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"<string>\",\n    \"resolution\": \"<string>\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"<string>\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"<string>\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"<string>\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bf71a026-b09a-40dc-b3f1-34f4f9375e1e",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareLightboxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shareId\": \"<uuid>\",\n  \"lightboxId\": \"<uuid>\",\n  \"sharedVia\": \"Unknown\",\n  \"link\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98b44c25-499f-45b7-96d3-eaa8b2722a51",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareLightboxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55beb446-b2fe-4746-ad32-7d99bbf82932",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareLightboxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4bbbc901-3c02-42c6-9555-fd88755f5273",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareLightboxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ab7ad16-1507-4be6-b88c-08c76b140472",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shareLightboxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareTo\": \"Unknown\",\n  \"shareVia\": \"Link\",\n  \"allowAssetDownload\": \"<boolean>\",\n  \"images\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"<string>\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"spectrum\": \"SRgb\",\n    \"resolution\": \"Web\",\n    \"addWatermark\": \"<boolean>\",\n    \"watermarkUrl\": \"<string>\",\n    \"includeContactSheet\": \"<boolean>\",\n    \"contactSheet\": {\n      \"rows\": \"<integer>\",\n      \"cols\": \"<integer>\",\n      \"logoBlobUrl\": \"<string>\"\n    },\n    \"renditionType\": \"HighDefinition\"\n  },\n  \"videos\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Mp4\",\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"customDimensions\": \"<boolean>\"\n    },\n    \"renditionType\": \"Undefined\"\n  },\n  \"audio\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"quality\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"format\": \"Mp3\"\n  },\n  \"documents\": {\n    \"shareOriginals\": \"<boolean>\",\n    \"format\": \"Unknown\"\n  },\n  \"message\": {\n    \"recipients\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\"\n  },\n  \"ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"includeContactSheet\": \"<boolean>\",\n  \"shareCode\": \"<string>\",\n  \"lightboxId\": \"<uuid>\",\n  \"lightboxName\": \"<string>\",\n  \"lightboxDescription\": \"<string>\",\n  \"DynamicWebGallery\": \"<boolean>\",\n  \"gallerySettings\": {\n    \"expiryDate\": \"<string>\",\n    \"galleryPassword\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2536b01-2279-46e7-bb25-977f45350e58",
+          "name": "Create Gallery Authorization",
+          "request": {
+            "name": "Create Gallery Authorization",
+            "description": {
+              "content": "Creates a gallery authorization request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "share",
+                ":shareCode",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareCode",
+                  "description": "(Required) shareCode path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "afe2d079-f9cd-48ef-b979-2042bc36e040",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessionId\": \"<uuid>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89118813-b67a-481f-8c28-b24ffe3b141d",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dc6e191-a209-490e-b260-59ca87449aa1",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "share",
+                    ":shareCode",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareCode",
+                      "description": "(Required) shareCode path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ae39f8aa-d6e9-47d7-bb7a-2f464bd320ce",
+    "name": "MediaValet Sharing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

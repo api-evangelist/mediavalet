@@ -1,32 +1,618 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/mediavalet-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://login.mediavalet.com/.well-known/openid-configuration (HTTP 200, scopes_supported) + https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE
+  (Authentication section)
+docs: https://login.mediavalet.com/.well-known/openid-configuration
 schemes:
 - name: oauth2
-  source: openapi/mediavalet-openapi.yml
+  source: openapi/mediavalet-assets-api-openapi.yml
   flows:
   - flow: authorizationCode
     authorizationUrl: https://login.mediavalet.com/connect/authorize
     tokenUrl: https://login.mediavalet.com/connect/token
-  description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token
-    using the authorization code flow (interactive apps) or password / client-credential grants,
-    with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-attribute-groups-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-attributes-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-authorization-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-branded-portals-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-categories-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-config-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-crop-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-direct-links-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-downloads-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-home-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-integrations-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-introduction-and-help-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-keyword-groups-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-keywords-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-lightbox-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-notification-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-org-unit-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-persons-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-reports-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-reports-v2-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-saved-searches-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-searches-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-sharing-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-uploads-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-user-groups-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-users-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
+- name: oauth2
+  source: openapi/mediavalet-webhooks-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.mediavalet.com/connect/authorize
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
 scopes:
 - scope: api
   description: Access the MediaValet API
   flows:
   - authorizationCode
+  - clientCredentials
+  - password
   sources:
-  - openapi/mediavalet-openapi.yml
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+- scope: api:service_principal
+  description: Service-principal (machine) access to the MediaValet API
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+- scope: iam.admin
+  description: Administer MediaValet identity and access management
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+- scope: iam.provisioning
+  description: Provision users and organizations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
 - scope: offline_access
   description: Obtain a refresh token
   flows:
   - authorizationCode
+  - password
   sources:
-  - openapi/mediavalet-openapi.yml
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
 - scope: openid
   description: OpenID Connect identity
   flows:
   - authorizationCode
+  - password
   sources:
-  - openapi/mediavalet-openapi.yml
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+- scope: profile
+  description: User profile claims
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+authorization_server: https://login.mediavalet.com
+issuer: https://iam.mediavalet.com
+scopes_supported_verbatim:
+- openid
+- profile
+- api
+- api:service_principal
+- iam.admin
+- iam.provisioning
+- IdentityServerApi
+- offline_access
+notes:
+- scopes_supported is read verbatim from the live OpenID Connect discovery document, not inferred.
+- MediaValet's own documented authorization request uses scope=openid api; the password-grant example
+  uses scope=api.
+- 'The API itself is not scope-partitioned per resource: a single "api" scope grants access to the REST
+  surface, and per-object authorization is enforced by MediaValet permission rules (see openapi/mediavalet-authorization-api-openapi.yml
+  and the Permissions array returned on resources), not by OAuth scopes.'
+- IdentityServerApi is an IdentityServer administrative scope exposed by the identity product; it is not
+  part of the public MediaValet API surface.

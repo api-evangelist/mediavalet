@@ -1,0 +1,2504 @@
+{
+  "item": [
+    {
+      "id": "c8a35784-5b00-445a-b329-fc853d86901b",
+      "name": "UserGroups",
+      "description": {
+        "content": "User groups and group membership.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2f2b26e-815e-4c6a-a642-21507e50f5bc",
+          "name": "Retrieve Groups",
+          "request": {
+            "name": "Retrieve Groups",
+            "description": {
+              "content": "Retrieves list of groups that belong to the Organizational Unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "016432e1-af25-4727-b9e0-8b3b383f913e",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"isDefaultGroup\": \"<boolean>\",\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolor_b\": {},\n    \"proident_fb8\": {},\n    \"ullamco84d\": {}\n  },\n  \"interpolations\": {\n    \"aute_c\": {},\n    \"qui_b1\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f29cf954-b8a7-4779-8586-7479e3515da6",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ff44e64-9396-4208-86df-ce774086032b",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "077d90e8-8002-415f-9407-8f6c8aca4ce2",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a81946dd-6689-43c7-9ba3-c283154349d4",
+          "name": "Create Group",
+          "request": {
+            "name": "Create Group",
+            "description": {
+              "content": "Creates the user group and gives it permissions to the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": \"<object>\",\n    \"nostrud_4\": \"<object>\"\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": \"<object>\",\n    \"non4d\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce66f813-0a8d-48ee-b585-2374ccb3fcff",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26c11563-489a-4a58-b095-ac786bd0f7d7",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e001506-480e-42dd-828b-22a9c58162ad",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb431c08-4485-48a9-88c3-9e3cbea26b01",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15963753-250a-4fb1-a18c-092b66dff156",
+              "name": "A group with the same name already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "890681d0-a0c7-4718-9949-553288811d98",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9824e15a-6146-4dc5-8719-d97d5c5815de",
+          "name": "Retrieve Group Details",
+          "request": {
+            "name": "Retrieve Group Details",
+            "description": {
+              "content": "Retrieves group details based on group id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0545191-dbbc-4ecc-8446-4b63b98d1e48",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"roleName\": \"<string>\",\n    \"roleDescription\": \"<string>\",\n    \"inheritedFrom\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"<uuid>\",\n    \"repositories\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"orgUnitId\": \"<uuid>\",\n    \"orgUnitName\": \"<string>\",\n    \"libraryName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"isDefaultGroup\": \"<boolean>\",\n    \"hasCategoryDenyPolicy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hasCategoryAllowPolicy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"occaecat6f\": {}\n    },\n    \"interpolations\": {\n      \"doloref22\": {},\n      \"incididuntb\": {},\n      \"quise8\": {},\n      \"ut87\": {}\n    }\n  },\n  {\n    \"roleName\": \"<string>\",\n    \"roleDescription\": \"<string>\",\n    \"inheritedFrom\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"<uuid>\",\n    \"repositories\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"orgUnitId\": \"<uuid>\",\n    \"orgUnitName\": \"<string>\",\n    \"libraryName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"isDefaultGroup\": \"<boolean>\",\n    \"hasCategoryDenyPolicy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hasCategoryAllowPolicy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"culpa_36\": {}\n    },\n    \"interpolations\": {\n      \"deserunt00f\": {},\n      \"mollita\": {},\n      \"Ut_f\": {},\n      \"elit_5\": {}\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e017e27-f38c-46c4-9f70-1b0288e52bbb",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a4cf43d-7474-4548-8b23-50b1e83f560d",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6b70df1-a053-4141-a4b2-81d66d62b34a",
+              "name": "An user group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50831b00-927e-4074-94de-3d19a5e2f16b",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bed70ed4-0856-40aa-8407-466afcb2cca6",
+          "name": "Retrieve Group Categories",
+          "request": {
+            "name": "Retrieve Group Categories",
+            "description": {
+              "content": "Retrieves list of categories based on the group id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups",
+                ":userGroupId",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userGroupId",
+                  "description": "(Required) userGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be96d2e2-6baf-41ca-ac63-b60b9a9411a6",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"categories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"watermarkedCategories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"permissionRestrictedCategories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolore_ff8\": {},\n    \"in8\": {},\n    \"mollitd4a\": {},\n    \"infff\": {},\n    \"amet_01\": {}\n  },\n  \"interpolations\": {\n    \"in8\": {},\n    \"eabad\": {},\n    \"aliquip_da4\": {}\n  },\n  \"permissions\": [\n    \"asset:createVideoClip\",\n    \"lightbox:transferOwnership\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22d24959-d7e5-4e89-b836-de54dfaff101",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4781620b-b2b9-4cd0-be65-cf7af94ecd3f",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdefbb7a-3d67-4e91-8360-5cef26448aa9",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a24bf3f4-118f-4f79-b3a4-842361f40b96",
+          "name": "Update Group With Patch Operations",
+          "request": {
+            "name": "Update Group With Patch Operations",
+            "description": {
+              "content": "Updates user group using a list of patch operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups",
+                ":userGroupId",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userGroupId",
+                  "description": "(Required) userGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "847472f1-fd68-4120-b2c6-7a6994196ac7",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"categories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"watermarkedCategories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"permissionRestrictedCategories\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parentId\": \"<uuid>\",\n      \"tree\": {\n        \"path\": \"<string>\",\n        \"name\": \"<string>\",\n        \"idPath\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"subfolderCount\": \"<integer>\",\n      \"hasDirectAccess\": \"<boolean>\",\n      \"permission\": \"<string>\",\n      \"inherited\": \"<boolean>\"\n    }\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolore_ff8\": {},\n    \"in8\": {},\n    \"mollitd4a\": {},\n    \"infff\": {},\n    \"amet_01\": {}\n  },\n  \"interpolations\": {\n    \"in8\": {},\n    \"eabad\": {},\n    \"aliquip_da4\": {}\n  },\n  \"permissions\": [\n    \"asset:createVideoClip\",\n    \"lightbox:transferOwnership\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7af7689d-1f6b-4480-aef7-8a0868128f3b",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3aa494ca-8ef6-4c28-8978-656984ec98c6",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9230f10f-462f-493e-a3e2-e89b09677fa7",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98f271cb-006e-4541-ba55-11e33a2da14b",
+              "name": "An user group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbc1ea41-2c4c-4cbd-a4cd-e5765121fc5a",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": {},\n    \"from\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0301679f-09e8-4898-8c89-7cac257f2c44",
+          "name": "Update Group",
+          "request": {
+            "name": "Update Group",
+            "description": {
+              "content": "Updates user group and gives/revokes permission to the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups",
+                ":userGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userGroupId",
+                  "description": "(Required) userGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": \"<object>\",\n    \"nostrud_4\": \"<object>\"\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": \"<object>\",\n    \"non4d\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de54ad87-fe78-446e-95f0-0af63665bb5e",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"isDefaultGroup\": \"<boolean>\",\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"dolor_b\": {},\n    \"proident_fb8\": {},\n    \"ullamco84d\": {}\n  },\n  \"interpolations\": {\n    \"aute_c\": {},\n    \"qui_b1\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e315094-8538-4f1f-a8f7-0362f4a440d0",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43480193-470e-4eae-86be-1923911a0819",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a9417a2-331e-41af-b31a-ccc3ba1fe0ae",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ff2f544-0515-41e4-9985-25c410a57ebb",
+              "name": "An user group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd2bda9a-e90e-4c8c-8b67-e88bcc02d1c7",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"roleDescription\": \"<string>\",\n  \"inheritedFrom\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<uuid>\",\n  \"repositories\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"orgUnitId\": \"<uuid>\",\n  \"orgUnitName\": \"<string>\",\n  \"libraryName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryDenyPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasCategoryAllowPolicy\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exf\": {},\n    \"nostrud_4\": {}\n  },\n  \"interpolations\": {\n    \"adipisicing_5\": {},\n    \"non4d\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ded4267-958c-47d1-b944-f5142679d63b",
+          "name": "Remove Group",
+          "request": {
+            "name": "Remove Group",
+            "description": {
+              "content": "Removes the user group and detaches its permissions from the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "groups",
+                ":userGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userGroupId",
+                  "description": "(Required) userGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4d36971-eff3-4da6-94e4-812c7fd6c763",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "547ab356-4d9b-4ba9-a213-50542ad07932",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "360f33e0-b1a1-480a-91fa-0e0f54f3be69",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4de0342-0dc7-483b-bbb8-e42d0db56e46",
+              "name": "Server refused the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8aa4ee64-c88d-44b7-8aa5-399c187565b0",
+              "name": "An user group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cee70465-ff55-43ed-ad71-80f619f13aac",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":userGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userGroupId",
+                      "description": "(Required) userGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b0bd7b3a-a2cd-473c-8997-e6c14e0b0e7d",
+    "name": "MediaValet UserGroups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

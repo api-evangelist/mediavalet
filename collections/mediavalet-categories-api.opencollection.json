@@ -1,0 +1,535 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Categories API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Folder Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/folders/:categoryId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns assets that belongs to the specified category."
+        },
+        {
+          "info": {
+            "name": "Retrieve Category Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns assets that belongs to the specified category."
+        },
+        {
+          "info": {
+            "name": "Retrieve Category Assets Basic Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryId/assets/basic",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns assets that belongs to the specified category."
+        },
+        {
+          "info": {
+            "name": "Retrieve Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of categories for the library."
+        },
+        {
+          "info": {
+            "name": "Create Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/categories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a category in the library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Root Sub Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/subcategories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryFeatures",
+                "value": "",
+                "type": "query",
+                "description": "categoryFeatures query parameter."
+              }
+            ]
+          },
+          "docs": "Returns the sub categories that belongs to the specified category."
+        },
+        {
+          "info": {
+            "name": "Retrieve Folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/folders/:categoryGuid",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryGuid",
+                "value": "",
+                "type": "path",
+                "description": "categoryGuid path parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns detailed information on a specific folders based on guid."
+        },
+        {
+          "info": {
+            "name": "Retrieve Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryGuid",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryGuid",
+                "value": "",
+                "type": "path",
+                "description": "categoryGuid path parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns detailed information on a specific category based on guid."
+        },
+        {
+          "info": {
+            "name": "Retrieve Root Folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/folders",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "includePinnedSearches",
+                "value": "",
+                "type": "query",
+                "description": "includePinnedSearches query parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of root folders for the library."
+        },
+        {
+          "info": {
+            "name": "Create Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/folders",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a folder in the library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Sub Folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/folders/:categoryGuid/subfolders",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryGuid",
+                "value": "",
+                "type": "path",
+                "description": "categoryGuid path parameter."
+              },
+              {
+                "name": "categoryFeatures",
+                "value": "",
+                "type": "query",
+                "description": "categoryFeatures query parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of subfolders based on parent category guid."
+        },
+        {
+          "info": {
+            "name": "Retrieve Sub Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryGuid/subcategories",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryGuid",
+                "value": "",
+                "type": "path",
+                "description": "categoryGuid path parameter."
+              },
+              {
+                "name": "categoryFeatures",
+                "value": "",
+                "type": "query",
+                "description": "categoryFeatures query parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of subcategories based on parent category guid."
+        },
+        {
+          "info": {
+            "name": "Create Permission Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/categories/permissionSets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a permission set in the library."
+        },
+        {
+          "info": {
+            "name": "Create User Group Association With Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/categories/:categoryId/userGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns the user group to a category."
+        },
+        {
+          "info": {
+            "name": "Update Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/folders/:categoryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a folder in a library by renaming or moving its parent category."
+        },
+        {
+          "info": {
+            "name": "Update Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/categories/:categoryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a category in a library by renaming or moving its parent category."
+        },
+        {
+          "info": {
+            "name": "Remove Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/categories/:categoryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Deletes a category in the library."
+        },
+        {
+          "info": {
+            "name": "Remove User Group From Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/categories/:categoryId/userGroups/:userGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path",
+                "description": "userGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Unassign the user group permissions from a category."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

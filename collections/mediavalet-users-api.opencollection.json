@@ -1,0 +1,435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Users API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves a collection of users details belonging to the library."
+        },
+        {
+          "info": {
+            "name": "Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/users",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new user in the library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/current",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves the user details for the current user in the request."
+        },
+        {
+          "info": {
+            "name": "Update Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/users/current",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the current user details with a list of patch operations."
+        },
+        {
+          "info": {
+            "name": "Retrieve User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/:userId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves the user details for a given user id."
+        },
+        {
+          "info": {
+            "name": "Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/users/:userId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the user details for a given user id."
+        },
+        {
+          "info": {
+            "name": "Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/users/:userId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the user details for a given user id with a list of patch operations."
+        },
+        {
+          "info": {
+            "name": "Remove User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/users/:userId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId path parameter."
+              }
+            ]
+          },
+          "docs": "Remove the given user id."
+        },
+        {
+          "info": {
+            "name": "Retrieve Approval Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/approvers",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves the approval users in the library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Custom Fields From User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/:id/customfields",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves the collection of custom fields from a given user."
+        },
+        {
+          "info": {
+            "name": "Retrieve Custom Fields From Library",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/registrationfields",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves all custom fields from current user's library."
+        },
+        {
+          "info": {
+            "name": "Create Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/users/registrationfields",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates custom fields in the current library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Current User Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/users/current/permissions",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves the user permission for the current user in the request."
+        },
+        {
+          "info": {
+            "name": "Retrieve Public Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:domainName/users/registrationfields",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "path",
+                "description": "domainName path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves the public custom fields for a given domain name."
+        },
+        {
+          "info": {
+            "name": "Create Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/:domainName/users/registrationfields",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "path",
+                "description": "domainName path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates custom fields for a given domain name."
+        },
+        {
+          "info": {
+            "name": "Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/:domainName/users",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "path",
+                "description": "domainName path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a a new user for a given domain name."
+        },
+        {
+          "info": {
+            "name": "Recover Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/users/recoverpassword",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Recovers the user password for a given username."
+        },
+        {
+          "info": {
+            "name": "Recover Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/users/recoverpassword/:token",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "token path parameter."
+              }
+            ]
+          },
+          "docs": "Defines a new user password."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

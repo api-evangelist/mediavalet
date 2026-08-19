@@ -1,0 +1,101 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE ("General Information > API
+  Versions" and "> Changelogs") + https://developer.mediavalet.com/plans +
+  probes of https://status.mediavalet.com/ and https://mediavalet.statuspage.io/
+docs: https://docs.mediavalet.com/
+description: >-
+  MediaValet publishes a real, explicit API versioning policy — including a written definition of
+  what counts as a breaking change — and has published exactly one field deprecation. It does NOT
+  publish a status page, an SLA, a sunset window, or RFC 8594 Sunset/Deprecation response headers.
+versioning:
+  published: true
+  style: request-header
+  header: x-mv-api-version
+  current: '1.2'
+  default: '1.0'
+  supported:
+  - '1.2'
+  - '1.1'
+  - '1.0'
+  policy_url: https://docs.mediavalet.com/
+  policy: >-
+    "Any breaking changes will be released in a new API version." MediaValet enumerates breaking
+    changes as: removing endpoints; removing or renaming fields; modifying request/response
+    semantics; removing or renaming parameters; authentication changes. Non-breaking: new endpoints,
+    fields or optional parameters; new query parameters or header values; hostname changes in
+    returned URLs; bug fixes; performance improvements.
+  version_negotiation: >-
+    Client-selected per request via the x-mv-api-version header; the processing version is echoed in
+    the response ApiVersion field. Omitting the header pins the caller to 1.0.
+  note: >-
+    Defaulting to the OLDEST version rather than the newest is unusual and is a real trap: a client
+    that never sets the header silently stays on 1.0 and will get 400s on features added in 1.1.
+deprecation:
+  policy_published: true
+  policy_url: https://docs.mediavalet.com/
+  policy: >-
+    Deprecations are announced in the versioned changelog under a "Deprecated" heading, with a
+    migration target named. MediaValet does not publish a fixed sunset window, a removal date, or
+    machine-readable deprecation signalling.
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated:
+  - item: AssetDto.stream
+    announced: '2024-05-22'
+    api_version: '1.1'
+    reason: Retirement of Azure Media Services (AMS) URLs.
+    replacement: AssetDto.streamingManifest
+    removal_date: null
+  - item: AssetDto.streamLoDef
+    announced: '2024-05-22'
+    api_version: '1.1'
+    reason: Retirement of Azure Media Services (AMS) URLs.
+    replacement: AssetDto.streamingManifest
+    removal_date: null
+  deprecated_operations_in_spec: 0
+  note: >-
+    No operation in the 312-operation derived contract carries `deprecated: true`. The only
+    published deprecations are the two AssetDto streaming fields above, announced in prose in the
+    changelog. MediaValet's guidance is to migrate "as soon as possible to ensure uninterrupted
+    functionality" — i.e. no guaranteed grace period.
+status_page:
+  published: false
+  url: null
+  evidence:
+  - url: https://status.mediavalet.com/
+    status: 403
+  - url: https://mediavalet.statuspage.io/
+    status: 200
+    note: Redirects to https://mediavalet.statuspage.io/inactive — the Statuspage instance is inactive.
+  note: >-
+    MediaValet has no public API status page. status.mediavalet.com answers 403 and the
+    corresponding Statuspage tenant reports itself inactive. No StatusPage pointer is emitted in
+    apis.yml — recording the absence rather than crediting a surface that is not served.
+sla:
+  published: false
+  note: >-
+    No public SLA or uptime commitment for the API. MediaValet markets "unlimited support"
+    (https://www.mediavalet.com/why-mediavalet/unlimited-support) and the Developer Portal Enterprise
+    plan promises "dedicated support from our expert team", but neither states an availability target
+    or credit regime. Contract terms are per-agreement.
+support:
+  email: support@mediavalet.com
+  help_center: https://support.mediavalet.com/hc/en-us
+  developer_support: https://developer.mediavalet.com/
+  note: API credentials (client_id, client_secret, redirect_uri) are provisioned by support, not self-service.
+changelog:
+  published: true
+  artifact: changelog/mediavalet-changelog.yml
+  url: https://docs.mediavalet.com/
+  feed: null
+roadmap:
+  published: false
+  note: No public API roadmap. MediaValet publishes product news at https://www.mediavalet.com/news but no forward-looking API plan.
+cross_references:
+  changelog: changelog/mediavalet-changelog.yml
+  conventions: conventions/mediavalet-conventions.yml
+  errors: errors/mediavalet-problem-types.yml
+checked: '2026-08-13'

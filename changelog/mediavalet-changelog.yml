@@ -1,0 +1,86 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE — MediaValet's published Postman
+  collection, "General Information > Changelogs".
+docs: https://docs.mediavalet.com/
+description: >-
+  MediaValet publishes a dated API changelog inside its API documentation, keyed to the REST API
+  version selected by the x-mv-api-version header. Entries are grouped Keep-a-Changelog style
+  (Changed / Added / Deprecated). There is no separate changelog host, no RSS/Atom feed, and no
+  per-release page URL — the changelog is a section of the documentation, so it cannot be watched
+  programmatically.
+scheme: api-version
+current_version: '1.2'
+default_version: '1.0'
+supported_versions:
+- '1.2'
+- '1.1'
+- '1.0'
+feed: null
+watchable: false
+entry_count: 4
+entries:
+- version: '1.2'
+  date: '2025-06-13'
+  breaking: true
+  changed:
+  - >-
+    AssetDto: consolidated permissions structure to match other resources — now returns an array of
+    Permissions.
+  - >-
+    All endpoints: now return 403 Forbidden instead of 401 Unauthorized when the user is
+    authenticated but lacks permission to perform an action (authorization failure).
+  highlights: >-
+    Two changes an integration will feel. The permissions field on AssetDto changed shape, and the
+    status code for an authorization failure moved from 401 to 403 — client code that branched on
+    401 to trigger a token refresh will now mis-handle a permission error on 1.2.
+- version: '1.1'
+  date: '2024-05-22'
+  breaking: false
+  deprecated:
+  - >-
+    stream and streamLoDef in AssetDto — deprecated due to the retirement of Azure Media Services
+    (AMS) URLs in favour of streamingManifest. "Users are encouraged to migrate to the new fields as
+    soon as possible to ensure uninterrupted functionality."
+  added:
+  - 'streamingManifest in AssetDto: URI for the streaming manifest file.'
+  - 'fullStreamAvailable in AssetDto: used to determine the availability of different stream qualities.'
+  highlights: >-
+    The only explicit field deprecation MediaValet has published. Driven by an upstream Azure
+    platform retirement rather than an API redesign.
+- version: '1.1'
+  date: '2024-03-06'
+  breaking: false
+  changed:
+  - 'GET /attributes/: includes attributes of type Status.'
+  - 'GET /attributes/{attributeId}: retrieves attributes of type Status.'
+  - 'GET /attributes/attributeDataType: returns new data type Status.'
+  - 'PATCH /assets/{assetId}: handles the new Status type attribute.'
+  - >-
+    POST /attributes: accepts attributes of type Status. Submitting requests with attributes of type
+    Status against previous API versions will lead to 400 (Bad Request) errors.
+  - >-
+    PUT /attributes/{attributeId}: accepts attributes of type Status. Submitting requests with
+    attributes of type Status against previous API versions will lead to 400 (Bad Request) errors.
+  highlights: >-
+    Introduces the Status attribute data type. Additive on 1.1, but a 400 on 1.0 — a client that
+    omits x-mv-api-version and therefore defaults to 1.0 will fail on any Status attribute.
+- version: '1.0'
+  date: null
+  breaking: false
+  added:
+  - Initial release of the API.
+  highlights: The baseline version, and still the default when x-mv-api-version is not sent.
+notes:
+- >-
+  MediaValet advises reviewing the changelog before adopting a new version via the x-mv-api-version
+  header: "This will help you understand the changes in the version, allowing you to ensure the
+  compatibility of your existing code."
+- >-
+  The 1.1 entries are dated out of order in the source (2024-03-06 appears above 2024-05-22 under
+  the same version heading); both are reproduced here with their published dates.
+sources:
+- https://docs.mediavalet.com/
+- https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE
+checked: '2026-08-13'

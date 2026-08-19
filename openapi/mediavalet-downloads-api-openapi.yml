@@ -1,0 +1,1193 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Downloads API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Downloads
+  description: Asset download requests, packaging and download presets.
+paths:
+  /downloads:
+    get:
+      operationId: retrieveDownloads
+      summary: Retrieve Downloads
+      description: Returns a collection of all downloads.
+      tags:
+      - Downloads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hash:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        createdDateTime:
+                          type: string
+                          format: date-time
+                        fileName:
+                          type: string
+                        filePath:
+                          type: string
+                        fileSize:
+                          type: integer
+                        itemCount:
+                          type: integer
+                        processedCount:
+                          type: integer
+                        status:
+                          type: string
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            mollit44f:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            consequat78:
+                              type: object
+                            do484:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      enim_ad0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ullamco_9:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                hash: <string>
+                data:
+                - id: <uuid>
+                  createdDateTime: <dateTime>
+                  fileName: <string>
+                  filePath: <string>
+                  fileSize: <long>
+                  itemCount: <integer>
+                  processedCount: <integer>
+                  status: <string>
+                  _links:
+                    self: <string>
+                    functions:
+                    - <string>
+                    - <string>
+                  translationKeys:
+                    mollit44f: {}
+                  interpolations:
+                    consequat78: {}
+                    do484: {}
+                  permissions:
+                  - asset:shareAsCdnLink
+                  - lightbox:editDetails
+                - id: <uuid>
+                  createdDateTime: <dateTime>
+                  fileName: <string>
+                  filePath: <string>
+                  fileSize: <long>
+                  itemCount: <integer>
+                  processedCount: <integer>
+                  status: <string>
+                  _links:
+                    self: <string>
+                    functions:
+                    - <string>
+                    - <string>
+                  translationKeys:
+                    eiusmod_7a: {}
+                  interpolations:
+                    dolor_f: {}
+                    anim405: {}
+                    voluptate_52: {}
+                    incididunta: {}
+                    cupidatat99: {}
+                  permissions:
+                  - asset:downloadFromPortal
+                  - asset:createVideoClip
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  enim_ad0: {}
+                interpolations:
+                  ullamco_9: {}
+                permissions:
+                - user:editEmail
+                - asset:shareAsZippedFile
+        '401':
+          description: The request failed because of a problem on the server.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createDownloadById
+      summary: Create Download By Id
+      description: Creates a new download.
+      tags:
+      - Downloads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attributeIdValues:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      fieldId:
+                        type: string
+                        format: uuid
+                      value:
+                        type: string
+                downloadSettingsPostDetail:
+                  type: object
+                  properties:
+                    allowsAssetDownload:
+                      type: boolean
+                    images:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                        dimensions:
+                          type: object
+                          properties:
+                            width:
+                              type: integer
+                            height:
+                              type: integer
+                            customDimensions:
+                              type: boolean
+                        spectrum:
+                          type: string
+                        resolution:
+                          type: string
+                        addWatermark:
+                          type: boolean
+                        watermarkUrl:
+                          type: string
+                        includeContactSheet:
+                          type: boolean
+                        contactSheet:
+                          type: object
+                          properties:
+                            rows:
+                              type: integer
+                            cols:
+                              type: integer
+                            logoBlobUrl:
+                              type: string
+                        renditionType:
+                          type: string
+                    videos:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                        dimensions:
+                          type: object
+                          properties:
+                            width:
+                              type: integer
+                            height:
+                              type: integer
+                            customDimensions:
+                              type: boolean
+                        renditionType:
+                          type: string
+                    audio:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        quality:
+                          type: object
+                          properties:
+                            value:
+                              type: integer
+                            unit:
+                              type: string
+                        format:
+                          type: string
+                    documents:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                    csvFormat:
+                      type: boolean
+                    csvFileName:
+                      type: string
+                    zipFileName:
+                      type: string
+                    ids:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+            example:
+              attributeIdValues:
+              - fieldId: <uuid>
+                value: <string>
+              - fieldId: <uuid>
+                value: <string>
+              downloadSettingsPostDetail:
+                allowsAssetDownload: <boolean>
+                images:
+                  shareOriginals: <boolean>
+                  format: <string>
+                  dimensions:
+                    width: <integer>
+                    height: <integer>
+                    customDimensions: <boolean>
+                  spectrum: SRgb
+                  resolution: Unknown
+                  addWatermark: <boolean>
+                  watermarkUrl: <string>
+                  includeContactSheet: <boolean>
+                  contactSheet:
+                    rows: <integer>
+                    cols: <integer>
+                    logoBlobUrl: <string>
+                  renditionType: Original
+                videos:
+                  shareOriginals: <boolean>
+                  format: Mov
+                  dimensions:
+                    width: <integer>
+                    height: <integer>
+                    customDimensions: <boolean>
+                  renditionType: HighDefinition
+                audio:
+                  shareOriginals: <boolean>
+                  quality:
+                    value: <integer>
+                    unit: <string>
+                  format: Mp4
+                documents:
+                  shareOriginals: <boolean>
+                  format: Originals
+                csvFormat: <boolean>
+                csvFileName: <string>
+                zipFileName: <string>
+                ids:
+                - <uuid>
+                - <uuid>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  batchId:
+                    type: string
+                    format: uuid
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      ullamco_f_3:
+                        type: object
+                      occaecat_192:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      consectetur_4:
+                        type: object
+                      dolore_f5:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                batchId: <uuid>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ullamco_f_3: {}
+                  occaecat_192: {}
+                interpolations:
+                  consectetur_4: {}
+                  dolore_f5: {}
+                permissions:
+                - asset:downloadFromMvd
+                - asset:assignCategory
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /downloads/{id}:
+    get:
+      operationId: retrieveDownloadDetailedInformation
+      summary: Retrieve Download Detailed Information
+      description: Retrieve detailed information for a specific download.
+      tags:
+      - Downloads
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  createdDateTime:
+                    type: string
+                    format: date-time
+                  fileName:
+                    type: string
+                  filePath:
+                    type: string
+                  fileSize:
+                    type: integer
+                  itemCount:
+                    type: integer
+                  processedCount:
+                    type: integer
+                  status:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      exercitation6:
+                        type: object
+                      nulla_bf9:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      est_c79:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                createdDateTime: <dateTime>
+                fileName: <string>
+                filePath: <string>
+                fileSize: <long>
+                itemCount: <integer>
+                processedCount: <integer>
+                status: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  exercitation6: {}
+                  nulla_bf9: {}
+                interpolations:
+                  est_c79: {}
+                permissions:
+                - lightbox:transferOwnership
+                - asset:createVideoClip
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The download was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createANewDownloadById
+      summary: Create A New Download By Id
+      description: Creates a new download by id.
+      tags:
+      - Downloads
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attributeIdValues:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      fieldId:
+                        type: string
+                        format: uuid
+                      value:
+                        type: string
+                downloadSettingsPostDetail:
+                  type: object
+                  properties:
+                    allowsAssetDownload:
+                      type: boolean
+                    images:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                        dimensions:
+                          type: object
+                          properties:
+                            width:
+                              type: integer
+                            height:
+                              type: integer
+                            customDimensions:
+                              type: boolean
+                        spectrum:
+                          type: string
+                        resolution:
+                          type: string
+                        addWatermark:
+                          type: boolean
+                        watermarkUrl:
+                          type: string
+                        includeContactSheet:
+                          type: boolean
+                        contactSheet:
+                          type: object
+                          properties:
+                            rows:
+                              type: integer
+                            cols:
+                              type: integer
+                            logoBlobUrl:
+                              type: string
+                        renditionType:
+                          type: string
+                    videos:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                        dimensions:
+                          type: object
+                          properties:
+                            width:
+                              type: integer
+                            height:
+                              type: integer
+                            customDimensions:
+                              type: boolean
+                        renditionType:
+                          type: string
+                    audio:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        quality:
+                          type: object
+                          properties:
+                            value:
+                              type: integer
+                            unit:
+                              type: string
+                        format:
+                          type: string
+                    documents:
+                      type: object
+                      properties:
+                        shareOriginals:
+                          type: boolean
+                        format:
+                          type: string
+                    csvFormat:
+                      type: boolean
+                    csvFileName:
+                      type: string
+                    zipFileName:
+                      type: string
+                    ids:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+            example:
+              attributeIdValues:
+              - fieldId: <uuid>
+                value: <string>
+              - fieldId: <uuid>
+                value: <string>
+              downloadSettingsPostDetail:
+                allowsAssetDownload: <boolean>
+                images:
+                  shareOriginals: <boolean>
+                  format: <string>
+                  dimensions:
+                    width: <integer>
+                    height: <integer>
+                    customDimensions: <boolean>
+                  spectrum: SRgb
+                  resolution: Unknown
+                  addWatermark: <boolean>
+                  watermarkUrl: <string>
+                  includeContactSheet: <boolean>
+                  contactSheet:
+                    rows: <integer>
+                    cols: <integer>
+                    logoBlobUrl: <string>
+                  renditionType: Original
+                videos:
+                  shareOriginals: <boolean>
+                  format: Mov
+                  dimensions:
+                    width: <integer>
+                    height: <integer>
+                    customDimensions: <boolean>
+                  renditionType: HighDefinition
+                audio:
+                  shareOriginals: <boolean>
+                  quality:
+                    value: <integer>
+                    unit: <string>
+                  format: Mp4
+                documents:
+                  shareOriginals: <boolean>
+                  format: Originals
+                csvFormat: <boolean>
+                csvFileName: <string>
+                zipFileName: <string>
+                ids:
+                - <uuid>
+                - <uuid>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  sasUrl:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        fieldId:
+                          type: string
+                          format: uuid
+                        message:
+                          type: string
+              example:
+                id: <uuid>
+                sasUrl: <string>
+                errors:
+                - fieldId: <uuid>
+                  message: <string>
+                - fieldId: <uuid>
+                  message: <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    delete:
+      operationId: removeDownload
+      summary: Remove Download
+      description: Remove a specific download by download id.
+      tags:
+      - Downloads
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The download was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /downloads/assets:
+    post:
+      operationId: downloadsGetImmediateDownloadAsync
+      summary: Downloads Get Immediate Download Async
+      tags:
+      - Downloads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                downloadStartedAt:
+                  type: string
+                  format: date-time
+                assetIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+            example:
+              downloadStartedAt: <dateTime>
+              assetIds:
+              - <uuid>
+              - <uuid>
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /downloads/validate:
+    post:
+      operationId: validateDownload
+      summary: Validate Download
+      description: Validate a download.
+      tags:
+      - Downloads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isDirectDownload:
+                  type: boolean
+            example:
+              isDirectDownload: <boolean>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  downloadId:
+                    type: string
+                    format: uuid
+                  downloadLink:
+                    type: string
+                  preconditions:
+                    type: array
+                    items:
+                      type: string
+                  settings:
+                    type: array
+                    items:
+                      type: string
+                  customFormDetails:
+                    type: object
+                    properties:
+                      fieldGroups:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            groupId:
+                              type: string
+                              format: uuid
+                            groupName:
+                              type: string
+                            fields:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    format: uuid
+                                  label:
+                                    type: string
+                                  type:
+                                    type: string
+                                  isRequired:
+                                    type: boolean
+                                  sequence:
+                                    type: integer
+                                  description:
+                                    type: string
+                                  listItems:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                            defaultAction:
+                              type: integer
+                      dependencies:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            dependentGroupId:
+                              type: string
+                              format: uuid
+                            dependsOnFieldId:
+                              type: string
+                              format: uuid
+                            dependsOnFieldValue:
+                              type: string
+                            ruleCondition:
+                              type: integer
+                            action:
+                              type: integer
+              example:
+                downloadId: <uuid>
+                downloadLink: <string>
+                preconditions:
+                - <string>
+                - <string>
+                settings:
+                - <string>
+                - <string>
+                customFormDetails:
+                  fieldGroups:
+                  - groupId: <uuid>
+                    groupName: <string>
+                    fields:
+                    - id: <uuid>
+                      label: <string>
+                      type: <string>
+                      isRequired: <boolean>
+                      sequence: <integer>
+                      description: <string>
+                      listItems:
+                      - label: <string>
+                        value: <string>
+                      - label: <string>
+                        value: <string>
+                    - id: <uuid>
+                      label: <string>
+                      type: <string>
+                      isRequired: <boolean>
+                      sequence: <integer>
+                      description: <string>
+                      listItems:
+                      - label: <string>
+                        value: <string>
+                      - label: <string>
+                        value: <string>
+                    defaultAction: <integer>
+                  - groupId: <uuid>
+                    groupName: <string>
+                    fields:
+                    - id: <uuid>
+                      label: <string>
+                      type: <string>
+                      isRequired: <boolean>
+                      sequence: <integer>
+                      description: <string>
+                      listItems:
+                      - label: <string>
+                        value: <string>
+                      - label: <string>
+                        value: <string>
+                    - id: <uuid>
+                      label: <string>
+                      type: <string>
+                      isRequired: <boolean>
+                      sequence: <integer>
+                      description: <string>
+                      listItems:
+                      - label: <string>
+                        value: <string>
+                      - label: <string>
+                        value: <string>
+                    defaultAction: <integer>
+                  dependencies:
+                  - dependentGroupId: <uuid>
+                    dependsOnFieldId: <uuid>
+                    dependsOnFieldValue: <string>
+                    ruleCondition: <integer>
+                    action: <integer>
+                  - dependentGroupId: <uuid>
+                    dependsOnFieldId: <uuid>
+                    dependsOnFieldValue: <string>
+                    ruleCondition: <integer>
+                    action: <integer>
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /downloads/asseturls:
+    post:
+      operationId: downloadsGetAssetUrlsForDownloadAsync
+      summary: Downloads Get Asset Urls For Download Async
+      tags:
+      - Downloads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                downloadStartedAt:
+                  type: string
+                  format: date-time
+                assetIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+            example:
+              downloadStartedAt: <dateTime>
+              assetIds:
+              - <uuid>
+              - <uuid>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fileName:
+                    type: string
+                  assetDownloadUrls:
+                    type: array
+                    items:
+                      type: string
+              example:
+                fileName: <string>
+                assetDownloadUrls:
+                - <string>
+                - <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /downloads/{id}/asset:
+    post:
+      operationId: createSingleAssetDownload
+      summary: Create Single Asset Download
+      description: Create a single asset download by id.
+      tags:
+      - Downloads
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attributeIdValues:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      fieldId:
+                        type: string
+                        format: uuid
+                      value:
+                        type: string
+                assetId:
+                  type: string
+                  format: uuid
+            example:
+              attributeIdValues:
+              - fieldId: <uuid>
+                value: <string>
+              - fieldId: <uuid>
+                value: <string>
+              assetId: <uuid>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  sasUrl:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        fieldId:
+                          type: string
+                          format: uuid
+                        message:
+                          type: string
+              example:
+                id: <uuid>
+                sasUrl: <string>
+                errors:
+                - fieldId: <uuid>
+                  message: <string>
+                - fieldId: <uuid>
+                  message: <string>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

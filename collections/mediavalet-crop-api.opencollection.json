@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Crop API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crop",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Crop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/crop/:cropId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "cropId",
+                "value": "",
+                "type": "path",
+                "description": "cropId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve the crop image url."
+        },
+        {
+          "info": {
+            "name": "Retrieve Crop Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/crop/templates",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieve crop templates."
+        },
+        {
+          "info": {
+            "name": "Create Crop Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/crop/templates",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create crop template."
+        },
+        {
+          "info": {
+            "name": "Retrieve Predefined Crop Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/crop/predefinedTemplates",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieve predefined crop templates."
+        },
+        {
+          "info": {
+            "name": "Update Crop Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/crop/templates/:cropTemplateId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "cropTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "cropTemplateId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update crop template."
+        },
+        {
+          "info": {
+            "name": "Remove Crop Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/crop/templates/:cropTemplateId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "cropTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "cropTemplateId path parameter."
+              }
+            ]
+          },
+          "docs": "Remove crop template."
+        },
+        {
+          "info": {
+            "name": "Create Crop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/crop/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a crop image for an asset."
+        },
+        {
+          "info": {
+            "name": "Create Crop From Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/cropWithTemplate/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a crop image for an asset using a crop template."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

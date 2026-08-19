@@ -1,0 +1,1012 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Authorization API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Authorization
+  description: Authorization and permission checks.
+paths:
+  /authorization/policies:
+    get:
+      operationId: returnAllPoliciesForALibraryBasedOnAuthenticatedUser
+      summary: Return all policies for a library based on authenticated User.
+      tags:
+      - Authorization
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    policyId:
+                      type: integer
+                    subject:
+                      type: object
+                      properties:
+                        subjectId:
+                          type: string
+                        subjectType:
+                          type: string
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    resource:
+                      type: object
+                      properties:
+                        resourceId:
+                          type: string
+                        resourceType:
+                          type: string
+                        predicate:
+                          type: object
+                          properties:
+                            predicateType:
+                              type: string
+                            predicateId:
+                              type: string
+                            predicateValues:
+                              type: string
+                            _links:
+                              type: object
+                              properties:
+                                self:
+                                  type: string
+                                functions:
+                                  type: array
+                                  items:
+                                    type: string
+                            translationKeys:
+                              type: object
+                              properties:
+                                key_0:
+                                  type: object
+                                key_1:
+                                  type: object
+                                key_2:
+                                  type: object
+                            interpolations:
+                              type: object
+                              properties:
+                                key_0:
+                                  type: object
+                                key_1:
+                                  type: object
+                            permissions:
+                              type: array
+                              items:
+                                type: string
+                        inherited:
+                          type: boolean
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                            key_2:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    grant:
+                      type: object
+                      properties:
+                        grantType:
+                          type: string
+                        grantName:
+                          type: string
+                        allowed:
+                          type: boolean
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - policyId: 2604
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - asset:downloadFromMvd
+                  - lightbox:assignAsset
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                    _links:
+                      self: string
+                      functions:
+                      - string
+                      - string
+                    translationKeys:
+                      key_0: {}
+                      key_1: {}
+                      key_2: {}
+                    interpolations:
+                      key_0: {}
+                      key_1: {}
+                    permissions:
+                    - lightbox:assignAsset
+                    - asset:shareAsCdnLink
+                  inherited: false
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - lightbox:viewAsset
+                  - asset:shareAsWebGallery
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: true
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                    key_1: {}
+                  permissions:
+                  - asset:downloadFromPortal
+                  - asset:shareAsWebGallery
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:createVideoClip
+              - policyId: 7857
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - attributeGroup:viewAttribute
+                  - asset:shareAsZippedFile
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                    _links:
+                      self: string
+                      functions:
+                      - string
+                      - string
+                    translationKeys:
+                      key_0: {}
+                      key_1: {}
+                      key_2: {}
+                      key_3: {}
+                      key_4: {}
+                    interpolations:
+                      key_0: {}
+                      key_1: {}
+                    permissions:
+                    - asset:shareAsWebGallery
+                    - asset:downloadFromPortal
+                  inherited: true
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                  interpolations:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                    key_3: {}
+                  permissions:
+                  - asset:shareAsWebGallery
+                  - asset:shareAsLightbox
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: false
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - asset:shareAsLightbox
+                  - asset:shareAsLink
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:downloadFromMvd
+    post:
+      operationId: createOrRemovePolicies
+      summary: Create or remove policies.
+      tags:
+      - Authorization
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                policyUpdateRequestId:
+                  type: integer
+                reasonForChange:
+                  type: string
+                addedPolicies:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      policyId:
+                        type: integer
+                      subject:
+                        type: object
+                        properties:
+                          subjectId:
+                            type: string
+                          subjectType:
+                            type: string
+                      resource:
+                        type: object
+                        properties:
+                          resourceId:
+                            type: string
+                          resourceType:
+                            type: string
+                          predicate:
+                            type: object
+                            properties:
+                              predicateType:
+                                type: string
+                              predicateId:
+                                type: string
+                              predicateValues:
+                                type: string
+                          inherited:
+                            type: boolean
+                      grant:
+                        type: object
+                        properties:
+                          grantType:
+                            type: string
+                          grantName:
+                            type: string
+                          allowed:
+                            type: boolean
+                removedPolicies:
+                  type: array
+                  items:
+                    type: integer
+                notification:
+                  type: object
+                  properties:
+                    entityIds:
+                      type: array
+                      items:
+                        type: string
+                    notificationEntityType:
+                      type: string
+                    userGroups:
+                      type: array
+                      items:
+                        type: string
+                    users:
+                      type: array
+                      items:
+                        type: string
+                    userEmails:
+                      type: array
+                      items:
+                        type: string
+                    message:
+                      type: string
+            example:
+              policyUpdateRequestId: 4147
+              reasonForChange: string
+              addedPolicies:
+              - policyId: 6746
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                  inherited: true
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: false
+              - policyId: 6729
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                  inherited: true
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: false
+              removedPolicies:
+              - 3541
+              - 2305
+              notification:
+                entityIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                notificationEntityType: CategoryCreation
+                userGroups:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                users:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                userEmails:
+                - string
+                - string
+                message: string
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    policyId:
+                      type: integer
+                    subject:
+                      type: object
+                      properties:
+                        subjectId:
+                          type: string
+                        subjectType:
+                          type: string
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    resource:
+                      type: object
+                      properties:
+                        resourceId:
+                          type: string
+                        resourceType:
+                          type: string
+                        predicate:
+                          type: object
+                          properties:
+                            predicateType:
+                              type: string
+                            predicateId:
+                              type: string
+                            predicateValues:
+                              type: string
+                            _links:
+                              type: object
+                              properties:
+                                self:
+                                  type: string
+                                functions:
+                                  type: array
+                                  items:
+                                    type: string
+                            translationKeys:
+                              type: object
+                              properties:
+                                key_0:
+                                  type: object
+                                key_1:
+                                  type: object
+                                key_2:
+                                  type: object
+                            interpolations:
+                              type: object
+                              properties:
+                                key_0:
+                                  type: object
+                                key_1:
+                                  type: object
+                            permissions:
+                              type: array
+                              items:
+                                type: string
+                        inherited:
+                          type: boolean
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                            key_2:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    grant:
+                      type: object
+                      properties:
+                        grantType:
+                          type: string
+                        grantName:
+                          type: string
+                        allowed:
+                          type: boolean
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: string
+                            functions:
+                              type: array
+                              items:
+                                type: string
+                        translationKeys:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                        interpolations:
+                          type: object
+                          properties:
+                            key_0:
+                              type: object
+                            key_1:
+                              type: object
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - policyId: 2604
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - asset:downloadFromMvd
+                  - lightbox:assignAsset
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                    _links:
+                      self: string
+                      functions:
+                      - string
+                      - string
+                    translationKeys:
+                      key_0: {}
+                      key_1: {}
+                      key_2: {}
+                    interpolations:
+                      key_0: {}
+                      key_1: {}
+                    permissions:
+                    - lightbox:assignAsset
+                    - asset:shareAsCdnLink
+                  inherited: false
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - lightbox:viewAsset
+                  - asset:shareAsWebGallery
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: true
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                    key_1: {}
+                  permissions:
+                  - asset:downloadFromPortal
+                  - asset:shareAsWebGallery
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:createVideoClip
+              - policyId: 7857
+                subject:
+                  subjectId: 00000000-0000-0000-0000-000000000000
+                  subjectType: string
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - attributeGroup:viewAttribute
+                  - asset:shareAsZippedFile
+                resource:
+                  resourceId: 00000000-0000-0000-0000-000000000000
+                  resourceType: string
+                  predicate:
+                    predicateType: string
+                    predicateId: 00000000-0000-0000-0000-000000000000
+                    predicateValues: string
+                    _links:
+                      self: string
+                      functions:
+                      - string
+                      - string
+                    translationKeys:
+                      key_0: {}
+                      key_1: {}
+                      key_2: {}
+                      key_3: {}
+                      key_4: {}
+                    interpolations:
+                      key_0: {}
+                      key_1: {}
+                    permissions:
+                    - asset:shareAsWebGallery
+                    - asset:downloadFromPortal
+                  inherited: true
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                  interpolations:
+                    key_0: {}
+                    key_1: {}
+                    key_2: {}
+                    key_3: {}
+                  permissions:
+                  - asset:shareAsWebGallery
+                  - asset:shareAsLightbox
+                grant:
+                  grantType: string
+                  grantName: string
+                  allowed: false
+                  _links:
+                    self: string
+                    functions:
+                    - string
+                    - string
+                  translationKeys:
+                    key_0: {}
+                    key_1: {}
+                  interpolations:
+                    key_0: {}
+                  permissions:
+                  - asset:shareAsLightbox
+                  - asset:shareAsLink
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:downloadFromMvd
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '500':
+          description: The request failed because of a problem on the server.
+  /authorization/resources/{resourceType}/ids:
+    get:
+      operationId: getAllResourcesThatHaveAtLeastOneExplicitPolicyDefined
+      summary: Get all resources that have at least one explicit policy defined
+      tags:
+      - Authorization
+      parameters:
+      - name: resourceType
+        in: path
+        required: true
+        description: resourceType path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resourcetype:
+                    type: string
+                  resourceids:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                      key_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                resourcetype: BrandedPortal
+                resourceids:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:downloadFromPortal
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

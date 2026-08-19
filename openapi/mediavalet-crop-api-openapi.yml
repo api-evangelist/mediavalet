@@ -1,0 +1,852 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Crop API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Crop
+  description: Server-side cropping and derivative generation.
+paths:
+  /crop/{cropId}:
+    get:
+      operationId: retrieveCrop
+      summary: Retrieve Crop
+      description: Retrieve the crop image url.
+      tags:
+      - Crop
+      parameters:
+      - name: cropId
+        in: path
+        required: true
+        description: cropId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  croppedImageUrl:
+                    type: string
+                  CropId:
+                    type: string
+                    format: uuid
+                  AssetId:
+                    type: string
+                    format: uuid
+                  CreatedDateTime:
+                    type: string
+                    format: date-time
+                  Height:
+                    type: integer
+                  Width:
+                    type: integer
+                  TemplateName:
+                    type: string
+                  Ratio:
+                    type: string
+                  TemplateId:
+                    type: string
+                    format: uuid
+              example:
+                croppedImageUrl: <string>
+                CropId: <uuid>
+                AssetId: <uuid>
+                CreatedDateTime: <dateTime>
+                Height: <integer>
+                Width: <integer>
+                TemplateName: <string>
+                Ratio: <string>
+                TemplateId: <uuid>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The crop was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /crop/templates:
+    get:
+      operationId: retrieveCropTemplates
+      summary: Retrieve Crop Templates
+      description: Retrieve crop templates.
+      tags:
+      - Crop
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    type:
+                      type: string
+                    x:
+                      type: integer
+                    y:
+                      type: integer
+                    isPredefined:
+                      type: boolean
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        elit_7d:
+                          type: object
+                        culpa_379:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        minim_d5:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                name: <string>
+                type: Ratio
+                x: <integer>
+                y: <integer>
+                isPredefined: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  elit_7d: {}
+                  culpa_379: {}
+                interpolations:
+                  minim_d5: {}
+                permissions:
+                - asset:createImageCrop
+                - lightbox:assignAsset
+              - id: <uuid>
+                name: <string>
+                type: Ratio
+                x: <integer>
+                y: <integer>
+                isPredefined: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  qui_17_: {}
+                interpolations:
+                  deserunt_1d3: {}
+                  ut_71f: {}
+                  ex_3: {}
+                  enim_d: {}
+                permissions:
+                - None
+                - lightbox:editDetails
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createCropTemplate
+      summary: Create Crop Template
+      description: Create crop template.
+      tags:
+      - Crop
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                type:
+                  type: string
+                x:
+                  type: integer
+                y:
+                  type: integer
+                isPredefined:
+                  type: boolean
+                _links:
+                  type: object
+                  properties:
+                    self:
+                      type: string
+                    functions:
+                      type: array
+                      items:
+                        type: string
+                translationKeys:
+                  type: object
+                  properties:
+                    sed_02:
+                      type: object
+                    officia6_:
+                      type: object
+                interpolations:
+                  type: object
+                  properties:
+                    dolordff:
+                      type: object
+                    voluptate06d:
+                      type: object
+                permissions:
+                  type: array
+                  items:
+                    type: string
+            example:
+              id: <uuid>
+              name: <string>
+              type: Ratio
+              x: <integer>
+              y: <integer>
+              isPredefined: <boolean>
+              _links:
+                self: <string>
+                functions:
+                - <string>
+                - <string>
+              translationKeys:
+                sed_02: {}
+                officia6_: {}
+              interpolations:
+                dolordff: {}
+                voluptate06d: {}
+              permissions:
+              - asset:shareAsZippedFile
+              - lightbox:assignAsset
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '201':
+          description: The crop template was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  isPredefined:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      sed_02:
+                        type: object
+                      officia6_:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      dolordff:
+                        type: object
+                      voluptate06d:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                type: Ratio
+                x: <integer>
+                y: <integer>
+                isPredefined: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  sed_02: {}
+                  officia6_: {}
+                interpolations:
+                  dolordff: {}
+                  voluptate06d: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - lightbox:assignAsset
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The crop template was not found.
+        '409':
+          description: Crop template with the same id or the same name, x and y already exists.
+        '500':
+          description: The request failed because of a problem on the server.
+  /crop/predefinedTemplates:
+    get:
+      operationId: retrievePredefinedCropTemplates
+      summary: Retrieve Predefined Crop Templates
+      description: Retrieve predefined crop templates.
+      tags:
+      - Crop
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    type:
+                      type: string
+                    x:
+                      type: integer
+                    y:
+                      type: integer
+                    isAddedToCustomTemplates:
+                      type: boolean
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        aliquipbc:
+                          type: object
+                        minima:
+                          type: object
+                        aliqua_32:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        consectetur09_:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                name: <string>
+                type: Dimension
+                x: <integer>
+                y: <integer>
+                isAddedToCustomTemplates: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  aliquipbc: {}
+                  minima: {}
+                  aliqua_32: {}
+                interpolations:
+                  consectetur09_: {}
+                permissions:
+                - asset:downloadFromMvd
+                - lightbox:viewAsset
+              - id: <uuid>
+                name: <string>
+                type: Ratio
+                x: <integer>
+                y: <integer>
+                isAddedToCustomTemplates: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  magnaf7: {}
+                interpolations:
+                  tempor8_: {}
+                permissions:
+                - asset:downloadFromPortal
+                - asset:shareAsBrandedPortal
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /crop/templates/{cropTemplateId}:
+    put:
+      operationId: updateCropTemplate
+      summary: Update Crop Template
+      description: Update crop template.
+      tags:
+      - Crop
+      parameters:
+      - name: cropTemplateId
+        in: path
+        required: true
+        description: cropTemplateId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                type:
+                  type: string
+                x:
+                  type: integer
+                y:
+                  type: integer
+                isPredefined:
+                  type: boolean
+                _links:
+                  type: object
+                  properties:
+                    self:
+                      type: string
+                    functions:
+                      type: array
+                      items:
+                        type: string
+                translationKeys:
+                  type: object
+                  properties:
+                    sed_02:
+                      type: object
+                    officia6_:
+                      type: object
+                interpolations:
+                  type: object
+                  properties:
+                    dolordff:
+                      type: object
+                    voluptate06d:
+                      type: object
+                permissions:
+                  type: array
+                  items:
+                    type: string
+            example:
+              id: <uuid>
+              name: <string>
+              type: Ratio
+              x: <integer>
+              y: <integer>
+              isPredefined: <boolean>
+              _links:
+                self: <string>
+                functions:
+                - <string>
+                - <string>
+              translationKeys:
+                sed_02: {}
+                officia6_: {}
+              interpolations:
+                dolordff: {}
+                voluptate06d: {}
+              permissions:
+              - asset:shareAsZippedFile
+              - lightbox:assignAsset
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  isPredefined:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      sed_02:
+                        type: object
+                      officia6_:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      dolordff:
+                        type: object
+                      voluptate06d:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                type: Ratio
+                x: <integer>
+                y: <integer>
+                isPredefined: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  sed_02: {}
+                  officia6_: {}
+                interpolations:
+                  dolordff: {}
+                  voluptate06d: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - lightbox:assignAsset
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The crop template was not found.
+        '409':
+          description: Crop template with the same id or the same name, x and y already exists.
+        '500':
+          description: The request failed because of a problem on the server.
+    delete:
+      operationId: removeCropTemplate
+      summary: Remove Crop Template
+      description: Remove crop template.
+      tags:
+      - Crop
+      parameters:
+      - name: cropTemplateId
+        in: path
+        required: true
+        description: cropTemplateId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '204':
+          description: The crop template was removed.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The crop template was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /crop/{assetId}:
+    post:
+      operationId: createCrop
+      summary: Create Crop
+      description: Create a crop image for an asset.
+      tags:
+      - Crop
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                renditionType:
+                  type: string
+                left:
+                  type: integer
+                top:
+                  type: integer
+                width:
+                  type: integer
+                height:
+                  type: integer
+                ratio:
+                  type: string
+                applyWatermark:
+                  type: boolean
+            example:
+              renditionType: Original
+              left: <integer>
+              top: <integer>
+              width: <integer>
+              height: <integer>
+              ratio: <string>
+              applyWatermark: <boolean>
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /cropWithTemplate/{assetId}:
+    post:
+      operationId: createCropFromTemplate
+      summary: Create Crop From Template
+      description: Create a crop image for an asset using a crop template.
+      tags:
+      - Crop
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scaledWidth:
+                  type: integer
+                scaledHeight:
+                  type: integer
+                templateId:
+                  type: string
+                  format: uuid
+                renditionType:
+                  type: string
+                left:
+                  type: integer
+                top:
+                  type: integer
+                width:
+                  type: integer
+                height:
+                  type: integer
+                ratio:
+                  type: string
+                applyWatermark:
+                  type: boolean
+            example:
+              scaledWidth: <integer>
+              scaledHeight: <integer>
+              templateId: <uuid>
+              renditionType: Original
+              left: <integer>
+              top: <integer>
+              width: <integer>
+              height: <integer>
+              ratio: <string>
+              applyWatermark: <boolean>
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

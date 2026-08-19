@@ -1,0 +1,447 @@
+asyncapi: 3.0.0
+info:
+  title: MediaValet SkyHOOK Events
+  version: '1.0'
+  description: >-
+    SkyHOOK is MediaValet's event subscription service. It delivers MediaValet asset, category,
+    keyword and attribute events either directly to a subscriber-owned HTTPS endpoint (webhook) or
+    into a private Azure Event Grid instance. Every message is a CloudEvents 1.0 envelope
+    (`specversion: "1.0"`) carrying `id`, `source` (the MediaValet library id), `type` (the event
+    type), `subject` (a `/library/{libraryId}/...` resource path), `time`, `contenttype` and a
+    `data` object whose shape depends on the event type.
+
+    Subscriptions are created and managed through the MediaValet REST API under `/skyhook`
+    (`GET /skyhook/events`, `POST /skyhook/subscriptions`, `GET /skyhook/subscriptions/list`,
+    `PUT|DELETE /skyhook/subscriptions/{id}`), documented in
+    `openapi/mediavalet-webhooks-api-openapi.yml`. Access to SkyHOOK webhooks requires the
+    MediaValet Developer Portal Enterprise plan.
+
+    PROVENANCE: derived from MediaValet's own published Postman collection ("MediaValet API",
+    General Information > SkyHOOK > Event Types) at
+    https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Event names, descriptions and
+    payload examples are MediaValet's; the AsyncAPI framing and the schemas inferred from those
+    examples are ours.
+  contact:
+    name: MediaValet API Support
+    email: support@mediavalet.com
+    url: https://developer.mediavalet.com
+  externalDocs:
+    description: MediaValet API documentation (SkyHOOK section)
+    url: https://docs.mediavalet.com/
+defaultContentType: application/json
+servers:
+  subscriberWebhook:
+    host: subscriber-supplied.example.com
+    protocol: https
+    description: >-
+      The HTTPS endpoint the subscriber registers with SkyHOOK. MediaValet POSTs each CloudEvent to
+      this URL. The host is supplied by the subscriber when creating the subscription; there is no
+      fixed MediaValet-side delivery host.
+  azureEventGrid:
+    host: '{eventGridTopic}.{region}.eventgrid.azure.net'
+    protocol: https
+    description: >-
+      Alternative delivery target. SkyHOOK can publish into a subscriber-owned private Azure Event
+      Grid instance instead of an HTTP webhook.
+    variables:
+      eventGridTopic:
+        description: The subscriber's Event Grid topic name.
+      region:
+        description: The Azure region hosting the subscriber's Event Grid topic.
+channels:
+  skyhookEvents:
+    address: /
+    title: SkyHOOK event delivery
+    description: >-
+      The single delivery channel. All SkyHOOK event types are delivered to the subscribed
+      endpoint (or Event Grid topic) as CloudEvents 1.0 messages; subscribers discriminate on the
+      `type` field. Event types are enumerated at runtime by `GET /skyhook/events`.
+    servers:
+      - $ref: '#/servers/subscriberWebhook'
+      - $ref: '#/servers/azureEventGrid'
+    messages:
+      AssetStatusUpdated:
+        $ref: '#/components/messages/AssetStatusUpdated'
+      AssetMediaFileAdded:
+        $ref: '#/components/messages/AssetMediaFileAdded'
+      CategoryAssetsAssigned:
+        $ref: '#/components/messages/CategoryAssetsAssigned'
+      CategoryAssetUnassigned:
+        $ref: '#/components/messages/CategoryAssetUnassigned'
+      AssetKeywordsAdded:
+        $ref: '#/components/messages/AssetKeywordsAdded'
+      AssetKeywordRemoved:
+        $ref: '#/components/messages/AssetKeywordRemoved'
+      AssetAttributesAdded:
+        $ref: '#/components/messages/AssetAttributesAdded'
+      AssetVideoRenditionsAdded:
+        $ref: '#/components/messages/AssetVideoRenditionsAdded'
+operations:
+  receiveSkyhookEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/skyhookEvents'
+    title: Receive a SkyHOOK event
+    summary: >-
+      The subscriber receives a CloudEvents 1.0 message from MediaValet whenever a subscribed
+      event occurs in the library.
+    messages:
+      - $ref: '#/channels/skyhookEvents/messages/AssetStatusUpdated'
+      - $ref: '#/channels/skyhookEvents/messages/AssetMediaFileAdded'
+      - $ref: '#/channels/skyhookEvents/messages/CategoryAssetsAssigned'
+      - $ref: '#/channels/skyhookEvents/messages/CategoryAssetUnassigned'
+      - $ref: '#/channels/skyhookEvents/messages/AssetKeywordsAdded'
+      - $ref: '#/channels/skyhookEvents/messages/AssetKeywordRemoved'
+      - $ref: '#/channels/skyhookEvents/messages/AssetAttributesAdded'
+      - $ref: '#/channels/skyhookEvents/messages/AssetVideoRenditionsAdded'
+components:
+  schemas:
+    CloudEventEnvelope:
+      type: object
+      description: CloudEvents 1.0 envelope used by every SkyHOOK message.
+      required: [id, source, type, data, time, specversion, subject, contenttype]
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique event identifier.
+        source:
+          type: string
+          format: uuid
+          description: The MediaValet library (org unit) the event originated from.
+        type:
+          type: string
+          description: The event type, e.g. Asset.StatusUpdated.
+        data:
+          type: object
+          description: Event-type-specific payload.
+        time:
+          type: string
+          format: date-time
+          description: When the event occurred.
+        specversion:
+          type: string
+          const: '1.0'
+          description: CloudEvents specification version.
+        dataschema:
+          type: string
+          description: Schema reference for `data`. MediaValet currently emits "#".
+        subject:
+          type: string
+          description: Resource path, e.g. /library/{libraryId}/assets/{assetId}/Asset.StatusUpdated
+        contenttype:
+          type: string
+          const: application/json
+  messages:
+    AssetStatusUpdated:
+      name: Asset.StatusUpdated
+      title: Asset status updated
+      summary: Asset status has been updated.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.StatusUpdated
+              data:
+                type: object
+                properties:
+                  LibraryId: { type: string, format: uuid }
+                  AssetId: { type: string, format: uuid }
+                  CurrentVersion: { type: string, format: uuid }
+                  FileName: { type: string }
+                  Status: { type: string, description: 'e.g. Approved' }
+      examples:
+        - name: assetStatusUpdated
+          summary: MediaValet-published example payload
+          payload:
+            id: 00000000-0000-0000-0000-000000000000
+            source: 00000000-0000-0000-0000-000000000000
+            type: Asset.StatusUpdated
+            data:
+              LibraryId: 00000000-0000-0000-0000-000000000000
+              AssetId: 00000000-0000-0000-0000-000000000000
+              CurrentVersion: 00000000-0000-0000-0000-000000000000
+              FileName: file-name.png
+              Status: Approved
+            time: '2022-05-04T20:49:57.8570052+00:00'
+            specversion: '1.0'
+            dataschema: '#'
+            subject: /library/00000000-0000-0000-0000-000000000000/assets/00000000-0000-0000-0000-000000000000/Asset.StatusUpdated
+            contenttype: application/json
+    AssetMediaFileAdded:
+      name: Asset.MediaFileAdded
+      title: Asset media file added
+      summary: An asset media file has been added.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.MediaFileAdded
+              data:
+                type: object
+                properties:
+                  LibraryId: { type: string, format: uuid }
+                  AssetId: { type: string, format: uuid }
+                  Version: { type: integer }
+                  FileName: { type: string }
+                  FileSize: { type: integer }
+                  Reason: { type: string, description: 'e.g. FromUploadProcess' }
+                  CreatedAt: { type: string, format: date-time }
+                  MediaFileBlobUrl: { type: string, format: uri }
+      examples:
+        - name: assetMediaFileAdded
+          summary: MediaValet-published example payload
+          payload:
+            id: 00000000-0000-0000-0000-000000000000
+            source: 00000000-0000-0000-0000-000000000000
+            type: Asset.MediaFileAdded
+            data:
+              LibraryId: 00000000-0000-0000-0000-000000000000
+              AssetId: 00000000-0000-0000-0000-000000000000
+              Version: 29
+              FileName: samplefile.png
+              FileSize: 43249
+              Reason: FromUploadProcess
+              CreatedAt: '2022-05-04T20:48:48.4938572+00:00'
+              MediaFileBlobUrl: https://media-file-blob-url
+            time: '2022-05-04T20:49:07.3550538+00:00'
+            specversion: '1.0'
+            dataschema: '#'
+            subject: /library/00000000-0000-0000-0000-000000000000/assets/00000000-0000-0000-0000-000000000000/MediaFile.FromUploadProcess
+            contenttype: application/json
+    CategoryAssetsAssigned:
+      name: Category.AssetsAssigned
+      title: Assets assigned to a category
+      summary: One or more assets have been assigned to a category.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Category.AssetsAssigned
+              data:
+                type: object
+                properties:
+                  AssetIds:
+                    type: array
+                    items: { type: string, format: uuid }
+                  CategoryId: { type: string, format: uuid }
+                  LibraryId: { type: string, format: uuid }
+                  Name: { type: string }
+      examples:
+        - name: categoryAssetsAssigned
+          summary: MediaValet-published example payload
+          payload:
+            id: 00000000-0000-0000-0000-000000000000
+            source: 00000000-0000-0000-0000-000000000000
+            type: Category.AssetsAssigned
+            data:
+              AssetIds:
+                - 00000000-0000-0000-0000-000000000000
+              CategoryId: 00000000-0000-0000-0000-000000000000
+              LibraryId: 00000000-0000-0000-0000-000000000000
+              Name: Category
+            time: '2022-05-04T20:50:02.4156612+00:00'
+            specversion: '1.0'
+            dataschema: '#'
+            subject: /library/00000000-0000-0000-0000-000000000000/category/00000000-0000-0000-0000-000000000000/Category.AssetsAssigned
+            contenttype: application/json
+    CategoryAssetUnassigned:
+      name: Category.AssetUnassigned
+      title: Asset unassigned from a category
+      summary: An asset has been unassigned from a category.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Category.AssetUnassigned
+              data:
+                type: object
+                properties:
+                  AssetId: { type: string, format: uuid }
+                  CategoryId: { type: string, format: uuid }
+                  LibraryId: { type: string, format: uuid }
+                  Name: { type: string }
+      examples:
+        - name: categoryAssetUnassigned
+          summary: MediaValet-published example payload
+          payload:
+            id: 00000000-0000-0000-0000-000000000000
+            source: 00000000-0000-0000-0000-000000000000
+            type: Category.AssetUnassigned
+            data:
+              AssetId: 00000000-0000-0000-0000-000000000000
+              CategoryId: 00000000-0000-0000-0000-000000000000
+              LibraryId: 00000000-0000-0000-0000-000000000000
+              Name: Category
+            time: '2022-05-04T20:54:39.564771+00:00'
+            specversion: '1.0'
+            dataschema: '#'
+            subject: /library/00000000-0000-0000-0000-000000000000/category/00000000-0000-0000-0000-000000000000/Category.AssetUnassigned
+            contenttype: application/json
+    AssetKeywordsAdded:
+      name: Asset.KeywordsAdded
+      title: Keywords added to an asset
+      summary: One or more keywords have been added to an asset.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.KeywordsAdded
+              data:
+                type: object
+                properties:
+                  AssetId: { type: string, format: uuid }
+                  LibraryId: { type: string, format: uuid }
+                  Keywords:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id: { type: string, format: uuid }
+                        Value: { type: string }
+                        KeywordGroup:
+                          type: object
+                          properties:
+                            Id: { type: string, format: uuid }
+                            Name: { type: string }
+                            Path: { type: string }
+                            ParentKeywordGroupId: { type: string, format: uuid }
+                        ApprovalStatus: { type: integer }
+                        CreatedDateTime: { type: string, format: date-time }
+                        CreatedBy: { type: string, format: uuid }
+                        ApprovedDateTime: { type: string, format: date-time }
+    AssetKeywordRemoved:
+      name: Asset.KeywordRemoved
+      title: Keyword removed from an asset
+      summary: A keyword has been removed from an asset.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.KeywordRemoved
+              data:
+                type: object
+                properties:
+                  AssetId: { type: string, format: uuid }
+                  LibraryId: { type: string, format: uuid }
+                  Keyword:
+                    type: object
+                    properties:
+                      Id: { type: string, format: uuid }
+                      Value: { type: string }
+                      KeywordGroup:
+                        type: object
+                        properties:
+                          Id: { type: string, format: uuid }
+                          Name: { type: string }
+                          Path: { type: string }
+                          ParentKeywordGroupId: { type: string, format: uuid }
+                      ApprovalStatus: { type: integer }
+                      CreatedDateTime: { type: string, format: date-time }
+                      CreatedBy: { type: string, format: uuid }
+                      ApprovedDateTime: { type: string, format: date-time }
+                      ApprovedBy: { type: string, format: uuid }
+    AssetAttributesAdded:
+      name: Asset.AttributesAdded
+      title: Attributes added to an asset
+      summary: One or more custom metadata attributes have been added to an asset.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.AttributesAdded
+              data:
+                type: object
+                properties:
+                  LibraryId: { type: string, format: uuid }
+                  AssetId: { type: string, format: uuid }
+                  Attributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id: { type: string, format: uuid }
+                        Name: { type: string }
+                        EmbeddedDataValue: { type: string }
+      examples:
+        - name: assetAttributesAdded
+          summary: MediaValet-published example payload
+          payload:
+            id: 00000000-0000-0000-0000-000000000000
+            source: 00000000-0000-0000-0000-000000000000
+            type: Asset.AttributesAdded
+            data:
+              LibraryId: 00000000-0000-0000-0000-000000000000
+              AssetId: 00000000-0000-0000-0000-000000000000
+              Attributes:
+                - Id: 00000000-0000-0000-0000-000000000000
+                  Name: Attribute A
+                  EmbeddedDataValue: Value A
+                - Id: 00000000-0000-0000-0000-000000000000
+                  Name: Attribute B
+                  EmbeddedDataValue: Value B
+            time: '2022-05-04T20:50:01.1303773+00:00'
+            specversion: '1.0'
+            dataschema: '#'
+            subject: /library/00000000-0000-0000-0000-000000000000/assets/00000000-0000-0000-0000-000000000000/Asset.AttributesAdded
+            contenttype: application/json
+    AssetVideoRenditionsAdded:
+      name: Asset.VideoRenditionsAdded
+      title: Video renditions added
+      summary: One or more video renditions have been added to a video asset.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEventEnvelope'
+          - type: object
+            properties:
+              type:
+                const: Asset.VideoRenditionsAdded
+              data:
+                type: object
+                properties:
+                  LibraryId: { type: string, format: uuid }
+                  AssetId: { type: string, format: uuid }
+                  Renditions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        DestinationUrl: { type: string, format: uri }
+                        RenditionKindId: { type: string, format: uuid }
+                        Audio:
+                          type: object
+                          nullable: true
+                          properties:
+                            Bitrate: { type: integer }
+                            SamplingRate: { type: integer, nullable: true }
+                            Channels: { type: integer, nullable: true }
+                            CodecSettings:
+                              type: object
+                              properties:
+                                Name: { type: string }
+                                Encoder: { type: string }
+                        Video:
+                          type: object
+                          nullable: true

@@ -1,0 +1,265 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/ (312 operations, 245 paths, derived from MediaValet's published Postman collection at
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE) — entities inferred from path
+  segments, id path parameters, request/response example payloads and the SkyHOOK event payloads.
+docs: https://docs.mediavalet.com/
+description: >-
+  The MediaValet entity graph. The Asset is the centre of the model — 60 of 245 paths are keyed by
+  assetId — and everything else is either a container for assets (Category, Lightbox, Branded
+  Portal), a descriptor attached to assets (Attribute, Keyword, Person), a distribution surface for
+  assets (Direct Link, Download, Share, Crop), or the tenancy and identity around them
+  (Organizational Unit / library, User, User Group). All ids are GUIDs. Resources are
+  hypermedia-decorated: each carries a `_links` object (`self` plus a `functions` array) and a
+  `permissions` array scoped to the calling user.
+id_format: uuid
+tenancy_root: OrganizationalUnit (library)
+entities:
+- name: Asset
+  id_field: id
+  path_param: assetId
+  paths: 60
+  primary_paths:
+  - /assets
+  - /assets/{assetId}
+  - /assets/search
+  - /assetCheckIn/{assetId}
+  description: >-
+    A digital asset. Carries a media block (thumbnail/small/medium/large/original/download/stream
+    URLs, dimensions, SAS expiry), a file block (filename, md5, mime type, size, image dimensions,
+    frame rate, bitrate, colour mode, orientation), a record block (created/modified/soft-deleted
+    audit plus a version sub-object), status, rating, alt text, and denormalised attribute, keyword
+    and category collections.
+  notable_fields:
+  - media.streamingManifest (replaces the deprecated media.stream / media.streamLoDef)
+  - record.version.{version,current,head,parentid,isversionable,islatestversion,ismajorversion}
+  - permissions[] — per-user affordances such as asset:createImageCrop
+  - hasVideoIntelligenceContent
+  openapi: openapi/mediavalet-assets-api-openapi.yml
+- name: Category
+  id_field: id
+  path_param: categoryId
+  paths: 13
+  description: Hierarchical container (also surfaced as "folders"). Carries permission sets and user-group grants.
+  openapi: openapi/mediavalet-categories-api-openapi.yml
+- name: BrandedPortal
+  id_field: id
+  path_param: brandedPortalId
+  paths: 28
+  description: >-
+    An externally shareable, branded view onto a subset of the library, with its own sections,
+    theming and public access. The second-largest resource in the API (46 operations).
+  openapi: openapi/mediavalet-branded-portals-api-openapi.yml
+- name: Lightbox
+  id_field: id
+  path_param: lightboxId
+  paths: 9
+  description: A user-curated collection of assets, shareable via shareCode.
+  openapi: openapi/mediavalet-lightbox-api-openapi.yml
+- name: Attribute
+  id_field: id
+  path_param: attributeId
+  description: >-
+    A custom metadata field definition with a data type (including the Status type added in API
+    version 1.1) and optional embedded-data mapping.
+  openapi: openapi/mediavalet-attributes-api-openapi.yml
+- name: AttributeGroup
+  id_field: id
+  path_param: attributeGroupId
+  description: A grouping of attribute definitions. Gated by a library feature flag (403 when attribute grouping is not enabled).
+  openapi: openapi/mediavalet-attribute-groups-api-openapi.yml
+- name: Keyword
+  id_field: id
+  path_param: keyword
+  description: Controlled-vocabulary term with an approval status and approval audit trail.
+  openapi: openapi/mediavalet-keywords-api-openapi.yml
+- name: KeywordGroup
+  id_field: id
+  path_param: keywordGroupId
+  description: Hierarchical grouping of keywords, with Path and ParentKeywordGroupId.
+  openapi: openapi/mediavalet-keyword-groups-api-openapi.yml
+- name: Upload
+  id_field: assetId
+  paths: 10
+  description: >-
+    An in-flight ingest. Created by POST /uploads which returns an Azure blob upload URL; the bytes
+    are PUT directly to that URL, then the upload is completed and finalised against MediaValet.
+  openapi: openapi/mediavalet-uploads-api-openapi.yml
+- name: User
+  id_field: id
+  path_param: userId
+  paths: 7
+  description: A MediaValet user with permissions, entitlements and org-unit membership.
+  openapi: openapi/mediavalet-users-api-openapi.yml
+- name: UserGroup
+  id_field: id
+  path_param: userGroupId
+  description: A named group of users; the unit that category permissions are granted to.
+  openapi: openapi/mediavalet-user-groups-api-openapi.yml
+- name: OrganizationalUnit
+  id_field: id
+  path_param: libraryId
+  paths: 11
+  description: The library / tenancy root. Every asset, category and event is scoped to one.
+  openapi: openapi/mediavalet-org-unit-api-openapi.yml
+- name: DirectLink
+  id_field: id
+  path_param: directLinkId
+  paths: 11
+  description: A CDN link to an asset or rendition for distribution outside the DAM.
+  openapi: openapi/mediavalet-direct-links-api-openapi.yml
+- name: Download
+  paths: 6
+  description: A download request or packaged download of one or more assets.
+  openapi: openapi/mediavalet-downloads-api-openapi.yml
+- name: Share
+  path_param: shareCode
+  description: A share of assets or lightboxes, addressed by shareCode.
+  openapi: openapi/mediavalet-sharing-api-openapi.yml
+- name: Crop
+  id_field: id
+  path_param: cropId
+  description: A server-side crop of an image asset, optionally driven by a reusable crop template.
+  openapi: openapi/mediavalet-crop-api-openapi.yml
+- name: Person
+  id_field: id
+  description: A recognised person/face used to tag people appearing in assets.
+  openapi: openapi/mediavalet-persons-api-openapi.yml
+- name: SavedSearch
+  id_field: id
+  path_param: savedSearchId
+  description: A stored search definition that can be re-executed.
+  openapi: openapi/mediavalet-saved-searches-api-openapi.yml
+- name: Notification
+  id_field: id
+  path_param: notificationId
+  description: In-product notification and notification preference.
+  openapi: openapi/mediavalet-notification-api-openapi.yml
+- name: Integration
+  id_field: appId
+  description: A registered third-party application, with allowed origins, subscriptions, users and entitlements.
+  openapi: openapi/mediavalet-integrations-api-openapi.yml
+- name: SkyhookSubscription
+  id_field: id
+  description: A webhook or Azure Event Grid subscription to MediaValet events.
+  openapi: openapi/mediavalet-webhooks-api-openapi.yml
+  events: asyncapi/mediavalet-skyhook-asyncapi.yml
+relationships:
+- from: Asset
+  to: OrganizationalUnit
+  type: belongs_to
+  via: LibraryId
+  evidence: SkyHOOK event payloads carry LibraryId alongside AssetId; /organizationalunits scopes the surface.
+- from: Asset
+  to: Category
+  type: has_many
+  via: categories[]
+  evidence: AssetDto.categories is an array of category GUIDs; POST /uploads/{assetId}/categories assigns them.
+- from: Asset
+  to: Keyword
+  type: has_many
+  via: keywords[]
+  evidence: AssetDto.keywords[]; POST /assets/{assetId}/keywords (createAssociationOfAssetsAndKeywords).
+- from: Asset
+  to: Attribute
+  type: has_many
+  via: attributes{}
+  evidence: AssetDto.attributes is a map of attribute id to value; Asset.AttributesAdded event.
+- from: Asset
+  to: Asset
+  type: has_many
+  via: relatedassets[]
+  evidence: AssetDto.relatedassets[]; GET /assets/{assetId}/relatedassets.
+- from: Asset
+  to: Asset
+  type: has_one
+  via: record.version.parentid
+  evidence: Asset versioning chain — parentid, current, head, islatestversion.
+- from: Asset
+  to: Person
+  type: has_many
+  via: faces
+  evidence: GET /assets/{assetId}/faces.
+- from: Asset
+  to: DirectLink
+  type: has_many
+  via: assetId
+  evidence: POST /directlinks/{assetId}, GET /directlinks/{assetId}.
+- from: Asset
+  to: Crop
+  type: has_many
+  via: assetId
+  evidence: /assets/{assetId}/clip/{clipId} and the crop surface; permission asset:createImageCrop.
+- from: Category
+  to: Category
+  type: has_many
+  via: parent/sub relationship
+  evidence: retrieveSubCategories, retrieveRootSubCategories, retrieveSubFolders.
+- from: Category
+  to: Asset
+  type: has_many
+  via: categoryId
+  evidence: retrieveCategoryAssets, Category.AssetsAssigned / Category.AssetUnassigned events.
+- from: Category
+  to: UserGroup
+  type: has_many
+  via: permission sets
+  evidence: createUserGroupAssociationWithCategory, removeUserGroupFromCategory, listCategoryPermissionSets.
+- from: KeywordGroup
+  to: KeywordGroup
+  type: has_one
+  via: ParentKeywordGroupId
+  evidence: SkyHOOK Asset.KeywordsAdded payload carries KeywordGroup.ParentKeywordGroupId and Path.
+- from: Keyword
+  to: KeywordGroup
+  type: belongs_to
+  via: KeywordGroup.Id
+  evidence: SkyHOOK keyword event payloads.
+- from: Attribute
+  to: AttributeGroup
+  type: belongs_to
+  via: attributeGroupId
+  evidence: /attributeGroups surface.
+- from: UserGroup
+  to: User
+  type: has_many
+  via: groupId
+  evidence: /groups and user-group membership operations.
+- from: User
+  to: OrganizationalUnit
+  type: belongs_to
+  via: UserOrgUnitId
+  evidence: UserOrgUnitId is a published OIDC claim (well-known/mediavalet-openid-configuration.json).
+- from: Lightbox
+  to: Asset
+  type: has_many
+  via: lightboxId
+  evidence: Lightbox asset operations; permission lightbox:share.
+- from: BrandedPortal
+  to: Asset
+  type: has_many
+  via: brandedPortalId
+  evidence: Branded portal asset retrieval and search operations.
+- from: BrandedPortal
+  to: Category
+  type: has_many
+  via: sectionId
+  evidence: Branded portal sections are backed by categories.
+- from: SkyhookSubscription
+  to: OrganizationalUnit
+  type: belongs_to
+  via: source
+  evidence: CloudEvent `source` is the library GUID.
+- from: Integration
+  to: AllowedOrigin
+  type: has_many
+  via: appId
+  evidence: /integrations/allowed-origins scoped to the registered app.
+summary:
+  entity_count: 21
+  relationship_count: 22
+  central_entity: Asset
+  id_type: uuid
+render: null
+checked: '2026-08-13'

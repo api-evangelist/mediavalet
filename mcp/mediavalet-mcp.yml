@@ -1,0 +1,112 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/ (derived from MediaValet's published Postman collection) — no MediaValet MCP server was
+  found by search or probe.
+status: candidate
+name: MediaValet DAM (candidate MCP server)
+description: >-
+  MediaValet does not publish a Model Context Protocol server. This is a CANDIDATE tool surface
+  derived from MediaValet's real REST operations, offered as a design starting point — nothing
+  here is callable today. The candidate tools below are the highest-value agent operations in the
+  MediaValet surface (search, retrieve, tag, categorize, upload, share, link) and every one is
+  bound to a real operationId in openapi/.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+discovery:
+  probed:
+  - url: https://mcp.mediavalet.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://api.mediavalet.com/mcp
+    status: 404
+    note: 'Azure API Management gateway 404: {"statusCode":404,"message":"Resource not found"}'
+  - url: https://www.mediavalet.com/mcp
+    status: 404
+    note: WordPress 404 page (noindex).
+  registries_checked:
+  - npm (registry.npmjs.org search "mediavalet") — 0 results
+  - PyPI ("mediavalet") — 404
+  - GitHub organization https://github.com/MediaValet — 2 public repos, neither an MCP server
+authentication:
+  note: >-
+    Any future MediaValet MCP server would have to carry BOTH credentials the REST API requires —
+    an OAuth 2.0 / OIDC bearer token from https://login.mediavalet.com/connect/token AND the
+    per-account Ocp-Apim-Subscription-Key issued through the Developer Portal. The subscription key
+    is per-account and provisioned by MediaValet support, which is the main obstacle to a
+    multi-tenant hosted server. See authentication/mediavalet-authentication.yml.
+tools:
+- name: search_assets
+  description: Search the MediaValet library for assets by query, custom attributes, filename, file type or cognitive metadata.
+  rest:
+  - retrieveAssetsWithSearchCriteria2
+  openapi: openapi/mediavalet-assets-api-openapi.yml
+  consequence: read
+- name: get_asset
+  description: Retrieve a single asset with its media files, metadata, categories, keywords and permissions.
+  rest:
+  - retrieveAsset
+  openapi: openapi/mediavalet-assets-api-openapi.yml
+  consequence: read
+- name: list_categories
+  description: List the hierarchical categories (folders) in the library.
+  rest:
+  - retrieveCategories
+  openapi: openapi/mediavalet-categories-api-openapi.yml
+  consequence: read
+- name: list_attributes
+  description: List the custom metadata attribute definitions available in the library.
+  rest:
+  - retrieveAttributes
+  openapi: openapi/mediavalet-attributes-api-openapi.yml
+  consequence: read
+- name: list_keywords
+  description: List the controlled-vocabulary keywords in the library.
+  rest:
+  - retrieveKeywords
+  openapi: openapi/mediavalet-keywords-api-openapi.yml
+  consequence: read
+- name: tag_asset
+  description: Add one or more keywords to an asset.
+  rest:
+  - createAssociationOfAssetsAndKeywords
+  openapi: openapi/mediavalet-assets-api-openapi.yml
+  consequence: write
+- name: update_asset_metadata
+  description: Apply a JSON Patch document to an asset's title, description or custom attributes.
+  rest:
+  - updateAssetWithPatchOperations
+  openapi: openapi/mediavalet-assets-api-openapi.yml
+  consequence: write
+- name: create_direct_link
+  description: Create a CDN / direct link for an asset so it can be distributed outside the DAM.
+  rest:
+  - createADirectLink
+  openapi: openapi/mediavalet-direct-links-api-openapi.yml
+  consequence: write
+- name: upload_asset
+  description: Run the three-step MediaValet upload — request an upload URL, PUT the bytes to Azure blob storage, then finalize.
+  rest:
+  - createAsset2
+  - completeUpload
+  - updateAsset
+  openapi: openapi/mediavalet-uploads-api-openapi.yml
+  consequence: write
+  note: Step two is a PUT to a MediaValet-issued Azure blob SAS URL, outside the api.mediavalet.com host.
+- name: subscribe_to_events
+  description: Create a SkyHOOK webhook subscription so an agent is notified when assets change.
+  rest:
+  - getEventsTypes
+  - createWebhookSubscription
+  openapi: openapi/mediavalet-webhooks-api-openapi.yml
+  consequence: write
+summary:
+  tool_count: 10
+  backed_by_real_operations: true
+  server_published_by_provider: false
+checked: '2026-08-13'

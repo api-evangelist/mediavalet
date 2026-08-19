@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet AttributeGroups API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AttributeGroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all Attribute Groups for the current library.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributeGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Gets all Attribute Groups for the current library."
+        },
+        {
+          "info": {
+            "name": "Creates a new Attribute Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/attributeGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Attribute Group."
+        },
+        {
+          "info": {
+            "name": "Gets the details of a specific Attribute Group by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributeGroups/:attributeGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeGroupId",
+                "value": "",
+                "type": "path",
+                "description": "attributeGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Gets the details of a specific Attribute Group by ID."
+        },
+        {
+          "info": {
+            "name": "Attribute Groups Update Attribute Group Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/attributeGroups/:attributeGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeGroupId",
+                "value": "",
+                "type": "path",
+                "description": "attributeGroupId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attribute Groups Update Attribute Group Async"
+        },
+        {
+          "info": {
+            "name": "Deletes an Attribute Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/attributeGroups/:attributeGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeGroupId",
+                "value": "",
+                "type": "path",
+                "description": "attributeGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Deletes an Attribute Group."
+        },
+        {
+          "info": {
+            "name": "Gets all Attributes for a specific Attribute Group by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributeGroups/:attributeGroupId/attributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeGroupId",
+                "value": "",
+                "type": "path",
+                "description": "attributeGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Gets all Attributes for a specific Attribute Group by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

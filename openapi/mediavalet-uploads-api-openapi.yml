@@ -1,121 +1,1787 @@
 openapi: 3.0.3
 info:
-  title: MediaValet Open Assets Uploads API
-  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  title: MediaValet Uploads API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
   version: '1.0'
   contact:
     name: MediaValet
-    url: https://www.mediavalet.com
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
 servers:
 - url: https://api.mediavalet.com
   description: MediaValet API gateway (public)
 security:
-- oauth2: []
+- oauth2:
+  - api
   subscriptionKey: []
 tags:
 - name: Uploads
-  description: Chunked ingest of new files into a library.
+  description: Chunked ingest of new files and new asset versions into a library.
 paths:
-  /uploads:
-    post:
-      operationId: createUpload
+  /uploads/{assetId}:
+    put:
+      operationId: completeUpload
+      summary: Complete Upload
       tags:
       - Uploads
-      summary: Create an upload session
-      description: Create an upload session for a new file. The response returns the storage location and identifiers used to transfer file chunks and, once all chunks are transferred, to commit the upload for processing into an asset.
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UploadRequest'
-      responses:
-        '201':
-          description: The created upload session.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Upload'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-  /uploads/{uploadId}:
-    get:
-      operationId: getUpload
-      tags:
-      - Uploads
-      summary: Get an upload session
-      description: Retrieve the status of an upload session.
-      parameters:
-      - name: uploadId
-        in: path
-        required: true
-        schema:
-          type: string
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                filename:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+                fileSizeInBytes:
+                  type: integer
+            example:
+              id: <uuid>
+              filename: <string>
+              title: <string>
+              description: <string>
+              fileSizeInBytes: <long>
       responses:
         '200':
-          description: The upload session status.
+          description: Request was successful.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Upload'
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  uploadUrl:
+                    type: string
+                  uploadFileName:
+                    type: string
+                  mediaFileId:
+                    type: string
+                    format: uuid
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  fileSizeInBytes:
+                    type: integer
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      ullamco__8:
+                        type: object
+                      aliquaed5:
+                        type: object
+                      quiddd:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      reprehenderita:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                uploadUrl: <string>
+                uploadFileName: <string>
+                mediaFileId: <uuid>
+                title: <string>
+                description: <string>
+                fileSizeInBytes: <long>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ullamco__8: {}
+                  aliquaed5: {}
+                  quiddd: {}
+                interpolations:
+                  reprehenderita: {}
+                permissions:
+                - asset:downloadFromPortal
+                - lightbox:share
+        '400':
+          description: There was a problem with the data sent with the request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      in1e:
+                        type: object
+                      officiaef:
+                        type: object
+                      deserunt8:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      nisi_a:
+                        type: object
+                      consequat_7_:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                message: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  in1e: {}
+                  officiaef: {}
+                  deserunt8: {}
+                interpolations:
+                  nisi_a: {}
+                  consequat_7_: {}
+                permissions:
+                - asset:downloadFromMvd
+                - lightbox:assignAsset
         '401':
-          $ref: '#/components/responses/Unauthorized'
-    post:
-      operationId: commitUpload
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    patch:
+      operationId: updateAsset
+      summary: Update Asset
+      description: Update asset with a list of patch operations.
       tags:
       - Uploads
-      summary: Commit an upload session
-      description: Commit a completed upload session so MediaValet processes the transferred file into a managed asset with generated renditions.
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      eiusmod5:
+                        type: object
+                      Duis_5:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      tempor_4:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eiusmod5: {}
+                  Duis_5: {}
+                interpolations:
+                  tempor_4: {}
+                permissions:
+                - asset:createImageCrop
+                - lightbox:editDetails
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+  /uploads:
+    post:
+      operationId: createAsset2
+      summary: Create Asset
+      description: Creates an asset and returns newly created asset information.
+      tags:
+      - Uploads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                fileSizeInBytes:
+                  type: integer
+                filename:
+                  type: string
+                fileNameVersioning:
+                  type: boolean
+            example:
+              id: <uuid>
+              fileSizeInBytes: <long>
+              filename: <string>
+              fileNameVersioning: <boolean>
+      responses:
+        '201':
+          description: The asset was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  uploadUrl:
+                    type: string
+                  uploadFileName:
+                    type: string
+                  mediaFileId:
+                    type: string
+                    format: uuid
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      ut4:
+                        type: object
+                      sed_54:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      nulla_9:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                uploadUrl: <string>
+                uploadFileName: <string>
+                mediaFileId: <uuid>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ut4: {}
+                  sed_54: {}
+                interpolations:
+                  nulla_9: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:editDetails
+        '400':
+          description: There was a problem with the data sent with the request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      in1e:
+                        type: object
+                      officiaef:
+                        type: object
+                      deserunt8:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      nisi_a:
+                        type: object
+                      consequat_7_:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                message: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  in1e: {}
+                  officiaef: {}
+                  deserunt8: {}
+                interpolations:
+                  nisi_a: {}
+                  consequat_7_: {}
+                permissions:
+                - asset:downloadFromMvd
+                - lightbox:assignAsset
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/validate:
+    post:
+      operationId: validateUploads
+      summary: Validate Uploads
+      description: Validate a collection of uploads.
+      tags:
+      - Uploads
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  fileName:
+                    type: string
+                  size:
+                    type: integer
+                  lastModifiedDate:
+                    type: string
+            example:
+            - fileName: <string>
+              size: <long>
+              lastModifiedDate: <string>
+            - fileName: <string>
+              size: <long>
+              lastModifiedDate: <string>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fileName:
+                      type: string
+                    validationStatus:
+                      type: integer
+                    assetVersionMessage:
+                      type: string
+                    attributePolicy:
+                      type: object
+                      properties:
+                        createUploadAttributes:
+                          type: object
+                          properties:
+                            officia3a:
+                              type: string
+                            uta01:
+                              type: string
+                    message:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        ex08:
+                          type: object
+                        sed_ab4:
+                          type: object
+                        suntb3:
+                          type: object
+                        magna__:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        dolor_18:
+                          type: object
+                        incididunt_a:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - fileName: <string>
+                validationStatus: <integer>
+                assetVersionMessage: <string>
+                attributePolicy:
+                  createUploadAttributes:
+                    officia3a: <string>
+                    uta01: <string>
+                message: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ex08: {}
+                  sed_ab4: {}
+                  suntb3: {}
+                  magna__: {}
+                interpolations:
+                  dolor_18: {}
+                  incididunt_a: {}
+                permissions:
+                - asset:shareAsLink
+                - asset:shareAsWebGallery
+              - fileName: <string>
+                validationStatus: <integer>
+                assetVersionMessage: <string>
+                attributePolicy:
+                  createUploadAttributes:
+                    ut_1f3: <string>
+                message: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollite: {}
+                interpolations:
+                  Ut_8: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:shareAsZippedFile
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{assetId}/keywords:
+    post:
+      operationId: createAssetAssociationWithKeywords
+      summary: Create Asset Association With Keywords
+      description: Associates list of keywords to specified asset.
+      tags:
+      - Uploads
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+            example:
+            - <string>
+            - <string>
+      responses:
+        '201':
+          description: Successfully associated list of keywords to asset.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              example:
+              - <string>
+              - <string>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{assetId}/attributes:
+    post:
+      operationId: createAssetAttributes2
+      summary: Create Asset Attributes
+      description: Add attributes to an asset.
+      tags:
+      - Uploads
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  Utc4a:
+                    type: string
+                  labore_fc:
+                    type: string
+                  ind65:
+                    type: string
+            example:
+            - Utc4a: <string>
+              labore_fc: <string>
+              ind65: <string>
+            - incididunt8c2: <string>
+      responses:
+        '201':
+          description: Successfully added attributes to asset.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Utc4a:
+                      type: string
+                    labore_fc:
+                      type: string
+                    ind65:
+                      type: string
+              example:
+              - Utc4a: <string>
+                labore_fc: <string>
+                ind65: <string>
+              - incididunt8c2: <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{assetId}/categories:
+    post:
+      operationId: createAssetAssociationWithCategories
+      summary: Create Asset Association With Categories
+      description: Associates specified asset into list of categories.
+      tags:
+      - Uploads
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+            example:
+            - <string>
+            - <string>
+      responses:
+        '201':
+          description: Asset successfully associated with list of categories.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              example:
+              - <string>
+              - <string>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{assetId}/lightboxes:
+    post:
+      operationId: createAssetAssociationWithLightbox
+      summary: Create Asset Association With Lightbox
+      description: Add asset to a lightbox.
+      tags:
+      - Uploads
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                description:
+                  type: string
+                approverId:
+                  type: string
+                  format: uuid
+            example:
+              id: <uuid>
+              name: <string>
+              description: <string>
+              approverId: <uuid>
+      responses:
+        '201':
+          description: The asset was successfully added to the lightbox.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  assetCount:
+                    type: integer
+                  owner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  approverId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  requestedAt:
+                    type: string
+                    format: date-time
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      tempor_0c:
+                        type: object
+                      nisi_d6:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      essea:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                description: <string>
+                assetCount: <integer>
+                owner:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                approverId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                requestedAt: <dateTime>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  tempor_0c: {}
+                  nisi_d6: {}
+                interpolations:
+                  essea: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:assignCategory
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{uploadId}/lightboxesassets:
+    post:
+      operationId: createUploadAssociationWithLightbox
+      summary: Create Upload Association With Lightbox
+      description: Add uploaded asset to a lightbox.
+      tags:
+      - Uploads
       parameters:
       - name: uploadId
         in: path
         required: true
+        description: uploadId path parameter.
         schema:
           type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: false
+        content:
+          text/plain:
+            schema:
+              type: string
       responses:
-        '202':
-          description: The upload was accepted for processing.
+        '201':
+          description: Successfully added uploaded asset to lightbox.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  assetCount:
+                    type: integer
+                  owner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  approverId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  requestedAt:
+                    type: string
+                    format: date-time
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      tempor_0c:
+                        type: object
+                      nisi_d6:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      essea:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                description: <string>
+                assetCount: <integer>
+                owner:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                approverId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                requestedAt: <dateTime>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  tempor_0c: {}
+                  nisi_d6: {}
+                interpolations:
+                  essea: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:assignCategory
         '401':
-          $ref: '#/components/responses/Unauthorized'
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/lightboxes/{lightboxId}/assets:
+    post:
+      operationId: createLightboxAssociationWithAssetList
+      summary: Create Lightbox Association With Asset List
+      description: Add a list of assets to a lightbox.
+      tags:
+      - Uploads
+      parameters:
+      - name: lightboxId
+        in: path
+        required: true
+        description: lightboxId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                approverId:
+                  type: string
+                  format: uuid
+                assetIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                _links:
+                  type: object
+                  properties:
+                    self:
+                      type: string
+                    functions:
+                      type: array
+                      items:
+                        type: string
+                translationKeys:
+                  type: object
+                  properties:
+                    deserunt3:
+                      type: object
+                interpolations:
+                  type: object
+                  properties:
+                    eiusmod_:
+                      type: object
+                permissions:
+                  type: array
+                  items:
+                    type: string
+            example:
+              approverId: <uuid>
+              assetIds:
+              - <uuid>
+              - <uuid>
+              _links:
+                self: <string>
+                functions:
+                - <string>
+                - <string>
+              translationKeys:
+                deserunt3: {}
+              interpolations:
+                eiusmod_: {}
+              permissions:
+              - asset:createVideoClip
+              - user:editEmail
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  assetCount:
+                    type: integer
+                  owner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  approverId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  requestedAt:
+                    type: string
+                    format: date-time
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      tempor_0c:
+                        type: object
+                      nisi_d6:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      essea:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                description: <string>
+                assetCount: <integer>
+                owner:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                approverId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                requestedAt: <dateTime>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  tempor_0c: {}
+                  nisi_d6: {}
+                interpolations:
+                  essea: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:assignCategory
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /uploads/{assetId}/lightboxes/{lightboxId}:
+    patch:
+      operationId: updateLightbox3
+      summary: Update Lightbox
+      description: Update the lightbox with a list of patch operations.
+      tags:
+      - Uploads
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: lightboxId
+        in: path
+        required: true
+        description: lightboxId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  assetCount:
+                    type: integer
+                  owner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  approverId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  requestedAt:
+                    type: string
+                    format: date-time
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      tempor_0c:
+                        type: object
+                      nisi_d6:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      essea:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                description: <string>
+                assetCount: <integer>
+                owner:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                approverId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                requestedAt: <dateTime>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  tempor_0c: {}
+                  nisi_d6: {}
+                interpolations:
+                  essea: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:assignCategory
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
 components:
-  responses:
-    Unauthorized:
-      description: Authentication failed - missing or invalid access token or subscription key.
-  schemas:
-    Upload:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        filename:
-          type: string
-        status:
-          type: string
-          description: The processing status of the upload session.
-        storageLocation:
-          type: string
-          description: The location to which file chunks are transferred.
-    UploadRequest:
-      type: object
-      required:
-      - filename
-      properties:
-        filename:
-          type: string
-        fileSize:
-          type: integer
-          format: int64
-        categoryId:
-          type: string
-          format: uuid
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
           tokenUrl: https://login.mediavalet.com/connect/token
           scopes:
             openid: OpenID Connect identity
@@ -125,4 +1791,5 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal.
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

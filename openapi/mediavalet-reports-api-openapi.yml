@@ -1,0 +1,1116 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Reports API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Reports
+  description: Usage and activity reporting.
+paths:
+  /reports:
+    get:
+      operationId: retrieveReportTypes
+      summary: Retrieve Report Types
+      description: Returns a collection of report types.
+      tags:
+      - Reports
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    sumBy:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        inb7:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        eu_e5f:
+                          type: object
+                        velitd0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                sumBy:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  inb7: {}
+                interpolations:
+                  eu_e5f: {}
+                  velitd0: {}
+                permissions:
+                - lightbox:assignAsset
+                - user:editEmail
+              - id: <string>
+                sumBy:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  velit5e: {}
+                interpolations:
+                  consequat_85: {}
+                  adipisicingc: {}
+                permissions:
+                - lightbox:share
+                - lightbox:transferOwnership
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /report/{reportType}:
+    get:
+      operationId: retrieveReport
+      summary: Retrieve Report
+      description: Returns a report.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  count:
+                    type: integer
+                  thumbNailUrl:
+                    type: string
+                  type:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolor0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      sit3:
+                        type: object
+                      velitf:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolor0: {}
+                interpolations:
+                  sit3: {}
+                  velitf: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:transferOwnership
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}:
+    get:
+      operationId: retrieveReports
+      summary: Retrieve Reports
+      description: Returns reports by report type.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  count:
+                    type: integer
+                  thumbNailUrl:
+                    type: string
+                  type:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolor0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      sit3:
+                        type: object
+                      velitf:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolor0: {}
+                interpolations:
+                  sit3: {}
+                  velitf: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:transferOwnership
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/users:
+    get:
+      operationId: retrieveUsersReport
+      summary: Retrieve Users Report
+      description: Returns a report on users.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    count:
+                      type: integer
+                    thumbNailUrl:
+                      type: string
+                    type:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        est3:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        nisi6:
+                          type: object
+                        qui_7c7:
+                          type: object
+                        fugiat_98:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  est3: {}
+                interpolations:
+                  nisi6: {}
+                  qui_7c7: {}
+                  fugiat_98: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:viewAsset
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Audio
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ipsumc: {}
+                  voluptate515: {}
+                  aliqua803: {}
+                  in1_: {}
+                interpolations:
+                  ind: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/groups:
+    get:
+      operationId: retrieveGroupsReport
+      summary: Retrieve Groups Report
+      description: Returns report groups by report type.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    count:
+                      type: integer
+                    thumbNailUrl:
+                      type: string
+                    type:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        est3:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        nisi6:
+                          type: object
+                        qui_7c7:
+                          type: object
+                        fugiat_98:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  est3: {}
+                interpolations:
+                  nisi6: {}
+                  qui_7c7: {}
+                  fugiat_98: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:viewAsset
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Audio
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ipsumc: {}
+                  voluptate515: {}
+                  aliqua803: {}
+                  in1_: {}
+                interpolations:
+                  ind: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/users/{userId}/assets:
+    get:
+      operationId: retrieveUsersAssetsReport
+      summary: Retrieve Users Assets Report
+      description: Returns a report of user assets.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        description: userId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    count:
+                      type: integer
+                    thumbNailUrl:
+                      type: string
+                    type:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        est3:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        nisi6:
+                          type: object
+                        qui_7c7:
+                          type: object
+                        fugiat_98:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  est3: {}
+                interpolations:
+                  nisi6: {}
+                  qui_7c7: {}
+                  fugiat_98: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:viewAsset
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Audio
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ipsumc: {}
+                  voluptate515: {}
+                  aliqua803: {}
+                  in1_: {}
+                interpolations:
+                  ind: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/groups/{groupId}/users:
+    get:
+      operationId: retrieveUserGroupsReport
+      summary: Retrieve User Groups Report
+      description: Returns a report on user groups.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        description: groupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    count:
+                      type: integer
+                    thumbNailUrl:
+                      type: string
+                    type:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        est3:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        nisi6:
+                          type: object
+                        qui_7c7:
+                          type: object
+                        fugiat_98:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  est3: {}
+                interpolations:
+                  nisi6: {}
+                  qui_7c7: {}
+                  fugiat_98: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:viewAsset
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Audio
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ipsumc: {}
+                  voluptate515: {}
+                  aliqua803: {}
+                  in1_: {}
+                interpolations:
+                  ind: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/groups/{groupId}/users/{userId}/assets:
+    get:
+      operationId: retrieveUserGroupAssetsReport
+      summary: Retrieve User Group Assets Report
+      description: Returns a report of user groups assets.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        description: groupId path parameter.
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        description: userId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    count:
+                      type: integer
+                    thumbNailUrl:
+                      type: string
+                    type:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        est3:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        nisi6:
+                          type: object
+                        qui_7c7:
+                          type: object
+                        fugiat_98:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  est3: {}
+                interpolations:
+                  nisi6: {}
+                  qui_7c7: {}
+                  fugiat_98: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:viewAsset
+              - id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Audio
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ipsumc: {}
+                  voluptate515: {}
+                  aliqua803: {}
+                  in1_: {}
+                interpolations:
+                  ind: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/users/{userId}/assets/{assetId}/events:
+    get:
+      operationId: retrieveUserAssetEventsReport
+      summary: Retrieve User Asset Events Report
+      description: Returns a report of user assets events.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        description: userId path parameter.
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  count:
+                    type: integer
+                  thumbNailUrl:
+                    type: string
+                  type:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolor0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      sit3:
+                        type: object
+                      velitf:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolor0: {}
+                interpolations:
+                  sit3: {}
+                  velitf: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:transferOwnership
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /reports/{reportType}/groups/{groupId}/users/{userId}/assets/{assetId}/events:
+    get:
+      operationId: retrieveUserGroupAssetsEventsReport
+      summary: Retrieve User Group Assets Events Report
+      description: Returns a report of user groups assets events.
+      tags:
+      - Reports
+      parameters:
+      - name: reportType
+        in: path
+        required: true
+        description: reportType path parameter.
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        description: groupId path parameter.
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        description: userId path parameter.
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  count:
+                    type: integer
+                  thumbNailUrl:
+                    type: string
+                  type:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolor0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      sit3:
+                        type: object
+                      velitf:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <string>
+                name: <string>
+                count: <integer>
+                thumbNailUrl: <string>
+                type: Video
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolor0: {}
+                interpolations:
+                  sit3: {}
+                  velitf: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:transferOwnership
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

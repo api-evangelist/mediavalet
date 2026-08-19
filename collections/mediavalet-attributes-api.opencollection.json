@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Attributes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attributes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Attributes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Retrieve attributes from a library.\nStatus Type Attributes available in API Version 1.1"
+        },
+        {
+          "info": {
+            "name": "Create Attribute.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/attributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a attribute in a library.\nStatus Type Attributes available in API Version 1.1"
+        },
+        {
+          "info": {
+            "name": "Retrieve Attribute By ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/:attributeId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeId",
+                "value": "",
+                "type": "path",
+                "description": "attributeId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve attributes in a library by attribute id.\nStatus Type Attributes available in API Version 1.1"
+        },
+        {
+          "info": {
+            "name": "Update Attributes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/attributes/:attributeId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeId",
+                "value": "",
+                "type": "path",
+                "description": "attributeId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update attributes in a library.\nStatus Type Attributes available in API Version 1.1"
+        },
+        {
+          "info": {
+            "name": "Remove Attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/attributes/:attributeId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "attributeId",
+                "value": "",
+                "type": "path",
+                "description": "attributeId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes attribute in a library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Attributes Embedded Data Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/embeddedDataType",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Returns an embedded attribute data types."
+        },
+        {
+          "info": {
+            "name": "Retrieve Attributes Data Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/attributeDataType",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Attributes data types.\nStatus Type Attributes available in API Version 1.1"
+        },
+        {
+          "info": {
+            "name": "Retrieve Cascading Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/cascadingAttributes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Returns an cascading attributes."
+        },
+        {
+          "info": {
+            "name": "Retrieve Attributes Embedded Data Mapping Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/embeddedDataMappingType",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Returns an of embedded attribute data mapping types."
+        },
+        {
+          "info": {
+            "name": "Retrieve Attributes Embedded Data Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/attributes/:dataTypeValue/embeddedDataValue",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "dataTypeValue",
+                "value": "",
+                "type": "path",
+                "description": "dataTypeValue path parameter."
+              }
+            ]
+          },
+          "docs": "Returns an embedded attribute data values."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,667 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Notification API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Notification
+  description: In-product notifications and notification preferences.
+paths:
+  /notification/assets/{assetId}/followers:
+    get:
+      operationId: notificationGetAssetFollowers
+      summary: Notification Get Asset Followers
+      tags:
+      - Notification
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                      format: uuid
+                    firstName:
+                      type: string
+                    lastName:
+                      type: string
+                    email:
+                      type: string
+                    isCurrentUser:
+                      type: boolean
+              example:
+              - userId: <uuid>
+                firstName: <string>
+                lastName: <string>
+                email: <string>
+                isCurrentUser: <boolean>
+              - userId: <uuid>
+                firstName: <string>
+                lastName: <string>
+                email: <string>
+                isCurrentUser: <boolean>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/inApp:
+    get:
+      operationId: notificationGetInAppNotifications
+      summary: Notification Get In App Notifications
+      tags:
+      - Notification
+      parameters:
+      - name: bypassCache
+        in: query
+        required: false
+        description: bypassCache query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    notificationId:
+                      type: string
+                      format: uuid
+                    displayNotificationId:
+                      type: string
+                    sender:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        email:
+                          type: string
+                    notificationCategory:
+                      type: string
+                    relativeUrl:
+                      type: string
+                    message:
+                      type: string
+                    markedAsRead:
+                      type: boolean
+                    timestamp:
+                      type: string
+                    entityIds:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+              example:
+              - notificationId: <uuid>
+                displayNotificationId: <string>
+                sender:
+                  id: <uuid>
+                  firstName: <string>
+                  lastName: <string>
+                  email: <string>
+                notificationCategory: <string>
+                relativeUrl: <string>
+                message: <string>
+                markedAsRead: <boolean>
+                timestamp: <string>
+                entityIds:
+                - <uuid>
+                - <uuid>
+              - notificationId: <uuid>
+                displayNotificationId: <string>
+                sender:
+                  id: <uuid>
+                  firstName: <string>
+                  lastName: <string>
+                  email: <string>
+                notificationCategory: <string>
+                relativeUrl: <string>
+                message: <string>
+                markedAsRead: <boolean>
+                timestamp: <string>
+                entityIds:
+                - <uuid>
+                - <uuid>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/markAllAsRead:
+    put:
+      operationId: notificationMarkAllInAppNotificationAsRead
+      summary: Notification Mark All In App Notification As Read
+      tags:
+      - Notification
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/markAsRead/{notificationId}:
+    put:
+      operationId: notificationMarkInAppNotificationAsRead
+      summary: Notification Mark In App Notification As Read
+      tags:
+      - Notification
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        description: notificationId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification:
+    post:
+      operationId: notificationSendNotificationAsync
+      summary: Notification Send Notification Async
+      tags:
+      - Notification
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                entityIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                notificationEntityType:
+                  type: string
+                userGroups:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                users:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                userEmails:
+                  type: array
+                  items:
+                    type: string
+                message:
+                  type: string
+            example:
+              entityIds:
+              - <uuid>
+              - <uuid>
+              notificationEntityType: SavedSearches
+              userGroups:
+              - <uuid>
+              - <uuid>
+              users:
+              - <uuid>
+              - <uuid>
+              userEmails:
+              - <string>
+              - <string>
+              message: <string>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  validEmails:
+                    type: array
+                    items:
+                      type: string
+                  invalidEmails:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      ut9a1:
+                        type: object
+                      elit_18a:
+                        type: object
+                      est27:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      velitb:
+                        type: object
+                      Lorem_e93:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                validEmails:
+                - <string>
+                - <string>
+                invalidEmails:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ut9a1: {}
+                  elit_18a: {}
+                  est27: {}
+                interpolations:
+                  velitb: {}
+                  Lorem_e93: {}
+                permissions:
+                - asset:downloadFromMvd
+                - asset:shareAsBrandedPortal
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/usersandusergroups:
+    post:
+      operationId: notificationSearchUsersAndUserGroups
+      summary: Notification Search Users And User Groups Post
+      tags:
+      - Notification
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Count:
+                  type: integer
+                Offset:
+                  type: integer
+                SearchTerm:
+                  type: string
+                SelectedUsersAndUserGroups:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                SelectedAssets:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+            example:
+              Count: <integer>
+              Offset: <integer>
+              SearchTerm: <string>
+              SelectedUsersAndUserGroups:
+              - <uuid>
+              - <uuid>
+              SelectedAssets:
+              - <uuid>
+              - <uuid>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                      format: uuid
+                    firstName:
+                      type: string
+                    lastName:
+                      type: string
+                    userEmail:
+                      type: string
+                    userGroupId:
+                      type: string
+                      format: uuid
+                    userGroupName:
+                      type: string
+                    cardinalityOfGroup:
+                      type: integer
+                    roleId:
+                      type: string
+                      format: uuid
+                    hasPermission:
+                      type: boolean
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        culpa280:
+                          type: object
+                        mollit90e:
+                          type: object
+                        laborum4_9:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        Ut_98:
+                          type: object
+                        nostrud0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - userId: <uuid>
+                firstName: <string>
+                lastName: <string>
+                userEmail: <string>
+                userGroupId: <uuid>
+                userGroupName: <string>
+                cardinalityOfGroup: <integer>
+                roleId: <uuid>
+                hasPermission: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  culpa280: {}
+                  mollit90e: {}
+                  laborum4_9: {}
+                interpolations:
+                  Ut_98: {}
+                  nostrud0: {}
+                permissions:
+                - asset:shareAsBrandedPortal
+                - asset:shareAsCdnLink
+              - userId: <uuid>
+                firstName: <string>
+                lastName: <string>
+                userEmail: <string>
+                userGroupId: <uuid>
+                userGroupName: <string>
+                cardinalityOfGroup: <integer>
+                roleId: <uuid>
+                hasPermission: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  aute_e: {}
+                interpolations:
+                  ut523: {}
+                  proident0: {}
+                permissions:
+                - asset:shareAsLink
+                - asset:shareAsLink
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/assets/{assetId}/follow:
+    post:
+      operationId: notificationFollowAssetAsync
+      summary: Notification Follow Asset Async
+      tags:
+      - Notification
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                follow:
+                  type: boolean
+            example:
+              follow: <boolean>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '204':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/videointelligence/trial-request:
+    post:
+      operationId: createVideoIntelligenceTrialRequest
+      summary: Create Video Intelligence Trial Request
+      description: Starts a video intelligence trial.
+      tags:
+      - Notification
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /notification/users/validate:
+    post:
+      operationId: notificationValidateUserEmailAddress
+      summary: Notification Validate User Email Address
+      tags:
+      - Notification
+      parameters:
+      - name: emailAddress
+        in: query
+        required: false
+        description: emailAddress query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  exists:
+                    type: boolean
+              example:
+                exists: <boolean>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

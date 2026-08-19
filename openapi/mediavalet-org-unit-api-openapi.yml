@@ -1,0 +1,2893 @@
+openapi: 3.0.3
+info:
+  title: MediaValet OrgUnit API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: OrgUnit
+  description: Organizational units (libraries) and their configuration.
+paths:
+  /organizationalunits/{id}:
+    get:
+      operationId: retrieveOrgUnitInformationById
+      summary: Retrieve Org Unit Information By Id
+      description: Retrieves detailed information for a specific organizational unit.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  names:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      canonicalName:
+                        type: string
+                  contactInformation:
+                    type: object
+                    properties:
+                      street:
+                        type: string
+                      city:
+                        type: string
+                      stateProvince:
+                        type: string
+                      country:
+                        type: string
+                      postalCode:
+                        type: string
+                      region:
+                        type: string
+                      phoneNumber:
+                        type: string
+                      website:
+                        type: string
+                  storage:
+                    type: object
+                    properties:
+                      quota:
+                        type: integer
+                      usage:
+                        type: integer
+                  customization:
+                    type: object
+                    properties:
+                      headerImageAndLogos:
+                        type: object
+                        properties:
+                          logoImageMedium:
+                            type: string
+                          logoImageLarge:
+                            type: string
+                          headerImage:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              consequat_e:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              dolor__d5:
+                                type: object
+                              amet_9_3:
+                                type: object
+                              exercitation_8f9:
+                                type: object
+                              eiusmod23_:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      doNotDisplayRequestUserLink:
+                        type: boolean
+                      skinColors:
+                        type: object
+                        properties:
+                          backgroundAssetCardColor:
+                            type: string
+                          backgroundAssetCardHeaderColor:
+                            type: string
+                          backgroundHeaderColor:
+                            type: string
+                          backgroundMainColor:
+                            type: string
+                          backgroundPageColor:
+                            type: string
+                          backgroundReviewActionsColor:
+                            type: string
+                          buttonColor:
+                            type: string
+                          buttonInactiveColor:
+                            type: string
+                          highlightColor:
+                            type: string
+                          lineColor:
+                            type: string
+                          overlayColor:
+                            type: string
+                          tableOddRowColor:
+                            type: string
+                          textColor:
+                            type: string
+                          textHighlightColor:
+                            type: string
+                          textInactiveColor:
+                            type: string
+                          treeFolderColor:
+                            type: string
+                          textTreeColor:
+                            type: string
+                          backgroundTableHeaderColor:
+                            type: string
+                          backgroundModalHeaderColor:
+                            type: string
+                          focusOutlineColor:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              nisi22:
+                                type: object
+                              adipisicing7e_:
+                                type: object
+                              est_9:
+                                type: object
+                              irure_6:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              utd:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      dafaultSkin:
+                        type: string
+                  customRoot:
+                    type: string
+                  printUIClientId:
+                    type: string
+                  sendForApprovalNotice:
+                    type: string
+                  applyWatermark:
+                    type: boolean
+                  watermarkFilePath:
+                    type: string
+                  isAmsEnabled:
+                    type: boolean
+                  launchDarklyConfigs:
+                    type: object
+                    properties:
+                      clientSideId:
+                        type: string
+                  features:
+                    type: object
+                    properties:
+                      culpa_e4f:
+                        type: string
+                      pariatur_435:
+                        type: string
+                  featuresLastModified:
+                    type: object
+                    properties:
+                      occaecat2:
+                        type: string
+                        format: date-time
+                  activeDirectoryTenantId:
+                    type: string
+                  userIdleTimeOutInMinutes:
+                    type: integer
+                  deactivateVersioning:
+                    type: boolean
+                  oktaOrgUrl:
+                    type: string
+                  iamExternalIdentityProviderName:
+                    type: string
+                  overwriteGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laboris_ed_:
+                        type: object
+                      amet_183:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ut6a6:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                names:
+                  name: <string>
+                  canonicalName: <string>
+                contactInformation:
+                  street: <string>
+                  city: <string>
+                  stateProvince: <string>
+                  country: <string>
+                  postalCode: <string>
+                  region: <string>
+                  phoneNumber: <string>
+                  website: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                customization:
+                  headerImageAndLogos:
+                    logoImageMedium: <string>
+                    logoImageLarge: <string>
+                    headerImage: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      consequat_e: {}
+                    interpolations:
+                      dolor__d5: {}
+                      amet_9_3: {}
+                      exercitation_8f9: {}
+                      eiusmod23_: {}
+                    permissions:
+                    - asset:downloadFromMvd
+                    - lightbox:transferOwnership
+                  doNotDisplayRequestUserLink: <boolean>
+                  skinColors:
+                    backgroundAssetCardColor: <string>
+                    backgroundAssetCardHeaderColor: <string>
+                    backgroundHeaderColor: <string>
+                    backgroundMainColor: <string>
+                    backgroundPageColor: <string>
+                    backgroundReviewActionsColor: <string>
+                    buttonColor: <string>
+                    buttonInactiveColor: <string>
+                    highlightColor: <string>
+                    lineColor: <string>
+                    overlayColor: <string>
+                    tableOddRowColor: <string>
+                    textColor: <string>
+                    textHighlightColor: <string>
+                    textInactiveColor: <string>
+                    treeFolderColor: <string>
+                    textTreeColor: <string>
+                    backgroundTableHeaderColor: <string>
+                    backgroundModalHeaderColor: <string>
+                    focusOutlineColor: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      nisi22: {}
+                      adipisicing7e_: {}
+                      est_9: {}
+                      irure_6: {}
+                    interpolations:
+                      utd: {}
+                    permissions:
+                    - user:editEmail
+                    - asset:downloadFromMvd
+                  dafaultSkin: <string>
+                customRoot: <string>
+                printUIClientId: <string>
+                sendForApprovalNotice: <string>
+                applyWatermark: <boolean>
+                watermarkFilePath: <string>
+                isAmsEnabled: <boolean>
+                launchDarklyConfigs:
+                  clientSideId: <string>
+                features:
+                  culpa_e4f: Active
+                  pariatur_435: Experimental
+                featuresLastModified:
+                  occaecat2: <dateTime>
+                activeDirectoryTenantId: <string>
+                userIdleTimeOutInMinutes: <integer>
+                deactivateVersioning: <boolean>
+                oktaOrgUrl: <string>
+                iamExternalIdentityProviderName: <string>
+                overwriteGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laboris_ed_: {}
+                  amet_183: {}
+                interpolations:
+                  ut6a6: {}
+                permissions:
+                - asset:downloadFromPortal
+                - user:editEmail
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current:
+    get:
+      operationId: retrieveCurrentOrgUnitInformation
+      summary: Retrieve Current Org Unit Information
+      description: Retrieves detailed information for current organizational unit.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  names:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      canonicalName:
+                        type: string
+                  contactInformation:
+                    type: object
+                    properties:
+                      street:
+                        type: string
+                      city:
+                        type: string
+                      stateProvince:
+                        type: string
+                      country:
+                        type: string
+                      postalCode:
+                        type: string
+                      region:
+                        type: string
+                      phoneNumber:
+                        type: string
+                      website:
+                        type: string
+                  storage:
+                    type: object
+                    properties:
+                      quota:
+                        type: integer
+                      usage:
+                        type: integer
+                  customization:
+                    type: object
+                    properties:
+                      headerImageAndLogos:
+                        type: object
+                        properties:
+                          logoImageMedium:
+                            type: string
+                          logoImageLarge:
+                            type: string
+                          headerImage:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              consequat_e:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              dolor__d5:
+                                type: object
+                              amet_9_3:
+                                type: object
+                              exercitation_8f9:
+                                type: object
+                              eiusmod23_:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      doNotDisplayRequestUserLink:
+                        type: boolean
+                      skinColors:
+                        type: object
+                        properties:
+                          backgroundAssetCardColor:
+                            type: string
+                          backgroundAssetCardHeaderColor:
+                            type: string
+                          backgroundHeaderColor:
+                            type: string
+                          backgroundMainColor:
+                            type: string
+                          backgroundPageColor:
+                            type: string
+                          backgroundReviewActionsColor:
+                            type: string
+                          buttonColor:
+                            type: string
+                          buttonInactiveColor:
+                            type: string
+                          highlightColor:
+                            type: string
+                          lineColor:
+                            type: string
+                          overlayColor:
+                            type: string
+                          tableOddRowColor:
+                            type: string
+                          textColor:
+                            type: string
+                          textHighlightColor:
+                            type: string
+                          textInactiveColor:
+                            type: string
+                          treeFolderColor:
+                            type: string
+                          textTreeColor:
+                            type: string
+                          backgroundTableHeaderColor:
+                            type: string
+                          backgroundModalHeaderColor:
+                            type: string
+                          focusOutlineColor:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              nisi22:
+                                type: object
+                              adipisicing7e_:
+                                type: object
+                              est_9:
+                                type: object
+                              irure_6:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              utd:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      dafaultSkin:
+                        type: string
+                  customRoot:
+                    type: string
+                  printUIClientId:
+                    type: string
+                  sendForApprovalNotice:
+                    type: string
+                  applyWatermark:
+                    type: boolean
+                  watermarkFilePath:
+                    type: string
+                  isAmsEnabled:
+                    type: boolean
+                  launchDarklyConfigs:
+                    type: object
+                    properties:
+                      clientSideId:
+                        type: string
+                  features:
+                    type: object
+                    properties:
+                      culpa_e4f:
+                        type: string
+                      pariatur_435:
+                        type: string
+                  featuresLastModified:
+                    type: object
+                    properties:
+                      occaecat2:
+                        type: string
+                        format: date-time
+                  activeDirectoryTenantId:
+                    type: string
+                  userIdleTimeOutInMinutes:
+                    type: integer
+                  deactivateVersioning:
+                    type: boolean
+                  oktaOrgUrl:
+                    type: string
+                  iamExternalIdentityProviderName:
+                    type: string
+                  overwriteGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laboris_ed_:
+                        type: object
+                      amet_183:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ut6a6:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                names:
+                  name: <string>
+                  canonicalName: <string>
+                contactInformation:
+                  street: <string>
+                  city: <string>
+                  stateProvince: <string>
+                  country: <string>
+                  postalCode: <string>
+                  region: <string>
+                  phoneNumber: <string>
+                  website: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                customization:
+                  headerImageAndLogos:
+                    logoImageMedium: <string>
+                    logoImageLarge: <string>
+                    headerImage: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      consequat_e: {}
+                    interpolations:
+                      dolor__d5: {}
+                      amet_9_3: {}
+                      exercitation_8f9: {}
+                      eiusmod23_: {}
+                    permissions:
+                    - asset:downloadFromMvd
+                    - lightbox:transferOwnership
+                  doNotDisplayRequestUserLink: <boolean>
+                  skinColors:
+                    backgroundAssetCardColor: <string>
+                    backgroundAssetCardHeaderColor: <string>
+                    backgroundHeaderColor: <string>
+                    backgroundMainColor: <string>
+                    backgroundPageColor: <string>
+                    backgroundReviewActionsColor: <string>
+                    buttonColor: <string>
+                    buttonInactiveColor: <string>
+                    highlightColor: <string>
+                    lineColor: <string>
+                    overlayColor: <string>
+                    tableOddRowColor: <string>
+                    textColor: <string>
+                    textHighlightColor: <string>
+                    textInactiveColor: <string>
+                    treeFolderColor: <string>
+                    textTreeColor: <string>
+                    backgroundTableHeaderColor: <string>
+                    backgroundModalHeaderColor: <string>
+                    focusOutlineColor: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      nisi22: {}
+                      adipisicing7e_: {}
+                      est_9: {}
+                      irure_6: {}
+                    interpolations:
+                      utd: {}
+                    permissions:
+                    - user:editEmail
+                    - asset:downloadFromMvd
+                  dafaultSkin: <string>
+                customRoot: <string>
+                printUIClientId: <string>
+                sendForApprovalNotice: <string>
+                applyWatermark: <boolean>
+                watermarkFilePath: <string>
+                isAmsEnabled: <boolean>
+                launchDarklyConfigs:
+                  clientSideId: <string>
+                features:
+                  culpa_e4f: Active
+                  pariatur_435: Experimental
+                featuresLastModified:
+                  occaecat2: <dateTime>
+                activeDirectoryTenantId: <string>
+                userIdleTimeOutInMinutes: <integer>
+                deactivateVersioning: <boolean>
+                oktaOrgUrl: <string>
+                iamExternalIdentityProviderName: <string>
+                overwriteGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laboris_ed_: {}
+                  amet_183: {}
+                interpolations:
+                  ut6a6: {}
+                permissions:
+                - asset:downloadFromPortal
+                - user:editEmail
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/portals:
+    get:
+      operationId: retrievesPortalsDetailsForCurrentOrgUnit
+      summary: Retrieves Portals Details For Current Org Unit
+      description: Retrieves information for portals of current organizational unit.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    domainName:
+                      type: string
+                    hostName:
+                      type: string
+                    isDefault:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        euf:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        in_72d:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - domainName: <string>
+                hostName: <string>
+                isDefault: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  euf: {}
+                interpolations:
+                  in_72d: {}
+                permissions:
+                - lightbox:assignAsset
+                - lightbox:viewAsset
+              - domainName: <string>
+                hostName: <string>
+                isDefault: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  cupidatat0c: {}
+                  sit_6c8: {}
+                interpolations:
+                  Duisb: {}
+                  sed_0: {}
+                  dolore_a: {}
+                permissions:
+                - asset:shareAsWebGallery
+                - lightbox:editDetails
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/libraries:
+    get:
+      operationId: retrieveCurrentOrgUnitLibrariesInformation
+      summary: Retrieve Current Org Unit Libraries Information
+      description: Retrieves detailed information for current organizational unit libraries.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    orgUnitId:
+                      type: string
+                    orgUnitName:
+                      type: string
+                    customRootId:
+                      type: string
+                      format: uuid
+                    customRootName:
+                      type: string
+                    storage:
+                      type: object
+                      properties:
+                        quota:
+                          type: integer
+                        usage:
+                          type: integer
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        ut_83:
+                          type: object
+                        ea33_:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        eiusmodaf9:
+                          type: object
+                        inb4:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                name: <string>
+                orgUnitId: <string>
+                orgUnitName: <string>
+                customRootId: <uuid>
+                customRootName: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  ut_83: {}
+                  ea33_: {}
+                interpolations:
+                  eiusmodaf9: {}
+                  inb4: {}
+                permissions:
+                - asset:downloadFromMvd
+                - asset:downloadFromMvd
+              - id: <uuid>
+                name: <string>
+                orgUnitId: <string>
+                orgUnitName: <string>
+                customRootId: <uuid>
+                customRootName: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laborumf: {}
+                  dolor1e: {}
+                interpolations:
+                  idd3: {}
+                  aute01d: {}
+                permissions:
+                - asset:downloadFromMvd
+                - asset:shareAsZippedFile
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/organizationalUnits/{hostName}:
+    get:
+      operationId: retrieveOrgUnitInformation
+      summary: Retrieve Org Unit Information
+      description: Retrieves org unit information based on hostname.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: hostName
+        in: path
+        required: true
+        description: hostName path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  names:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      canonicalName:
+                        type: string
+                  customization:
+                    type: object
+                    properties:
+                      headerImageAndLogos:
+                        type: object
+                        properties:
+                          logoImageMedium:
+                            type: string
+                          logoImageLarge:
+                            type: string
+                          headerImage:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              tempor_667:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              dolore1:
+                                type: object
+                              laboris_35e:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      doNotDisplayRequestUserLink:
+                        type: boolean
+                      skinColors:
+                        type: object
+                        properties:
+                          backgroundAssetCardColor:
+                            type: string
+                          backgroundAssetCardHeaderColor:
+                            type: string
+                          backgroundHeaderColor:
+                            type: string
+                          backgroundMainColor:
+                            type: string
+                          backgroundPageColor:
+                            type: string
+                          backgroundReviewActionsColor:
+                            type: string
+                          buttonColor:
+                            type: string
+                          buttonInactiveColor:
+                            type: string
+                          highlightColor:
+                            type: string
+                          lineColor:
+                            type: string
+                          overlayColor:
+                            type: string
+                          tableOddRowColor:
+                            type: string
+                          textColor:
+                            type: string
+                          textHighlightColor:
+                            type: string
+                          textInactiveColor:
+                            type: string
+                          treeFolderColor:
+                            type: string
+                          textTreeColor:
+                            type: string
+                          backgroundTableHeaderColor:
+                            type: string
+                          backgroundModalHeaderColor:
+                            type: string
+                          focusOutlineColor:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              veniam_e:
+                                type: object
+                              sit_b0a:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              sunt_4:
+                                type: object
+                              cillum_7c0:
+                                type: object
+                              ad_8:
+                                type: object
+                              Duis91d:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      dafaultSkin:
+                        type: string
+                  onlineGalleryPreviewPaneDefault:
+                    type: boolean
+                  termsAndConditions:
+                    type: object
+                    properties:
+                      displayTermsAndConditions:
+                        type: boolean
+                      termsAcceptanceRequiredForLogin:
+                        type: boolean
+                      termsAndConditionsNotice:
+                        type: string
+                      termsAndConditionsUpdated:
+                        type: string
+                        format: date-time
+                      _links:
+                        type: object
+                        properties:
+                          self:
+                            type: string
+                          functions:
+                            type: array
+                            items:
+                              type: string
+                      translationKeys:
+                        type: object
+                        properties:
+                          commodoe96:
+                            type: object
+                      interpolations:
+                        type: object
+                        properties:
+                          quis50_:
+                            type: object
+                          incididuntd:
+                            type: object
+                      permissions:
+                        type: array
+                        items:
+                          type: string
+                  launchDarklyConfigs:
+                    type: object
+                    properties:
+                      clientSideId:
+                        type: string
+                  features:
+                    type: object
+                    properties:
+                      irure_579:
+                        type: string
+                  featuresLastModified:
+                    type: object
+                    properties:
+                      occaecat2f:
+                        type: string
+                        format: date-time
+                      exercitation20:
+                        type: string
+                        format: date-time
+                      in_13:
+                        type: string
+                        format: date-time
+                  activeDirectoryTenantId:
+                    type: string
+                  azureActiveDirectoryDomainName:
+                    type: string
+                  oktaOrgUrl:
+                    type: string
+                  UserIdleTimeOutInMinutes:
+                    type: integer
+                  printUIClientID:
+                    type: string
+                  watermarkFilePath:
+                    type: string
+                  externalIdentityProviderName:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      Lorem92_:
+                        type: object
+                      etc:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      et747:
+                        type: object
+                      eu_7:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                names:
+                  name: <string>
+                  canonicalName: <string>
+                customization:
+                  headerImageAndLogos:
+                    logoImageMedium: <string>
+                    logoImageLarge: <string>
+                    headerImage: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      tempor_667: {}
+                    interpolations:
+                      dolore1: {}
+                      laboris_35e: {}
+                    permissions:
+                    - user:editEmail
+                    - lightbox:assignAsset
+                  doNotDisplayRequestUserLink: <boolean>
+                  skinColors:
+                    backgroundAssetCardColor: <string>
+                    backgroundAssetCardHeaderColor: <string>
+                    backgroundHeaderColor: <string>
+                    backgroundMainColor: <string>
+                    backgroundPageColor: <string>
+                    backgroundReviewActionsColor: <string>
+                    buttonColor: <string>
+                    buttonInactiveColor: <string>
+                    highlightColor: <string>
+                    lineColor: <string>
+                    overlayColor: <string>
+                    tableOddRowColor: <string>
+                    textColor: <string>
+                    textHighlightColor: <string>
+                    textInactiveColor: <string>
+                    treeFolderColor: <string>
+                    textTreeColor: <string>
+                    backgroundTableHeaderColor: <string>
+                    backgroundModalHeaderColor: <string>
+                    focusOutlineColor: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      veniam_e: {}
+                      sit_b0a: {}
+                    interpolations:
+                      sunt_4: {}
+                      cillum_7c0: {}
+                      ad_8: {}
+                      Duis91d: {}
+                    permissions:
+                    - asset:shareAsZippedFile
+                    - None
+                  dafaultSkin: <string>
+                onlineGalleryPreviewPaneDefault: <boolean>
+                termsAndConditions:
+                  displayTermsAndConditions: <boolean>
+                  termsAcceptanceRequiredForLogin: <boolean>
+                  termsAndConditionsNotice: <string>
+                  termsAndConditionsUpdated: <dateTime>
+                  _links:
+                    self: <string>
+                    functions:
+                    - <string>
+                    - <string>
+                  translationKeys:
+                    commodoe96: {}
+                  interpolations:
+                    quis50_: {}
+                    incididuntd: {}
+                  permissions:
+                  - asset:createVideoClip
+                  - asset:shareAsZippedFile
+                launchDarklyConfigs:
+                  clientSideId: <string>
+                features:
+                  irure_579: Experimental
+                featuresLastModified:
+                  occaecat2f: <dateTime>
+                  exercitation20: <dateTime>
+                  in_13: <dateTime>
+                activeDirectoryTenantId: <string>
+                azureActiveDirectoryDomainName: <string>
+                oktaOrgUrl: <string>
+                UserIdleTimeOutInMinutes: <integer>
+                printUIClientID: <string>
+                watermarkFilePath: <string>
+                externalIdentityProviderName: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  Lorem92_: {}
+                  etc: {}
+                interpolations:
+                  et747: {}
+                  eu_7: {}
+                permissions:
+                - asset:shareAsCdnLink
+                - user:editEmail
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/skinColors:
+    get:
+      operationId: retrieveCurrentLibrarySSkinColors
+      summary: Retrieve Current Library's Skin Colors
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  backgroundAssetCardColor:
+                    type: string
+                  backgroundAssetCardHeaderColor:
+                    type: string
+                  backgroundHeaderColor:
+                    type: string
+                  backgroundMainColor:
+                    type: string
+                  backgroundPageColor:
+                    type: string
+                  backgroundReviewActionsColor:
+                    type: string
+                  buttonColor:
+                    type: string
+                  buttonInactiveColor:
+                    type: string
+                  highlightColor:
+                    type: string
+                  lineColor:
+                    type: string
+                  overlayColor:
+                    type: string
+                  tableOddRowColor:
+                    type: string
+                  textColor:
+                    type: string
+                  textHighlightColor:
+                    type: string
+                  textInactiveColor:
+                    type: string
+                  treeFolderColor:
+                    type: string
+                  textTreeColor:
+                    type: string
+                  backgroundTableHeaderColor:
+                    type: string
+                  backgroundModalHeaderColor:
+                    type: string
+                  focusOutlineColor:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      in34:
+                        type: object
+                      et_a:
+                        type: object
+                      commodo17d:
+                        type: object
+                      ut_f:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ipsum__:
+                        type: object
+                      officia5:
+                        type: object
+                      sed_550:
+                        type: object
+                      adipisicing__d:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                backgroundAssetCardColor: <string>
+                backgroundAssetCardHeaderColor: <string>
+                backgroundHeaderColor: <string>
+                backgroundMainColor: <string>
+                backgroundPageColor: <string>
+                backgroundReviewActionsColor: <string>
+                buttonColor: <string>
+                buttonInactiveColor: <string>
+                highlightColor: <string>
+                lineColor: <string>
+                overlayColor: <string>
+                tableOddRowColor: <string>
+                textColor: <string>
+                textHighlightColor: <string>
+                textInactiveColor: <string>
+                treeFolderColor: <string>
+                textTreeColor: <string>
+                backgroundTableHeaderColor: <string>
+                backgroundModalHeaderColor: <string>
+                focusOutlineColor: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  in34: {}
+                  et_a: {}
+                  commodo17d: {}
+                  ut_f: {}
+                interpolations:
+                  ipsum__: {}
+                  officia5: {}
+                  sed_550: {}
+                  adipisicing__d: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:downloadFromPortal
+        '401':
+          description: The current user is not authorized to get the color.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: updateCurrentLibrarySSkinColors
+      summary: Update Current Library's Skin Colors
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                backgroundAssetCardColor:
+                  type: string
+                backgroundAssetCardHeaderColor:
+                  type: string
+                backgroundHeaderColor:
+                  type: string
+                backgroundMainColor:
+                  type: string
+                backgroundPageColor:
+                  type: string
+                backgroundReviewActionsColor:
+                  type: string
+                buttonColor:
+                  type: string
+                buttonInactiveColor:
+                  type: string
+                highlightColor:
+                  type: string
+                lineColor:
+                  type: string
+                overlayColor:
+                  type: string
+                tableOddRowColor:
+                  type: string
+                textColor:
+                  type: string
+                textHighlightColor:
+                  type: string
+                textInactiveColor:
+                  type: string
+                treeFolderColor:
+                  type: string
+                textTreeColor:
+                  type: string
+                backgroundTableHeaderColor:
+                  type: string
+                backgroundModalHeaderColor:
+                  type: string
+                focusOutlineColor:
+                  type: string
+            example:
+              backgroundAssetCardColor: <string>
+              backgroundAssetCardHeaderColor: <string>
+              backgroundHeaderColor: <string>
+              backgroundMainColor: <string>
+              backgroundPageColor: <string>
+              backgroundReviewActionsColor: <string>
+              buttonColor: <string>
+              buttonInactiveColor: <string>
+              highlightColor: <string>
+              lineColor: <string>
+              overlayColor: <string>
+              tableOddRowColor: <string>
+              textColor: <string>
+              textHighlightColor: <string>
+              textInactiveColor: <string>
+              treeFolderColor: <string>
+              textTreeColor: <string>
+              backgroundTableHeaderColor: <string>
+              backgroundModalHeaderColor: <string>
+              focusOutlineColor: <string>
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to update the color.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/{portal}/skinColors:
+    get:
+      operationId: retrieveCurrentLibrarySSkinColors2
+      summary: Retrieve Current Library's Skin Colors
+      tags:
+      - OrgUnit
+      parameters:
+      - name: portal
+        in: path
+        required: true
+        description: portal path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  backgroundAssetCardColor:
+                    type: string
+                  backgroundAssetCardHeaderColor:
+                    type: string
+                  backgroundHeaderColor:
+                    type: string
+                  backgroundMainColor:
+                    type: string
+                  backgroundPageColor:
+                    type: string
+                  backgroundReviewActionsColor:
+                    type: string
+                  buttonColor:
+                    type: string
+                  buttonInactiveColor:
+                    type: string
+                  highlightColor:
+                    type: string
+                  lineColor:
+                    type: string
+                  overlayColor:
+                    type: string
+                  tableOddRowColor:
+                    type: string
+                  textColor:
+                    type: string
+                  textHighlightColor:
+                    type: string
+                  textInactiveColor:
+                    type: string
+                  treeFolderColor:
+                    type: string
+                  textTreeColor:
+                    type: string
+                  backgroundTableHeaderColor:
+                    type: string
+                  backgroundModalHeaderColor:
+                    type: string
+                  focusOutlineColor:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      in34:
+                        type: object
+                      et_a:
+                        type: object
+                      commodo17d:
+                        type: object
+                      ut_f:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ipsum__:
+                        type: object
+                      officia5:
+                        type: object
+                      sed_550:
+                        type: object
+                      adipisicing__d:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                backgroundAssetCardColor: <string>
+                backgroundAssetCardHeaderColor: <string>
+                backgroundHeaderColor: <string>
+                backgroundMainColor: <string>
+                backgroundPageColor: <string>
+                backgroundReviewActionsColor: <string>
+                buttonColor: <string>
+                buttonInactiveColor: <string>
+                highlightColor: <string>
+                lineColor: <string>
+                overlayColor: <string>
+                tableOddRowColor: <string>
+                textColor: <string>
+                textHighlightColor: <string>
+                textInactiveColor: <string>
+                treeFolderColor: <string>
+                textTreeColor: <string>
+                backgroundTableHeaderColor: <string>
+                backgroundModalHeaderColor: <string>
+                focusOutlineColor: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  in34: {}
+                  et_a: {}
+                  commodo17d: {}
+                  ut_f: {}
+                interpolations:
+                  ipsum__: {}
+                  officia5: {}
+                  sed_550: {}
+                  adipisicing__d: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:downloadFromPortal
+        '401':
+          description: The current user is not authorized to get the color.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: updateCurrentLibrarySSkinColors2
+      summary: Update Current Library's Skin Colors
+      tags:
+      - OrgUnit
+      parameters:
+      - name: portal
+        in: path
+        required: true
+        description: portal path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                backgroundAssetCardColor:
+                  type: string
+                backgroundAssetCardHeaderColor:
+                  type: string
+                backgroundHeaderColor:
+                  type: string
+                backgroundMainColor:
+                  type: string
+                backgroundPageColor:
+                  type: string
+                backgroundReviewActionsColor:
+                  type: string
+                buttonColor:
+                  type: string
+                buttonInactiveColor:
+                  type: string
+                highlightColor:
+                  type: string
+                lineColor:
+                  type: string
+                overlayColor:
+                  type: string
+                tableOddRowColor:
+                  type: string
+                textColor:
+                  type: string
+                textHighlightColor:
+                  type: string
+                textInactiveColor:
+                  type: string
+                treeFolderColor:
+                  type: string
+                textTreeColor:
+                  type: string
+                backgroundTableHeaderColor:
+                  type: string
+                backgroundModalHeaderColor:
+                  type: string
+                focusOutlineColor:
+                  type: string
+            example:
+              backgroundAssetCardColor: <string>
+              backgroundAssetCardHeaderColor: <string>
+              backgroundHeaderColor: <string>
+              backgroundMainColor: <string>
+              backgroundPageColor: <string>
+              backgroundReviewActionsColor: <string>
+              buttonColor: <string>
+              buttonInactiveColor: <string>
+              highlightColor: <string>
+              lineColor: <string>
+              overlayColor: <string>
+              tableOddRowColor: <string>
+              textColor: <string>
+              textHighlightColor: <string>
+              textInactiveColor: <string>
+              treeFolderColor: <string>
+              textTreeColor: <string>
+              backgroundTableHeaderColor: <string>
+              backgroundModalHeaderColor: <string>
+              focusOutlineColor: <string>
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to update the color.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/libraries/{id}:
+    get:
+      operationId: retrieveOrgUnitLibraryById
+      summary: Retrieve Org Unit Library By Id
+      description: Retrieves an organizational unit library by Id.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: id path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  orgUnitId:
+                    type: string
+                  orgUnitName:
+                    type: string
+                  customRootId:
+                    type: string
+                    format: uuid
+                  customRootName:
+                    type: string
+                  storage:
+                    type: object
+                    properties:
+                      quota:
+                        type: integer
+                      usage:
+                        type: integer
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      elit5b0:
+                        type: object
+                      aute_06_:
+                        type: object
+                      Duiscb:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ut_ba:
+                        type: object
+                      nisi_f46:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                name: <string>
+                orgUnitId: <string>
+                orgUnitName: <string>
+                customRootId: <uuid>
+                customRootName: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  elit5b0: {}
+                  aute_06_: {}
+                  Duiscb: {}
+                interpolations:
+                  ut_ba: {}
+                  nisi_f46: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:shareAsLink
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/integrations/printui:
+    get:
+      operationId: retrievePrintUICredentialForCurrentOrgUnit
+      summary: Retrieve Print UI Credential For Current Org Unit
+      description: Retrieves print ui auth token and client ID for current organizational unit.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  printUIClientId:
+                    type: string
+                  printUIAuthCode:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      doloreb0:
+                        type: object
+                      Excepteur7:
+                        type: object
+                      fugiat_d_8:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      sed56:
+                        type: object
+                      veniam_efa:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                printUIClientId: <string>
+                printUIAuthCode: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  doloreb0: {}
+                  Excepteur7: {}
+                  fugiat_d_8: {}
+                interpolations:
+                  sed56: {}
+                  veniam_efa: {}
+                permissions:
+                - None
+                - lightbox:transferOwnership
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/logo:
+    post:
+      operationId: updateCurrentLibrarySLogo
+      summary: Update Current Library's Logo
+      tags:
+      - OrgUnit
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to update the logo.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/{portal}/logo:
+    post:
+      operationId: updateCurrentLibrarySLogo2
+      summary: Update Current Library's Logo
+      tags:
+      - OrgUnit
+      parameters:
+      - name: portal
+        in: path
+        required: true
+        description: portal path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to update the logo.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: An organizational unit was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalUnits/{libraryId}:
+    patch:
+      operationId: updateCurrentLibraryName
+      summary: Update Current Library Name
+      description: Updates the current library name.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: libraryId
+        in: path
+        required: true
+        description: libraryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  names:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      canonicalName:
+                        type: string
+                  contactInformation:
+                    type: object
+                    properties:
+                      street:
+                        type: string
+                      city:
+                        type: string
+                      stateProvince:
+                        type: string
+                      country:
+                        type: string
+                      postalCode:
+                        type: string
+                      region:
+                        type: string
+                      phoneNumber:
+                        type: string
+                      website:
+                        type: string
+                  storage:
+                    type: object
+                    properties:
+                      quota:
+                        type: integer
+                      usage:
+                        type: integer
+                  customization:
+                    type: object
+                    properties:
+                      headerImageAndLogos:
+                        type: object
+                        properties:
+                          logoImageMedium:
+                            type: string
+                          logoImageLarge:
+                            type: string
+                          headerImage:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              consequat_e:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              dolor__d5:
+                                type: object
+                              amet_9_3:
+                                type: object
+                              exercitation_8f9:
+                                type: object
+                              eiusmod23_:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      doNotDisplayRequestUserLink:
+                        type: boolean
+                      skinColors:
+                        type: object
+                        properties:
+                          backgroundAssetCardColor:
+                            type: string
+                          backgroundAssetCardHeaderColor:
+                            type: string
+                          backgroundHeaderColor:
+                            type: string
+                          backgroundMainColor:
+                            type: string
+                          backgroundPageColor:
+                            type: string
+                          backgroundReviewActionsColor:
+                            type: string
+                          buttonColor:
+                            type: string
+                          buttonInactiveColor:
+                            type: string
+                          highlightColor:
+                            type: string
+                          lineColor:
+                            type: string
+                          overlayColor:
+                            type: string
+                          tableOddRowColor:
+                            type: string
+                          textColor:
+                            type: string
+                          textHighlightColor:
+                            type: string
+                          textInactiveColor:
+                            type: string
+                          treeFolderColor:
+                            type: string
+                          textTreeColor:
+                            type: string
+                          backgroundTableHeaderColor:
+                            type: string
+                          backgroundModalHeaderColor:
+                            type: string
+                          focusOutlineColor:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              nisi22:
+                                type: object
+                              adipisicing7e_:
+                                type: object
+                              est_9:
+                                type: object
+                              irure_6:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              utd:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      dafaultSkin:
+                        type: string
+                  customRoot:
+                    type: string
+                  printUIClientId:
+                    type: string
+                  sendForApprovalNotice:
+                    type: string
+                  applyWatermark:
+                    type: boolean
+                  watermarkFilePath:
+                    type: string
+                  isAmsEnabled:
+                    type: boolean
+                  launchDarklyConfigs:
+                    type: object
+                    properties:
+                      clientSideId:
+                        type: string
+                  features:
+                    type: object
+                    properties:
+                      culpa_e4f:
+                        type: string
+                      pariatur_435:
+                        type: string
+                  featuresLastModified:
+                    type: object
+                    properties:
+                      occaecat2:
+                        type: string
+                        format: date-time
+                  activeDirectoryTenantId:
+                    type: string
+                  userIdleTimeOutInMinutes:
+                    type: integer
+                  deactivateVersioning:
+                    type: boolean
+                  oktaOrgUrl:
+                    type: string
+                  iamExternalIdentityProviderName:
+                    type: string
+                  overwriteGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laboris_ed_:
+                        type: object
+                      amet_183:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ut6a6:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                names:
+                  name: <string>
+                  canonicalName: <string>
+                contactInformation:
+                  street: <string>
+                  city: <string>
+                  stateProvince: <string>
+                  country: <string>
+                  postalCode: <string>
+                  region: <string>
+                  phoneNumber: <string>
+                  website: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                customization:
+                  headerImageAndLogos:
+                    logoImageMedium: <string>
+                    logoImageLarge: <string>
+                    headerImage: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      consequat_e: {}
+                    interpolations:
+                      dolor__d5: {}
+                      amet_9_3: {}
+                      exercitation_8f9: {}
+                      eiusmod23_: {}
+                    permissions:
+                    - asset:downloadFromMvd
+                    - lightbox:transferOwnership
+                  doNotDisplayRequestUserLink: <boolean>
+                  skinColors:
+                    backgroundAssetCardColor: <string>
+                    backgroundAssetCardHeaderColor: <string>
+                    backgroundHeaderColor: <string>
+                    backgroundMainColor: <string>
+                    backgroundPageColor: <string>
+                    backgroundReviewActionsColor: <string>
+                    buttonColor: <string>
+                    buttonInactiveColor: <string>
+                    highlightColor: <string>
+                    lineColor: <string>
+                    overlayColor: <string>
+                    tableOddRowColor: <string>
+                    textColor: <string>
+                    textHighlightColor: <string>
+                    textInactiveColor: <string>
+                    treeFolderColor: <string>
+                    textTreeColor: <string>
+                    backgroundTableHeaderColor: <string>
+                    backgroundModalHeaderColor: <string>
+                    focusOutlineColor: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      nisi22: {}
+                      adipisicing7e_: {}
+                      est_9: {}
+                      irure_6: {}
+                    interpolations:
+                      utd: {}
+                    permissions:
+                    - user:editEmail
+                    - asset:downloadFromMvd
+                  dafaultSkin: <string>
+                customRoot: <string>
+                printUIClientId: <string>
+                sendForApprovalNotice: <string>
+                applyWatermark: <boolean>
+                watermarkFilePath: <string>
+                isAmsEnabled: <boolean>
+                launchDarklyConfigs:
+                  clientSideId: <string>
+                features:
+                  culpa_e4f: Active
+                  pariatur_435: Experimental
+                featuresLastModified:
+                  occaecat2: <dateTime>
+                activeDirectoryTenantId: <string>
+                userIdleTimeOutInMinutes: <integer>
+                deactivateVersioning: <boolean>
+                oktaOrgUrl: <string>
+                iamExternalIdentityProviderName: <string>
+                overwriteGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laboris_ed_: {}
+                  amet_183: {}
+                interpolations:
+                  ut6a6: {}
+                permissions:
+                - asset:downloadFromPortal
+                - user:editEmail
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /organizationalunits/current/libraries/{libraryId}:
+    patch:
+      operationId: updateCurrentLibrarySRootCategoryName
+      summary: Update Current Library's Root Category Name
+      description: Updates the library's root category name.
+      tags:
+      - OrgUnit
+      parameters:
+      - name: libraryId
+        in: path
+        required: true
+        description: libraryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  names:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      canonicalName:
+                        type: string
+                  contactInformation:
+                    type: object
+                    properties:
+                      street:
+                        type: string
+                      city:
+                        type: string
+                      stateProvince:
+                        type: string
+                      country:
+                        type: string
+                      postalCode:
+                        type: string
+                      region:
+                        type: string
+                      phoneNumber:
+                        type: string
+                      website:
+                        type: string
+                  storage:
+                    type: object
+                    properties:
+                      quota:
+                        type: integer
+                      usage:
+                        type: integer
+                  customization:
+                    type: object
+                    properties:
+                      headerImageAndLogos:
+                        type: object
+                        properties:
+                          logoImageMedium:
+                            type: string
+                          logoImageLarge:
+                            type: string
+                          headerImage:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              consequat_e:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              dolor__d5:
+                                type: object
+                              amet_9_3:
+                                type: object
+                              exercitation_8f9:
+                                type: object
+                              eiusmod23_:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      doNotDisplayRequestUserLink:
+                        type: boolean
+                      skinColors:
+                        type: object
+                        properties:
+                          backgroundAssetCardColor:
+                            type: string
+                          backgroundAssetCardHeaderColor:
+                            type: string
+                          backgroundHeaderColor:
+                            type: string
+                          backgroundMainColor:
+                            type: string
+                          backgroundPageColor:
+                            type: string
+                          backgroundReviewActionsColor:
+                            type: string
+                          buttonColor:
+                            type: string
+                          buttonInactiveColor:
+                            type: string
+                          highlightColor:
+                            type: string
+                          lineColor:
+                            type: string
+                          overlayColor:
+                            type: string
+                          tableOddRowColor:
+                            type: string
+                          textColor:
+                            type: string
+                          textHighlightColor:
+                            type: string
+                          textInactiveColor:
+                            type: string
+                          treeFolderColor:
+                            type: string
+                          textTreeColor:
+                            type: string
+                          backgroundTableHeaderColor:
+                            type: string
+                          backgroundModalHeaderColor:
+                            type: string
+                          focusOutlineColor:
+                            type: string
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: string
+                              functions:
+                                type: array
+                                items:
+                                  type: string
+                          translationKeys:
+                            type: object
+                            properties:
+                              nisi22:
+                                type: object
+                              adipisicing7e_:
+                                type: object
+                              est_9:
+                                type: object
+                              irure_6:
+                                type: object
+                          interpolations:
+                            type: object
+                            properties:
+                              utd:
+                                type: object
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                      dafaultSkin:
+                        type: string
+                  customRoot:
+                    type: string
+                  printUIClientId:
+                    type: string
+                  sendForApprovalNotice:
+                    type: string
+                  applyWatermark:
+                    type: boolean
+                  watermarkFilePath:
+                    type: string
+                  isAmsEnabled:
+                    type: boolean
+                  launchDarklyConfigs:
+                    type: object
+                    properties:
+                      clientSideId:
+                        type: string
+                  features:
+                    type: object
+                    properties:
+                      culpa_e4f:
+                        type: string
+                      pariatur_435:
+                        type: string
+                  featuresLastModified:
+                    type: object
+                    properties:
+                      occaecat2:
+                        type: string
+                        format: date-time
+                  activeDirectoryTenantId:
+                    type: string
+                  userIdleTimeOutInMinutes:
+                    type: integer
+                  deactivateVersioning:
+                    type: boolean
+                  oktaOrgUrl:
+                    type: string
+                  iamExternalIdentityProviderName:
+                    type: string
+                  overwriteGroups:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laboris_ed_:
+                        type: object
+                      amet_183:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ut6a6:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                names:
+                  name: <string>
+                  canonicalName: <string>
+                contactInformation:
+                  street: <string>
+                  city: <string>
+                  stateProvince: <string>
+                  country: <string>
+                  postalCode: <string>
+                  region: <string>
+                  phoneNumber: <string>
+                  website: <string>
+                storage:
+                  quota: <long>
+                  usage: <long>
+                customization:
+                  headerImageAndLogos:
+                    logoImageMedium: <string>
+                    logoImageLarge: <string>
+                    headerImage: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      consequat_e: {}
+                    interpolations:
+                      dolor__d5: {}
+                      amet_9_3: {}
+                      exercitation_8f9: {}
+                      eiusmod23_: {}
+                    permissions:
+                    - asset:downloadFromMvd
+                    - lightbox:transferOwnership
+                  doNotDisplayRequestUserLink: <boolean>
+                  skinColors:
+                    backgroundAssetCardColor: <string>
+                    backgroundAssetCardHeaderColor: <string>
+                    backgroundHeaderColor: <string>
+                    backgroundMainColor: <string>
+                    backgroundPageColor: <string>
+                    backgroundReviewActionsColor: <string>
+                    buttonColor: <string>
+                    buttonInactiveColor: <string>
+                    highlightColor: <string>
+                    lineColor: <string>
+                    overlayColor: <string>
+                    tableOddRowColor: <string>
+                    textColor: <string>
+                    textHighlightColor: <string>
+                    textInactiveColor: <string>
+                    treeFolderColor: <string>
+                    textTreeColor: <string>
+                    backgroundTableHeaderColor: <string>
+                    backgroundModalHeaderColor: <string>
+                    focusOutlineColor: <string>
+                    _links:
+                      self: <string>
+                      functions:
+                      - <string>
+                      - <string>
+                    translationKeys:
+                      nisi22: {}
+                      adipisicing7e_: {}
+                      est_9: {}
+                      irure_6: {}
+                    interpolations:
+                      utd: {}
+                    permissions:
+                    - user:editEmail
+                    - asset:downloadFromMvd
+                  dafaultSkin: <string>
+                customRoot: <string>
+                printUIClientId: <string>
+                sendForApprovalNotice: <string>
+                applyWatermark: <boolean>
+                watermarkFilePath: <string>
+                isAmsEnabled: <boolean>
+                launchDarklyConfigs:
+                  clientSideId: <string>
+                features:
+                  culpa_e4f: Active
+                  pariatur_435: Experimental
+                featuresLastModified:
+                  occaecat2: <dateTime>
+                activeDirectoryTenantId: <string>
+                userIdleTimeOutInMinutes: <integer>
+                deactivateVersioning: <boolean>
+                oktaOrgUrl: <string>
+                iamExternalIdentityProviderName: <string>
+                overwriteGroups: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laboris_ed_: {}
+                  amet_183: {}
+                interpolations:
+                  ut6a6: {}
+                permissions:
+                - asset:downloadFromPortal
+                - user:editEmail
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

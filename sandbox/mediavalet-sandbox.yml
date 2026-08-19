@@ -1,0 +1,81 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developer.mediavalet.com/plans, https://developer.mediavalet.com/getting-started, and
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE (Packaged Business Capabilities >
+  Asset Picker).
+docs: https://developer.mediavalet.com/plans
+description: >-
+  MediaValet's test environment is an entitlement, not a public sandbox. There is no anonymous
+  playground, no test-mode key prefix, and no published fixture or trigger tooling. Two things
+  qualify as sandbox surfaces: the Developer Plan (a rate-capped proof-of-concept subscription
+  against a real MediaValet library), and the Enterprise Plan's "dedicated testing library" — a
+  separate library isolated from production. Both require an existing MediaValet subscription and an
+  approved Developer Portal account before any request can be made.
+public: false
+self_serve: false
+anonymous_access: false
+modes:
+- name: Developer Plan
+  url: https://developer.mediavalet.com/plans
+  purpose: Proof-of-concept development and integration testing.
+  isolation: none — runs against the customer's real MediaValet library.
+  quota: >-
+    "The Developer Plan comes with a limited amount of daily requests to get you started." The
+    numeric daily cap is not published.
+  default: true
+  note: Every approved developer account starts on this plan by default.
+- name: Enterprise Plan — dedicated testing library
+  url: https://developer.mediavalet.com/plans
+  purpose: >-
+    "Gain access to an exclusive sandbox environment, allowing you and your team validate the
+    feasibility and functionality of new integrations and solutions without affecting your
+    production environment."
+  isolation: separate library from production
+  quota: '"a generous limit of API calls... a near unlimited number of requests"'
+  additional: Full API endpoint suite plus MediaValet secure Webhooks (SkyHOOK).
+  default: false
+  note: Requested by upgrading from the Developer Plan when call volume is too high.
+- name: Asset Picker local development
+  url: http://localhost:5174
+  purpose: >-
+    "You can use the Asset Picker locally at http://localhost:5174 for development and testing. This
+    allows you to build and validate your integration before configuring a whitelabeled domain."
+  isolation: local only
+  note: >-
+    Applies to the embeddable Asset Picker component, not the REST API. See
+    components/mediavalet-components.yml.
+credentials:
+  test_key_prefix: null
+  live_key_prefix: null
+  separate_test_credentials: false
+  note: >-
+    MediaValet does not distinguish test from live credentials by prefix or by mode flag. The same
+    OAuth client_id/client_secret and the same Ocp-Apim-Subscription-Key are used; the plan attached
+    to the subscription key is what differs. That means there is no in-band signal to an agent that
+    it is operating against a test library rather than production — the only separation is which
+    library the credentials point at.
+test_data:
+  test_values: []
+  fixtures: null
+  triggers: null
+  time_simulation: false
+  note: >-
+    No published magic identifiers, test files, seeded fixtures, event triggers or time/clock
+    simulation. SkyHOOK events can only be produced by performing the real action in a library.
+access_path:
+- Have an existing MediaValet library (existing customer or partner) — this is a hard prerequisite.
+- Register at https://developer.mediavalet.com/signup.
+- MediaValet support contacts you for verification, activates the account, and issues client_id and client_secret.
+- Subscription keys appear under your Developer Portal profile once the subscription is approved.
+- Administrator permissions in the MediaValet account are required to use the API.
+gaps:
+- No self-serve trial credentials — a prospective integrator with no MediaValet contract cannot call the API at all.
+- No numeric daily request cap published for the Developer Plan.
+- No test/live credential distinction, so no guardrail against pointing test code at production.
+cross_references:
+  plans: plans/mediavalet-plans-pricing.yml
+  rate_limits: rate-limits/mediavalet-rate-limits.yml
+  authentication: authentication/mediavalet-authentication.yml
+  components: components/mediavalet-components.yml
+checked: '2026-08-13'

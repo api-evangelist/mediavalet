@@ -1,0 +1,305 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Integrations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List whitelisted origins for an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/integrations/allowed-origins",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "appId query parameter."
+              }
+            ]
+          },
+          "docs": "Return every origin currently whitelisted in the CSP allowlist for the given ThirdParty integration. Used when embedding the integration in an iframe -- only origins on this list may host the embedding page. Pass the integration's id via the appId query parameter."
+        },
+        {
+          "info": {
+            "name": "Whitelist an origin for an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/integrations/allowed-origins",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an origin (scheme + host + optional port) to the CSP allowlist for a ThirdParty integration. The change takes effect immediately -- no cache propagation delay. The response payload is the new allowed-origin id (UUID)."
+        },
+        {
+          "info": {
+            "name": "Remove one or more allowed origins",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/integrations/allowed-origins/batch",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove origins by id. Pass a single-element array to remove just one. Only origins belonging to the calling tenant are affected. Response payload.removed is the count of origins removed."
+        },
+        {
+          "info": {
+            "name": "Delete a ThirdParty integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/integrations/apps/:id",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Delete a ThirdParty integration owned by your tenant. Returns 404 if the integration doesn't exist or isn't owned by your tenant. Native integrations cannot be deleted via this endpoint."
+        },
+        {
+          "info": {
+            "name": "List your tenant's integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/integrations/apps/tenant",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Return every integration registered to the calling tenant -- both Native (MediaValet-managed: Drupal, WordPress, Monday) and ThirdParty (customer-registered). The response payload is an array of integration objects; recordCount.totalRecordsFound is the total."
+        },
+        {
+          "info": {
+            "name": "Register a new ThirdParty integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/integrations/apps",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new ThirdParty integration for your tenant. Only appName is required in the request body; the other fields (appDescription, iconUrl, currentVersion) are optional partner-facing labels. The response payload.id is the new integration's identifier -- use it as the appId parameter on subsequent calls to manage allowed origins, subscriptions, and user entitlements."
+        },
+        {
+          "info": {
+            "name": "Rename a ThirdParty integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/integrations/apps/:id/name",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rename a ThirdParty integration. Native integrations cannot be renamed. Returns the updated integration in the response payload."
+        },
+        {
+          "info": {
+            "name": "Get active subscription for an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/integrations/subscriptions/app/:appId/tenant",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "appId path parameter."
+              }
+            ]
+          },
+          "docs": "Return the active subscription for the given integration + the calling tenant. Returns 404 if no active subscription exists. Used by license-management UIs to display subscription details."
+        },
+        {
+          "info": {
+            "name": "Get entitlement counts for a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/integrations/subscriptions/:id/count",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Return active-vs-total entitlement counts for a subscription. Useful for license-management dashboards that show how many seats are in use out of the total licensed."
+        },
+        {
+          "info": {
+            "name": "Invite a user into your tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/integrations/users",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new MediaValet user in your tenant. The user receives an invite email and completes onboarding via the standard MediaValet sign-up flow."
+        },
+        {
+          "info": {
+            "name": "List user entitlements in a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/integrations/user-entitlement/subscription/:subscriptionId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "subscriptionId path parameter."
+              }
+            ]
+          },
+          "docs": "Return every user entitlement belonging to the given subscription. Each entitlement maps one user to one subscription with a role and an active/inactive flag."
+        },
+        {
+          "info": {
+            "name": "Update a user entitlement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/integrations/user-entitlement",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing user entitlement -- toggle the active flag, change the role, etc. The entitlementId field identifies the entitlement to update."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

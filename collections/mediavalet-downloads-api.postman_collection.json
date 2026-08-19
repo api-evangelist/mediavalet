@@ -1,0 +1,2828 @@
+{
+  "item": [
+    {
+      "id": "9cac0496-53f2-49b6-9405-21e744973792",
+      "name": "Downloads",
+      "description": {
+        "content": "Asset download requests, packaging and download presets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ce97083-544c-4ff6-8767-d7a4cde2a64f",
+          "name": "Retrieve Downloads",
+          "request": {
+            "name": "Retrieve Downloads",
+            "description": {
+              "content": "Returns a collection of all downloads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f73ffa26-ed24-464b-baf2-232a11dc7f34",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"fileName\": \"<string>\",\n      \"filePath\": \"<string>\",\n      \"fileSize\": \"<long>\",\n      \"itemCount\": \"<integer>\",\n      \"processedCount\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"mollit44f\": {}\n      },\n      \"interpolations\": {\n        \"consequat78\": {},\n        \"do484\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsCdnLink\",\n        \"lightbox:editDetails\"\n      ]\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"fileName\": \"<string>\",\n      \"filePath\": \"<string>\",\n      \"fileSize\": \"<long>\",\n      \"itemCount\": \"<integer>\",\n      \"processedCount\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"_links\": {\n        \"self\": \"<string>\",\n        \"functions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"translationKeys\": {\n        \"eiusmod_7a\": {}\n      },\n      \"interpolations\": {\n        \"dolor_f\": {},\n        \"anim405\": {},\n        \"voluptate_52\": {},\n        \"incididunta\": {},\n        \"cupidatat99\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromPortal\",\n        \"asset:createVideoClip\"\n      ]\n    }\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"enim_ad0\": {}\n  },\n  \"interpolations\": {\n    \"ullamco_9\": {}\n  },\n  \"permissions\": [\n    \"user:editEmail\",\n    \"asset:shareAsZippedFile\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d4ec985-9a86-4605-99b9-94337585ed63",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e39d6084-df41-4af2-a23e-7aa151340fa0",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f83a74a-fa88-45a6-96c7-5f30f6cd47a8",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "688b1dc1-9c22-4488-9450-44a229c05955",
+          "name": "Create Download By Id",
+          "request": {
+            "name": "Create Download By Id",
+            "description": {
+              "content": "Creates a new download.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"<string>\",\n      \"resolution\": \"<string>\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"<string>\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"<string>\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"<string>\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22a2231d-3590-47b4-818a-243fa16b460e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b53f93ca-ee5c-4f39-a37d-79501439e7a9",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchId\": \"<uuid>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"ullamco_f_3\": {},\n    \"occaecat_192\": {}\n  },\n  \"interpolations\": {\n    \"consectetur_4\": {},\n    \"dolore_f5\": {}\n  },\n  \"permissions\": [\n    \"asset:downloadFromMvd\",\n    \"asset:assignCategory\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c33f9c92-0b41-4d52-b3ec-4fadcb650c17",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4054fa12-2c87-4501-801c-231aaad61b98",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "324ee96f-98b3-489d-b33c-7b2033ffa2b0",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c628f8d-db4e-4409-8f3b-88b0357450dd",
+          "name": "Retrieve Download Detailed Information",
+          "request": {
+            "name": "Retrieve Download Detailed Information",
+            "description": {
+              "content": "Retrieve detailed information for a specific download.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "375d1139-2c03-4d2f-9a86-a019f6e59bbe",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"fileName\": \"<string>\",\n  \"filePath\": \"<string>\",\n  \"fileSize\": \"<long>\",\n  \"itemCount\": \"<integer>\",\n  \"processedCount\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"exercitation6\": {},\n    \"nulla_bf9\": {}\n  },\n  \"interpolations\": {\n    \"est_c79\": {}\n  },\n  \"permissions\": [\n    \"lightbox:transferOwnership\",\n    \"asset:createVideoClip\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58c6d106-6eb2-427b-8ab4-74afd8d134ca",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23f1c697-ac9c-45f1-b680-c98064b567d3",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96c17868-c715-49ed-9e90-54bdc3901b7c",
+              "name": "The download was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dbb98a95-b0fe-4e31-b786-b124f2298d4b",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99faedd0-56fa-4127-8993-842643de5cfc",
+          "name": "Create A New Download By Id",
+          "request": {
+            "name": "Create A New Download By Id",
+            "description": {
+              "content": "Creates a new download by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"<string>\",\n      \"resolution\": \"<string>\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"<string>\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"<string>\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"<string>\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11b7330f-6e04-442b-9097-6255d97b82fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7930b4e-1e17-4dab-8973-6205fd1a8a23",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"sasUrl\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdf1c765-f4b1-483f-b638-b33c1b6cf9bc",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c32b152-70e3-4563-975b-296cf985ddfa",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46a8fd0a-194b-4cfa-86e2-ff727e612108",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"downloadSettingsPostDetail\": {\n    \"allowsAssetDownload\": \"<boolean>\",\n    \"images\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"<string>\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"spectrum\": \"SRgb\",\n      \"resolution\": \"Unknown\",\n      \"addWatermark\": \"<boolean>\",\n      \"watermarkUrl\": \"<string>\",\n      \"includeContactSheet\": \"<boolean>\",\n      \"contactSheet\": {\n        \"rows\": \"<integer>\",\n        \"cols\": \"<integer>\",\n        \"logoBlobUrl\": \"<string>\"\n      },\n      \"renditionType\": \"Original\"\n    },\n    \"videos\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Mov\",\n      \"dimensions\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"customDimensions\": \"<boolean>\"\n      },\n      \"renditionType\": \"HighDefinition\"\n    },\n    \"audio\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"quality\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"<string>\"\n      },\n      \"format\": \"Mp4\"\n    },\n    \"documents\": {\n      \"shareOriginals\": \"<boolean>\",\n      \"format\": \"Originals\"\n    },\n    \"csvFormat\": \"<boolean>\",\n    \"csvFileName\": \"<string>\",\n    \"zipFileName\": \"<string>\",\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bf435e0-4ab4-44f7-8afc-248493090ca6",
+          "name": "Remove Download",
+          "request": {
+            "name": "Remove Download",
+            "description": {
+              "content": "Remove a specific download by download id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e69fcd22-5571-4bd6-bf1d-0fc6bcea7daf",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e7e9855-2c2f-4862-9101-4d6043a59116",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "867166af-9838-4b93-acf3-19e743d07ec0",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fb4d6f5-4e17-4b22-a54d-16d79d1cc26a",
+              "name": "The download was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d347273c-6d03-46e8-9e3e-4a87ab4f868c",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7060c4a-590b-4d71-bf26-919e24803e94",
+          "name": "Downloads Get Immediate Download Async",
+          "request": {
+            "name": "Downloads Get Immediate Download Async",
+            "description": {},
+            "url": {
+              "path": [
+                "downloads",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f46e084-e62c-4573-ae8d-1ab7dda8f91d",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1398a6df-75fb-4f50-8789-5ee1aab99d38",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebba64fc-3c8d-439c-82b3-f08ff1741004",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a31f844d-e5b8-45a3-8f26-ee133b52aee0",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dff1c3f-9244-412f-ad52-80a34afa7512",
+          "name": "Validate Download",
+          "request": {
+            "name": "Validate Download",
+            "description": {
+              "content": "Validate a download.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isDirectDownload\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abc52c0f-143f-40d9-9d05-a19d05816486",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isDirectDownload\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"downloadId\": \"<uuid>\",\n  \"downloadLink\": \"<string>\",\n  \"preconditions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customFormDetails\": {\n    \"fieldGroups\": [\n      {\n        \"groupId\": \"<uuid>\",\n        \"groupName\": \"<string>\",\n        \"fields\": [\n          {\n            \"id\": \"<uuid>\",\n            \"label\": \"<string>\",\n            \"type\": \"<string>\",\n            \"isRequired\": \"<boolean>\",\n            \"sequence\": \"<integer>\",\n            \"description\": \"<string>\",\n            \"listItems\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"label\": \"<string>\",\n            \"type\": \"<string>\",\n            \"isRequired\": \"<boolean>\",\n            \"sequence\": \"<integer>\",\n            \"description\": \"<string>\",\n            \"listItems\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"defaultAction\": \"<integer>\"\n      },\n      {\n        \"groupId\": \"<uuid>\",\n        \"groupName\": \"<string>\",\n        \"fields\": [\n          {\n            \"id\": \"<uuid>\",\n            \"label\": \"<string>\",\n            \"type\": \"<string>\",\n            \"isRequired\": \"<boolean>\",\n            \"sequence\": \"<integer>\",\n            \"description\": \"<string>\",\n            \"listItems\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"label\": \"<string>\",\n            \"type\": \"<string>\",\n            \"isRequired\": \"<boolean>\",\n            \"sequence\": \"<integer>\",\n            \"description\": \"<string>\",\n            \"listItems\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"defaultAction\": \"<integer>\"\n      }\n    ],\n    \"dependencies\": [\n      {\n        \"dependentGroupId\": \"<uuid>\",\n        \"dependsOnFieldId\": \"<uuid>\",\n        \"dependsOnFieldValue\": \"<string>\",\n        \"ruleCondition\": \"<integer>\",\n        \"action\": \"<integer>\"\n      },\n      {\n        \"dependentGroupId\": \"<uuid>\",\n        \"dependsOnFieldId\": \"<uuid>\",\n        \"dependsOnFieldValue\": \"<string>\",\n        \"ruleCondition\": \"<integer>\",\n        \"action\": \"<integer>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3f9c00d-b35e-46ce-965b-7a185bd034dd",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isDirectDownload\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f8ed3bd-1628-41ca-86d6-6d0e3468affb",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isDirectDownload\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88231ba1-b409-46ea-8f60-5646c909febb",
+          "name": "Downloads Get Asset Urls For Download Async",
+          "request": {
+            "name": "Downloads Get Asset Urls For Download Async",
+            "description": {},
+            "url": {
+              "path": [
+                "downloads",
+                "asseturls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d247454-0c20-4321-8209-b3697c8e934b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "asseturls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"<string>\",\n  \"assetDownloadUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c619486-1b3b-407a-8e4c-33aeb8095184",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "asseturls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2042b9a-b770-45c9-b055-97352936ac31",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "asseturls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f4dd849-a24d-46af-b835-f279f7cfbb04",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "asseturls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20a02026-071d-4082-9834-8636c7d749fd",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    "asseturls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downloadStartedAt\": \"<dateTime>\",\n  \"assetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82c36084-b586-4804-a7cb-5024062fd6da",
+          "name": "Create Single Asset Download",
+          "request": {
+            "name": "Create Single Asset Download",
+            "description": {
+              "content": "Create a single asset download by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "downloads",
+                ":id",
+                "asset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fdcf325-07ec-4f3c-ba2c-36441c1d38ce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b833a3bb-f1af-4868-a580-664b7407994d",
+              "name": "Request was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"sasUrl\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b07965c-25a9-4c11-b6d0-8702e91e20ee",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "033a99a5-7268-4f48-be31-12c742999290",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eef3ff81-9562-432f-b4bd-277903298194",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "downloads",
+                    ":id",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeIdValues\": [\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"assetId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52ae29aa-ec27-4092-9580-ba45d225c4a8",
+    "name": "MediaValet Downloads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Notification API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Notification Get Asset Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/notification/assets/:assetId/followers",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Notification Get Asset Followers"
+        },
+        {
+          "info": {
+            "name": "Notification Get In App Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/notification/inApp",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "bypassCache",
+                "value": "",
+                "type": "query",
+                "description": "bypassCache query parameter."
+              }
+            ]
+          },
+          "docs": "Notification Get In App Notifications"
+        },
+        {
+          "info": {
+            "name": "Notification Mark All In App Notification As Read",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/notification/markAllAsRead",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Notification Mark All In App Notification As Read"
+        },
+        {
+          "info": {
+            "name": "Notification Mark In App Notification As Read",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/notification/markAsRead/:notificationId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "notificationId",
+                "value": "",
+                "type": "path",
+                "description": "notificationId path parameter."
+              }
+            ]
+          },
+          "docs": "Notification Mark In App Notification As Read"
+        },
+        {
+          "info": {
+            "name": "Notification Send Notification Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/notification",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notification Send Notification Async"
+        },
+        {
+          "info": {
+            "name": "Notification Search Users And User Groups Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/notification/usersandusergroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notification Search Users And User Groups Post"
+        },
+        {
+          "info": {
+            "name": "Notification Follow Asset Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/notification/assets/:assetId/follow",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notification Follow Asset Async"
+        },
+        {
+          "info": {
+            "name": "Create Video Intelligence Trial Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/notification/videointelligence/trial-request",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Starts a video intelligence trial."
+        },
+        {
+          "info": {
+            "name": "Notification Validate User Email Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/notification/users/validate",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "emailAddress",
+                "value": "",
+                "type": "query",
+                "description": "emailAddress query parameter."
+              }
+            ]
+          },
+          "docs": "Notification Validate User Email Address"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

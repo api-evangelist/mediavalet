@@ -1,107 +1,1583 @@
 openapi: 3.0.3
 info:
-  title: MediaValet Open Assets Attributes API
-  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  title: MediaValet Attributes API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
   version: '1.0'
   contact:
     name: MediaValet
-    url: https://www.mediavalet.com
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
 servers:
 - url: https://api.mediavalet.com
   description: MediaValet API gateway (public)
 security:
-- oauth2: []
+- oauth2:
+  - api
   subscriptionKey: []
 tags:
 - name: Attributes
-  description: Custom metadata fields and their values on assets.
+  description: Custom metadata attribute definitions and their values on assets.
 paths:
   /attributes:
     get:
-      operationId: listAttributes
+      operationId: retrieveAttributes
+      summary: Retrieve Attributes.
+      description: |-
+        Retrieve attributes from a library.
+        Status Type Attributes available in API Version 1.1
       tags:
       - Attributes
-      summary: List attributes
-      description: List the custom attribute (metadata field) definitions in the library.
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
       responses:
         '200':
-          description: A list of attribute definitions.
+          description: Request was successful.
           content:
             application/json:
               schema:
-                type: object
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    attributeType:
+                      type: string
+                    name:
+                      type: string
+                    searchFieldName:
+                      type: string
+                    tagName:
+                      type: string
+                    displayAttribute:
+                      type: boolean
+                    mapEmbeddedData:
+                      type: boolean
+                    embeddedDataType:
+                      type: string
+                    embeddedDataValue:
+                      type: string
+                    mappingDirection:
+                      type: string
+                    delimeter:
+                      type: string
+                    isSystemProperty:
+                      type: boolean
+                    showLabel:
+                      type: boolean
+                    isRequired:
+                      type: boolean
+                    optionsList:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          optionValue:
+                            type: string
+                          isDefault:
+                            type: boolean
+                          sequence:
+                            type: integer
+                    statusList:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          statusName:
+                            type: string
+                          statusValue:
+                            type: integer
+                          sequence:
+                            type: integer
+                    defaultExpression:
+                      type: string
+                    parentAttributeId:
+                      type: string
+                    childrenAttributeIds:
+                      type: array
+                      items:
+                        type: string
+                    attributeGroupIds:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: 00000000-0000-0000-0000-000000000000
+                attributeType: Boolean
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: false
+                embeddedDataType: Photoshop
+                embeddedDataValue: string
+                mappingDirection: Upload
+                delimeter: string
+                isSystemProperty: false
+                showLabel: true
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: true
+                  sequence: 4858
+                - optionValue: string
+                  isDefault: true
+                  sequence: 5763
+                statusList:
+                - statusName: string
+                  statusValue: 3211
+                  sequence: 7980
+                - statusName: string
+                  statusValue: 5663
+                  sequence: 1873
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:shareAsLightbox
+              - id: 00000000-0000-0000-0000-000000000000
+                attributeType: DateTime
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: true
+                embeddedDataType: Iptc
+                embeddedDataValue: string
+                mappingDirection: Upload
+                delimeter: string
+                isSystemProperty: true
+                showLabel: false
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: false
+                  sequence: 3956
+                - optionValue: string
+                  isDefault: true
+                  sequence: 409
+                statusList:
+                - statusName: string
+                  statusValue: 809
+                  sequence: 1850
+                - statusName: string
+                  statusValue: 7824
+                  sequence: 8739
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                permissions:
+                - asset:shareAsLightbox
+                - asset:shareAsCdnLink
+        '500':
+          description: The request failed because of a problem on the server.
     post:
       operationId: createAttribute
+      summary: Create Attribute.
+      description: |-
+        Create a attribute in a library.
+        Status Type Attributes available in API Version 1.1
       tags:
       - Attributes
-      summary: Create an attribute
-      description: Create a new custom attribute definition.
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Attribute'
+              type: object
+              properties:
+                id:
+                  type: string
+                attributeType:
+                  type: string
+                name:
+                  type: string
+                searchFieldName:
+                  type: string
+                tagName:
+                  type: string
+                displayAttribute:
+                  type: boolean
+                mapEmbeddedData:
+                  type: boolean
+                embeddedDataType:
+                  type: string
+                embeddedDataValue:
+                  type: string
+                mappingDirection:
+                  type: string
+                delimeter:
+                  type: string
+                isSystemProperty:
+                  type: boolean
+                showLabel:
+                  type: boolean
+                isRequired:
+                  type: boolean
+                optionsList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      optionValue:
+                        type: string
+                      isDefault:
+                        type: boolean
+                      sequence:
+                        type: integer
+                statusList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      statusName:
+                        type: string
+                      statusValue:
+                        type: integer
+                      sequence:
+                        type: integer
+                defaultExpression:
+                  type: string
+                parentAttributeId:
+                  type: string
+                childrenAttributeIds:
+                  type: array
+                  items:
+                    type: string
+                attributeGroupIds:
+                  type: array
+                  items:
+                    type: string
+                _links:
+                  type: object
+                  properties:
+                    self:
+                      type: string
+                    functions:
+                      type: array
+                      items:
+                        type: string
+                translationKeys:
+                  type: object
+                  properties:
+                    key_0:
+                      type: object
+                interpolations:
+                  type: object
+                  properties:
+                    key_0:
+                      type: object
+                    key_1:
+                      type: object
+                permissions:
+                  type: array
+                  items:
+                    type: string
+            example:
+              id: 00000000-0000-0000-0000-000000000000
+              attributeType: Status
+              name: string
+              searchFieldName: string
+              tagName: string
+              displayAttribute: false
+              mapEmbeddedData: true
+              embeddedDataType: IccProfile
+              embeddedDataValue: string
+              mappingDirection: Download
+              delimeter: string
+              isSystemProperty: false
+              showLabel: true
+              isRequired: false
+              optionsList:
+              - optionValue: string
+                isDefault: true
+                sequence: 3145
+              - optionValue: string
+                isDefault: false
+                sequence: 6691
+              statusList:
+              - statusName: string
+                statusValue: 6855
+                sequence: 2253
+              - statusName: string
+                statusValue: 7822
+                sequence: 3613
+              defaultExpression: string
+              parentAttributeId: string
+              childrenAttributeIds:
+              - string
+              - string
+              attributeGroupIds:
+              - 00000000-0000-0000-0000-000000000000
+              - 00000000-0000-0000-0000-000000000000
+              _links:
+                self: string
+                functions:
+                - string
+                - string
+              translationKeys:
+                key_0: {}
+              interpolations:
+                key_0: {}
+                key_1: {}
+              permissions:
+              - None
+              - asset:downloadFromMvd
       responses:
-        '201':
-          description: The created attribute.
+        '200':
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attribute'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+                type: object
+              example: {}
+        '201':
+          description: The Attribute was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  attributeType:
+                    type: string
+                  name:
+                    type: string
+                  searchFieldName:
+                    type: string
+                  tagName:
+                    type: string
+                  displayAttribute:
+                    type: boolean
+                  mapEmbeddedData:
+                    type: boolean
+                  embeddedDataType:
+                    type: string
+                  embeddedDataValue:
+                    type: string
+                  mappingDirection:
+                    type: string
+                  delimeter:
+                    type: string
+                  isSystemProperty:
+                    type: boolean
+                  showLabel:
+                    type: boolean
+                  isRequired:
+                    type: boolean
+                  optionsList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        optionValue:
+                          type: string
+                        isDefault:
+                          type: boolean
+                        sequence:
+                          type: integer
+                  statusList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        statusName:
+                          type: string
+                        statusValue:
+                          type: integer
+                        sequence:
+                          type: integer
+                  defaultExpression:
+                    type: string
+                  parentAttributeId:
+                    type: string
+                  childrenAttributeIds:
+                    type: array
+                    items:
+                      type: string
+                  attributeGroupIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: 00000000-0000-0000-0000-000000000000
+                attributeType: Status
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: true
+                embeddedDataType: IccProfile
+                embeddedDataValue: string
+                mappingDirection: Download
+                delimeter: string
+                isSystemProperty: false
+                showLabel: true
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: true
+                  sequence: 3145
+                - optionValue: string
+                  isDefault: false
+                  sequence: 6691
+                statusList:
+                - statusName: string
+                  statusValue: 6855
+                  sequence: 2253
+                - statusName: string
+                  statusValue: 7822
+                  sequence: 3613
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - None
+                - asset:downloadFromMvd
+        '400':
+          description: Bad Request.
+        '500':
+          description: The request failed because of a problem on the server.
   /attributes/{attributeId}:
     get:
-      operationId: getAttribute
+      operationId: retrieveAttributeByID
+      summary: Retrieve Attribute By ID.
+      description: |-
+        Retrieve attributes in a library by attribute id.
+        Status Type Attributes available in API Version 1.1
       tags:
       - Attributes
-      summary: Get an attribute
-      description: Retrieve a single attribute definition by its identifier.
       parameters:
       - name: attributeId
         in: path
         required: true
+        description: attributeId path parameter.
         schema:
           type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
       responses:
         '200':
-          description: The requested attribute.
+          description: Request was successful.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attribute'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  attributeType:
+                    type: string
+                  name:
+                    type: string
+                  searchFieldName:
+                    type: string
+                  tagName:
+                    type: string
+                  displayAttribute:
+                    type: boolean
+                  mapEmbeddedData:
+                    type: boolean
+                  embeddedDataType:
+                    type: string
+                  embeddedDataValue:
+                    type: string
+                  mappingDirection:
+                    type: string
+                  delimeter:
+                    type: string
+                  isSystemProperty:
+                    type: boolean
+                  showLabel:
+                    type: boolean
+                  isRequired:
+                    type: boolean
+                  optionsList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        optionValue:
+                          type: string
+                        isDefault:
+                          type: boolean
+                        sequence:
+                          type: integer
+                  statusList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        statusName:
+                          type: string
+                        statusValue:
+                          type: integer
+                        sequence:
+                          type: integer
+                  defaultExpression:
+                    type: string
+                  parentAttributeId:
+                    type: string
+                  childrenAttributeIds:
+                    type: array
+                    items:
+                      type: string
+                  attributeGroupIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: 00000000-0000-0000-0000-000000000000
+                attributeType: Status
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: true
+                embeddedDataType: IccProfile
+                embeddedDataValue: string
+                mappingDirection: Download
+                delimeter: string
+                isSystemProperty: false
+                showLabel: true
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: true
+                  sequence: 3145
+                - optionValue: string
+                  isDefault: false
+                  sequence: 6691
+                statusList:
+                - statusName: string
+                  statusValue: 6855
+                  sequence: 2253
+                - statusName: string
+                  statusValue: 7822
+                  sequence: 3613
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - None
+                - asset:downloadFromMvd
+        '400':
+          description: Bad Request
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Attribute not found
+        '500':
+          description: The request failed because of a problem on the server.
+    put:
+      operationId: updateAttributes
+      summary: Update Attributes.
+      description: |-
+        Update attributes in a library.
+        Status Type Attributes available in API Version 1.1
+      tags:
+      - Attributes
+      parameters:
+      - name: attributeId
+        in: path
+        required: true
+        description: attributeId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                attributeType:
+                  type: string
+                name:
+                  type: string
+                searchFieldName:
+                  type: string
+                tagName:
+                  type: string
+                displayAttribute:
+                  type: boolean
+                mapEmbeddedData:
+                  type: boolean
+                embeddedDataType:
+                  type: string
+                embeddedDataValue:
+                  type: string
+                mappingDirection:
+                  type: string
+                delimeter:
+                  type: string
+                isSystemProperty:
+                  type: boolean
+                showLabel:
+                  type: boolean
+                isRequired:
+                  type: boolean
+                optionsList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      optionValue:
+                        type: string
+                      isDefault:
+                        type: boolean
+                      sequence:
+                        type: integer
+                statusList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      statusName:
+                        type: string
+                      statusValue:
+                        type: integer
+                      sequence:
+                        type: integer
+                defaultExpression:
+                  type: string
+                parentAttributeId:
+                  type: string
+                childrenAttributeIds:
+                  type: array
+                  items:
+                    type: string
+                attributeGroupIds:
+                  type: array
+                  items:
+                    type: string
+                _links:
+                  type: object
+                  properties:
+                    self:
+                      type: string
+                    functions:
+                      type: array
+                      items:
+                        type: string
+                translationKeys:
+                  type: object
+                  properties:
+                    key_0:
+                      type: object
+                interpolations:
+                  type: object
+                  properties:
+                    key_0:
+                      type: object
+                    key_1:
+                      type: object
+                permissions:
+                  type: array
+                  items:
+                    type: string
+            example:
+              id: 00000000-0000-0000-0000-000000000000
+              attributeType: Status
+              name: string
+              searchFieldName: string
+              tagName: string
+              displayAttribute: false
+              mapEmbeddedData: true
+              embeddedDataType: IccProfile
+              embeddedDataValue: string
+              mappingDirection: Download
+              delimeter: string
+              isSystemProperty: false
+              showLabel: true
+              isRequired: false
+              optionsList:
+              - optionValue: string
+                isDefault: true
+                sequence: 3145
+              - optionValue: string
+                isDefault: false
+                sequence: 6691
+              statusList:
+              - statusName: string
+                statusValue: 6855
+                sequence: 2253
+              - statusName: string
+                statusValue: 7822
+                sequence: 3613
+              defaultExpression: string
+              parentAttributeId: string
+              childrenAttributeIds:
+              - string
+              - string
+              attributeGroupIds:
+              - 00000000-0000-0000-0000-000000000000
+              - 00000000-0000-0000-0000-000000000000
+              _links:
+                self: string
+                functions:
+                - string
+                - string
+              translationKeys:
+                key_0: {}
+              interpolations:
+                key_0: {}
+                key_1: {}
+              permissions:
+              - None
+              - asset:downloadFromMvd
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  attributeType:
+                    type: string
+                  name:
+                    type: string
+                  searchFieldName:
+                    type: string
+                  tagName:
+                    type: string
+                  displayAttribute:
+                    type: boolean
+                  mapEmbeddedData:
+                    type: boolean
+                  embeddedDataType:
+                    type: string
+                  embeddedDataValue:
+                    type: string
+                  mappingDirection:
+                    type: string
+                  delimeter:
+                    type: string
+                  isSystemProperty:
+                    type: boolean
+                  showLabel:
+                    type: boolean
+                  isRequired:
+                    type: boolean
+                  optionsList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        optionValue:
+                          type: string
+                        isDefault:
+                          type: boolean
+                        sequence:
+                          type: integer
+                  statusList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        statusName:
+                          type: string
+                        statusValue:
+                          type: integer
+                        sequence:
+                          type: integer
+                  defaultExpression:
+                    type: string
+                  parentAttributeId:
+                    type: string
+                  childrenAttributeIds:
+                    type: array
+                    items:
+                      type: string
+                  attributeGroupIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: 00000000-0000-0000-0000-000000000000
+                attributeType: Status
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: true
+                embeddedDataType: IccProfile
+                embeddedDataValue: string
+                mappingDirection: Download
+                delimeter: string
+                isSystemProperty: false
+                showLabel: true
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: true
+                  sequence: 3145
+                - optionValue: string
+                  isDefault: false
+                  sequence: 6691
+                statusList:
+                - statusName: string
+                  statusValue: 6855
+                  sequence: 2253
+                - statusName: string
+                  statusValue: 7822
+                  sequence: 3613
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - None
+                - asset:downloadFromMvd
+        '400':
+          description: Bad Request
+        '500':
+          description: The request failed because of a problem on the server.
+    delete:
+      operationId: removeAttribute
+      summary: Remove Attribute
+      description: Removes attribute in a library.
+      tags:
+      - Attributes
+      parameters:
+      - name: attributeId
+        in: path
+        required: true
+        description: attributeId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributes/embeddedDataType:
+    get:
+      operationId: retrieveAttributesEmbeddedDataTypes
+      summary: Retrieve Attributes Embedded Data Types
+      description: Returns an embedded attribute data types.
+      tags:
+      - Attributes
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                        key_2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                permissions:
+                - lightbox:viewAsset
+                - brandedPortal:view
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                  key_4: {}
+                permissions:
+                - asset:createVideoClip
+                - lightbox:editDetails
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributes/attributeDataType:
+    get:
+      operationId: retrieveAttributesDataTypes
+      summary: Retrieve Attributes Data Types
+      description: |-
+        Attributes data types.
+        Status Type Attributes available in API Version 1.1
+      tags:
+      - Attributes
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                        key_2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                permissions:
+                - lightbox:viewAsset
+                - brandedPortal:view
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                  key_4: {}
+                permissions:
+                - asset:createVideoClip
+                - lightbox:editDetails
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributes/cascadingAttributes:
+    get:
+      operationId: retrieveCascadingAttributes
+      summary: Retrieve Cascading Attributes
+      description: Returns an cascading attributes.
+      tags:
+      - Attributes
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attributeDataType:
+                    type: string
+                  attributeOptionNodeDtos:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        attributeId:
+                          type: string
+                        name:
+                          type: string
+                        parent:
+                          type: string
+                        children:
+                          type: array
+                          items:
+                            type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                attributeDataType: List
+                attributeOptionNodeDtos:
+                - attributeId: string
+                  name: string
+                  parent: string
+                  children:
+                  - string
+                  - string
+                - attributeId: string
+                  name: string
+                  parent: string
+                  children:
+                  - string
+                  - string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - lightbox:editDetails
+                - asset:createVideoClip
+        '400':
+          description: Bad Request.
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributes/embeddedDataMappingType:
+    get:
+      operationId: retrieveAttributesEmbeddedDataMappingTypes
+      summary: Retrieve Attributes Embedded Data Mapping Types
+      description: Returns an of embedded attribute data mapping types.
+      tags:
+      - Attributes
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                        key_2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                permissions:
+                - lightbox:viewAsset
+                - brandedPortal:view
+              - name: string
+                value: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                  key_4: {}
+                permissions:
+                - asset:createVideoClip
+                - lightbox:editDetails
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributes/{dataTypeValue}/embeddedDataValue:
+    get:
+      operationId: retrieveAttributesEmbeddedDataValues
+      summary: Retrieve Attributes Embedded Data Values
+      description: Returns an embedded attribute data values.
+      tags:
+      - Attributes
+      parameters:
+      - name: dataTypeValue
+        in: path
+        required: true
+        description: dataTypeValue path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                    id:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - propertyName: string
+                id: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:shareAsLightbox
+                - asset:createImageCrop
+              - propertyName: string
+                id: string
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                permissions:
+                - user:editEmail
+                - asset:downloadFromMvd
+        '500':
+          description: The request failed because of a problem on the server.
 components:
-  responses:
-    Unauthorized:
-      description: Authentication failed - missing or invalid access token or subscription key.
-    NotFound:
-      description: The requested resource was not found.
-  schemas:
-    Attribute:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        type:
-          type: string
-          description: The data type of the attribute, e.g. text, number, date, list.
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
           tokenUrl: https://login.mediavalet.com/connect/token
           scopes:
             openid: OpenID Connect identity
@@ -111,4 +1587,5 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal.
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

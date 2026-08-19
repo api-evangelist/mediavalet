@@ -1,0 +1,101 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Registry searches against npm (registry.npmjs.org), PyPI, NuGet (azuresearch-usnc.nuget.org),
+  RubyGems and the MediaValet GitHub organization (https://github.com/MediaValet), plus the
+  MediaValet Developer Portal and the MediaValet-published Postman collection.
+description: >-
+  MediaValet publishes NO first-party client SDK on any public package registry. Searches of npm,
+  PyPI, NuGet and RubyGems for "mediavalet" all return zero packages (npm total 0, NuGet totalHits
+  0, RubyGems [], PyPI 404). The MediaValet GitHub organization has two public repositories, one of
+  which is an official C# sample repository — samples, not a distributable library. The only
+  MediaValet client libraries on a registry are third-party and unmaintained. Integration is
+  therefore expected to be direct HTTP against api.mediavalet.com, using the published Postman
+  collection as the reference client.
+summary:
+  official_registry_packages: 0
+  official_source_repositories: 2
+  third_party_packages: 2
+  registries_searched:
+  - npm
+  - PyPI
+  - NuGet
+  - RubyGems
+packages:
+- name: MediaValet/how-to-samples
+  language: csharp
+  registry: github
+  official: true
+  url: https://github.com/MediaValet/how-to-samples
+  repository: https://github.com/MediaValet/how-to-samples
+  description: >-
+    MediaValet's official repository of C# samples showing how to use the MediaValet API. Source
+    samples only — not published to NuGet and not a versioned client library.
+  version: null
+  published: '2025-02-03'
+  note: >-
+    version null because this is a source repository with no published package release and no tags
+    on a registry; `published` is the last push date reported by the GitHub API
+    (pushed_at 2025-02-03T01:36:47Z).
+- name: MediaValet/Mediavalet.AzureMediaMigration
+  language: csharp
+  registry: github
+  official: true
+  url: https://github.com/MediaValet/Mediavalet.AzureMediaMigration
+  repository: https://github.com/MediaValet/Mediavalet.AzureMediaMigration
+  description: >-
+    MediaValet's Azure Media Migration Tool — an operational migration utility published in the
+    MediaValet GitHub organization, tied to the retirement of Azure Media Services streaming URLs
+    (see changelog/mediavalet-changelog.yml, 1.1 2024-05-22). Not a client SDK.
+  version: null
+  published: '2024-06-13'
+  note: >-
+    version null because nothing is published to a package registry; `published` is the GitHub
+    pushed_at date (2024-06-13T20:34:05Z).
+- name: mvsdk
+  language: python
+  registry: pypi
+  official: false
+  url: https://pypi.org/project/mvsdk/
+  repository: https://github.com/armstro-ca/mvsdk
+  description: >-
+    "MediaValet Python SDK" — a community/third-party wrapper by James Armstrong. NOT published or
+    endorsed by MediaValet.
+  version: 0.0.9
+  published: '2023-11-08'
+  note: >-
+    Read from https://pypi.org/pypi/mvsdk/json. Last release 2023-11-08, which predates the
+    MediaValet API 1.1 (2024) and 1.2 (2025-06-13) versions entirely — this wrapper cannot know
+    about the Status attribute type, the streamingManifest fields, or the 1.2 permissions/403
+    change. Treat as abandoned.
+- name: mvdam
+  language: python
+  registry: github
+  official: false
+  url: https://github.com/armstro-ca/mvdam
+  repository: https://github.com/armstro-ca/mvdam
+  description: >-
+    "MediaValet CLI" — a community/third-party command-line client built on mvsdk. NOT published or
+    endorsed by MediaValet.
+  version: null
+  published: '2024-05-03'
+  note: >-
+    version null because it is not on PyPI (https://pypi.org/pypi/mvdam/json returns 404); the only
+    distribution is the GitHub repository. `published` is the GitHub pushed_at date.
+alternatives:
+  postman_collection:
+    url: https://docs.mediavalet.com/
+    artifact: collections/mediavalet-api.postman_collection.json
+    note: >-
+      MediaValet's own published Postman collection (362 requests, 308 documented API operations) is
+      the de facto client distribution. It is the richest first-party integration artifact
+      MediaValet ships and the source the openapi/ definitions in this repo are derived from.
+sources:
+- https://github.com/MediaValet
+- https://api.github.com/orgs/MediaValet/repos
+- https://registry.npmjs.org/-/v1/search?text=mediavalet
+- https://pypi.org/pypi/mvsdk/json
+- https://azuresearch-usnc.nuget.org/query?q=mediavalet
+- https://rubygems.org/api/v1/search.json?query=mediavalet
+- https://developer.mediavalet.com/getting-started
+checked: '2026-08-13'

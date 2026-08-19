@@ -1,0 +1,1906 @@
+{
+  "item": [
+    {
+      "id": "41775d49-8d6d-4c4b-97b2-6f5aee457603",
+      "name": "Attributes",
+      "description": {
+        "content": "Custom metadata attribute definitions and their values on assets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b861e3d-8452-4e64-9e4f-30575bbf86ce",
+          "name": "Retrieve Attributes.",
+          "request": {
+            "name": "Retrieve Attributes.",
+            "description": {
+              "content": "Retrieve attributes from a library.\nStatus Type Attributes available in API Version 1.1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf8ec280-6fb0-4268-9702-11a3caad165b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"attributeType\": \"Boolean\",\n    \"name\": \"string\",\n    \"searchFieldName\": \"string\",\n    \"tagName\": \"string\",\n    \"displayAttribute\": false,\n    \"mapEmbeddedData\": false,\n    \"embeddedDataType\": \"Photoshop\",\n    \"embeddedDataValue\": \"string\",\n    \"mappingDirection\": \"Upload\",\n    \"delimeter\": \"string\",\n    \"isSystemProperty\": false,\n    \"showLabel\": true,\n    \"isRequired\": false,\n    \"optionsList\": [\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 4858\n      },\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 5763\n      }\n    ],\n    \"statusList\": [\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 3211,\n        \"sequence\": 7980\n      },\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 5663,\n        \"sequence\": 1873\n      }\n    ],\n    \"defaultExpression\": \"string\",\n    \"parentAttributeId\": \"string\",\n    \"childrenAttributeIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"attributeGroupIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"asset:shareAsLightbox\"\n    ]\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"attributeType\": \"DateTime\",\n    \"name\": \"string\",\n    \"searchFieldName\": \"string\",\n    \"tagName\": \"string\",\n    \"displayAttribute\": false,\n    \"mapEmbeddedData\": true,\n    \"embeddedDataType\": \"Iptc\",\n    \"embeddedDataValue\": \"string\",\n    \"mappingDirection\": \"Upload\",\n    \"delimeter\": \"string\",\n    \"isSystemProperty\": true,\n    \"showLabel\": false,\n    \"isRequired\": false,\n    \"optionsList\": [\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": false,\n        \"sequence\": 3956\n      },\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 409\n      }\n    ],\n    \"statusList\": [\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 809,\n        \"sequence\": 1850\n      },\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 7824,\n        \"sequence\": 8739\n      }\n    ],\n    \"defaultExpression\": \"string\",\n    \"parentAttributeId\": \"string\",\n    \"childrenAttributeIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"attributeGroupIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLightbox\",\n      \"asset:shareAsCdnLink\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd039cdf-7f6f-4e99-b0bb-2a5dd3978026",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91862879-e9b4-4b0c-a094-b289ac5b6946",
+          "name": "Create Attribute.",
+          "request": {
+            "name": "Create Attribute.",
+            "description": {
+              "content": "Create a attribute in a library.\nStatus Type Attributes available in API Version 1.1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"attributeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"searchFieldName\": \"<string>\",\n  \"tagName\": \"<string>\",\n  \"displayAttribute\": \"<boolean>\",\n  \"mapEmbeddedData\": \"<boolean>\",\n  \"embeddedDataType\": \"<string>\",\n  \"embeddedDataValue\": \"<string>\",\n  \"mappingDirection\": \"<string>\",\n  \"delimeter\": \"<string>\",\n  \"isSystemProperty\": \"<boolean>\",\n  \"showLabel\": \"<boolean>\",\n  \"isRequired\": \"<boolean>\",\n  \"optionsList\": [\n    {\n      \"optionValue\": \"<string>\",\n      \"isDefault\": \"<boolean>\",\n      \"sequence\": \"<integer>\"\n    },\n    {\n      \"optionValue\": \"<string>\",\n      \"isDefault\": \"<boolean>\",\n      \"sequence\": \"<integer>\"\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"<string>\",\n      \"statusValue\": \"<integer>\",\n      \"sequence\": \"<integer>\"\n    },\n    {\n      \"statusName\": \"<string>\",\n      \"statusValue\": \"<integer>\",\n      \"sequence\": \"<integer>\"\n    }\n  ],\n  \"defaultExpression\": \"<string>\",\n  \"parentAttributeId\": \"<string>\",\n  \"childrenAttributeIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributeGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": \"<object>\"\n  },\n  \"interpolations\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6db7a8f-ae53-4bd0-9ae5-68f943244861",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75ddb4ee-a132-4caf-8356-bbf9f20d51f8",
+              "name": "The Attribute was successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22fb9822-4d7e-47f3-857d-f761e3576717",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f1c3bf8-f1ef-4083-8cc0-6212424b64ba",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bca1b374-99d9-4272-bc6c-cc4573677e76",
+          "name": "Retrieve Attribute By ID.",
+          "request": {
+            "name": "Retrieve Attribute By ID.",
+            "description": {
+              "content": "Retrieve attributes in a library by attribute id.\nStatus Type Attributes available in API Version 1.1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                ":attributeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeId",
+                  "description": "(Required) attributeId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dabe5d4-8225-4ab5-982e-ec563a2d1037",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12f8e548-94fb-4ed7-b284-eb8a429aa530",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75a50ee7-2eac-4010-98b8-f94630532d71",
+              "name": "Attribute not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7221b09c-a11b-4013-ad5b-4ea85a48721f",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e700fb5f-8395-46f1-90d0-14cede1ed81d",
+          "name": "Update Attributes.",
+          "request": {
+            "name": "Update Attributes.",
+            "description": {
+              "content": "Update attributes in a library.\nStatus Type Attributes available in API Version 1.1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                ":attributeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeId",
+                  "description": "(Required) attributeId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"attributeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"searchFieldName\": \"<string>\",\n  \"tagName\": \"<string>\",\n  \"displayAttribute\": \"<boolean>\",\n  \"mapEmbeddedData\": \"<boolean>\",\n  \"embeddedDataType\": \"<string>\",\n  \"embeddedDataValue\": \"<string>\",\n  \"mappingDirection\": \"<string>\",\n  \"delimeter\": \"<string>\",\n  \"isSystemProperty\": \"<boolean>\",\n  \"showLabel\": \"<boolean>\",\n  \"isRequired\": \"<boolean>\",\n  \"optionsList\": [\n    {\n      \"optionValue\": \"<string>\",\n      \"isDefault\": \"<boolean>\",\n      \"sequence\": \"<integer>\"\n    },\n    {\n      \"optionValue\": \"<string>\",\n      \"isDefault\": \"<boolean>\",\n      \"sequence\": \"<integer>\"\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"<string>\",\n      \"statusValue\": \"<integer>\",\n      \"sequence\": \"<integer>\"\n    },\n    {\n      \"statusName\": \"<string>\",\n      \"statusValue\": \"<integer>\",\n      \"sequence\": \"<integer>\"\n    }\n  ],\n  \"defaultExpression\": \"<string>\",\n  \"parentAttributeId\": \"<string>\",\n  \"childrenAttributeIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributeGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"_links\": {\n    \"self\": \"<string>\",\n    \"functions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": \"<object>\"\n  },\n  \"interpolations\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c97d4e24-f840-4548-ba13-adfaece4833a",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ca2be8e-305b-44bc-9917-5a5e14706043",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9394617-8aac-4d5b-bc1a-0fbca4fefe20",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"attributeType\": \"Status\",\n  \"name\": \"string\",\n  \"searchFieldName\": \"string\",\n  \"tagName\": \"string\",\n  \"displayAttribute\": false,\n  \"mapEmbeddedData\": true,\n  \"embeddedDataType\": \"IccProfile\",\n  \"embeddedDataValue\": \"string\",\n  \"mappingDirection\": \"Download\",\n  \"delimeter\": \"string\",\n  \"isSystemProperty\": false,\n  \"showLabel\": true,\n  \"isRequired\": false,\n  \"optionsList\": [\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": true,\n      \"sequence\": 3145\n    },\n    {\n      \"optionValue\": \"string\",\n      \"isDefault\": false,\n      \"sequence\": 6691\n    }\n  ],\n  \"statusList\": [\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 6855,\n      \"sequence\": 2253\n    },\n    {\n      \"statusName\": \"string\",\n      \"statusValue\": 7822,\n      \"sequence\": 3613\n    }\n  ],\n  \"defaultExpression\": \"string\",\n  \"parentAttributeId\": \"string\",\n  \"childrenAttributeIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"attributeGroupIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"None\",\n    \"asset:downloadFromMvd\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf00219e-acfa-4853-848a-990e96c48f9d",
+          "name": "Remove Attribute",
+          "request": {
+            "name": "Remove Attribute",
+            "description": {
+              "content": "Removes attribute in a library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                ":attributeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeId",
+                  "description": "(Required) attributeId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36188a6c-6a57-4285-8bd9-94fe0347548b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64e0b44f-f662-4e41-a3f5-5f9f303222a4",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeId",
+                      "description": "(Required) attributeId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76c22763-5c04-4fda-aeca-7a26e4cc1290",
+          "name": "Retrieve Attributes Embedded Data Types",
+          "request": {
+            "name": "Retrieve Attributes Embedded Data Types",
+            "description": {
+              "content": "Returns an embedded attribute data types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                "embeddedDataType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b004bf92-b962-498e-abf1-86bbbcdf0de1",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "embeddedDataType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"permissions\": [\n      \"lightbox:viewAsset\",\n      \"brandedPortal:view\"\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"lightbox:editDetails\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "424c74a8-65b1-45c6-bdce-d6773b6bd7d0",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "embeddedDataType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "132c7dce-6480-4ddc-85e0-ff1eeb0a61f7",
+          "name": "Retrieve Attributes Data Types",
+          "request": {
+            "name": "Retrieve Attributes Data Types",
+            "description": {
+              "content": "Attributes data types.\nStatus Type Attributes available in API Version 1.1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                "attributeDataType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0496337-bac2-4eba-a29c-7d61dfca6b2b",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "attributeDataType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"permissions\": [\n      \"lightbox:viewAsset\",\n      \"brandedPortal:view\"\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"lightbox:editDetails\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba217809-d9bd-4ddb-9329-ca1389eb84fc",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "attributeDataType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75d8b0e1-4f08-4d99-b2a9-cb20557336b0",
+          "name": "Retrieve Cascading Attributes",
+          "request": {
+            "name": "Retrieve Cascading Attributes",
+            "description": {
+              "content": "Returns an cascading attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                "cascadingAttributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55938e34-ec64-4642-961b-b9f4b04f4126",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "cascadingAttributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributeDataType\": \"List\",\n  \"attributeOptionNodeDtos\": [\n    {\n      \"attributeId\": \"string\",\n      \"name\": \"string\",\n      \"parent\": \"string\",\n      \"children\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"attributeId\": \"string\",\n      \"name\": \"string\",\n      \"parent\": \"string\",\n      \"children\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {}\n  },\n  \"permissions\": [\n    \"lightbox:editDetails\",\n    \"asset:createVideoClip\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ad5aba8-0768-4f9b-95eb-5ecd36db7ff0",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "cascadingAttributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b13b234-1a04-4b6f-92dd-f9eaa70e04da",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "cascadingAttributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f23d88c-df5a-43aa-bfcb-8dcd99cf831b",
+          "name": "Retrieve Attributes Embedded Data Mapping Types",
+          "request": {
+            "name": "Retrieve Attributes Embedded Data Mapping Types",
+            "description": {
+              "content": "Returns an of embedded attribute data mapping types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                "embeddedDataMappingType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bce3c8f-5091-4016-a2ab-547565aaec82",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "embeddedDataMappingType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"permissions\": [\n      \"lightbox:viewAsset\",\n      \"brandedPortal:view\"\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"value\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"lightbox:editDetails\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fdaeb28-1801-47e9-9da4-a3a787e01d80",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    "embeddedDataMappingType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a438fe3-a1ff-401a-8ebb-64bc087f52c6",
+          "name": "Retrieve Attributes Embedded Data Values",
+          "request": {
+            "name": "Retrieve Attributes Embedded Data Values",
+            "description": {
+              "content": "Returns an embedded attribute data values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attributes",
+                ":dataTypeValue",
+                "embeddedDataValue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataTypeValue",
+                  "description": "(Required) dataTypeValue path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e0e7ce2-f5d2-4ca1-8006-679360fad623",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":dataTypeValue",
+                    "embeddedDataValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataTypeValue",
+                      "description": "(Required) dataTypeValue path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"propertyName\": \"string\",\n    \"id\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLightbox\",\n      \"asset:createImageCrop\"\n    ]\n  },\n  {\n    \"propertyName\": \"string\",\n    \"id\": \"string\",\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"permissions\": [\n      \"user:editEmail\",\n      \"asset:downloadFromMvd\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65308169-ca97-4f1f-810d-199fb9ecd052",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributes",
+                    ":dataTypeValue",
+                    "embeddedDataValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataTypeValue",
+                      "description": "(Required) dataTypeValue path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3f46cc3c-ba3c-417b-9740-672727fe25f6",
+    "name": "MediaValet Attributes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

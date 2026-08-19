@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Persons API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Persons Get Persons In Category Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryId/persons",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Persons Get Persons In Category Async"
+        },
+        {
+          "info": {
+            "name": "Retrieve Faces in Most viewed Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/persons/:identificationType/mostViewed",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "identificationType",
+                "value": "",
+                "type": "path",
+                "description": "identificationType path parameter."
+              }
+            ]
+          },
+          "docs": "Returns list faces of most viewed assets."
+        },
+        {
+          "info": {
+            "name": "Persons Get Identified Persons In Category Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryId/persons/identified",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Persons Get Identified Persons In Category Async"
+        },
+        {
+          "info": {
+            "name": "Persons Get Unidentified Persons In Category Async",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/categories/:categoryId/persons/unidentified",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Persons Get Unidentified Persons In Category Async"
+        },
+        {
+          "info": {
+            "name": "Retrieve Faces of recently Uploaded Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/persons/:identificationType/recentlyUploaded",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "identificationType",
+                "value": "",
+                "type": "path",
+                "description": "identificationType path parameter."
+              }
+            ]
+          },
+          "docs": "Returns list of faces recently uploaded assets."
+        },
+        {
+          "info": {
+            "name": "Persons Get Identified Persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/persons/identified/search",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persons Get Identified Persons"
+        },
+        {
+          "info": {
+            "name": "Persons Get Unidentified Persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/persons/unidentified/search",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persons Get Unidentified Persons"
+        },
+        {
+          "info": {
+            "name": "Update person name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/persons/:personId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "personId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update person name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

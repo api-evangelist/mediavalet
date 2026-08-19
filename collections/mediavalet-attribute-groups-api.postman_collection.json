@@ -1,0 +1,1899 @@
+{
+  "item": [
+    {
+      "id": "73c11b34-7228-4305-96f7-f44868b5141f",
+      "name": "AttributeGroups",
+      "description": {
+        "content": "Groupings of custom metadata attributes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8e36431-6733-4507-a7ef-b0d9fb300060",
+          "name": "Gets all Attribute Groups for the current library.",
+          "request": {
+            "name": "Gets all Attribute Groups for the current library.",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6f2b5e5-913c-4dd1-b607-068ad8b329ae",
+              "name": "The Attribute Groups were successfully retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributeGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"attributeIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLink\",\n      \"lightbox:assignAsset\"\n    ]\n  },\n  {\n    \"attributeGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"attributeIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {}\n    },\n    \"permissions\": [\n      \"attributeGroup:view\",\n      \"asset:shareAsLink\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0803323-641b-4270-809e-005bf37181db",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to view attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2902351-ab5b-41fb-b3f0-c3c38245ba9a",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eb28e1f-606a-4a3b-9287-e716b671e25d",
+          "name": "Creates a new Attribute Group.",
+          "request": {
+            "name": "Creates a new Attribute Group.",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributeIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d217db30-dd20-4a05-9407-24f2b9e3bd46",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54e33a75-1966-43e3-97d5-4c570541293e",
+              "name": "The Attribute Group was successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributeGroupId\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsWebGallery\",\n    \"attributeGroup:viewAttribute\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb23f15e-77bf-44a3-8de2-a14a62b1b19d",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56d777a1-3f72-496a-8257-157b95555dc9",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to create attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6bf19461-d99b-400e-9b3a-274025c50fe7",
+              "name": "Attribute not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "057516e5-ef88-4f45-ab97-a3ecfa085429",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a84a656-c849-4c86-b34e-c030c69efd33",
+          "name": "Gets the details of a specific Attribute Group by ID.",
+          "request": {
+            "name": "Gets the details of a specific Attribute Group by ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups",
+                ":attributeGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeGroupId",
+                  "description": "(Required) attributeGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a5b4335-0281-47b1-ba37-54e6ae5e6256",
+              "name": "The Attribute Group was successfully retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributeGroupId\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsWebGallery\",\n    \"attributeGroup:viewAttribute\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "650b2b74-e378-483b-9552-851140cd96e8",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to view attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcfca234-9612-4fce-b838-6d78a352b61e",
+              "name": "The Attribute Group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48413ae8-69f8-464a-aba8-775fc7830320",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "008d2b19-9482-4b9d-a1c7-09f4d11b0976",
+          "name": "Deletes an Attribute Group.",
+          "request": {
+            "name": "Deletes an Attribute Group.",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups",
+                ":attributeGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeGroupId",
+                  "description": "(Required) attributeGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a474c2c-c6cb-4746-92cc-07ef90277fe4",
+              "name": "The Attribute Group was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d23ec1b-0eee-473b-adf9-4af71948de77",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2784108c-06cd-451e-b561-756159617e7c",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to delete attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81b294cb-0098-40e6-a86e-a8d33eff9be5",
+              "name": "The Attribute Group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4b42e3c-1d10-4b44-8bf5-33c42adb785d",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d066e34-3f25-4b16-90de-13398b0f814d",
+          "name": "Attribute Groups Update Attribute Group Async",
+          "request": {
+            "name": "Attribute Groups Update Attribute Group Async",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups",
+                ":attributeGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeGroupId",
+                  "description": "(Required) attributeGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<object>\",\n    \"from\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71a12e0c-1b4e-4101-adc8-8c3ee9e46d7c",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributeGroupId\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributeIds\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsWebGallery\",\n    \"attributeGroup:viewAttribute\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e73a0ecd-7d69-44b4-9c97-1ef0dbd73a19",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e52c4ba4-be4e-4b6c-8921-7fdb1c8b9935",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to create attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6cb31ae-913b-4eba-ade1-29fead9cfa1d",
+              "name": "The Attribute Group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f83dfc9-c2e5-4b9e-8da7-82b71974e89c",
+              "name": "An Attribute Group with the specified name already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb9f17d9-bf64-4ab8-b219-e8c0639ce949",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  },\n  {\n    \"op\": \"string\",\n    \"path\": \"string\",\n    \"value\": {},\n    \"from\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04f97302-6ffa-4592-872f-b4bf0fde4f69",
+          "name": "Gets all Attributes for a specific Attribute Group by ID.",
+          "request": {
+            "name": "Gets all Attributes for a specific Attribute Group by ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "attributeGroups",
+                ":attributeGroupId",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attributeGroupId",
+                  "description": "(Required) attributeGroupId path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdfd2a61-a320-400b-b033-8f20f3757a3b",
+              "name": "Attributes for the Attribute Group were successfully retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"attributeType\": \"Boolean\",\n    \"name\": \"string\",\n    \"searchFieldName\": \"string\",\n    \"tagName\": \"string\",\n    \"displayAttribute\": false,\n    \"mapEmbeddedData\": false,\n    \"embeddedDataType\": \"Photoshop\",\n    \"embeddedDataValue\": \"string\",\n    \"mappingDirection\": \"Upload\",\n    \"delimeter\": \"string\",\n    \"isSystemProperty\": false,\n    \"showLabel\": true,\n    \"isRequired\": false,\n    \"optionsList\": [\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 4858\n      },\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 5763\n      }\n    ],\n    \"statusList\": [\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 3211,\n        \"sequence\": 7980\n      },\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 5663,\n        \"sequence\": 1873\n      }\n    ],\n    \"defaultExpression\": \"string\",\n    \"parentAttributeId\": \"string\",\n    \"childrenAttributeIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"attributeGroupIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"permissions\": [\n      \"asset:createVideoClip\",\n      \"asset:shareAsLightbox\"\n    ]\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"attributeType\": \"DateTime\",\n    \"name\": \"string\",\n    \"searchFieldName\": \"string\",\n    \"tagName\": \"string\",\n    \"displayAttribute\": false,\n    \"mapEmbeddedData\": true,\n    \"embeddedDataType\": \"Iptc\",\n    \"embeddedDataValue\": \"string\",\n    \"mappingDirection\": \"Upload\",\n    \"delimeter\": \"string\",\n    \"isSystemProperty\": true,\n    \"showLabel\": false,\n    \"isRequired\": false,\n    \"optionsList\": [\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": false,\n        \"sequence\": 3956\n      },\n      {\n        \"optionValue\": \"string\",\n        \"isDefault\": true,\n        \"sequence\": 409\n      }\n    ],\n    \"statusList\": [\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 809,\n        \"sequence\": 1850\n      },\n      {\n        \"statusName\": \"string\",\n        \"statusValue\": 7824,\n        \"sequence\": 8739\n      }\n    ],\n    \"defaultExpression\": \"string\",\n    \"parentAttributeId\": \"string\",\n    \"childrenAttributeIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"attributeGroupIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsLightbox\",\n      \"asset:shareAsCdnLink\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "632883c5-ce81-4b75-8958-65470a55dfa6",
+              "name": "Attribute grouping is not enabled for this library or you do not have permission to view attribute groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1434d743-cd06-4a1e-82d9-36933c5532c4",
+              "name": "The Attribute Group was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db1ae95c-dbee-44aa-b665-2dad879b81f1",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attributeGroups",
+                    ":attributeGroupId",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attributeGroupId",
+                      "description": "(Required) attributeGroupId path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "91c24706-e31e-4322-8fb2-bcbc332481c2",
+    "name": "MediaValet AttributeGroups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

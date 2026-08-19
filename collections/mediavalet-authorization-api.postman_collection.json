@@ -1,0 +1,527 @@
+{
+  "item": [
+    {
+      "id": "c2379c59-d90d-4426-a6da-bc8a831f9f26",
+      "name": "Authorization",
+      "description": {
+        "content": "Authorization and permission checks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adfaddce-c36f-4b1c-836b-4a4e7ea1af32",
+          "name": "Return all policies for a library based on authenticated User.",
+          "request": {
+            "name": "Return all policies for a library based on authenticated User.",
+            "description": {},
+            "url": {
+              "path": [
+                "authorization",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2402cc83-8e16-40c2-937a-1d9ff8e9e16c",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"policyId\": 2604,\n    \"subject\": {\n      \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n      \"subjectType\": \"string\",\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:assignAsset\"\n      ]\n    },\n    \"resource\": {\n      \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n      \"resourceType\": \"string\",\n      \"predicate\": {\n        \"predicateType\": \"string\",\n        \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n        \"predicateValues\": \"string\",\n        \"_links\": {\n          \"self\": \"string\",\n          \"functions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"translationKeys\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"interpolations\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"permissions\": [\n          \"lightbox:assignAsset\",\n          \"asset:shareAsCdnLink\"\n        ]\n      },\n      \"inherited\": false,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"lightbox:viewAsset\",\n        \"asset:shareAsWebGallery\"\n      ]\n    },\n    \"grant\": {\n      \"grantType\": \"string\",\n      \"grantName\": \"string\",\n      \"allowed\": true,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromPortal\",\n        \"asset:shareAsWebGallery\"\n      ]\n    },\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {}\n    },\n    \"permissions\": [\n      \"asset:assignCategory\",\n      \"asset:createVideoClip\"\n    ]\n  },\n  {\n    \"policyId\": 7857,\n    \"subject\": {\n      \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n      \"subjectType\": \"string\",\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"attributeGroup:viewAttribute\",\n        \"asset:shareAsZippedFile\"\n      ]\n    },\n    \"resource\": {\n      \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n      \"resourceType\": \"string\",\n      \"predicate\": {\n        \"predicateType\": \"string\",\n        \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n        \"predicateValues\": \"string\",\n        \"_links\": {\n          \"self\": \"string\",\n          \"functions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"translationKeys\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {},\n          \"key_4\": {}\n        },\n        \"interpolations\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"permissions\": [\n          \"asset:shareAsWebGallery\",\n          \"asset:downloadFromPortal\"\n        ]\n      },\n      \"inherited\": true,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsWebGallery\",\n        \"asset:shareAsLightbox\"\n      ]\n    },\n    \"grant\": {\n      \"grantType\": \"string\",\n      \"grantName\": \"string\",\n      \"allowed\": false,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsLightbox\",\n        \"asset:shareAsLink\"\n      ]\n    },\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"permissions\": [\n      \"lightbox:assignAsset\",\n      \"asset:downloadFromMvd\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "970fbd3c-9d04-4ee6-acac-0168d81a4795",
+          "name": "Create or remove policies.",
+          "request": {
+            "name": "Create or remove policies.",
+            "description": {},
+            "url": {
+              "path": [
+                "authorization",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policyUpdateRequestId\": \"<integer>\",\n  \"reasonForChange\": \"<string>\",\n  \"addedPolicies\": [\n    {\n      \"policyId\": \"<integer>\",\n      \"subject\": {\n        \"subjectId\": \"<string>\",\n        \"subjectType\": \"<string>\"\n      },\n      \"resource\": {\n        \"resourceId\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"predicate\": {\n          \"predicateType\": \"<string>\",\n          \"predicateId\": \"<string>\",\n          \"predicateValues\": \"<string>\"\n        },\n        \"inherited\": \"<boolean>\"\n      },\n      \"grant\": {\n        \"grantType\": \"<string>\",\n        \"grantName\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    },\n    {\n      \"policyId\": \"<integer>\",\n      \"subject\": {\n        \"subjectId\": \"<string>\",\n        \"subjectType\": \"<string>\"\n      },\n      \"resource\": {\n        \"resourceId\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"predicate\": {\n          \"predicateType\": \"<string>\",\n          \"predicateId\": \"<string>\",\n          \"predicateValues\": \"<string>\"\n        },\n        \"inherited\": \"<boolean>\"\n      },\n      \"grant\": {\n        \"grantType\": \"<string>\",\n        \"grantName\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    }\n  ],\n  \"removedPolicies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"notification\": {\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"notificationEntityType\": \"<string>\",\n    \"userGroups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"userEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"message\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5529453-878d-4276-858d-ed0dcd6d2fbe",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyUpdateRequestId\": 4147,\n  \"reasonForChange\": \"string\",\n  \"addedPolicies\": [\n    {\n      \"policyId\": 6746,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    },\n    {\n      \"policyId\": 6729,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    }\n  ],\n  \"removedPolicies\": [\n    3541,\n    2305\n  ],\n  \"notification\": {\n    \"entityIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"notificationEntityType\": \"CategoryCreation\",\n    \"userGroups\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"users\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"userEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"message\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"policyId\": 2604,\n    \"subject\": {\n      \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n      \"subjectType\": \"string\",\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromMvd\",\n        \"lightbox:assignAsset\"\n      ]\n    },\n    \"resource\": {\n      \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n      \"resourceType\": \"string\",\n      \"predicate\": {\n        \"predicateType\": \"string\",\n        \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n        \"predicateValues\": \"string\",\n        \"_links\": {\n          \"self\": \"string\",\n          \"functions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"translationKeys\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"interpolations\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"permissions\": [\n          \"lightbox:assignAsset\",\n          \"asset:shareAsCdnLink\"\n        ]\n      },\n      \"inherited\": false,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"lightbox:viewAsset\",\n        \"asset:shareAsWebGallery\"\n      ]\n    },\n    \"grant\": {\n      \"grantType\": \"string\",\n      \"grantName\": \"string\",\n      \"allowed\": true,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"permissions\": [\n        \"asset:downloadFromPortal\",\n        \"asset:shareAsWebGallery\"\n      ]\n    },\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {}\n    },\n    \"permissions\": [\n      \"asset:assignCategory\",\n      \"asset:createVideoClip\"\n    ]\n  },\n  {\n    \"policyId\": 7857,\n    \"subject\": {\n      \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n      \"subjectType\": \"string\",\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"attributeGroup:viewAttribute\",\n        \"asset:shareAsZippedFile\"\n      ]\n    },\n    \"resource\": {\n      \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n      \"resourceType\": \"string\",\n      \"predicate\": {\n        \"predicateType\": \"string\",\n        \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n        \"predicateValues\": \"string\",\n        \"_links\": {\n          \"self\": \"string\",\n          \"functions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"translationKeys\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {},\n          \"key_4\": {}\n        },\n        \"interpolations\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"permissions\": [\n          \"asset:shareAsWebGallery\",\n          \"asset:downloadFromPortal\"\n        ]\n      },\n      \"inherited\": true,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsWebGallery\",\n        \"asset:shareAsLightbox\"\n      ]\n    },\n    \"grant\": {\n      \"grantType\": \"string\",\n      \"grantName\": \"string\",\n      \"allowed\": false,\n      \"_links\": {\n        \"self\": \"string\",\n        \"functions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"translationKeys\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"interpolations\": {\n        \"key_0\": {}\n      },\n      \"permissions\": [\n        \"asset:shareAsLightbox\",\n        \"asset:shareAsLink\"\n      ]\n    },\n    \"_links\": {\n      \"self\": \"string\",\n      \"functions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"translationKeys\": {\n      \"key_0\": {}\n    },\n    \"interpolations\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"permissions\": [\n      \"lightbox:assignAsset\",\n      \"asset:downloadFromMvd\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cdeb0cb-9743-4105-8b59-ae7bd40e5641",
+              "name": "There was a problem with the data sent with the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyUpdateRequestId\": 4147,\n  \"reasonForChange\": \"string\",\n  \"addedPolicies\": [\n    {\n      \"policyId\": 6746,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    },\n    {\n      \"policyId\": 6729,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    }\n  ],\n  \"removedPolicies\": [\n    3541,\n    2305\n  ],\n  \"notification\": {\n    \"entityIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"notificationEntityType\": \"CategoryCreation\",\n    \"userGroups\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"users\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"userEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"message\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "174ae20c-4434-4ac1-8203-0b06c7a15f67",
+              "name": "The current user is not authorized to view this end-point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyUpdateRequestId\": 4147,\n  \"reasonForChange\": \"string\",\n  \"addedPolicies\": [\n    {\n      \"policyId\": 6746,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    },\n    {\n      \"policyId\": 6729,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    }\n  ],\n  \"removedPolicies\": [\n    3541,\n    2305\n  ],\n  \"notification\": {\n    \"entityIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"notificationEntityType\": \"CategoryCreation\",\n    \"userGroups\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"users\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"userEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"message\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c306753f-f9fb-4f37-b12d-45c66beae53d",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyUpdateRequestId\": 4147,\n  \"reasonForChange\": \"string\",\n  \"addedPolicies\": [\n    {\n      \"policyId\": 6746,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    },\n    {\n      \"policyId\": 6729,\n      \"subject\": {\n        \"subjectId\": \"00000000-0000-0000-0000-000000000000\",\n        \"subjectType\": \"string\"\n      },\n      \"resource\": {\n        \"resourceId\": \"00000000-0000-0000-0000-000000000000\",\n        \"resourceType\": \"string\",\n        \"predicate\": {\n          \"predicateType\": \"string\",\n          \"predicateId\": \"00000000-0000-0000-0000-000000000000\",\n          \"predicateValues\": \"string\"\n        },\n        \"inherited\": true\n      },\n      \"grant\": {\n        \"grantType\": \"string\",\n        \"grantName\": \"string\",\n        \"allowed\": false\n      }\n    }\n  ],\n  \"removedPolicies\": [\n    3541,\n    2305\n  ],\n  \"notification\": {\n    \"entityIds\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"notificationEntityType\": \"CategoryCreation\",\n    \"userGroups\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"users\": [\n      \"00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000000\"\n    ],\n    \"userEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"message\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d830eb35-f99f-4bb3-bfb1-b29324319bbb",
+          "name": "Get all resources that have at least one explicit policy defined",
+          "request": {
+            "name": "Get all resources that have at least one explicit policy defined",
+            "description": {},
+            "url": {
+              "path": [
+                "authorization",
+                "resources",
+                ":resourceType",
+                "ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceType",
+                  "description": "(Required) resourceType path parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21460379-f8fc-4985-9808-29c9ce616cc8",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorization",
+                    "resources",
+                    ":resourceType",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceType",
+                      "description": "(Required) resourceType path parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resourcetype\": \"BrandedPortal\",\n  \"resourceids\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ],\n  \"_links\": {\n    \"self\": \"string\",\n    \"functions\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"translationKeys\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"interpolations\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"permissions\": [\n    \"asset:shareAsZippedFile\",\n    \"asset:downloadFromPortal\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e880cf4f-f566-4564-99f8-d0128c930d47",
+    "name": "MediaValet Authorization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

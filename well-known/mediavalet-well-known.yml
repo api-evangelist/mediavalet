@@ -1,0 +1,146 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of every MediaValet host in apis.yml and openapi servers[]
+description: >-
+  Probe of the standard /.well-known/ discovery paths across every MediaValet host. Only one path
+  returned a real document: the OpenID Connect discovery document on the identity host
+  login.mediavalet.com. The marketing site (www.mediavalet.com), the API gateway
+  (api.mediavalet.com), the Postman-hosted documentation site (docs.mediavalet.com) and the Azure
+  API Management developer portal (developer.mediavalet.com) all answer 404 on every probed path.
+hosts:
+- host: login.mediavalet.com
+  role: identity provider (OpenID Connect / IdentityServer, issuer https://iam.mediavalet.com)
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json; charset=UTF-8
+    file: well-known/mediavalet-openid-configuration.json
+    document: true
+    note: >-
+      Real OpenID Connect discovery document. Issuer https://iam.mediavalet.com; authorization,
+      token, userinfo, introspection, revocation, device-authorization, CIBA and PAR endpoints all
+      published; scopes_supported includes openid, profile, api, api:service_principal, iam.admin,
+      iam.provisioning, IdentityServerApi and offline_access.
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: api.mediavalet.com
+  role: API gateway (Azure API Management)
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: www.mediavalet.com
+  role: marketing site (WordPress)
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: docs.mediavalet.com
+  role: API documentation (Postman published documenter)
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: developer.mediavalet.com
+  role: developer portal (Azure API Management developer portal)
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+summary:
+  hosts_probed: 5
+  paths_probed: 35
+  documents_found: 1
+  security_txt: false
+  api_catalog: false
+  agent_card: false
+  openid_configuration: true
+checked: '2026-08-13'

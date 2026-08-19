@@ -1,0 +1,151 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://login.mediavalet.com/.well-known/openid-configuration (HTTP 200),
+  https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE (General Information sections),
+  https://www.mediavalet.com/why-mediavalet/security, and openapi/ + asyncapi/ derived from the
+  MediaValet-published collection.
+docs: https://docs.mediavalet.com/
+description: >-
+  What MediaValet actually conforms to, cross-cutting standards first. The strong claims are on the
+  identity side — a fully OIDC-conformant IdentityServer with a live discovery document — and on the
+  event side, where SkyHOOK emits real CloudEvents 1.0 envelopes. The API's own error and
+  hypermedia conventions are house formats, not published standards.
+standards:
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: >-
+    Live authorization server at https://login.mediavalet.com with /connect/authorize,
+    /connect/token, /connect/introspect, /connect/revocation. grant_types_supported includes
+    authorization_code, client_credentials, refresh_token, implicit and password.
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: oidc
+  name: OpenID Connect Core / Discovery
+  conforms: true
+  evidence: >-
+    MediaValet states "Our implementation is fully OIDC-conformant." A conformant discovery document
+    is served at /.well-known/openid-configuration with issuer https://iam.mediavalet.com, jwks_uri,
+    userinfo_endpoint, claims_supported and scopes_supported. Saved verbatim to
+    well-known/mediavalet-openid-configuration.json.
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: oauth2-device-grant
+  name: OAuth 2.0 Device Authorization Grant (RFC 8628)
+  conforms: true
+  evidence: device_authorization_endpoint published and urn:ietf:params:oauth:grant-type:device_code in grant_types_supported.
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: oauth2-par
+  name: OAuth 2.0 Pushed Authorization Requests (RFC 9126)
+  conforms: true
+  evidence: pushed_authorization_request_endpoint published; require_pushed_authorization_requests is false (supported, not mandatory).
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: ciba
+  name: OpenID Connect Client-Initiated Backchannel Authentication (CIBA)
+  conforms: true
+  evidence: backchannel_authentication_endpoint published and urn:openid:params:grant-type:ciba in grant_types_supported.
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: oidc-logout
+  name: OpenID Connect Front-Channel and Back-Channel Logout
+  conforms: true
+  evidence: frontchannel_logout_supported, frontchannel_logout_session_supported, backchannel_logout_supported and backchannel_logout_session_supported all true; end_session_endpoint published.
+  source: https://login.mediavalet.com/.well-known/openid-configuration
+- id: cloudevents
+  name: CloudEvents 1.0
+  conforms: true
+  evidence: >-
+    Every SkyHOOK event payload MediaValet publishes carries specversion "1.0" with id, source, type,
+    subject, time, dataschema, contenttype and data — the CloudEvents structured JSON envelope.
+  source: https://docs.mediavalet.com/ (General Information > SkyHOOK > Event Types)
+  artifact: asyncapi/mediavalet-skyhook-asyncapi.yml
+- id: json-patch
+  name: JSON Patch (RFC 6902)
+  conforms: partial
+  evidence: >-
+    "Patches are to follow the IETF standard." PATCH requests use Content-Type
+    application/json-patch+json and the six operations add, remove, replace, test, move, copy.
+  deviations:
+  - >-
+    MediaValet's replace example carries a non-standard `oldValue` member alongside `value`.
+  - >-
+    RFC 6902 requires a patch document to be applied atomically and to fail as a whole; MediaValet
+    ignores malformed instructions and reports them in Meta.Errors while applying the rest.
+  source: https://docs.mediavalet.com/ (General Information > PATCH Requests)
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence: >-
+    No application/problem+json anywhere in the 312-operation surface. Errors are carried in a
+    proprietary Meta.Errors envelope, and most 4xx/5xx responses return text/plain.
+  artifact: errors/mediavalet-problem-types.yml
+- id: pagination
+  name: Offset/limit pagination
+  conforms: true
+  evidence: >-
+    Universal count (default 50) and offset (default 0) query parameters valid on any endpoint, with
+    RecordCount.{TotalRecordsFound,StartingRecord,RecordsReturned} returned in every envelope.
+  source: https://docs.mediavalet.com/ (General Information > Querystring Parameters)
+- id: idempotency
+  name: Idempotency keys for unsafe methods
+  conforms: false
+  evidence: No Idempotency-Key header, no replay protection, no documented safe-retry contract. See conventions/mediavalet-conventions.yml.
+- id: rfc8594
+  name: RFC 8594 Sunset header / deprecation signalling
+  conforms: false
+  evidence: >-
+    Deprecations are announced in prose in the versioned changelog only. No Sunset or Deprecation
+    response headers, and no operation in the contract carries `deprecated: true`.
+  artifact: lifecycle/mediavalet-lifecycle.yml
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all five MediaValet hosts probed.
+  artifact: well-known/mediavalet-well-known.yml
+- id: hal
+  name: HAL / standardised hypermedia
+  conforms: partial
+  evidence: >-
+    MediaValet describes the API as hypermedia-driven and every resource carries a `_links` object
+    with `self` and a `functions` array. The shape is MediaValet's own, not HAL, JSON:API or
+    Siren — `_links.functions` is a flat array rather than a link-relation map.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    MediaValet publishes no OpenAPI definition. Its machine-readable contract is a Postman
+    Collection v2.1.0 (collections/mediavalet-api.postman_collection.json); the OpenAPI documents in
+    openapi/ are derived from it by API Evangelist, not published by MediaValet.
+- id: postman-collection-v2.1
+  name: Postman Collection Format v2.1.0
+  conforms: true
+  evidence: >-
+    MediaValet publishes a 362-request collection conforming to
+    https://schema.getpostman.com/json/collection/v2.1.0/collection.json at docs.mediavalet.com.
+  source: https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE
+compliance:
+  published: true
+  source: https://www.mediavalet.com/why-mediavalet/security
+  certifications:
+  - name: SOC 2
+    scope: MediaValet platform
+  - name: ISO 27001
+    scope: MediaValet platform
+  - name: HIPAA
+    scope: MediaValet platform
+  - name: GDPR
+    scope: MediaValet platform
+  note: >-
+    Certifications are asserted on MediaValet's security page. There is no trust portal, no
+    downloadable report request flow, and no subprocessor list at a discoverable URL — see
+    security/mediavalet-trust-center.yml.
+platform:
+  hosting: Microsoft Azure
+  gateway: Azure API Management
+  identity: IdentityServer (issuer https://iam.mediavalet.com)
+  storage: Azure Blob Storage (upload SAS URLs)
+  events: Azure Event Grid (optional SkyHOOK delivery target)
+summary:
+  assertions: 15
+  conforms: 9
+  partial: 2
+  does_not_conform: 4
+checked: '2026-08-13'

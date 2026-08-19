@@ -1,0 +1,86 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  openapi/ (312 operations derived from MediaValet's published Postman collection) +
+  https://docs.mediavalet.com/ "How To Guides" — every operationId referenced in these skills was
+  verified present in the repo's OpenAPI definitions before the skill was written.
+description: >-
+  Packaged Agent Skills for the MediaValet API, one per marquee flow. Each mirrors a MediaValet
+  "How To Guide" and is grounded in real operationIds, real status codes and the cross-cutting rules
+  in conventions/mediavalet-conventions.yml — in particular the non-atomic JSON Patch behaviour, the
+  x-mv-api-version default trap, the absence of any idempotency mechanism, and the 401-to-403
+  permission-error change in API version 1.2.
+skill_count: 5
+skills:
+- name: mediavalet-upload-asset
+  file: skills/mediavalet-upload-asset.md
+  summary: Three-step ingest — request an upload URL, PUT bytes to Azure blob storage, finalize with metadata.
+  api: MediaValet Uploads API
+  operations:
+  - createAsset2
+  - completeUpload
+  - createAssetAssociationWithCategories
+  - updateAsset
+- name: mediavalet-search-assets
+  file: skills/mediavalet-search-assets.md
+  summary: Search by keyword, filename, custom attribute, file type or cognitive metadata, and page correctly.
+  api: MediaValet Assets API
+  operations:
+  - retrieveAssetsWithSearchCriteria2
+  - retrieveAssetsWithSearchCriteria
+  - retrieveAsset
+  - retrieveAttributes
+  - retrieveKeywords
+  - retrieveCategories
+- name: mediavalet-tag-and-describe-asset
+  file: skills/mediavalet-tag-and-describe-asset.md
+  summary: Enrich an asset — description, alt text and custom attributes via JSON Patch; keywords via association.
+  api: MediaValet Assets API
+  operations:
+  - updateAssetWithPatchOperations
+  - createAssociationOfAssetsAndKeywords
+  - retrieveAttributes
+  - retrieveKeywords
+  - retrieveAsset
+- name: mediavalet-subscribe-to-events
+  file: skills/mediavalet-subscribe-to-events.md
+  summary: Subscribe to SkyHOOK CloudEvents instead of polling; enumerate event types, create and verify a subscription.
+  api: MediaValet Webhooks API (SkyHOOK)
+  operations:
+  - getEventsTypes
+  - createWebhookSubscription
+  - getSubscription
+  - updateWebhookSubscription
+  requires: Developer Portal Enterprise plan
+- name: mediavalet-distribute-with-direct-links
+  file: skills/mediavalet-distribute-with-direct-links.md
+  summary: Create durable CDN links for distribution outside the DAM, instead of expiring SAS media URLs.
+  api: MediaValet Direct Links API
+  operations:
+  - createADirectLink
+  - retrieveDirectLinks2
+  - retrieveAsset
+shared_rules:
+- Send BOTH credentials on every request — Authorization bearer token AND Ocp-Apim-Subscription-Key.
+- >-
+  ALWAYS set x-mv-api-version explicitly. Omitting it pins the caller to version 1.0, which 400s on
+  anything added in 1.1 or later.
+- >-
+  Read Meta.Errors and Meta.Warnings on EVERY response, including 200s. Malformed PATCH instructions
+  and unrecognized query parameters are silently ignored and reported there.
+- 202 Accepted means accepted, not complete. Uploads, check-in/out and video processing are asynchronous.
+- 204 is not always success — MediaValet also uses it for "not found" on some paths.
+- >-
+  There is no idempotency key. Read before write, and verify with a GET before retrying any non-GET
+  that failed ambiguously.
+- On API version 1.2 a permission failure is 403, not 401. Do not respond to it with a token refresh.
+- >-
+  Check permissions[] and _links.functions[] on a resource before attempting a write — MediaValet
+  publishes per-user affordances, so a 403 is usually predictable.
+not_covered:
+  reason: >-
+    Skills are written only for flows MediaValet documents end-to-end in its own How To Guides.
+    Branded Portals (46 operations), Lightboxes, Reports, Crop, Persons and the third-party
+    Integrations registration flow are all real surfaces in openapi/ but are left unskilled rather
+    than invented.
+checked: '2026-08-13'

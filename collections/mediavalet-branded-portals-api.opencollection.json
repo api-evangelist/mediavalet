@@ -1,0 +1,1375 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet BrandedPortals API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BrandedPortals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Branded Portals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns branded portals."
+        },
+        {
+          "info": {
+            "name": "Create Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a branded portal."
+        },
+        {
+          "info": {
+            "name": "Search Branded Portal Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns assets form a search results in a branded portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a branded portal by branded portal id."
+        },
+        {
+          "info": {
+            "name": "Remove Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Remove a branded portal by branded portal id."
+        },
+        {
+          "info": {
+            "name": "Retrieve Live Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/brandedportals/:host/:path",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "host",
+                "value": "",
+                "type": "path",
+                "description": "host path parameter."
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "path path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a live branded portal."
+        },
+        {
+          "info": {
+            "name": "Get all policies of a brandedportals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Only user with Manage Branded Portal permissions can get policies."
+        },
+        {
+          "info": {
+            "name": "Updates policy of branded portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates policy of branded portal"
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Assets By CategoryId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/categories/:categoryId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path",
+                "description": "categoryId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a collection of assets by categoryId in a branded portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Assets By LightboxId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/lightboxes/:lightboxId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a collection of asset by lightboxId in a branded portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Terms and Conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/brandedportals/:host/termsAndConditions",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "host",
+                "value": "",
+                "type": "path",
+                "description": "host path parameter."
+              }
+            ]
+          },
+          "docs": "Returns the terms and condititons of a branded portal."
+        },
+        {
+          "info": {
+            "name": "Get branded portal section sync details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/sync",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ]
+          },
+          "docs": "Return branded portal section sync details"
+        },
+        {
+          "info": {
+            "name": "Create section sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/sync",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync Branded Portal section."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Access Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/accesskey",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns a branded portal access key."
+        },
+        {
+          "info": {
+            "name": "Search Branded Portal Draft Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query",
+                "description": "preview query parameter."
+              }
+            ]
+          },
+          "docs": "Returns search results from branded portal draft assets."
+        },
+        {
+          "info": {
+            "name": "Remove Assets Form A Branded Portal.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove assets form a branded portal."
+        },
+        {
+          "info": {
+            "name": "Search A Live Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns search results for a live branded portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Upload Section Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/sections/:sectionId/uploads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ]
+          },
+          "docs": "Return branded portal upload section details"
+        },
+        {
+          "info": {
+            "name": "Create Branded Portal Upload Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/sections/:sectionId/uploads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create branded portal upload section."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Upload Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/sections/:sectionId/uploads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a branded portal upload section by branded portal id and upload section id."
+        },
+        {
+          "info": {
+            "name": "Remove Branded Portal Upload Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/sections/:sectionId/uploads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ]
+          },
+          "docs": "Remove a branded portal upload section by branded portal id and upload section id."
+        },
+        {
+          "info": {
+            "name": "Retrieves Branded Portal Asset Rendition Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/renditionKinds",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves all the rendition types available for the given Branded Portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portal Draft Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query",
+                "description": "preview query parameter."
+              }
+            ]
+          },
+          "docs": "Returns draft assets in a branded portal."
+        },
+        {
+          "info": {
+            "name": "Create Assets In Branded Portal Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds assets too a branded portal section."
+        },
+        {
+          "info": {
+            "name": "Remove Assets Form A Branded Portal Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove assets form a branded portal section."
+        },
+        {
+          "info": {
+            "name": "Retrieve Assets Form A Live Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/:sectionId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns assets form a live branded portal."
+        },
+        {
+          "info": {
+            "name": "Retrieve Live Branded Portal Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/downloads/:downloadId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "downloadId",
+                "value": "",
+                "type": "path",
+                "description": "downloadId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve a live branded portal assets."
+        },
+        {
+          "info": {
+            "name": "Retrieve Branded Portals Asset Rendition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/assets/:assetId/renditions/:renditionKindId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "renditionKindId",
+                "value": "",
+                "type": "path",
+                "description": "renditionKindId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific rendition for a given published Branded Portal asset."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/name",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Update the branded portal name."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/layout",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Update the branded portal page layout."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal URL Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/url",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the URL settings for a branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Search Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/search",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the search settings for branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Download Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/download",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update download settings for a branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Language Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/language",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update language settings for a branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Navigation Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/navigation",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update navigation for a branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Access Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/restrictaccess",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the restricted access settings for branded portal."
+        },
+        {
+          "info": {
+            "name": "Update Branded Portal Highlight Colour",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/settings/highlightcolour",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update highlight colour for a branded portal."
+        },
+        {
+          "info": {
+            "name": "Validate Assets In All Branded Portals",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/validate/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates assets in all branded portal."
+        },
+        {
+          "info": {
+            "name": "Disable Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/disable",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Disable branded portal."
+        },
+        {
+          "info": {
+            "name": "Publish Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/publish",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ]
+          },
+          "docs": "Publish branded portal."
+        },
+        {
+          "info": {
+            "name": "Create Duplicate Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/duplicate",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Duplicates a branded portal."
+        },
+        {
+          "info": {
+            "name": "Move Assets To A Branded Portal Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/move/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move assets to a branded portal section."
+        },
+        {
+          "info": {
+            "name": "Authorize Branded Portal Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/brandedportals/:host/:path/authorize",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "host",
+                "value": "",
+                "type": "path",
+                "description": "host path parameter."
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "path path parameter."
+              }
+            ]
+          },
+          "docs": "Authorize access for branded portal."
+        },
+        {
+          "info": {
+            "name": "Validate Assets In A Branded Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/validate/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate assets in a branded portal."
+        },
+        {
+          "info": {
+            "name": "Remove section sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/brandedportals/:brandedPortalId/:sectionId/unsync",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              },
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path",
+                "description": "sectionId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unsync Branded Portal section."
+        },
+        {
+          "info": {
+            "name": "Create A Download Live Branded Portal Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/:libraryId/brandedportals/:brandedPortalId/downloads",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              },
+              {
+                "name": "brandedPortalId",
+                "value": "",
+                "type": "path",
+                "description": "brandedPortalId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a live branded portal assets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

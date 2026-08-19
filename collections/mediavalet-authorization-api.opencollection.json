@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Authorization API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return all policies for a library based on authenticated User.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/authorization/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ]
+          },
+          "docs": "Return all policies for a library based on authenticated User."
+        },
+        {
+          "info": {
+            "name": "Create or remove policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/authorization/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or remove policies."
+        },
+        {
+          "info": {
+            "name": "Get all resources that have at least one explicit policy defined",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/authorization/resources/:resourceType/ids",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.0"
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceType",
+                "value": "",
+                "type": "path",
+                "description": "resourceType path parameter."
+              }
+            ]
+          },
+          "docs": "Get all resources that have at least one explicit policy defined"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

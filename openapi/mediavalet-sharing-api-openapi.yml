@@ -1,0 +1,1480 @@
+openapi: 3.0.3
+info:
+  title: MediaValet Sharing API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: Sharing
+  description: Asset and collection sharing.
+paths:
+  /public/share/{shareCode}:
+    get:
+      operationId: retrieveSharedAssetInformation
+      summary: Retrieve Shared Asset Information
+      description: Retrieves shared assets information.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sharedAt:
+                    type: string
+                    format: date-time
+                  sharedBy:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      phone:
+                        type: string
+                      organization:
+                        type: string
+                  state:
+                    type: string
+                  expiryDate:
+                    type: string
+                    format: date-time
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolor_b:
+                        type: object
+                      fugiat402:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      magnae:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                sharedAt: <dateTime>
+                sharedBy:
+                  id: <uuid>
+                  name: <string>
+                  email: <string>
+                  phone: <string>
+                  organization: <string>
+                state: <string>
+                expiryDate: <dateTime>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolor_b: {}
+                  fugiat402: {}
+                interpolations:
+                  magnae: {}
+                permissions:
+                - asset:shareAsBrandedPortal
+                - lightbox:viewAsset
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/assets:
+    get:
+      operationId: retrieveSharedAssets
+      summary: Retrieve Shared Assets
+      description: Retrieves shared assets.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '404':
+          description: A shared asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/renditionKinds:
+    get:
+      operationId: retrievesSharedAssetSRenditionTypesByShareCode
+      summary: Retrieves Shared Asset's Rendition Types By Share Code
+      description: Retrieves all the rendition types available for the given share code.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    renditionKindId:
+                      type: string
+                      format: uuid
+                    code:
+                      type: integer
+                    description:
+                      type: string
+                    height:
+                      type: integer
+                    isDefault:
+                      type: boolean
+                    mimeType:
+                      type: string
+                    name:
+                      type: string
+                    quality:
+                      type: integer
+                    targetFileExtension:
+                      type: string
+                    width:
+                      type: integer
+                    colorspace:
+                      type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        consectetur9de:
+                          type: object
+                        ex_f32:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        labore16f:
+                          type: object
+                        dolor5:
+                          type: object
+                        amet38d:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - renditionKindId: <uuid>
+                code: <integer>
+                description: <string>
+                height: <integer>
+                isDefault: <boolean>
+                mimeType: <string>
+                name: <string>
+                quality: <integer>
+                targetFileExtension: <string>
+                width: <integer>
+                colorspace: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  consectetur9de: {}
+                  ex_f32: {}
+                interpolations:
+                  labore16f: {}
+                  dolor5: {}
+                  amet38d: {}
+                permissions:
+                - asset:shareAsWebGallery
+                - user:editEmail
+              - renditionKindId: <uuid>
+                code: <integer>
+                description: <string>
+                height: <integer>
+                isDefault: <boolean>
+                mimeType: <string>
+                name: <string>
+                quality: <integer>
+                targetFileExtension: <string>
+                width: <integer>
+                colorspace: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  veniam_25c: {}
+                  qui__ec: {}
+                  mollit_c: {}
+                interpolations:
+                  sit_36d: {}
+                  laborumf4: {}
+                  quis_1: {}
+                  nulla56: {}
+                permissions:
+                - asset:downloadFromMvd
+                - asset:shareAsLightbox
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/assets/{assetId}:
+    get:
+      operationId: retrieveSharedAsset
+      summary: Retrieve Shared Asset
+      description: Retrieves a shared asset for a given share code and asset id.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  title:
+                    type: string
+                  media:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      small:
+                        type: string
+                      thumb:
+                        type: string
+                      large:
+                        type: string
+                      original:
+                        type: string
+                      medium:
+                        type: string
+                      download:
+                        type: string
+                      downloadRequest:
+                        type: string
+                      stream:
+                        type: string
+                      streamLoDef:
+                        type: string
+                      originalDimensions:
+                        type: string
+                      sasExpiry:
+                        type: integer
+                      sasRenewal:
+                        type: integer
+                      renditionItemCount:
+                        type: integer
+                      autodeskUrn:
+                        type: string
+                      watermarked:
+                        type: boolean
+                      assetId:
+                        type: string
+                        format: uuid
+                      streamingManifest:
+                        type: string
+                      fullStreamAvailable:
+                        type: boolean
+                  file:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      title:
+                        type: string
+                      fileName:
+                        type: string
+                      md5:
+                        type: string
+                      fileType:
+                        type: string
+                      sizeInBytes:
+                        type: integer
+                      description:
+                        type: string
+                      keywords:
+                        type: string
+                      uploadedAt:
+                        type: string
+                        format: date-time
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      approvedAt:
+                        type: string
+                        format: date-time
+                      disapprovedAt:
+                        type: string
+                        format: date-time
+                      expiresAt:
+                        type: string
+                        format: date-time
+                      imageHeight:
+                        type: integer
+                      imageWidth:
+                        type: integer
+                      frameRate:
+                        type: string
+                      length:
+                        type: string
+                      bitRate:
+                        type: string
+                      mimeType:
+                        type: string
+                      resolution:
+                        type: string
+                      colorMode:
+                        type: string
+                      aspectRatio:
+                        type: string
+                      orientation:
+                        type: string
+                      sharedRenditionWidth:
+                        type: integer
+                      sharedRenditionHeight:
+                        type: integer
+                      sharedRenditionFileExtension:
+                        type: string
+                      sharedRenditionFileSizeInBytes:
+                        type: integer
+                  description:
+                    type: string
+                  altText:
+                    type: string
+                  containerName:
+                    type: string
+                  status:
+                    type: integer
+                  rating:
+                    type: object
+                    properties:
+                      average:
+                        type: integer
+                      user:
+                        type: integer
+                  attributes:
+                    type: object
+                    properties:
+                      amet_a0e:
+                        type: string
+                      culpa_16:
+                        type: string
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categories:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+                  relatedassets:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+                  assetCheckOutComment:
+                    type: string
+                  assetCheckInComment:
+                    type: string
+                  checkedOutBy:
+                    type: string
+                    format: uuid
+                  renderAsPdf:
+                    type: boolean
+                  wopiEnabled:
+                    type: boolean
+                  userViewCounts:
+                    type: object
+                    properties:
+                      Ut_86:
+                        type: integer
+                      consectetur7c:
+                        type: integer
+                      voluptate_94:
+                        type: integer
+                  createdAt:
+                    type: string
+                    format: date-time
+                  hasVideoIntelligenceContent:
+                    type: boolean
+                  followed:
+                    type: boolean
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      nostrud389:
+                        type: object
+                      non186:
+                        type: object
+                      amet_668:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      incididunt4d:
+                        type: object
+                      in2:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                id: <uuid>
+                title: <string>
+                media:
+                  type: <string>
+                  small: <string>
+                  thumb: <string>
+                  large: <string>
+                  original: <string>
+                  medium: <string>
+                  download: <string>
+                  downloadRequest: <string>
+                  stream: <string>
+                  streamLoDef: <string>
+                  originalDimensions: <string>
+                  sasExpiry: <long>
+                  sasRenewal: <long>
+                  renditionItemCount: <long>
+                  autodeskUrn: <string>
+                  watermarked: <boolean>
+                  assetId: <uuid>
+                  streamingManifest: <string>
+                  fullStreamAvailable: <boolean>
+                file:
+                  id: <uuid>
+                  title: <string>
+                  fileName: <string>
+                  md5: <string>
+                  fileType: <string>
+                  sizeInBytes: <long>
+                  description: <string>
+                  keywords: <string>
+                  uploadedAt: <dateTime>
+                  modifiedAt: <dateTime>
+                  approvedAt: <dateTime>
+                  disapprovedAt: <dateTime>
+                  expiresAt: <dateTime>
+                  imageHeight: <long>
+                  imageWidth: <long>
+                  frameRate: <string>
+                  length: <string>
+                  bitRate: <string>
+                  mimeType: <string>
+                  resolution: <string>
+                  colorMode: <string>
+                  aspectRatio: <string>
+                  orientation: <string>
+                  sharedRenditionWidth: <long>
+                  sharedRenditionHeight: <long>
+                  sharedRenditionFileExtension: <string>
+                  sharedRenditionFileSizeInBytes: <long>
+                description: <string>
+                altText: <string>
+                containerName: <string>
+                status: <integer>
+                rating:
+                  average: <integer>
+                  user: <integer>
+                attributes:
+                  amet_a0e: <string>
+                  culpa_16: <string>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categories:
+                - <uuid>
+                - <uuid>
+                keywords:
+                - <string>
+                - <string>
+                relatedassets:
+                - <uuid>
+                - <uuid>
+                assetCheckOutComment: <string>
+                assetCheckInComment: <string>
+                checkedOutBy: <uuid>
+                renderAsPdf: <boolean>
+                wopiEnabled: <boolean>
+                userViewCounts:
+                  Ut_86: <long>
+                  consectetur7c: <long>
+                  voluptate_94: <long>
+                createdAt: <dateTime>
+                hasVideoIntelligenceContent: <boolean>
+                followed: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  nostrud389: {}
+                  non186: {}
+                  amet_668: {}
+                interpolations:
+                  incididunt4d: {}
+                  in2: {}
+                permissions:
+                - lightbox:assignAsset
+                - asset:shareAsCdnLink
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '404':
+          description: A shared asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/assets/{assetId}/renditions:
+    get:
+      operationId: retrievesSharedAssetSRenditionTypes
+      summary: Retrieves Shared Asset's Rendition Types
+      description: Retrieves all rendition types for a given shared asset.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    renditionTypeId:
+                      type: string
+                      format: uuid
+                    height:
+                      type: integer
+                    width:
+                      type: integer
+                    length:
+                      type: integer
+                    mimeType:
+                      type: string
+                    watermarked:
+                      type: boolean
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        eu_be7:
+                          type: object
+                        quis_be:
+                          type: object
+                        laboree:
+                          type: object
+                        in4b:
+                          type: object
+                        qui88c:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        velit_69:
+                          type: object
+                        occaecat44:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                renditionTypeId: <uuid>
+                height: <integer>
+                width: <integer>
+                length: <integer>
+                mimeType: <string>
+                watermarked: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  eu_be7: {}
+                  quis_be: {}
+                  laboree: {}
+                  in4b: {}
+                  qui88c: {}
+                interpolations:
+                  velit_69: {}
+                  occaecat44: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:createImageCrop
+              - id: <uuid>
+                renditionTypeId: <uuid>
+                height: <integer>
+                width: <integer>
+                length: <integer>
+                mimeType: <string>
+                watermarked: <boolean>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  labore_b99: {}
+                  minim24: {}
+                interpolations:
+                  fugiat9: {}
+                permissions:
+                - lightbox:transferOwnership
+                - lightbox:share
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/assets/{assetId}/renditions/{renditionKindId}:
+    get:
+      operationId: retrieveSharedAssetSRendition
+      summary: Retrieve Shared Asset's Rendition
+      description: Retrieves a specific rendition for a given shared asset.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: renditionKindId
+        in: path
+        required: true
+        description: renditionKindId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  renditionUrl:
+                    type: string
+                  thumbnailUrl:
+                    type: string
+                  pages:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      offSet:
+                        type: integer
+                      renditions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            sequence:
+                              type: integer
+                            url:
+                              type: string
+                  sasExpiry:
+                    type: integer
+                  sasRenewal:
+                    type: integer
+              example:
+                renditionUrl: <string>
+                thumbnailUrl: <string>
+                pages:
+                  count: <long>
+                  offSet: <integer>
+                  renditions:
+                  - sequence: <integer>
+                    url: <string>
+                  - sequence: <integer>
+                    url: <string>
+                sasExpiry: <long>
+                sasRenewal: <long>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '404':
+          description: The asset rendition was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /shareAssets:
+    post:
+      operationId: createShare
+      summary: Create Share
+      description: Initiate a share operation for a given set of assets.
+      tags:
+      - Sharing
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shareTo:
+                  type: string
+                shareVia:
+                  type: string
+                allowAssetDownload:
+                  type: boolean
+                images:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                    dimensions:
+                      type: object
+                      properties:
+                        width:
+                          type: integer
+                        height:
+                          type: integer
+                        customDimensions:
+                          type: boolean
+                    spectrum:
+                      type: string
+                    resolution:
+                      type: string
+                    addWatermark:
+                      type: boolean
+                    watermarkUrl:
+                      type: string
+                    includeContactSheet:
+                      type: boolean
+                    contactSheet:
+                      type: object
+                      properties:
+                        rows:
+                          type: integer
+                        cols:
+                          type: integer
+                        logoBlobUrl:
+                          type: string
+                    renditionType:
+                      type: string
+                videos:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                    dimensions:
+                      type: object
+                      properties:
+                        width:
+                          type: integer
+                        height:
+                          type: integer
+                        customDimensions:
+                          type: boolean
+                    renditionType:
+                      type: string
+                audio:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    quality:
+                      type: object
+                      properties:
+                        value:
+                          type: integer
+                        unit:
+                          type: string
+                    format:
+                      type: string
+                documents:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                message:
+                  type: object
+                  properties:
+                    recipients:
+                      type: array
+                      items:
+                        type: string
+                    text:
+                      type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                includeContactSheet:
+                  type: boolean
+                shareCode:
+                  type: string
+                lightboxId:
+                  type: string
+                  format: uuid
+                lightboxName:
+                  type: string
+                lightboxDescription:
+                  type: string
+                DynamicWebGallery:
+                  type: boolean
+                gallerySettings:
+                  type: object
+                  properties:
+                    expiryDate:
+                      type: string
+                    galleryPassword:
+                      type: string
+            example:
+              shareTo: Unknown
+              shareVia: Link
+              allowAssetDownload: <boolean>
+              images:
+                shareOriginals: <boolean>
+                format: <string>
+                dimensions:
+                  width: <integer>
+                  height: <integer>
+                  customDimensions: <boolean>
+                spectrum: SRgb
+                resolution: Web
+                addWatermark: <boolean>
+                watermarkUrl: <string>
+                includeContactSheet: <boolean>
+                contactSheet:
+                  rows: <integer>
+                  cols: <integer>
+                  logoBlobUrl: <string>
+                renditionType: HighDefinition
+              videos:
+                shareOriginals: <boolean>
+                format: Mp4
+                dimensions:
+                  width: <integer>
+                  height: <integer>
+                  customDimensions: <boolean>
+                renditionType: Undefined
+              audio:
+                shareOriginals: <boolean>
+                quality:
+                  value: <integer>
+                  unit: <string>
+                format: Mp3
+              documents:
+                shareOriginals: <boolean>
+                format: Unknown
+              message:
+                recipients:
+                - <string>
+                - <string>
+                text: <string>
+              ids:
+              - <uuid>
+              - <uuid>
+              includeContactSheet: <boolean>
+              shareCode: <string>
+              lightboxId: <uuid>
+              lightboxName: <string>
+              lightboxDescription: <string>
+              DynamicWebGallery: <boolean>
+              gallerySettings:
+                expiryDate: <string>
+                galleryPassword: <string>
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shareId:
+                    type: string
+                    format: uuid
+                  lightboxId:
+                    type: string
+                    format: uuid
+                  sharedVia:
+                    type: string
+                  link:
+                    type: string
+              example:
+                shareId: <uuid>
+                lightboxId: <uuid>
+                sharedVia: Unknown
+                link: <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /shareLightboxes:
+    post:
+      operationId: createShareForLightboxSet
+      summary: Create Share For Lightbox Set
+      description: Initiate a share operation for a given set of lightbox.
+      tags:
+      - Sharing
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shareTo:
+                  type: string
+                shareVia:
+                  type: string
+                allowAssetDownload:
+                  type: boolean
+                images:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                    dimensions:
+                      type: object
+                      properties:
+                        width:
+                          type: integer
+                        height:
+                          type: integer
+                        customDimensions:
+                          type: boolean
+                    spectrum:
+                      type: string
+                    resolution:
+                      type: string
+                    addWatermark:
+                      type: boolean
+                    watermarkUrl:
+                      type: string
+                    includeContactSheet:
+                      type: boolean
+                    contactSheet:
+                      type: object
+                      properties:
+                        rows:
+                          type: integer
+                        cols:
+                          type: integer
+                        logoBlobUrl:
+                          type: string
+                    renditionType:
+                      type: string
+                videos:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                    dimensions:
+                      type: object
+                      properties:
+                        width:
+                          type: integer
+                        height:
+                          type: integer
+                        customDimensions:
+                          type: boolean
+                    renditionType:
+                      type: string
+                audio:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    quality:
+                      type: object
+                      properties:
+                        value:
+                          type: integer
+                        unit:
+                          type: string
+                    format:
+                      type: string
+                documents:
+                  type: object
+                  properties:
+                    shareOriginals:
+                      type: boolean
+                    format:
+                      type: string
+                message:
+                  type: object
+                  properties:
+                    recipients:
+                      type: array
+                      items:
+                        type: string
+                    text:
+                      type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                includeContactSheet:
+                  type: boolean
+                shareCode:
+                  type: string
+                lightboxId:
+                  type: string
+                  format: uuid
+                lightboxName:
+                  type: string
+                lightboxDescription:
+                  type: string
+                DynamicWebGallery:
+                  type: boolean
+                gallerySettings:
+                  type: object
+                  properties:
+                    expiryDate:
+                      type: string
+                    galleryPassword:
+                      type: string
+            example:
+              shareTo: Unknown
+              shareVia: Link
+              allowAssetDownload: <boolean>
+              images:
+                shareOriginals: <boolean>
+                format: <string>
+                dimensions:
+                  width: <integer>
+                  height: <integer>
+                  customDimensions: <boolean>
+                spectrum: SRgb
+                resolution: Web
+                addWatermark: <boolean>
+                watermarkUrl: <string>
+                includeContactSheet: <boolean>
+                contactSheet:
+                  rows: <integer>
+                  cols: <integer>
+                  logoBlobUrl: <string>
+                renditionType: HighDefinition
+              videos:
+                shareOriginals: <boolean>
+                format: Mp4
+                dimensions:
+                  width: <integer>
+                  height: <integer>
+                  customDimensions: <boolean>
+                renditionType: Undefined
+              audio:
+                shareOriginals: <boolean>
+                quality:
+                  value: <integer>
+                  unit: <string>
+                format: Mp3
+              documents:
+                shareOriginals: <boolean>
+                format: Unknown
+              message:
+                recipients:
+                - <string>
+                - <string>
+                text: <string>
+              ids:
+              - <uuid>
+              - <uuid>
+              includeContactSheet: <boolean>
+              shareCode: <string>
+              lightboxId: <uuid>
+              lightboxName: <string>
+              lightboxDescription: <string>
+              DynamicWebGallery: <boolean>
+              gallerySettings:
+                expiryDate: <string>
+                galleryPassword: <string>
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shareId:
+                    type: string
+                    format: uuid
+                  lightboxId:
+                    type: string
+                    format: uuid
+                  sharedVia:
+                    type: string
+                  link:
+                    type: string
+              example:
+                shareId: <uuid>
+                lightboxId: <uuid>
+                sharedVia: Unknown
+                link: <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /public/share/{shareCode}/authorize:
+    post:
+      operationId: createGalleryAuthorization
+      summary: Create Gallery Authorization
+      description: Creates a gallery authorization request.
+      tags:
+      - Sharing
+      parameters:
+      - name: shareCode
+        in: path
+        required: true
+        description: shareCode path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: false
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionId:
+                    type: string
+                    format: uuid
+              example:
+                sessionId: <uuid>
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

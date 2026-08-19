@@ -1,0 +1,383 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet DirectLinks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DirectLinks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/directlinks/export",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns a zip file of collection of direct links."
+        },
+        {
+          "info": {
+            "name": "Retrieve Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/directlinks/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "includeSoftDeleted",
+                "value": "",
+                "type": "query",
+                "description": "includeSoftDeleted query parameter."
+              }
+            ]
+          },
+          "docs": "Returns a collection of direct links."
+        },
+        {
+          "info": {
+            "name": "Create A Direct Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/directlinks/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a direct link for an orginal or renditions."
+        },
+        {
+          "info": {
+            "name": "List All Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/directlinks",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "offset query parameter."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "count query parameter."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all direct links for the current library, including asset metadata and analytics."
+        },
+        {
+          "info": {
+            "name": "Retrieves CDN report for a given time period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/directlinks/exportByTime",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "startDate query parameter."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "offset query parameter."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "count query parameter."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "endDate query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves CDN report for a given time period."
+        },
+        {
+          "info": {
+            "name": "Activate All Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/directLinks/:assetId/activateAll",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Activate all direct links."
+        },
+        {
+          "info": {
+            "name": "Deactivate All Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/directLinks/:assetId/deactivateAll",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deactivate all direct links."
+        },
+        {
+          "info": {
+            "name": "Archive Direct Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/directLinks/:assetId/archive/:directLinkId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "directLinkId",
+                "value": "",
+                "type": "path",
+                "description": "directLinkId path parameter."
+              }
+            ]
+          },
+          "docs": "Archive direct link."
+        },
+        {
+          "info": {
+            "name": "Activate Direct Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/directLinks/:assetId/activate/:directLinkId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "directLinkId",
+                "value": "",
+                "type": "path",
+                "description": "directLinkId path parameter."
+              }
+            ]
+          },
+          "docs": "Activate direct link."
+        },
+        {
+          "info": {
+            "name": "Deactivate Direct Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/directLinks/:assetId/deactivate/:directLinkId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "directLinkId",
+                "value": "",
+                "type": "path",
+                "description": "directLinkId path parameter."
+              }
+            ]
+          },
+          "docs": "Deactivate direct link."
+        },
+        {
+          "info": {
+            "name": "Validate Asset In All Direct Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/directlinks/validate/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate assets in all direct links."
+        },
+        {
+          "info": {
+            "name": "Validate a Direct Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/directlinks/:assetId/validate",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "linkName",
+                "value": "",
+                "type": "query",
+                "description": "linkName query parameter."
+              }
+            ]
+          },
+          "docs": "Validate a direct link."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

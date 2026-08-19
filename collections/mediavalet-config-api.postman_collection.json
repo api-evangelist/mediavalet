@@ -1,0 +1,425 @@
+{
+  "item": [
+    {
+      "id": "02ed1302-029e-4c3a-8464-93b0bc73fe63",
+      "name": "Config",
+      "description": {
+        "content": "Library and account configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c12eb2e-43df-4777-9ebd-c314c15fcd56",
+          "name": "Retrieve Cognitive Configuration",
+          "request": {
+            "name": "Retrieve Cognitive Configuration",
+            "description": {
+              "content": "Retrieves the configuration for Cognitive Tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "cognitive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bb6420c-c030-4b5f-924f-198e671b64aa",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "cognitive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"consectetur9de\": {},\n      \"ex_f32\": {}\n    },\n    \"interpolations\": {\n      \"labore16f\": {},\n      \"dolor5\": {},\n      \"amet38d\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsWebGallery\",\n      \"user:editEmail\"\n    ]\n  },\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"veniam_25c\": {},\n      \"qui__ec\": {},\n      \"mollit_c\": {}\n    },\n    \"interpolations\": {\n      \"sit_36d\": {},\n      \"laborumf4\": {},\n      \"quis_1\": {},\n      \"nulla56\": {}\n    },\n    \"permissions\": [\n      \"asset:downloadFromMvd\",\n      \"asset:shareAsLightbox\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2a1ee22-345c-41d6-913b-06dd934e5306",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "cognitive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80c923ed-8b62-4525-8125-680e5707e903",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "cognitive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bb7f238-b16d-4996-97d7-1c6b3f7ef07e",
+          "name": "Retrieve Rendition Kinds",
+          "request": {
+            "name": "Retrieve Rendition Kinds",
+            "description": {
+              "content": "Retrieves the supported rendition kinds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "renditionkinds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The requested API version",
+                "key": "x-mv-api-version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e228fbfb-091a-4283-b2b9-d9a9a7fb2eb5",
+              "name": "Request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "renditionkinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"consectetur9de\": {},\n      \"ex_f32\": {}\n    },\n    \"interpolations\": {\n      \"labore16f\": {},\n      \"dolor5\": {},\n      \"amet38d\": {}\n    },\n    \"permissions\": [\n      \"asset:shareAsWebGallery\",\n      \"user:editEmail\"\n    ]\n  },\n  {\n    \"renditionKindId\": \"<uuid>\",\n    \"code\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"height\": \"<integer>\",\n    \"isDefault\": \"<boolean>\",\n    \"mimeType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<integer>\",\n    \"targetFileExtension\": \"<string>\",\n    \"width\": \"<integer>\",\n    \"colorspace\": \"<string>\",\n    \"_links\": {\n      \"self\": \"<string>\",\n      \"functions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"translationKeys\": {\n      \"veniam_25c\": {},\n      \"qui__ec\": {},\n      \"mollit_c\": {}\n    },\n    \"interpolations\": {\n      \"sit_36d\": {},\n      \"laborumf4\": {},\n      \"quis_1\": {},\n      \"nulla56\": {}\n    },\n    \"permissions\": [\n      \"asset:downloadFromMvd\",\n      \"asset:shareAsLightbox\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2c323ff-8efc-4b93-b7ff-5d43fae08af0",
+              "name": "The user does not have permission to perform this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "renditionkinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df6b6734-1eb4-47a7-870c-fbd8453f5269",
+              "name": "The request failed because of a problem on the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "renditionkinds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The requested API version",
+                    "key": "x-mv-api-version",
+                    "value": "1.2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mediavalet.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile api api:service_principal iam.admin iam.provisioning offline_access"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.mediavalet.com/connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.mediavalet.com/connect/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "59fbbb77-17a8-41d1-9285-bd38bf0fab38",
+    "name": "MediaValet Config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.\n\nPROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection (\"MediaValet API\", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.\n\nContact Support:\n Name: MediaValet",
+      "type": "text/plain"
+    }
+  }
+}

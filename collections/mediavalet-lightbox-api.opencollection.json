@@ -1,0 +1,424 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Lightbox API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lightbox",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Lightbox Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves the assets for a given lightbox id."
+        },
+        {
+          "info": {
+            "name": "Create Lightbox Association With Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a set of assets to the lightbox."
+        },
+        {
+          "info": {
+            "name": "Remove Assets From Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes a set of assets from a given lightbox."
+        },
+        {
+          "info": {
+            "name": "Retrieve Lightboxes For Approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes/lightboxesForApproval",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves list of lightboxes for approval."
+        },
+        {
+          "info": {
+            "name": "Return all policies of a Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Only Lightbox owner can get policies."
+        },
+        {
+          "info": {
+            "name": "Lightbox Update Lightbox Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/policies",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lightbox Update Lightbox Policies"
+        },
+        {
+          "info": {
+            "name": "Retrieve Lightboxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves all lightboxes."
+        },
+        {
+          "info": {
+            "name": "Create Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/lightboxes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new lightbox."
+        },
+        {
+          "info": {
+            "name": "Retrieve Assets From Lightbox For Approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes/lightboxesForApproval/:lightboxId/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves the assets from a specific lightbox for approval."
+        },
+        {
+          "info": {
+            "name": "Retrieve Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              },
+              {
+                "name": "includePermissions",
+                "value": "",
+                "type": "query",
+                "description": "includePermissions query parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves lightbox for a given lightbox id."
+        },
+        {
+          "info": {
+            "name": "Update Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the lightbox details."
+        },
+        {
+          "info": {
+            "name": "Update Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update lightbox with a list of patch operations."
+        },
+        {
+          "info": {
+            "name": "Remove Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes a given lightbox id."
+        },
+        {
+          "info": {
+            "name": "Unlink current user from a Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/users/current",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              }
+            ]
+          },
+          "docs": "Unlink current user from a Lightbox"
+        },
+        {
+          "info": {
+            "name": "Remove Asset From Lightbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/lightboxes/:lightboxId/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "lightboxId",
+                "value": "",
+                "type": "path",
+                "description": "lightboxId path parameter."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes an asset from a given lightbox."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

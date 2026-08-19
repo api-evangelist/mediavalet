@@ -1,0 +1,364 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet OrgUnit API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OrgUnit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Org Unit Information By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/:id",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information for a specific organizational unit."
+        },
+        {
+          "info": {
+            "name": "Retrieve Current Org Unit Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information for current organizational unit."
+        },
+        {
+          "info": {
+            "name": "Retrieves Portals Details For Current Org Unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current/portals",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves information for portals of current organizational unit."
+        },
+        {
+          "info": {
+            "name": "Retrieve Current Org Unit Libraries Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current/libraries",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information for current organizational unit libraries."
+        },
+        {
+          "info": {
+            "name": "Retrieve Org Unit Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/organizationalUnits/:hostName",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "hostName",
+                "value": "",
+                "type": "path",
+                "description": "hostName path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves org unit information based on hostname."
+        },
+        {
+          "info": {
+            "name": "Retrieve Current Library's Skin Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current/skinColors",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieve Current Library's Skin Colors"
+        },
+        {
+          "info": {
+            "name": "Update Current Library's Skin Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/organizationalunits/current/skinColors",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Current Library's Skin Colors"
+        },
+        {
+          "info": {
+            "name": "Retrieve Current Library's Skin Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/:portal/skinColors",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "portal",
+                "value": "",
+                "type": "path",
+                "description": "portal path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve Current Library's Skin Colors"
+        },
+        {
+          "info": {
+            "name": "Update Current Library's Skin Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/organizationalunits/:portal/skinColors",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "portal",
+                "value": "",
+                "type": "path",
+                "description": "portal path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Current Library's Skin Colors"
+        },
+        {
+          "info": {
+            "name": "Retrieve Org Unit Library By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current/libraries/:id",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves an organizational unit library by Id."
+        },
+        {
+          "info": {
+            "name": "Retrieve Print UI Credential For Current Org Unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/organizationalunits/current/integrations/printui",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves print ui auth token and client ID for current organizational unit."
+        },
+        {
+          "info": {
+            "name": "Update Current Library's Logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/organizationalunits/current/logo",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Update Current Library's Logo"
+        },
+        {
+          "info": {
+            "name": "Update Current Library's Logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/organizationalunits/:portal/logo",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "portal",
+                "value": "",
+                "type": "path",
+                "description": "portal path parameter."
+              }
+            ]
+          },
+          "docs": "Update Current Library's Logo"
+        },
+        {
+          "info": {
+            "name": "Update Current Library Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/organizationalUnits/:libraryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the current library name."
+        },
+        {
+          "info": {
+            "name": "Update Current Library's Root Category Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/organizationalunits/current/libraries/:libraryId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "libraryId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the library's root category name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

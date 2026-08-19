@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet SavedSearches API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SavedSearches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Saved Searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/savedsearches",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves all custom saved searches."
+        },
+        {
+          "info": {
+            "name": "Create Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/savedsearches",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new custom search."
+        },
+        {
+          "info": {
+            "name": "Retrieve Pinned Saved Searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/savedsearches/pinned",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Retrieves all pinned saved searches."
+        },
+        {
+          "info": {
+            "name": "Retrieve Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/savedsearches/:savedSearchId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "savedSearchId",
+                "value": "",
+                "type": "path",
+                "description": "savedSearchId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves a custom saved search."
+        },
+        {
+          "info": {
+            "name": "Update Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/savedsearches/:savedSearchId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "savedSearchId",
+                "value": "",
+                "type": "path",
+                "description": "savedSearchId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a custom saved search with a list of patch operations."
+        },
+        {
+          "info": {
+            "name": "Remove Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/savedsearches/:savedSearchId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "savedSearchId",
+                "value": "",
+                "type": "path",
+                "description": "savedSearchId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes a custom saved search."
+        },
+        {
+          "info": {
+            "name": "Retrieve Saved Search Shares",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/savedsearches/:savedSearchId/share",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "savedSearchId",
+                "value": "",
+                "type": "path",
+                "description": "savedSearchId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves shares for a saved search."
+        },
+        {
+          "info": {
+            "name": "Create Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/savedsearches/:savedSearchId/share",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "savedSearchId",
+                "value": "",
+                "type": "path",
+                "description": "savedSearchId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a custom saved search."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

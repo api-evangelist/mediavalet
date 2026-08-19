@@ -1,6 +1,9 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/mediavalet-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE (MediaValet-published Postman collection,
+  Authentication section) + https://login.mediavalet.com/.well-known/openid-configuration (HTTP 200) +
+  openapi/ (derived from the same collection)
+docs: https://docs.mediavalet.com/ (General Information > Authentication)
 summary:
   types:
   - apiKey
@@ -9,6 +12,8 @@ summary:
   - header
   oauth2_flows:
   - authorizationCode
+  - clientCredentials
+  - password
 schemes:
 - name: oauth2
   type: oauth2
@@ -16,16 +21,126 @@ schemes:
   - flow: authorizationCode
     authorizationUrl: https://login.mediavalet.com/connect/authorize
     tokenUrl: https://login.mediavalet.com/connect/token
+    scopes: 7
+  - flow: clientCredentials
+    tokenUrl: https://login.mediavalet.com/connect/token
+    scopes: 2
+  - flow: password
+    tokenUrl: https://login.mediavalet.com/connect/token
     scopes: 3
-  description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token
-    using the authorization code flow (interactive apps) or password / client-credential grants,
-    with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+  description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+    Send the access token as a Bearer Authorization header.
   sources:
-  - openapi/mediavalet-openapi.yml
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
 - name: subscriptionKey
   type: apiKey
   in: header
   parameter: Ocp-Apim-Subscription-Key
-  description: Per-account API subscription key issued through the MediaValet Developer Portal.
+  description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+    API Management).
   sources:
-  - openapi/mediavalet-openapi.yml
+  - openapi/mediavalet-assets-api-openapi.yml
+  - openapi/mediavalet-attribute-groups-api-openapi.yml
+  - openapi/mediavalet-attributes-api-openapi.yml
+  - openapi/mediavalet-authorization-api-openapi.yml
+  - openapi/mediavalet-branded-portals-api-openapi.yml
+  - openapi/mediavalet-categories-api-openapi.yml
+  - openapi/mediavalet-config-api-openapi.yml
+  - openapi/mediavalet-crop-api-openapi.yml
+  - openapi/mediavalet-direct-links-api-openapi.yml
+  - openapi/mediavalet-downloads-api-openapi.yml
+  - openapi/mediavalet-home-api-openapi.yml
+  - openapi/mediavalet-integrations-api-openapi.yml
+  - openapi/mediavalet-introduction-and-help-api-openapi.yml
+  - openapi/mediavalet-keyword-groups-api-openapi.yml
+  - openapi/mediavalet-keywords-api-openapi.yml
+  - openapi/mediavalet-lightbox-api-openapi.yml
+  - openapi/mediavalet-notification-api-openapi.yml
+  - openapi/mediavalet-org-unit-api-openapi.yml
+  - openapi/mediavalet-persons-api-openapi.yml
+  - openapi/mediavalet-reports-api-openapi.yml
+  - openapi/mediavalet-reports-v2-api-openapi.yml
+  - openapi/mediavalet-saved-searches-api-openapi.yml
+  - openapi/mediavalet-searches-api-openapi.yml
+  - openapi/mediavalet-sharing-api-openapi.yml
+  - openapi/mediavalet-terms-and-conditions-api-openapi.yml
+  - openapi/mediavalet-uploads-api-openapi.yml
+  - openapi/mediavalet-user-groups-api-openapi.yml
+  - openapi/mediavalet-users-api-openapi.yml
+  - openapi/mediavalet-webhooks-api-openapi.yml
+issuer: https://iam.mediavalet.com
+discovery_document: https://login.mediavalet.com/.well-known/openid-configuration
+well_known: well-known/mediavalet-openid-configuration.json
+documented:
+  summary: 'Every MediaValet API request carries TWO credentials: an OAuth 2.0 / OpenID Connect Bearer
+    access token AND a per-account Azure API Management subscription key in the Ocp-Apim-Subscription-Key
+    header. Both are required; either one alone returns 401.'
+  primary_flow: authorization_code
+  supported_grant_types:
+  - authorization_code
+  - client_credentials
+  - refresh_token
+  - implicit
+  - password
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:openid:params:grant-type:ciba
+  oidc_conformant: true
+  credential_issuance: client_id, client_secret and redirect_uri are provisioned by the MediaValet API
+    support team (support@mediavalet.com); they are not self-service. The Ocp-Apim-Subscription-Key appears
+    under your profile in the Developer Portal once the subscription is approved.
+  token_lifetime_seconds: 3600
+  refresh_tokens: true
+  pkce: code_challenge_methods_supported published in the OIDC discovery document.
+  notes:
+  - 'MediaValet documents the Resource Owner Password flow for non-interactive use but explicitly discourages
+    it: "We do not support the Resource Owner Password Credentials Grant due to its inherent insecurity."
+    The discovery document still advertises the password grant.'
+  - MediaValet states the Client Credentials Flow is the intended preferred non-interactive method; api:service_principal
+    is the machine scope published in the discovery document.
+  - Administrator permissions in the MediaValet account are required to use the API (per the Developer
+    Portal Getting Started page).
+  - 'Access tokens are sent as: Authorization: bearer <access_token>.'
+headers:
+- name: Authorization
+  required: true
+  value: bearer <access_token>
+  description: OAuth 2.0 / OIDC access token issued by https://login.mediavalet.com/connect/token.
+- name: Ocp-Apim-Subscription-Key
+  required: true
+  description: Per-account Azure API Management subscription key from the MediaValet Developer Portal.
+- name: x-mv-api-version
+  required: false
+  description: Selects the REST API version (1.0 default, 1.1, 1.2). Not an auth header, but present on
+    every documented request.
+sources:
+- https://docs.mediavalet.com/
+- https://developer.mediavalet.com/getting-started
+- https://login.mediavalet.com/.well-known/openid-configuration

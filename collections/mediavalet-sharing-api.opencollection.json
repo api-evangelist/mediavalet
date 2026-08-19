@@ -1,0 +1,270 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet Sharing API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sharing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Shared Asset Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves shared assets information."
+        },
+        {
+          "info": {
+            "name": "Retrieve Shared Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/assets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves shared assets."
+        },
+        {
+          "info": {
+            "name": "Retrieves Shared Asset's Rendition Types By Share Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/renditionKinds",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves all the rendition types available for the given share code."
+        },
+        {
+          "info": {
+            "name": "Retrieve Shared Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/assets/:assetId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves a shared asset for a given share code and asset id."
+        },
+        {
+          "info": {
+            "name": "Retrieves Shared Asset's Rendition Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/assets/:assetId/renditions",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves all rendition types for a given shared asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve Shared Asset's Rendition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/assets/:assetId/renditions/:renditionKindId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "assetId path parameter."
+              },
+              {
+                "name": "renditionKindId",
+                "value": "",
+                "type": "path",
+                "description": "renditionKindId path parameter."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific rendition for a given shared asset."
+        },
+        {
+          "info": {
+            "name": "Create Share",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/shareAssets",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a share operation for a given set of assets."
+        },
+        {
+          "info": {
+            "name": "Create Share For Lightbox Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/shareLightboxes",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a share operation for a given set of lightbox."
+        },
+        {
+          "info": {
+            "name": "Create Gallery Authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/public/share/:shareCode/authorize",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "shareCode",
+                "value": "",
+                "type": "path",
+                "description": "shareCode path parameter."
+              }
+            ]
+          },
+          "docs": "Creates a gallery authorization request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

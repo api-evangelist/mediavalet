@@ -1,182 +1,3613 @@
 openapi: 3.0.3
 info:
-  title: MediaValet Open Assets Categories API
-  description: 'The MediaValet Open API is a RESTful, JSON, hypermedia-driven interface to the MediaValet cloud digital asset management (DAM) platform. It lets developers and partners automate the management of digital assets, categories, attributes, keywords, uploads, and users. Requests are made to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 (OIDC) Bearer access token obtained from https://login.mediavalet.com/connect/token, and a per-account subscription key sent in the Ocp-Apim-Subscription-Key header. Access to the API requires a MediaValet subscription and Developer Portal registration. The paths documented here are modeled from MediaValet''s public developer documentation and community SDKs; verify exact request/response schemas against the live reference at docs.mediavalet.com.'
+  title: MediaValet Categories API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
   version: '1.0'
   contact:
     name: MediaValet
-    url: https://www.mediavalet.com
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
 servers:
 - url: https://api.mediavalet.com
   description: MediaValet API gateway (public)
 security:
-- oauth2: []
+- oauth2:
+  - api
   subscriptionKey: []
 tags:
 - name: Categories
-  description: Hierarchical folders that organize assets.
+  description: Hierarchical categories (folders) that organize assets and carry permissions.
 paths:
-  /categories:
+  /folders/{categoryId}/assets:
     get:
-      operationId: listCategories
+      operationId: retrieveFolderAssets
+      summary: Retrieve Folder Assets
+      description: Returns assets that belongs to the specified category.
       tags:
       - Categories
-      summary: List categories
-      description: List the categories in the library.
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
       responses:
         '200':
-          description: A list of categories.
+          description: Request was successful.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryId}/assets:
+    get:
+      operationId: retrieveCategoryAssets
+      summary: Retrieve Category Assets
+      description: Returns assets that belongs to the specified category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryId}/assets/basic:
+    get:
+      operationId: retrieveCategoryAssetsBasicInformation
+      summary: Retrieve Category Assets Basic Information
+      description: Returns assets that belongs to the specified category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories:
+    get:
+      operationId: retrieveCategories
+      summary: Retrieve Categories
+      description: Returns list of categories for the library.
+      tags:
+      - Categories
+      parameters:
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
           content:
             application/json:
               schema:
-                type: object
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    container:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        type:
+                          type: string
+                    parentId:
+                      type: string
+                      format: uuid
+                    description:
+                      type: string
+                    tree:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        name:
+                          type: string
+                        idPath:
+                          type: string
+                        id:
+                          type: string
+                    subcats:
+                      type: object
+                      properties:
+                        total:
+                          type: integer
+                    assetCount:
+                      type: integer
+                    record:
+                      type: object
+                      properties:
+                        createdAt:
+                          type: string
+                          format: date-time
+                        createdBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        modifiedAt:
+                          type: string
+                          format: date-time
+                        modifiedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        softDeletedAt:
+                          type: string
+                          format: date-time
+                        softDeletedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        version:
+                          type: object
+                          properties:
+                            version:
+                              type: integer
+                            current:
+                              type: string
+                              format: uuid
+                            head:
+                              type: string
+                              format: uuid
+                            parentid:
+                              type: string
+                              format: uuid
+                            isversionable:
+                              type: boolean
+                            islatestversion:
+                              type: boolean
+                            ismajorversion:
+                              type: boolean
+                    subfolderCount:
+                      type: integer
+                    name:
+                      type: string
+                    categoryFeatures:
+                      type: object
+                      properties:
+                        videoIntelligenceAutoIndex:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                            inheritToChildren:
+                              type: boolean
+                    includedInBrandedPortalSync:
+                      type: boolean
+                    syncedBrandedPortals:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        sunt_5bc:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        laborisca:
+                          type: object
+                        Ut99:
+                          type: object
+                        qui02d:
+                          type: object
+                        in2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  sunt_5bc: {}
+                interpolations:
+                  laborisca: {}
+                  Ut99: {}
+                  qui02d: {}
+                  in2: {}
+                permissions:
+                - lightbox:editDetails
+                - asset:createImageCrop
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollited7: {}
+                  suntce: {}
+                  ea3ef: {}
+                interpolations:
+                  veniam_: {}
+                  elit_3: {}
+                permissions:
+                - asset:shareAsLightbox
+                - lightbox:viewAsset
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
     post:
       operationId: createCategory
+      summary: Create Category
+      description: Creates a category in the library.
       tags:
       - Categories
-      summary: Create a category
-      description: Create a new category in the library tree.
+      parameters:
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Category'
+              type: object
+              properties:
+                parentId:
+                  type: string
+                  format: uuid
+                description:
+                  type: string
+                treeName:
+                  type: string
+                categoryId:
+                  type: string
+                  format: uuid
+                notification:
+                  type: object
+                  properties:
+                    entityIds:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    notificationEntityType:
+                      type: string
+                    userGroups:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    users:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    userEmails:
+                      type: array
+                      items:
+                        type: string
+                    message:
+                      type: string
+            example:
+              parentId: <uuid>
+              description: <string>
+              treeName: <string>
+              categoryId: <uuid>
+              notification:
+                entityIds:
+                - <uuid>
+                - <uuid>
+                notificationEntityType: CategoryCreation
+                userGroups:
+                - <uuid>
+                - <uuid>
+                users:
+                - <uuid>
+                - <uuid>
+                userEmails:
+                - <string>
+                - <string>
+                message: <string>
       responses:
         '201':
-          description: The created category.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Category'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-  /categories/{categoryId}:
-    get:
-      operationId: getCategory
-      tags:
-      - Categories
-      summary: Get a category
-      description: Retrieve a single category by its identifier.
-      parameters:
-      - $ref: '#/components/parameters/CategoryId'
-      responses:
-        '200':
-          description: The requested category.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Category'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /categories/{categoryId}/assets:
-    get:
-      operationId: getCategoryAssets
-      tags:
-      - Categories
-      summary: List assets in a category
-      description: List the assets filed under a category.
-      parameters:
-      - $ref: '#/components/parameters/CategoryId'
-      responses:
-        '200':
-          description: A list of assets in the category.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AssetList'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-  /categories/permissionSets:
-    get:
-      operationId: listCategoryPermissionSets
-      tags:
-      - Categories
-      summary: List category permission sets
-      description: List the permission sets that govern access to categories.
-      responses:
-        '200':
-          description: A list of permission sets.
+          description: The category was successfully created.
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '400':
+          description: There was a problem with the data sent with the request.
         '401':
-          $ref: '#/components/responses/Unauthorized'
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/subcategories:
+    get:
+      operationId: retrieveRootSubCategories
+      summary: Retrieve Root Sub Categories
+      description: Returns the sub categories that belongs to the specified category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryFeatures
+        in: query
+        required: false
+        description: categoryFeatures query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    container:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        type:
+                          type: string
+                    parentId:
+                      type: string
+                      format: uuid
+                    description:
+                      type: string
+                    tree:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        name:
+                          type: string
+                        idPath:
+                          type: string
+                        id:
+                          type: string
+                    subcats:
+                      type: object
+                      properties:
+                        total:
+                          type: integer
+                    assetCount:
+                      type: integer
+                    record:
+                      type: object
+                      properties:
+                        createdAt:
+                          type: string
+                          format: date-time
+                        createdBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        modifiedAt:
+                          type: string
+                          format: date-time
+                        modifiedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        softDeletedAt:
+                          type: string
+                          format: date-time
+                        softDeletedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        version:
+                          type: object
+                          properties:
+                            version:
+                              type: integer
+                            current:
+                              type: string
+                              format: uuid
+                            head:
+                              type: string
+                              format: uuid
+                            parentid:
+                              type: string
+                              format: uuid
+                            isversionable:
+                              type: boolean
+                            islatestversion:
+                              type: boolean
+                            ismajorversion:
+                              type: boolean
+                    subfolderCount:
+                      type: integer
+                    name:
+                      type: string
+                    categoryFeatures:
+                      type: object
+                      properties:
+                        videoIntelligenceAutoIndex:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                            inheritToChildren:
+                              type: boolean
+                    includedInBrandedPortalSync:
+                      type: boolean
+                    syncedBrandedPortals:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        sunt_5bc:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        laborisca:
+                          type: object
+                        Ut99:
+                          type: object
+                        qui02d:
+                          type: object
+                        in2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  sunt_5bc: {}
+                interpolations:
+                  laborisca: {}
+                  Ut99: {}
+                  qui02d: {}
+                  in2: {}
+                permissions:
+                - lightbox:editDetails
+                - asset:createImageCrop
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollited7: {}
+                  suntce: {}
+                  ea3ef: {}
+                interpolations:
+                  veniam_: {}
+                  elit_3: {}
+                permissions:
+                - asset:shareAsLightbox
+                - lightbox:viewAsset
+        '204':
+          description: A category was not found.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /folders/{categoryGuid}:
+    get:
+      operationId: retrieveFolders
+      summary: Retrieve Folders
+      description: Returns detailed information on a specific folders based on guid.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryGuid
+        in: path
+        required: true
+        description: categoryGuid path parameter.
+        schema:
+          type: string
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The category was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryGuid}:
+    get:
+      operationId: retrieveCategory
+      summary: Retrieve Category
+      description: Returns detailed information on a specific category based on guid.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryGuid
+        in: path
+        required: true
+        description: categoryGuid path parameter.
+        schema:
+          type: string
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The category was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /folders:
+    get:
+      operationId: retrieveRootFolders
+      summary: Retrieve Root Folders
+      description: Returns list of root folders for the library.
+      tags:
+      - Categories
+      parameters:
+      - name: includePinnedSearches
+        in: query
+        required: false
+        description: includePinnedSearches query parameter.
+        schema:
+          type: string
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    assetCount:
+                      type: integer
+                    subfolderCount:
+                      type: integer
+                    subfolders:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                    subcats:
+                      type: object
+                      properties:
+                        total:
+                          type: integer
+                    tree:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        name:
+                          type: string
+                        idPath:
+                          type: string
+                        id:
+                          type: string
+                    id:
+                      type: string
+                      format: uuid
+                    parentId:
+                      type: string
+                      format: uuid
+                    record:
+                      type: object
+                      properties:
+                        createdAt:
+                          type: string
+                          format: date-time
+                        createdBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        modifiedAt:
+                          type: string
+                          format: date-time
+                        modifiedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        softDeletedAt:
+                          type: string
+                          format: date-time
+                        softDeletedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        version:
+                          type: object
+                          properties:
+                            version:
+                              type: integer
+                            current:
+                              type: string
+                              format: uuid
+                            head:
+                              type: string
+                              format: uuid
+                            parentid:
+                              type: string
+                              format: uuid
+                            isversionable:
+                              type: boolean
+                            islatestversion:
+                              type: boolean
+                            ismajorversion:
+                              type: boolean
+                    categoryFeatures:
+                      type: object
+                      properties:
+                        videoIntelligenceAutoIndex:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                            inheritToChildren:
+                              type: boolean
+                    includedInBrandedPortalSync:
+                      type: boolean
+                    syncedBrandedPortals:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        incididuntf8:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        est_c17:
+                          type: object
+                        sed8:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  incididuntf8: {}
+                interpolations:
+                  est_c17: {}
+                  sed8: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:downloadFromMvd
+              - name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  voluptate__: {}
+                  dolore6: {}
+                  sedd7b: {}
+                interpolations:
+                  cupidatat_f1e: {}
+                  sit_e: {}
+                permissions:
+                - lightbox:share
+                - asset:shareAsLightbox
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createFolder
+      summary: Create Folder
+      description: Creates a folder in the library.
+      tags:
+      - Categories
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parentId:
+                  type: string
+                  format: uuid
+                description:
+                  type: string
+                treeName:
+                  type: string
+                categoryId:
+                  type: string
+                  format: uuid
+                notification:
+                  type: object
+                  properties:
+                    entityIds:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    notificationEntityType:
+                      type: string
+                    userGroups:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    users:
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    userEmails:
+                      type: array
+                      items:
+                        type: string
+                    message:
+                      type: string
+            example:
+              parentId: <uuid>
+              description: <string>
+              treeName: <string>
+              categoryId: <uuid>
+              notification:
+                entityIds:
+                - <uuid>
+                - <uuid>
+                notificationEntityType: CategoryCreation
+                userGroups:
+                - <uuid>
+                - <uuid>
+                users:
+                - <uuid>
+                - <uuid>
+                userEmails:
+                - <string>
+                - <string>
+                message: <string>
+      responses:
+        '201':
+          description: The category was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /folders/{categoryGuid}/subfolders:
+    get:
+      operationId: retrieveSubFolders
+      summary: Retrieve Sub Folders
+      description: Returns list of subfolders based on parent category guid.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryGuid
+        in: path
+        required: true
+        description: categoryGuid path parameter.
+        schema:
+          type: string
+      - name: categoryFeatures
+        in: query
+        required: false
+        description: categoryFeatures query parameter.
+        schema:
+          type: string
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    assetCount:
+                      type: integer
+                    subfolderCount:
+                      type: integer
+                    subfolders:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                    subcats:
+                      type: object
+                      properties:
+                        total:
+                          type: integer
+                    tree:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        name:
+                          type: string
+                        idPath:
+                          type: string
+                        id:
+                          type: string
+                    id:
+                      type: string
+                      format: uuid
+                    parentId:
+                      type: string
+                      format: uuid
+                    record:
+                      type: object
+                      properties:
+                        createdAt:
+                          type: string
+                          format: date-time
+                        createdBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        modifiedAt:
+                          type: string
+                          format: date-time
+                        modifiedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        softDeletedAt:
+                          type: string
+                          format: date-time
+                        softDeletedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        version:
+                          type: object
+                          properties:
+                            version:
+                              type: integer
+                            current:
+                              type: string
+                              format: uuid
+                            head:
+                              type: string
+                              format: uuid
+                            parentid:
+                              type: string
+                              format: uuid
+                            isversionable:
+                              type: boolean
+                            islatestversion:
+                              type: boolean
+                            ismajorversion:
+                              type: boolean
+                    categoryFeatures:
+                      type: object
+                      properties:
+                        videoIntelligenceAutoIndex:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                            inheritToChildren:
+                              type: boolean
+                    includedInBrandedPortalSync:
+                      type: boolean
+                    syncedBrandedPortals:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        incididuntf8:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        est_c17:
+                          type: object
+                        sed8:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  incididuntf8: {}
+                interpolations:
+                  est_c17: {}
+                  sed8: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:downloadFromMvd
+              - name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  voluptate__: {}
+                  dolore6: {}
+                  sedd7b: {}
+                interpolations:
+                  cupidatat_f1e: {}
+                  sit_e: {}
+                permissions:
+                - lightbox:share
+                - asset:shareAsLightbox
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryGuid}/subcategories:
+    get:
+      operationId: retrieveSubCategories
+      summary: Retrieve Sub Categories
+      description: Returns list of subcategories based on parent category guid.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryGuid
+        in: path
+        required: true
+        description: categoryGuid path parameter.
+        schema:
+          type: string
+      - name: categoryFeatures
+        in: query
+        required: false
+        description: categoryFeatures query parameter.
+        schema:
+          type: string
+      - name: includePermissions
+        in: query
+        required: false
+        description: includePermissions query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    container:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        type:
+                          type: string
+                    parentId:
+                      type: string
+                      format: uuid
+                    description:
+                      type: string
+                    tree:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        name:
+                          type: string
+                        idPath:
+                          type: string
+                        id:
+                          type: string
+                    subcats:
+                      type: object
+                      properties:
+                        total:
+                          type: integer
+                    assetCount:
+                      type: integer
+                    record:
+                      type: object
+                      properties:
+                        createdAt:
+                          type: string
+                          format: date-time
+                        createdBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        modifiedAt:
+                          type: string
+                          format: date-time
+                        modifiedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        softDeletedAt:
+                          type: string
+                          format: date-time
+                        softDeletedBy:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            username:
+                              type: string
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                        version:
+                          type: object
+                          properties:
+                            version:
+                              type: integer
+                            current:
+                              type: string
+                              format: uuid
+                            head:
+                              type: string
+                              format: uuid
+                            parentid:
+                              type: string
+                              format: uuid
+                            isversionable:
+                              type: boolean
+                            islatestversion:
+                              type: boolean
+                            ismajorversion:
+                              type: boolean
+                    subfolderCount:
+                      type: integer
+                    name:
+                      type: string
+                    categoryFeatures:
+                      type: object
+                      properties:
+                        videoIntelligenceAutoIndex:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                            inheritToChildren:
+                              type: boolean
+                    includedInBrandedPortalSync:
+                      type: boolean
+                    syncedBrandedPortals:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        sunt_5bc:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        laborisca:
+                          type: object
+                        Ut99:
+                          type: object
+                        qui02d:
+                          type: object
+                        in2:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  sunt_5bc: {}
+                interpolations:
+                  laborisca: {}
+                  Ut99: {}
+                  qui02d: {}
+                  in2: {}
+                permissions:
+                - lightbox:editDetails
+                - asset:createImageCrop
+              - id: <uuid>
+                container:
+                  id: <uuid>
+                  type: <string>
+                parentId: <uuid>
+                description: <string>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                subcats:
+                  total: <integer>
+                assetCount: <integer>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                subfolderCount: <integer>
+                name: <string>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollited7: {}
+                  suntce: {}
+                  ea3ef: {}
+                interpolations:
+                  veniam_: {}
+                  elit_3: {}
+                permissions:
+                - asset:shareAsLightbox
+                - lightbox:viewAsset
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/permissionSets:
+    post:
+      operationId: createPermissionSet
+      summary: Create Permission Set
+      description: Creates a permission set in the library.
+      tags:
+      - Categories
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                permissionSetId:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                assetPermissions:
+                  type: array
+                  items:
+                    type: string
+                createdBy:
+                  type: string
+            example:
+              permissionSetId: <uuid>
+              name: <string>
+              assetPermissions:
+              - <string>
+              - <string>
+              createdBy: <string>
+      responses:
+        '201':
+          description: The permission set was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  permissionSetId:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  assetPermissions:
+                    type: array
+                    items:
+                      type: string
+                  createdBy:
+                    type: string
+              example:
+                permissionSetId: <uuid>
+                name: <string>
+                assetPermissions:
+                - <string>
+                - <string>
+                createdBy: <string>
+        '400':
+          description: There was a problem with the data sent with the request.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryId}/userGroups:
+    post:
+      operationId: createUserGroupAssociationWithCategory
+      summary: Create User Group Association With Category
+      description: Assigns the user group to a category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CategoryId:
+                  type: string
+                  format: uuid
+                UserGroupId:
+                  type: string
+                  format: uuid
+            example:
+              CategoryId: <uuid>
+              UserGroupId: <uuid>
+      responses:
+        '202':
+          description: Request was accepted.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /folders/{categoryId}:
+    patch:
+      operationId: updateFolder
+      summary: Update Folder
+      description: Updates a folder in a library by renaming or moving its parent category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryId}:
+    delete:
+      operationId: removeCategory
+      summary: Remove Category
+      description: Deletes a category in the library.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+    patch:
+      operationId: updateCategory
+      summary: Update Category
+      description: Updates a category in a library by renaming or moving its parent category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+            - op: <string>
+              path: <string>
+              value: {}
+              from: <string>
+      responses:
+        '202':
+          description: Request was accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  assetCount:
+                    type: integer
+                  subfolderCount:
+                    type: integer
+                  subfolders:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                  subcats:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                  tree:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      name:
+                        type: string
+                      idPath:
+                        type: string
+                      id:
+                        type: string
+                  id:
+                    type: string
+                    format: uuid
+                  parentId:
+                    type: string
+                    format: uuid
+                  record:
+                    type: object
+                    properties:
+                      createdAt:
+                        type: string
+                        format: date-time
+                      createdBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      modifiedAt:
+                        type: string
+                        format: date-time
+                      modifiedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      softDeletedAt:
+                        type: string
+                        format: date-time
+                      softDeletedBy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          username:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                      version:
+                        type: object
+                        properties:
+                          version:
+                            type: integer
+                          current:
+                            type: string
+                            format: uuid
+                          head:
+                            type: string
+                            format: uuid
+                          parentid:
+                            type: string
+                            format: uuid
+                          isversionable:
+                            type: boolean
+                          islatestversion:
+                            type: boolean
+                          ismajorversion:
+                            type: boolean
+                  categoryFeatures:
+                    type: object
+                    properties:
+                      videoIntelligenceAutoIndex:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                          inheritToChildren:
+                            type: boolean
+                  includedInBrandedPortalSync:
+                    type: boolean
+                  syncedBrandedPortals:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      reprehenderit_f24:
+                        type: object
+                      reprehenderit_0c0:
+                        type: object
+                      quis_2:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      laborumacf:
+                        type: object
+                      ad0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                name: <string>
+                assetCount: <integer>
+                subfolderCount: <integer>
+                subfolders:
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                - value: '<Circular reference to #/components/schemas/FolderDto detected>'
+                subcats:
+                  total: <integer>
+                tree:
+                  path: <string>
+                  name: <string>
+                  idPath: <string>
+                  id: <string>
+                id: <uuid>
+                parentId: <uuid>
+                record:
+                  createdAt: <dateTime>
+                  createdBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  modifiedAt: <dateTime>
+                  modifiedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  softDeletedAt: <dateTime>
+                  softDeletedBy:
+                    id: <uuid>
+                    username: <string>
+                    firstName: <string>
+                    lastName: <string>
+                  version:
+                    version: <integer>
+                    current: <uuid>
+                    head: <uuid>
+                    parentid: <uuid>
+                    isversionable: <boolean>
+                    islatestversion: <boolean>
+                    ismajorversion: <boolean>
+                categoryFeatures:
+                  videoIntelligenceAutoIndex:
+                    enabled: <boolean>
+                    inheritToChildren: <boolean>
+                includedInBrandedPortalSync: <boolean>
+                syncedBrandedPortals:
+                - <string>
+                - <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  reprehenderit_f24: {}
+                  reprehenderit_0c0: {}
+                  quis_2: {}
+                interpolations:
+                  laborumacf: {}
+                  ad0: {}
+                permissions:
+                - asset:assignCategory
+                - asset:shareAsCdnLink
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /categories/{categoryId}/userGroups/{userGroupId}:
+    delete:
+      operationId: removeUserGroupFromCategory
+      summary: Remove User Group From Category
+      description: Unassign the user group permissions from a category.
+      tags:
+      - Categories
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        description: categoryId path parameter.
+        schema:
+          type: string
+      - name: userGroupId
+        in: path
+        required: true
+        description: userGroupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '202':
+          description: Request was accepted.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to execute this operation.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
 components:
-  parameters:
-    CategoryId:
-      name: categoryId
-      in: path
-      required: true
-      description: The unique identifier (UUID) of the category.
-      schema:
-        type: string
-        format: uuid
-  schemas:
-    Category:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        parentId:
-          type: string
-          format: uuid
-        assetCount:
-          type: integer
-    Asset:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        filename:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        mediaType:
-          type: string
-          description: The kind of media, e.g. image, video, document.
-        createdDate:
-          type: string
-          format: date-time
-        modifiedDate:
-          type: string
-          format: date-time
-    AssetList:
-      type: object
-      properties:
-        totalCount:
-          type: integer
-        offset:
-          type: integer
-        count:
-          type: integer
-        payload:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset'
-  responses:
-    Unauthorized:
-      description: Authentication failed - missing or invalid access token or subscription key.
-    NotFound:
-      description: The requested resource was not found.
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect. Obtain an access token from https://login.mediavalet.com/connect/token using the authorization code flow (interactive apps) or password / client-credential grants, with scopes openid api offline_access. Send the token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
           tokenUrl: https://login.mediavalet.com/connect/token
           scopes:
             openid: OpenID Connect identity
@@ -186,4 +3617,5 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal.
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).

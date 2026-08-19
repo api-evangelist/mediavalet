@@ -3,8 +3,12 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
 provider: MediaValet
 providerId: mediavalet
+generated: '2026-08-13'
+method: searched
+source: https://developer.mediavalet.com/plans
+docs: https://developer.mediavalet.com/plans
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-08-13'
 reconciled: false
 tags:
 - Digital Asset Management
@@ -13,74 +17,88 @@ tags:
 - Assets
 - Plans
 description: >-
-  MediaValet is sold as an enterprise digital asset management platform with
-  custom, quote-based pricing rather than public self-service tiers. Pricing is
-  arranged with MediaValet sales and typically scales on number of users, storage
-  volume, enabled modules (such as Brand Portals, Creative Connect, or Video
-  Intelligence), and support level. API access is delivered through the MediaValet
-  Developer Portal: after signing in you subscribe to an API plan and, once the
-  subscription is approved, you receive a subscription key. The API is available to
-  MediaValet customers as part of their platform subscription. Exact list prices are
-  not published and are not reconciled here.
-notes: >-
-  The plans below are honestly modeled from MediaValet's contact-sales,
-  enterprise DAM positioning and the Developer Portal subscription flow. Verify
-  current packaging, module availability, and any API-tier limits directly with
-  MediaValet sales or in the Developer Portal during reconciliation.
-sources:
-- https://www.mediavalet.com/
-- https://www.mediavalet.com/product/open-api
-- https://developer.mediavalet.com/
-- https://support.mediavalet.com/hc/en-us/articles/5550696271380-How-do-I-sign-up-to-use-the-MediaValet-API
+  MediaValet publishes TWO named API subscription plans in its Developer Portal — Developer and
+  Enterprise — but no price for either, and no price for the underlying DAM platform. The platform
+  itself is sold on a custom-quote basis: the pricing page says "Most DAM pricing forces you into
+  rigid tiers, per-user fees, or bloated packages. MediaValet doesn't. We build your pricing around
+  how your team actually works," and the only call to action is "Get Your Custom DAM Pricing."
+  API access is an entitlement of a MediaValet platform subscription rather than a separately priced
+  product: you must already have access to a MediaValet library to get a developer account at all.
+plan_count: 2
+priced_plan_count: 0
+currency: null
+billing_period: null
+self_serve: false
+public_pricing: false
 plans:
-- id: mediavalet-platform
-  name: MediaValet DAM Platform
-  type: enterprise
-  description: >-
-    The core cloud DAM subscription - storage, cataloging, search, sharing, and
-    administration - priced by quote based on users, storage, and enabled modules.
-    The Open API is included and enabled for customers through the Developer Portal.
-  entries:
-  - label: Platform Subscription
-    name: platform_subscription
-    type: flat
-    metric: contract
-    limit: -1
-    timeFrame: year
-    geo: global
-    unit: 1
-    price: contact sales
-    userMultiplied: true
-  elements:
-  - name: Cloud Digital Asset Management
-  - name: Categories and Attributes
-  - name: Keywords and Auto-Tagging
-  - name: Open API Access
-  - name: Webhooks
-- id: mediavalet-api-subscription
-  name: Developer Portal API Subscription
-  type: enterprise
-  description: >-
-    API access provisioned through the MediaValet Developer Portal. You sign in,
-    subscribe to an API plan, and after approval receive a subscription key used in
-    the Ocp-Apim-Subscription-Key header alongside an OAuth 2.0 access token. Bundled
-    with the platform subscription for MediaValet customers.
-  entries:
-  - label: API Subscription
-    name: api_subscription
-    type: flat
-    metric: contract
-    limit: -1
-    timeFrame: year
-    geo: global
-    unit: 1
-    price: included with platform subscription (contact sales)
-    userMultiplied: false
-  elements:
-  - name: OAuth 2.0 Authentication
-  - name: Per-Account Subscription Key
-  - name: Assets, Categories, Attributes, Keywords, Uploads, Users APIs
-  - name: Webhooks
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- name: Developer Plan
+  url: https://developer.mediavalet.com/plans
+  price: null
+  currency: null
+  billing_period: null
+  price_note: Not published. Included with a MediaValet subscription; assigned by default on account approval.
+  default: true
+  audience: >-
+    "Are you a developer looking to explore the potential of a custom integration or workflow? Our
+    Developer Plan is designed for you."
+  included:
+  - Proof-of-concept development against the MediaValet API.
+  - Testing potential integrations for compatibility, performance and functionality.
+  quota:
+    daily_requests: null
+    description: >-
+      "The Developer Plan comes with a limited amount of daily requests to get you started. This
+      limit provides enough room to experiment, fine-tune your integration and evaluate the
+      scalability of your solution." The numeric cap is not published.
+  overage: null
+  limits:
+  - Daily request limit (value unpublished).
+  - Webhooks (SkyHOOK) not included — Enterprise only.
+- name: Enterprise Plan
+  url: https://developer.mediavalet.com/plans
+  price: null
+  currency: null
+  billing_period: null
+  price_note: Not published. Requested by upgrading from the Developer Plan when call volume is too high.
+  default: false
+  audience: '"Ready to expand your custom integration or workflow? Our Enterprise plan is ready when you are."'
+  included:
+  - Full suite of MediaValet API endpoints.
+  - MediaValet secure Webhooks (SkyHOOK event subscriptions).
+  - '"Access a Dedicated Testing Library" — an isolated sandbox environment separate from production.'
+  - Dedicated support and collaboration from the MediaValet expert team, from setup through optimization.
+  quota:
+    daily_requests: null
+    description: '"a generous limit of API calls... the freedom to make a near unlimited number of requests and calls"'
+  overage: null
+  limits:
+  - No published numeric ceiling; described only as "near unlimited".
+platform_pricing:
+  url: https://www.mediavalet.com/pricing
+  model: custom quote
+  published_tiers: 0
+  statements:
+  - '"Get Your Custom DAM Pricing"'
+  - '"We build your pricing around how your team actually works so you''re not paying for limitations, workarounds, or future upgrades."'
+  advertised_inclusions:
+  - Unlimited users and permission groups
+  - No forced tiers
+  - Unlimited category creation
+  - Structured onboarding
+  - Hands-on expert support
+access_requirements:
+- Must be an existing MediaValet customer or partner with access to a MediaValet library.
+- Register at https://developer.mediavalet.com/signup; MediaValet support verifies and activates the account.
+- MediaValet issues client_id and client_secret; subscription keys appear under the Developer Portal profile once approved.
+- Administrator permissions in the MediaValet account are required to use the API.
+notes: >-
+  This artifact was upgraded from a modeled/derived description to a searched one on 2026-08-13:
+  the two named API plans and their published entitlements are read verbatim from
+  https://developer.mediavalet.com/plans. No price is published for any plan, so every price field
+  is null by fact rather than by omission.
+sources:
+- https://developer.mediavalet.com/plans
+- https://developer.mediavalet.com/getting-started
+- https://www.mediavalet.com/pricing
+- https://docs.mediavalet.com/
+checked: '2026-08-13'

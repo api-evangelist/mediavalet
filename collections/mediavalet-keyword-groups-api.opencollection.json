@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MediaValet KeywordGroups API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.mediavalet.com/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KeywordGroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Keyword Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/keywordGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ]
+          },
+          "docs": "Returns a collection of keyword groups."
+        },
+        {
+          "info": {
+            "name": "Create A Keyword Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mediavalet.com/keywordGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a keyword group in the library."
+        },
+        {
+          "info": {
+            "name": "Retrieve Keyword Groups By Parent Keyword Group Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mediavalet.com/keywordGroups/:keywordGroupId/subGroups",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "keywordGroupId",
+                "value": "",
+                "type": "path",
+                "description": "keywordGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Returns all keyword groups for the parent keyword group."
+        },
+        {
+          "info": {
+            "name": "Update Keyword Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mediavalet.com/keywordGroups/:keywordGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "keywordGroupId",
+                "value": "",
+                "type": "path",
+                "description": "keywordGroupId path parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a keyword group in the library."
+        },
+        {
+          "info": {
+            "name": "Remove Keyword Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mediavalet.com/keywordGroups/:keywordGroupId",
+            "headers": [
+              {
+                "name": "x-mv-api-version",
+                "value": "1.2"
+              }
+            ],
+            "params": [
+              {
+                "name": "keywordGroupId",
+                "value": "",
+                "type": "path",
+                "description": "keywordGroupId path parameter."
+              }
+            ]
+          },
+          "docs": "Removes a keyword group from the library."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

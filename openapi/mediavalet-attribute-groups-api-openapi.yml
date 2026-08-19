@@ -1,0 +1,740 @@
+openapi: 3.0.3
+info:
+  title: MediaValet AttributeGroups API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: AttributeGroups
+  description: Groupings of custom metadata attributes.
+paths:
+  /attributeGroups:
+    get:
+      operationId: getsAllAttributeGroupsForTheCurrentLibrary
+      summary: Gets all Attribute Groups for the current library.
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: The Attribute Groups were successfully retrieved.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    attributeGroupId:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    attributeIds:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - attributeGroupId: 00000000-0000-0000-0000-000000000000
+                name: string
+                description: string
+                attributeIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:shareAsLink
+                - lightbox:assignAsset
+              - attributeGroupId: 00000000-0000-0000-0000-000000000000
+                name: string
+                description: string
+                attributeIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - attributeGroup:view
+                - asset:shareAsLink
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to view attribute groups.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createsANewAttributeGroup
+      summary: Creates a new Attribute Group.
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                attributeIds:
+                  type: array
+                  items:
+                    type: string
+            example:
+              name: string
+              description: string
+              attributeIds:
+              - 00000000-0000-0000-0000-000000000000
+              - 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '201':
+          description: The Attribute Group was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attributeGroupId:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  attributeIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                attributeGroupId: 00000000-0000-0000-0000-000000000000
+                name: string
+                description: string
+                attributeIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:shareAsWebGallery
+                - attributeGroup:viewAttribute
+        '400':
+          description: Bad Request.
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to create attribute groups.
+        '404':
+          description: Attribute not found
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributeGroups/{attributeGroupId}:
+    get:
+      operationId: getsTheDetailsOfASpecificAttributeGroupByID
+      summary: Gets the details of a specific Attribute Group by ID.
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: attributeGroupId
+        in: path
+        required: true
+        description: attributeGroupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: The Attribute Group was successfully retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attributeGroupId:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  attributeIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                attributeGroupId: 00000000-0000-0000-0000-000000000000
+                name: string
+                description: string
+                attributeIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:shareAsWebGallery
+                - attributeGroup:viewAttribute
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to view attribute groups.
+        '404':
+          description: The Attribute Group was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    delete:
+      operationId: deletesAnAttributeGroup
+      summary: Deletes an Attribute Group.
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: attributeGroupId
+        in: path
+        required: true
+        description: attributeGroupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: The Attribute Group was successfully deleted.
+        '400':
+          description: Bad Request.
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to delete attribute groups.
+        '404':
+          description: The Attribute Group was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    patch:
+      operationId: attributeGroupsUpdateAttributeGroupAsync
+      summary: Attribute Groups Update Attribute Group Async
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: attributeGroupId
+        in: path
+        required: true
+        description: attributeGroupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                  path:
+                    type: string
+                  value:
+                    type: object
+                  from:
+                    type: string
+            example:
+            - op: string
+              path: string
+              value: {}
+              from: string
+            - op: string
+              path: string
+              value: {}
+              from: string
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attributeGroupId:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  attributeIds:
+                    type: array
+                    items:
+                      type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                      key_1:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      key_0:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                attributeGroupId: 00000000-0000-0000-0000-000000000000
+                name: string
+                description: string
+                attributeIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                  key_1: {}
+                interpolations:
+                  key_0: {}
+                permissions:
+                - asset:shareAsWebGallery
+                - attributeGroup:viewAttribute
+        '400':
+          description: Bad Request.
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to create attribute groups.
+        '404':
+          description: The Attribute Group was not found.
+        '409':
+          description: An Attribute Group with the specified name already exists.
+        '500':
+          description: The request failed because of a problem on the server.
+  /attributeGroups/{attributeGroupId}/attributes:
+    get:
+      operationId: getsAllAttributesForASpecificAttributeGroupByID
+      summary: Gets all Attributes for a specific Attribute Group by ID.
+      tags:
+      - AttributeGroups
+      parameters:
+      - name: attributeGroupId
+        in: path
+        required: true
+        description: attributeGroupId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: The requested API version
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: Attributes for the Attribute Group were successfully retrieved.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    attributeType:
+                      type: string
+                    name:
+                      type: string
+                    searchFieldName:
+                      type: string
+                    tagName:
+                      type: string
+                    displayAttribute:
+                      type: boolean
+                    mapEmbeddedData:
+                      type: boolean
+                    embeddedDataType:
+                      type: string
+                    embeddedDataValue:
+                      type: string
+                    mappingDirection:
+                      type: string
+                    delimeter:
+                      type: string
+                    isSystemProperty:
+                      type: boolean
+                    showLabel:
+                      type: boolean
+                    isRequired:
+                      type: boolean
+                    optionsList:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          optionValue:
+                            type: string
+                          isDefault:
+                            type: boolean
+                          sequence:
+                            type: integer
+                    statusList:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          statusName:
+                            type: string
+                          statusValue:
+                            type: integer
+                          sequence:
+                            type: integer
+                    defaultExpression:
+                      type: string
+                    parentAttributeId:
+                      type: string
+                    childrenAttributeIds:
+                      type: array
+                      items:
+                        type: string
+                    attributeGroupIds:
+                      type: array
+                      items:
+                        type: string
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        key_0:
+                          type: object
+                        key_1:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - id: 00000000-0000-0000-0000-000000000000
+                attributeType: Boolean
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: false
+                embeddedDataType: Photoshop
+                embeddedDataValue: string
+                mappingDirection: Upload
+                delimeter: string
+                isSystemProperty: false
+                showLabel: true
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: true
+                  sequence: 4858
+                - optionValue: string
+                  isDefault: true
+                  sequence: 5763
+                statusList:
+                - statusName: string
+                  statusValue: 3211
+                  sequence: 7980
+                - statusName: string
+                  statusValue: 5663
+                  sequence: 1873
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                permissions:
+                - asset:createVideoClip
+                - asset:shareAsLightbox
+              - id: 00000000-0000-0000-0000-000000000000
+                attributeType: DateTime
+                name: string
+                searchFieldName: string
+                tagName: string
+                displayAttribute: false
+                mapEmbeddedData: true
+                embeddedDataType: Iptc
+                embeddedDataValue: string
+                mappingDirection: Upload
+                delimeter: string
+                isSystemProperty: true
+                showLabel: false
+                isRequired: false
+                optionsList:
+                - optionValue: string
+                  isDefault: false
+                  sequence: 3956
+                - optionValue: string
+                  isDefault: true
+                  sequence: 409
+                statusList:
+                - statusName: string
+                  statusValue: 809
+                  sequence: 1850
+                - statusName: string
+                  statusValue: 7824
+                  sequence: 8739
+                defaultExpression: string
+                parentAttributeId: string
+                childrenAttributeIds:
+                - string
+                - string
+                attributeGroupIds:
+                - 00000000-0000-0000-0000-000000000000
+                - 00000000-0000-0000-0000-000000000000
+                _links:
+                  self: string
+                  functions:
+                  - string
+                  - string
+                translationKeys:
+                  key_0: {}
+                interpolations:
+                  key_0: {}
+                  key_1: {}
+                  key_2: {}
+                  key_3: {}
+                permissions:
+                - asset:shareAsLightbox
+                - asset:shareAsCdnLink
+        '403':
+          description: Attribute grouping is not enabled for this library or you do not have permission
+            to view attribute groups.
+        '404':
+          description: The Attribute Group was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).
