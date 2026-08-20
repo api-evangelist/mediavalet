@@ -40,6 +40,20 @@ tags:
 - Cloud Storage
 - Metadata
 - Video
+- Image
+- Webhook
+- Azure
+tags_raw:
+- Digital Asset Management
+- DAM
+- Media
+- Assets
+- Content
+- Marketing
+- Brand Management
+- Cloud Storage
+- Metadata
+- Video
 - Images
 - Webhooks
 - Azure
@@ -116,6 +130,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -158,6 +174,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Org unit
+  tags_raw:
   - OrgUnit
   properties:
   - type: OpenAPI
@@ -179,6 +197,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Direct Links
+  tags_raw:
   - DirectLinks
   properties:
   - type: OpenAPI
@@ -200,6 +220,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -382,6 +404,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Saved Searches
+  tags_raw:
   - SavedSearches
   properties:
   - type: OpenAPI
@@ -403,6 +427,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - User Groups
+  tags_raw:
   - UserGroups
   properties:
   - type: OpenAPI
@@ -423,6 +449,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Attribute Groups
+  tags_raw:
   - AttributeGroups
   properties:
   - type: OpenAPI
@@ -443,6 +471,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - keywordgroups
+  tags_raw:
   - KeywordGroups
   properties:
   - type: OpenAPI
@@ -464,6 +494,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
@@ -569,6 +601,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Homes
+  tags_raw:
   - Home
   properties:
   - type: OpenAPI
@@ -629,6 +663,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Terms And Conditions
+  tags_raw:
   - TermsAndConditions
   properties:
   - type: OpenAPI
