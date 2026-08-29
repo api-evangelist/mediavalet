@@ -1,0 +1,76 @@
+slug: mediavalet
+provider: MediaValet
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Assets
+  spec_file: mediavalet-assets-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.85
+  evidence: GET /assets/{assetId}/videoTranscript  retrieveAssetVideoTranscript; GET /assets/{assetId}/{metadataType}  retrieveAssetMetadata;
+    GET /assetCheckIn/{assetId}  checkInAsset
+  reason: 'Core digital-asset-management surface: asset check-in/out, asset metadata, video insights,
+    transcripts and related-asset associations for images and video. Clearly Media Asset Management at
+    L1; the operations span ingest, metadata and versioning so no single L2 is named.'
+- tag: Uploads
+  spec_file: mediavalet-uploads-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.8
+  evidence: POST /uploads 'Create Asset', PUT /uploads/{assetId} 'Complete Upload', POST /uploads/validate
+    'Validate Uploads', POST /uploads/{assetId}/keywords 'Create Asset Association With Keywords'
+  reason: Onboarding of source media into the DAM platform with validation and initial cataloguing associations
+    is asset ingest, not generic file upload plumbing.
+- tag: AttributeGroups
+  spec_file: mediavalet-attributegroups-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /attributeGroups  getsAllAttributeGroupsForTheCurrentLibrary  Gets all Attribute Groups
+    for the current library.
+  reason: Attribute groups define the custom metadata field structure applied to assets in a DAM library,
+    i.e. authoring and curation of descriptive metadata that makes assets discoverable. Slight ambiguity
+    with generic data-governance framing keeps confidence moderate.
+- tag: Attributes
+  spec_file: mediavalet-attributes-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: POST /attributes  createAttribute  Create Attribute.; GET /attributes/embeddedDataType  retrieveAttributesEmbeddedDataTypes
+  reason: CRUD over metadata attribute definitions and their data types, including mapping to data embedded
+    in the media files — metadata cataloguing within the DAM platform. Moderate confidence as this is
+    schema definition rather than per-asset tagging.
+- tag: KeywordGroups
+  spec_file: mediavalet-keywordgroups-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /keywordGroups  retrieveAllKeywordGroups; GET /keywordGroups/{keywordGroupId}/subGroups  Retrieve
+    Keyword Groups By Parent Keyword Group Id
+  reason: CRUD over a hierarchical keyword taxonomy used to tag assets in the DAM — authoring and curation
+    of descriptive metadata that makes assets discoverable.
+- tag: Keywords
+  spec_file: mediavalet-keywords-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: POST /keywords  createKeyword  Create Keyword; PATCH /keywords/{keyword}  updateKeyword
+  reason: Management of the keyword vocabulary applied to media assets — descriptive metadata cataloguing
+    within the asset platform.

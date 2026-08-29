@@ -681,6 +681,9 @@ apis:
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
 common:
+- type: CapabilityMap
+  url: capabilities/mediavalet-capability-edges.yml
+  name: MediaValet Business Capability Map
 - type: AgenticAccess
   url: agentic-access/mediavalet-agentic-access.yml
 - type: Authentication
