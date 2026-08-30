@@ -486,6 +486,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Attribute Groups
+  tags_raw:
   - AttributeGroups
   properties:
   - type: OpenAPI
@@ -526,6 +528,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Direct Links
+  tags_raw:
   - DirectLinks
   properties:
   - type: OpenAPI
@@ -566,6 +570,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - keywordgroups
+  tags_raw:
   - KeywordGroups
   properties:
   - type: OpenAPI
@@ -586,6 +592,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Org unit
+  tags_raw:
   - OrgUnit
   properties:
   - type: OpenAPI
@@ -626,6 +634,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Saved Searches
+  tags_raw:
   - SavedSearches
   properties:
   - type: OpenAPI
@@ -646,6 +656,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - Terms And Conditions
+  tags_raw:
   - TermsAndConditions
   properties:
   - type: OpenAPI
@@ -666,6 +678,8 @@ apis:
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
+  - User Groups
+  tags_raw:
   - UserGroups
   properties:
   - type: OpenAPI
