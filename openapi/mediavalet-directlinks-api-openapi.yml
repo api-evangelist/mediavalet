@@ -1,0 +1,1524 @@
+openapi: 3.2.0
+info:
+  title: MediaValet Direct Links API
+  description: 'The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+
+
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet''s own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection''s request/response example payloads and are indicative rather than authoritative.'
+  version: '1.0'
+  contact:
+    name: MediaValet
+    url: https://developer.mediavalet.com
+  termsOfService: https://www.mediavalet.com/terms-of-service
+servers:
+- url: https://api.mediavalet.com
+  description: MediaValet API gateway (public)
+security:
+- oauth2:
+  - api
+  subscriptionKey: []
+tags:
+- name: DirectLinks
+  description: Direct/CDN links to assets and renditions for external distribution.
+paths:
+  /directlinks/export:
+    get:
+      operationId: retrieveDirectLinks
+      summary: Retrieve Direct Links
+      description: Returns a zip file of collection of direct links.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '204':
+          description: Library does not contain direct link
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directlinks/{assetId}:
+    get:
+      operationId: retrieveDirectLinks2
+      summary: Retrieve Direct Links
+      description: Returns a collection of direct links.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: includeSoftDeleted
+        in: query
+        required: false
+        description: includeSoftDeleted query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    assetId:
+                      type: string
+                      format: uuid
+                    directLinkId:
+                      type: string
+                      format: uuid
+                    cdnLink:
+                      type: string
+                    linkName:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    user:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        username:
+                          type: string
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                    selectedOptions:
+                      type: string
+                    state:
+                      type: string
+                    modifiedDateTime:
+                      type: string
+                      format: date-time
+                    uniqueViews:
+                      type: integer
+                    totalViews:
+                      type: integer
+                    totalBandwidth:
+                      type: number
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        mollit2f:
+                          type: object
+                        qui0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        pariatur8:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Broken
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollit2f: {}
+                  qui0: {}
+                interpolations:
+                  pariatur8: {}
+                permissions:
+                - asset:shareAsLink
+                - asset:shareAsCdnLink
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  quis_91b: {}
+                interpolations:
+                  magna23: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsBrandedPortal
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+    post:
+      operationId: createADirectLink
+      summary: Create A Direct Link
+      description: Generates a direct link for an orginal or renditions.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RenditionSettings:
+                  type: object
+                  properties:
+                    Size:
+                      type: object
+                      properties:
+                        Type:
+                          type: string
+                        Width:
+                          type: integer
+                        Height:
+                          type: integer
+                    Format:
+                      type: string
+                LinkSettings:
+                  type: object
+                  properties:
+                    IsDevModeEnabled:
+                      type: boolean
+                    LinkName:
+                      type: string
+                    IsEmbedCode:
+                      type: boolean
+                    IsUniqueLink:
+                      type: boolean
+                    TurnSubtitlesOn:
+                      type: boolean
+                    ChosenLanguages:
+                      type: array
+                      items:
+                        type: string
+            example:
+              RenditionSettings:
+                Size:
+                  Type: Small
+                  Width: <integer>
+                  Height: <integer>
+                Format: <string>
+              LinkSettings:
+                IsDevModeEnabled: <boolean>
+                LinkName: <string>
+                IsEmbedCode: <boolean>
+                IsUniqueLink: <boolean>
+                TurnSubtitlesOn: <boolean>
+                ChosenLanguages:
+                - <string>
+                - <string>
+      responses:
+        '201':
+          description: The direct link was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  directLinkId:
+                    type: string
+                    format: uuid
+                  cdnLink:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      dolore_1b:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      ea_f5_:
+                        type: object
+                      voluptate_358:
+                        type: object
+                      in2:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                directLinkId: <uuid>
+                cdnLink: <string>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  dolore_1b: {}
+                interpolations:
+                  ea_f5_: {}
+                  voluptate_358: {}
+                  in2: {}
+                permissions:
+                - lightbox:viewAsset
+                - asset:downloadFromMvd
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '409':
+          description: Conflict has occurred.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directlinks:
+    get:
+      operationId: listAllDirectLinks
+      summary: List All Direct Links
+      description: Returns a paginated list of all direct links for the current library, including asset metadata and analytics.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        description: offset query parameter.
+        schema:
+          type: string
+      - name: count
+        in: query
+        required: false
+        description: count query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiVersion:
+                    type: string
+                  buildVersion:
+                    type: string
+                  warnings:
+                    type: array
+                    items:
+                      type: string
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                  payload:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        assetId:
+                          type: string
+                        cdnLink:
+                          type: string
+                        createdAt:
+                          type: string
+                        directLinkId:
+                          type: string
+                        linkName:
+                          type: string
+                        modifiedDateTime:
+                          type: string
+                        state:
+                          type: string
+                        totalViews:
+                          type: integer
+                        uniqueViews:
+                          type: integer
+                        totalBandwidth:
+                          type: integer
+                        assetFileName:
+                          type: string
+                        assetCategoryNames:
+                          type: array
+                          items:
+                            type: string
+                  recordCount:
+                    type: object
+                    properties:
+                      totalRecordsFound:
+                        type: integer
+                      startingRecord:
+                        type: integer
+                      recordsReturned:
+                        type: integer
+                  meta:
+                    type: object
+                    properties:
+                      metaInformation:
+                        type: object
+                      createdAt:
+                        type: string
+              example:
+                apiVersion: string
+                buildVersion: string
+                warnings:
+                - string
+                errors:
+                - string
+                payload:
+                - assetId: 00000000-0000-0000-0000-000000000000
+                  cdnLink: string
+                  createdAt: '2026-04-30T00:58:36.906Z'
+                  directLinkId: 00000000-0000-0000-0000-000000000000
+                  linkName: string
+                  modifiedDateTime: '2026-04-30T00:58:36.906Z'
+                  state: string
+                  totalViews: 0
+                  uniqueViews: 0
+                  totalBandwidth: 0
+                  assetFileName: string
+                  assetCategoryNames:
+                  - string
+                recordCount:
+                  totalRecordsFound: 0
+                  startingRecord: 0
+                  recordsReturned: 0
+                meta:
+                  metaInformation: {}
+                  createdAt: '2026-04-30T00:58:36.906Z'
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '400':
+          description: There was a problem with the data sent with the request.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directlinks/exportByTime:
+    get:
+      operationId: retrievesCDNReportForAGivenTimePeriod
+      summary: Retrieves CDN report for a given time period.
+      description: Retrieves CDN report for a given time period.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: startDate
+        in: query
+        required: false
+        description: startDate query parameter.
+        schema:
+          type: string
+          format: date-time
+      - name: offset
+        in: query
+        required: false
+        description: offset query parameter.
+        schema:
+          type: string
+      - name: count
+        in: query
+        required: false
+        description: count query parameter.
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        required: false
+        description: endDate query parameter.
+        schema:
+          type: string
+          format: date-time
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiVersion:
+                    type: string
+                  buildVersion:
+                    type: string
+                  warnings:
+                    type: array
+                    items:
+                      type: string
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                  payload:
+                    type: object
+                    properties:
+                      startDate:
+                        type: string
+                      endDate:
+                        type: string
+                      analyticData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            assetId:
+                              type: string
+                            mediaFileId:
+                              type: string
+                            totalViews:
+                              type: integer
+                            uniqueViews:
+                              type: integer
+                            totalBandwidth:
+                              type: number
+                            linkName:
+                              type: string
+                            modifiedDateTime:
+                              type: string
+                              format: date-time
+                  recordCount:
+                    type: object
+                    properties:
+                      totalRecordsFound:
+                        type: integer
+                      startingRecord:
+                        type: integer
+                      recordsReturned:
+                        type: integer
+                  meta:
+                    type: object
+                    properties:
+                      metaInformation:
+                        type: object
+                        properties:
+                          ullamcoe:
+                            type: object
+                          laboris_:
+                            type: object
+                      createdAt:
+                        type: string
+                        format: date-time
+              example:
+                apiVersion: <string>
+                buildVersion: <string>
+                warnings:
+                - <string>
+                - <string>
+                errors:
+                - <string>
+                - <string>
+                payload:
+                  startDate: <string>
+                  endDate: <string>
+                  analyticData:
+                  - assetId: <string>
+                    mediaFileId: <string>
+                    totalViews: <long>
+                    uniqueViews: <long>
+                    totalBandwidth: <double>
+                    linkName: <string>
+                    modifiedDateTime: <dateTime>
+                  - assetId: <string>
+                    mediaFileId: <string>
+                    totalViews: <long>
+                    uniqueViews: <long>
+                    totalBandwidth: <double>
+                    linkName: <string>
+                    modifiedDateTime: <dateTime>
+                recordCount:
+                  totalRecordsFound: <integer>
+                  startingRecord: <integer>
+                  recordsReturned: <integer>
+                meta:
+                  metaInformation:
+                    ullamcoe: {}
+                    laboris_: {}
+                  createdAt: <dateTime>
+        '204':
+          description: Library does not contain direct link
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directLinks/{assetId}/activateAll:
+    put:
+      operationId: activateAllDirectLinks
+      summary: Activate All Direct Links
+      description: Activate all direct links.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+            example:
+            - <uuid>
+            - <uuid>
+      responses:
+        '201':
+          description: All direct links were successfully activated.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    assetId:
+                      type: string
+                      format: uuid
+                    directLinkId:
+                      type: string
+                      format: uuid
+                    cdnLink:
+                      type: string
+                    linkName:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    user:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        username:
+                          type: string
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                    selectedOptions:
+                      type: string
+                    state:
+                      type: string
+                    modifiedDateTime:
+                      type: string
+                      format: date-time
+                    uniqueViews:
+                      type: integer
+                    totalViews:
+                      type: integer
+                    totalBandwidth:
+                      type: number
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        mollit2f:
+                          type: object
+                        qui0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        pariatur8:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Broken
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollit2f: {}
+                  qui0: {}
+                interpolations:
+                  pariatur8: {}
+                permissions:
+                - asset:shareAsLink
+                - asset:shareAsCdnLink
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  quis_91b: {}
+                interpolations:
+                  magna23: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsBrandedPortal
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The direct link for Asset does not exist.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directLinks/{assetId}/deactivateAll:
+    put:
+      operationId: deactivateAllDirectLinks
+      summary: Deactivate All Direct Links
+      description: Deactivate all direct links.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+            example:
+            - <uuid>
+            - <uuid>
+      responses:
+        '201':
+          description: All direct links were successfully deactivated.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    assetId:
+                      type: string
+                      format: uuid
+                    directLinkId:
+                      type: string
+                      format: uuid
+                    cdnLink:
+                      type: string
+                    linkName:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    user:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        username:
+                          type: string
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                    selectedOptions:
+                      type: string
+                    state:
+                      type: string
+                    modifiedDateTime:
+                      type: string
+                      format: date-time
+                    uniqueViews:
+                      type: integer
+                    totalViews:
+                      type: integer
+                    totalBandwidth:
+                      type: number
+                    _links:
+                      type: object
+                      properties:
+                        self:
+                          type: string
+                        functions:
+                          type: array
+                          items:
+                            type: string
+                    translationKeys:
+                      type: object
+                      properties:
+                        mollit2f:
+                          type: object
+                        qui0:
+                          type: object
+                    interpolations:
+                      type: object
+                      properties:
+                        pariatur8:
+                          type: object
+                    permissions:
+                      type: array
+                      items:
+                        type: string
+              example:
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Broken
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  mollit2f: {}
+                  qui0: {}
+                interpolations:
+                  pariatur8: {}
+                permissions:
+                - asset:shareAsLink
+                - asset:shareAsCdnLink
+              - assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  quis_91b: {}
+                interpolations:
+                  magna23: {}
+                permissions:
+                - asset:shareAsZippedFile
+                - asset:shareAsBrandedPortal
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The direct link for Asset does not exist.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directLinks/{assetId}/archive/{directLinkId}:
+    put:
+      operationId: archiveDirectLink
+      summary: Archive Direct Link
+      description: Archive direct link.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: directLinkId
+        in: path
+        required: true
+        description: directLinkId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: The direct link was successfully archived.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetId:
+                    type: string
+                    format: uuid
+                  directLinkId:
+                    type: string
+                    format: uuid
+                  cdnLink:
+                    type: string
+                  linkName:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  selectedOptions:
+                    type: string
+                  state:
+                    type: string
+                  modifiedDateTime:
+                    type: string
+                    format: date-time
+                  uniqueViews:
+                    type: integer
+                  totalViews:
+                    type: integer
+                  totalBandwidth:
+                    type: number
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laborum__b:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      elit_b98:
+                        type: object
+                      dolored7:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laborum__b: {}
+                interpolations:
+                  elit_b98: {}
+                  dolored7: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:assignAsset
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The direct link for Asset does not exist.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directLinks/{assetId}/activate/{directLinkId}:
+    put:
+      operationId: activateDirectLink
+      summary: Activate Direct Link
+      description: Activate direct link.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: directLinkId
+        in: path
+        required: true
+        description: directLinkId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '201':
+          description: The direct link was successfully created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetId:
+                    type: string
+                    format: uuid
+                  directLinkId:
+                    type: string
+                    format: uuid
+                  cdnLink:
+                    type: string
+                  linkName:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  selectedOptions:
+                    type: string
+                  state:
+                    type: string
+                  modifiedDateTime:
+                    type: string
+                    format: date-time
+                  uniqueViews:
+                    type: integer
+                  totalViews:
+                    type: integer
+                  totalBandwidth:
+                    type: number
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laborum__b:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      elit_b98:
+                        type: object
+                      dolored7:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laborum__b: {}
+                interpolations:
+                  elit_b98: {}
+                  dolored7: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:assignAsset
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The direct link for Asset does not exist.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directLinks/{assetId}/deactivate/{directLinkId}:
+    put:
+      operationId: deactivateDirectLink
+      summary: Deactivate Direct Link
+      description: Deactivate direct link.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: directLinkId
+        in: path
+        required: true
+        description: directLinkId path parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '201':
+          description: The direct link was successfully deactivated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetId:
+                    type: string
+                    format: uuid
+                  directLinkId:
+                    type: string
+                    format: uuid
+                  cdnLink:
+                    type: string
+                  linkName:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      username:
+                        type: string
+                      firstName:
+                        type: string
+                      lastName:
+                        type: string
+                  selectedOptions:
+                    type: string
+                  state:
+                    type: string
+                  modifiedDateTime:
+                    type: string
+                    format: date-time
+                  uniqueViews:
+                    type: integer
+                  totalViews:
+                    type: integer
+                  totalBandwidth:
+                    type: number
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                      functions:
+                        type: array
+                        items:
+                          type: string
+                  translationKeys:
+                    type: object
+                    properties:
+                      laborum__b:
+                        type: object
+                  interpolations:
+                    type: object
+                    properties:
+                      elit_b98:
+                        type: object
+                      dolored7:
+                        type: object
+                  permissions:
+                    type: array
+                    items:
+                      type: string
+              example:
+                assetId: <uuid>
+                directLinkId: <uuid>
+                cdnLink: <string>
+                linkName: <string>
+                createdAt: <dateTime>
+                user:
+                  id: <uuid>
+                  username: <string>
+                  firstName: <string>
+                  lastName: <string>
+                selectedOptions: <string>
+                state: Active
+                modifiedDateTime: <dateTime>
+                uniqueViews: <integer>
+                totalViews: <integer>
+                totalBandwidth: <double>
+                _links:
+                  self: <string>
+                  functions:
+                  - <string>
+                  - <string>
+                translationKeys:
+                  laborum__b: {}
+                interpolations:
+                  elit_b98: {}
+                  dolored7: {}
+                permissions:
+                - lightbox:editDetails
+                - lightbox:assignAsset
+        '400':
+          description: There was a problem with the data sent with the request.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The direct link for Asset does not exist.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directlinks/validate/assets:
+    post:
+      operationId: validateAssetInAllDirectLinks
+      summary: Validate Asset In All Direct Links
+      description: Validate assets in all direct links.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+            example:
+            - <uuid>
+            - <uuid>
+      responses:
+        '200':
+          description: Request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              example:
+              - <uuid>
+              - <uuid>
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '500':
+          description: The request failed because of a problem on the server.
+  /directlinks/{assetId}/validate:
+    post:
+      operationId: validateADirectLink
+      summary: Validate a Direct Link
+      description: Validate a direct link.
+      tags:
+      - DirectLinks
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: assetId path parameter.
+        schema:
+          type: string
+      - name: linkName
+        in: query
+        required: false
+        description: linkName query parameter.
+        schema:
+          type: string
+      - name: x-mv-api-version
+        in: header
+        required: false
+        description: (Required) The requested API version
+        schema:
+          type: string
+        example: '1.2'
+      responses:
+        '200':
+          description: Request was successful.
+        '400':
+          description: There was a problem with the data sent with the request. Link name is invalid.
+        '401':
+          description: The current user is not authorized to view this end-point.
+        '403':
+          description: The user does not have permission to perform this operation.
+        '404':
+          description: The asset was not found.
+        '409':
+          description: Conflict has occurred. Link name is not unique.
+        '500':
+          description: The request failed because of a problem on the server.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com. Send the access token as a Bearer Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.mediavalet.com/connect/authorize
+          tokenUrl: https://login.mediavalet.com/connect/token
+          refreshUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            profile: User profile claims
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+            iam.admin: Administer MediaValet identity and access management
+            iam.provisioning: Provision users and organizations
+            offline_access: Obtain a refresh token
+        clientCredentials:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            api: Access the MediaValet API
+            api:service_principal: Service-principal (machine) access to the MediaValet API
+        password:
+          tokenUrl: https://login.mediavalet.com/connect/token
+          scopes:
+            openid: OpenID Connect identity
+            api: Access the MediaValet API
+            offline_access: Obtain a refresh token
+    subscriptionKey:
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure API Management).
