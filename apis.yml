@@ -43,7 +43,6 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mediavalet.png
 tags:
 - Digital Asset Management
-- DAM
 - Media
 - Assets
 - Content
