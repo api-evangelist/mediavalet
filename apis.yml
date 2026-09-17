@@ -479,28 +479,6 @@ apis:
     url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-attributegroups-api
-  name: MediaValet Attribute Groups API
-  description: Groupings of custom metadata attributes.
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  tags:
-  - Attribute Groups
-  tags_raw:
-  - AttributeGroups
-  properties:
-  - type: OpenAPI
-    url: openapi/mediavalet-attributegroups-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mediavalet.com/
-  - type: APIReference
-    url: https://docs.mediavalet.com/
-  - type: DeveloperPortal
-    url: https://developer.mediavalet.com/
-  - type: Postman
-    url: collections/mediavalet-api.postman_collection.json
-  - type: PostmanCollection
-    url: collections/mediavalet-api.postman_collection.json
 - aid: mediavalet:mediavalet-brandedportals-api
   name: MediaValet Branded Portals API
   description: Branded Portals — externally shareable, branded views onto a subset of the library.
@@ -511,28 +489,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/mediavalet-brandedportals-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mediavalet.com/
-  - type: APIReference
-    url: https://docs.mediavalet.com/
-  - type: DeveloperPortal
-    url: https://developer.mediavalet.com/
-  - type: Postman
-    url: collections/mediavalet-api.postman_collection.json
-  - type: PostmanCollection
-    url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-directlinks-api
-  name: MediaValet Direct Links API
-  description: Direct/CDN links to assets and renditions for external distribution.
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  tags:
-  - Direct Links
-  tags_raw:
-  - DirectLinks
-  properties:
-  - type: OpenAPI
-    url: openapi/mediavalet-directlinks-api-openapi.yml
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
@@ -585,28 +541,6 @@ apis:
     url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-orgunit-api
-  name: MediaValet Org Unit API
-  description: Organizational units (libraries) and their configuration.
-  humanURL: https://docs.mediavalet.com/
-  baseURL: https://api.mediavalet.com
-  tags:
-  - Org unit
-  tags_raw:
-  - OrgUnit
-  properties:
-  - type: OpenAPI
-    url: openapi/mediavalet-orgunit-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mediavalet.com/
-  - type: APIReference
-    url: https://docs.mediavalet.com/
-  - type: DeveloperPortal
-    url: https://developer.mediavalet.com/
-  - type: Postman
-    url: collections/mediavalet-api.postman_collection.json
-  - type: PostmanCollection
-    url: collections/mediavalet-api.postman_collection.json
 - aid: mediavalet:mediavalet-reportsv2-api
   name: MediaValet Reports V2 API
   description: Version 2 of the usage and activity reporting surface.
@@ -627,18 +561,76 @@ apis:
     url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-savedsearches-api
+- aid: mediavalet:mediavalet-attribute-groups-api
+  name: MediaValet Attribute Groups API
+  description: Groupings of custom metadata attributes.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Attribute Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-attribute-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-direct-links-api
+  name: MediaValet Direct Links API
+  description: Direct/CDN links to assets and renditions for external distribution.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Direct Links
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-direct-links-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-org-unit-api
+  name: MediaValet Org unit API
+  description: Organizational units (libraries) and their configuration.
+  humanURL: https://docs.mediavalet.com/
+  baseURL: https://api.mediavalet.com
+  tags:
+  - Org unit
+  properties:
+  - type: OpenAPI
+    url: openapi/mediavalet-org-unit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mediavalet.com/
+  - type: APIReference
+    url: https://docs.mediavalet.com/
+  - type: DeveloperPortal
+    url: https://developer.mediavalet.com/
+  - type: Postman
+    url: collections/mediavalet-api.postman_collection.json
+  - type: PostmanCollection
+    url: collections/mediavalet-api.postman_collection.json
+- aid: mediavalet:mediavalet-saved-searches-api
   name: MediaValet Saved Searches API
   description: Saved searches and their execution.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
   - Saved Searches
-  tags_raw:
-  - SavedSearches
   properties:
   - type: OpenAPI
-    url: openapi/mediavalet-savedsearches-api-openapi.yml
+    url: openapi/mediavalet-saved-searches-api-openapi.yml
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
@@ -649,18 +641,16 @@ apis:
     url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-termsandconditions-api
+- aid: mediavalet:mediavalet-terms-and-conditions-api
   name: MediaValet Terms And Conditions API
   description: Terms and conditions acceptance.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
   - Terms And Conditions
-  tags_raw:
-  - TermsAndConditions
   properties:
   - type: OpenAPI
-    url: openapi/mediavalet-termsandconditions-api-openapi.yml
+    url: openapi/mediavalet-terms-and-conditions-api-openapi.yml
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
@@ -671,18 +661,16 @@ apis:
     url: collections/mediavalet-api.postman_collection.json
   - type: PostmanCollection
     url: collections/mediavalet-api.postman_collection.json
-- aid: mediavalet:mediavalet-usergroups-api
+- aid: mediavalet:mediavalet-user-groups-api
   name: MediaValet User Groups API
   description: User groups and group membership.
   humanURL: https://docs.mediavalet.com/
   baseURL: https://api.mediavalet.com
   tags:
   - User Groups
-  tags_raw:
-  - UserGroups
   properties:
   - type: OpenAPI
-    url: openapi/mediavalet-usergroups-api-openapi.yml
+    url: openapi/mediavalet-user-groups-api-openapi.yml
   - type: Documentation
     url: https://docs.mediavalet.com/
   - type: APIReference
