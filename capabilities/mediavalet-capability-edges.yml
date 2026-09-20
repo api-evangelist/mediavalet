@@ -35,7 +35,8 @@ edges:
   reason: Onboarding of source media into the DAM platform with validation and initial cataloguing associations
     is asset ingest, not generic file upload plumbing.
 - tag: AttributeGroups
-  spec_file: mediavalet-attributegroups-api-openapi.yml
+  spec_file: mediavalet-attribute-groups-api-openapi.yml
+  reanchored_from: mediavalet-attributegroups-api-openapi.yml
   capability_id: BC-3710.20
   capability_id_l1: BC-3710
   capability_name: Metadata Cataloguing
