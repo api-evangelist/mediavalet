@@ -1,10 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: MediaValet UserGroups API
-  description: |-
-    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
-
-    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  title: MediaValet User Groups API
+  description: The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform.
   version: '1.0'
   contact:
     name: MediaValet
@@ -18,7 +15,7 @@ security:
   - api
   subscriptionKey: []
 tags:
-- name: UserGroups
+- name: User Groups
   description: User groups and group membership.
 paths:
   /groups:
@@ -27,7 +24,7 @@ paths:
       summary: Retrieve Groups
       description: Retrieves list of groups that belong to the Organizational Unit.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: x-mv-api-version
         in: header
@@ -156,7 +153,7 @@ paths:
       summary: Create Group
       description: Creates the user group and gives it permissions to the library.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: x-mv-api-version
         in: header
@@ -286,7 +283,7 @@ paths:
       summary: Retrieve Group Details
       description: Retrieves group details based on group id.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: id
         in: path
@@ -462,7 +459,7 @@ paths:
       summary: Retrieve Group Categories
       description: Retrieves list of categories based on the group id.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: userGroupId
         in: path
@@ -721,7 +718,7 @@ paths:
       summary: Update Group With Patch Operations
       description: Updates user group using a list of patch operations.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: userGroupId
         in: path
@@ -1011,7 +1008,7 @@ paths:
       summary: Update Group
       description: Updates user group and gives/revokes permission to the library.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: userGroupId
         in: path
@@ -1252,7 +1249,7 @@ paths:
       summary: Remove Group
       description: Removes the user group and detaches its permissions from the library.
       tags:
-      - UserGroups
+      - User Groups
       parameters:
       - name: userGroupId
         in: path
@@ -1284,8 +1281,7 @@ components:
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
-        Send the access token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com. Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
@@ -1314,5 +1310,4 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
-        API Management).
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure API Management).

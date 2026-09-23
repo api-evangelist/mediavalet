@@ -1,10 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: MediaValet DirectLinks API
-  description: |-
-    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
-
-    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  title: MediaValet Direct Links API
+  description: The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform.
   version: '1.0'
   contact:
     name: MediaValet
@@ -18,7 +15,7 @@ security:
   - api
   subscriptionKey: []
 tags:
-- name: DirectLinks
+- name: Direct Links
   description: Direct/CDN links to assets and renditions for external distribution.
 paths:
   /directlinks/export:
@@ -27,7 +24,7 @@ paths:
       summary: Retrieve Direct Links
       description: Returns a zip file of collection of direct links.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: x-mv-api-version
         in: header
@@ -53,7 +50,7 @@ paths:
       summary: Retrieve Direct Links
       description: Returns a collection of direct links.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -218,7 +215,7 @@ paths:
       summary: Create A Direct Link
       description: Generates a direct link for an orginal or renditions.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -360,10 +357,9 @@ paths:
     get:
       operationId: listAllDirectLinks
       summary: List All Direct Links
-      description: Returns a paginated list of all direct links for the current library, including asset
-        metadata and analytics.
+      description: Returns a paginated list of all direct links for the current library, including asset metadata and analytics.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: offset
         in: query
@@ -488,10 +484,10 @@ paths:
   /directlinks/exportByTime:
     get:
       operationId: retrievesCDNReportForAGivenTimePeriod
-      summary: Retrieves CDN report for a given time period.
+      summary: Retrieves CDN report for a given time period
       description: Retrieves CDN report for a given time period.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: startDate
         in: query
@@ -645,7 +641,7 @@ paths:
       summary: Activate All Direct Links
       description: Activate all direct links.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -819,7 +815,7 @@ paths:
       summary: Deactivate All Direct Links
       description: Deactivate all direct links.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -993,7 +989,7 @@ paths:
       summary: Archive Direct Link
       description: Archive direct link.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -1131,7 +1127,7 @@ paths:
       summary: Activate Direct Link
       description: Activate direct link.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -1269,7 +1265,7 @@ paths:
       summary: Deactivate Direct Link
       description: Deactivate direct link.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -1407,7 +1403,7 @@ paths:
       summary: Validate Asset In All Direct Links
       description: Validate assets in all direct links.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: x-mv-api-version
         in: header
@@ -1453,7 +1449,7 @@ paths:
       summary: Validate a Direct Link
       description: Validate a direct link.
       tags:
-      - DirectLinks
+      - Direct Links
       parameters:
       - name: assetId
         in: path
@@ -1493,8 +1489,7 @@ components:
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
-        Send the access token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com. Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
@@ -1523,5 +1518,4 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
-        API Management).
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure API Management).

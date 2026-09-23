@@ -1,10 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: MediaValet Integrations API
-  description: |-
-    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
-
-    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
+  description: The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform.
   version: '1.0'
   contact:
     name: MediaValet
@@ -19,16 +16,13 @@ security:
   subscriptionKey: []
 tags:
 - name: Integrations
-  description: 'Third-party integration registration: apps, subscriptions, allowed origins, users and
-    entitlements.'
+  description: 'Third-party integration registration: apps, subscriptions, allowed origins, users and entitlements.'
 paths:
   /integrations/allowed-origins:
     get:
       operationId: listWhitelistedOriginsForAnIntegration
       summary: List whitelisted origins for an integration
-      description: Return every origin currently whitelisted in the CSP allowlist for the given ThirdParty
-        integration. Used when embedding the integration in an iframe -- only origins on this list may
-        host the embedding page. Pass the integration's id via the appId query parameter.
+      description: Return every origin currently whitelisted in the CSP allowlist for the given ThirdParty integration. Used when embedding the integration in an iframe -- only origins on this list may host the embedding page. Pass the integration's id via the appId query parameter.
       tags:
       - Integrations
       parameters:
@@ -51,9 +45,7 @@ paths:
     post:
       operationId: whitelistAnOriginForAnIntegration
       summary: Whitelist an origin for an integration
-      description: Add an origin (scheme + host + optional port) to the CSP allowlist for a ThirdParty
-        integration. The change takes effect immediately -- no cache propagation delay. The response payload
-        is the new allowed-origin id (UUID).
+      description: Add an origin (scheme + host + optional port) to the CSP allowlist for a ThirdParty integration. The change takes effect immediately -- no cache propagation delay. The response payload is the new allowed-origin id (UUID).
       tags:
       - Integrations
       parameters:
@@ -85,9 +77,7 @@ paths:
     delete:
       operationId: removeOneOrMoreAllowedOrigins
       summary: Remove one or more allowed origins
-      description: Remove origins by id. Pass a single-element array to remove just one. Only origins
-        belonging to the calling tenant are affected. Response payload.removed is the count of origins
-        removed.
+      description: Remove origins by id. Pass a single-element array to remove just one. Only origins belonging to the calling tenant are affected. Response payload.removed is the count of origins removed.
       tags:
       - Integrations
       parameters:
@@ -119,8 +109,7 @@ paths:
     delete:
       operationId: deleteAThirdPartyIntegration
       summary: Delete a ThirdParty integration
-      description: Delete a ThirdParty integration owned by your tenant. Returns 404 if the integration
-        doesn't exist or isn't owned by your tenant. Native integrations cannot be deleted via this endpoint.
+      description: Delete a ThirdParty integration owned by your tenant. Returns 404 if the integration doesn't exist or isn't owned by your tenant. Native integrations cannot be deleted via this endpoint.
       tags:
       - Integrations
       parameters:
@@ -144,9 +133,7 @@ paths:
     get:
       operationId: listYourTenantSIntegrations
       summary: List your tenant's integrations
-      description: 'Return every integration registered to the calling tenant -- both Native (MediaValet-managed:
-        Drupal, WordPress, Monday) and ThirdParty (customer-registered). The response payload is an array
-        of integration objects; recordCount.totalRecordsFound is the total.'
+      description: 'Return every integration registered to the calling tenant -- both Native (MediaValet-managed: Drupal, WordPress, Monday) and ThirdParty (customer-registered). The response payload is an array of integration objects; recordCount.totalRecordsFound is the total.'
       tags:
       - Integrations
       parameters:
@@ -164,10 +151,7 @@ paths:
     post:
       operationId: registerANewThirdPartyIntegration
       summary: Register a new ThirdParty integration
-      description: Create a new ThirdParty integration for your tenant. Only appName is required in the
-        request body; the other fields (appDescription, iconUrl, currentVersion) are optional partner-facing
-        labels. The response payload.id is the new integration's identifier -- use it as the appId parameter
-        on subsequent calls to manage allowed origins, subscriptions, and user entitlements.
+      description: Create a new ThirdParty integration for your tenant. Only appName is required in the request body; the other fields (appDescription, iconUrl, currentVersion) are optional partner-facing labels. The response payload.id is the new integration's identifier -- use it as the appId parameter on subsequent calls to manage allowed origins, subscriptions, and user entitlements.
       tags:
       - Integrations
       parameters:
@@ -196,8 +180,7 @@ paths:
     patch:
       operationId: renameAThirdPartyIntegration
       summary: Rename a ThirdParty integration
-      description: Rename a ThirdParty integration. Native integrations cannot be renamed. Returns the
-        updated integration in the response payload.
+      description: Rename a ThirdParty integration. Native integrations cannot be renamed. Returns the updated integration in the response payload.
       tags:
       - Integrations
       parameters:
@@ -232,8 +215,7 @@ paths:
     get:
       operationId: getActiveSubscriptionForAnIntegration
       summary: Get active subscription for an integration
-      description: Return the active subscription for the given integration + the calling tenant. Returns
-        404 if no active subscription exists. Used by license-management UIs to display subscription details.
+      description: Return the active subscription for the given integration + the calling tenant. Returns 404 if no active subscription exists. Used by license-management UIs to display subscription details.
       tags:
       - Integrations
       parameters:
@@ -257,8 +239,7 @@ paths:
     get:
       operationId: getEntitlementCountsForASubscription
       summary: Get entitlement counts for a subscription
-      description: Return active-vs-total entitlement counts for a subscription. Useful for license-management
-        dashboards that show how many seats are in use out of the total licensed.
+      description: Return active-vs-total entitlement counts for a subscription. Useful for license-management dashboards that show how many seats are in use out of the total licensed.
       tags:
       - Integrations
       parameters:
@@ -282,8 +263,7 @@ paths:
     post:
       operationId: inviteAUserIntoYourTenant
       summary: Invite a user into your tenant
-      description: Create a new MediaValet user in your tenant. The user receives an invite email and
-        completes onboarding via the standard MediaValet sign-up flow.
+      description: Create a new MediaValet user in your tenant. The user receives an invite email and completes onboarding via the standard MediaValet sign-up flow.
       tags:
       - Integrations
       parameters:
@@ -330,8 +310,7 @@ paths:
     get:
       operationId: listUserEntitlementsInASubscription
       summary: List user entitlements in a subscription
-      description: Return every user entitlement belonging to the given subscription. Each entitlement
-        maps one user to one subscription with a role and an active/inactive flag.
+      description: Return every user entitlement belonging to the given subscription. Each entitlement maps one user to one subscription with a role and an active/inactive flag.
       tags:
       - Integrations
       parameters:
@@ -355,8 +334,7 @@ paths:
     put:
       operationId: updateAUserEntitlement
       summary: Update a user entitlement
-      description: Update an existing user entitlement -- toggle the active flag, change the role, etc.
-        The entitlementId field identifies the entitlement to update.
+      description: Update an existing user entitlement -- toggle the active flag, change the role, etc. The entitlementId field identifies the entitlement to update.
       tags:
       - Integrations
       parameters:
@@ -394,8 +372,7 @@ components:
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
-        Send the access token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com. Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
@@ -424,5 +401,4 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
-        API Management).
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure API Management).

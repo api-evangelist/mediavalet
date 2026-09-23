@@ -1,10 +1,10 @@
-openapi: 3.2.0
+openapi: 3.0.3
 info:
-  title: MediaValet Org Unit API
-  description: 'The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
+  title: MediaValet OrgUnit API
+  description: |-
+    The MediaValet API is a RESTful, JSON, hypermedia-driven service that supplies data to clients consuming the MediaValet cloud digital asset management (DAM) platform. The service applies business rules, permission rules, and other data processing to standardize what is returned. Requests go to the API gateway at https://api.mediavalet.com and must carry two credentials: an OAuth 2.0 / OpenID Connect Bearer access token issued by https://login.mediavalet.com/connect/token, and a per-account subscription key in the Ocp-Apim-Subscription-Key header. Requests also carry an x-mv-api-version header to select the API version. Access requires a MediaValet subscription and registration in the MediaValet Developer Portal at https://developer.mediavalet.com.
 
-
-    PROVENANCE: this definition is derived operation-for-operation from MediaValet''s own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection''s request/response example payloads and are indicative rather than authoritative.'
+    PROVENANCE: this definition is derived operation-for-operation from MediaValet's own published Postman collection ("MediaValet API", collection 55cc404f-b818-43ba-87c2-1a07f2a47bd9) served at https://docs.mediavalet.com/api/collections/15676803/TzRUB7XE. Paths, methods, parameters, request bodies, response status codes and examples come from that collection. Schemas are inferred from the collection's request/response example payloads and are indicative rather than authoritative.
   version: '1.0'
   contact:
     name: MediaValet
@@ -2859,7 +2859,8 @@ components:
   securitySchemes:
     oauth2:
       type: oauth2
-      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com. Send the access token as a Bearer Authorization header.
+      description: OAuth 2.0 / OpenID Connect issued by https://iam.mediavalet.com via https://login.mediavalet.com.
+        Send the access token as a Bearer Authorization header.
       flows:
         authorizationCode:
           authorizationUrl: https://login.mediavalet.com/connect/authorize
@@ -2888,4 +2889,5 @@ components:
       type: apiKey
       in: header
       name: Ocp-Apim-Subscription-Key
-      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure API Management).
+      description: Per-account API subscription key issued through the MediaValet Developer Portal (Azure
+        API Management).
