@@ -1,4 +1,4 @@
-# MediaValet (mediavalet)
+# MediaValet
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,174 +64,210 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-MediaValet is a cloud-native digital asset management (DAM) platform, built on Microsoft Azure, for storing, organizing, sharing, and distributing an organization's images, videos, documents, and other brand and marketing assets. Its Open API is a RESTful, JSON, hypermedia-driven service (base `https://api.mediavalet.com`) that lets developers and partners automate uploading, cataloging, searching, and governing assets, categories, attributes, keywords, and users.
+MediaValet is a cloud-native, Microsoft Azure-based digital asset management (DAM) platform for storing, organizing, governing, sharing and distributing an organization's images, videos, documents and other brand, campaign and product assets. Its Open API is a RESTful, JSON, hypermedia-driven service at https://api.mediavalet.com, fronted by Azure API Management and secured with BOTH an OAuth 2.0 / OpenID Connect bearer token (issuer https://iam.mediavalet.com) and a per-account Ocp-Apim-Subscription-Key. The published surface runs to 312 operations across 29 resources - assets, categories, attributes, keywords, uploads, users, user groups, branded portals, lightboxes, direct/CDN links, downloads, sharing, crops, persons, saved searches, reports, notifications, organizational units and third-party integrations - plus SkyHOOK, an event service that delivers CloudEvents 1.0 messages to a webhook or a private Azure Event Grid instance. API versions are selected per request with the x-mv-api-version header (1.0 default, 1.1, 1.2). MediaValet publishes no OpenAPI; its machine-readable contract is a Postman Collection v2.1.0 at docs.mediavalet.com, from which the definitions in this repo are derived. Access requires an existing MediaValet subscription and an approved Developer Portal account.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mediavalet/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mediavalet/refs/heads/main/apis.yml)
+**Areas:** Digital Asset Management · Media · Assets · Content · Marketing · Brand Management · Cloud Storage · Metadata · Video · Image · Webhook · Microsoft Azure
 
-## Access Model
+## MediaValet on APIs.io
 
-The MediaValet Open API is available to MediaValet customers and requires two credentials on every request:
+Everything profiled for MediaValet is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mediavalet/](https://apis.io/providers/mediavalet/)** — or go straight to one of the APIs or properties below.
 
-- **OAuth 2.0 (OIDC):** obtain a Bearer access token from `https://login.mediavalet.com/connect/token` (authorization code flow for interactive apps, with `openid api offline_access` scopes; refresh tokens supported).
-- **Subscription key:** a per-account key issued through the [MediaValet Developer Portal](https://developer.mediavalet.com/) and sent in the `Ocp-Apim-Subscription-Key` header.
+### APIs (29)
 
-To get started you create an account in the Developer Portal, subscribe to an API plan, and — once the subscription is approved — receive your subscription key by email. The API is fronted by Azure API Management, which throttles per subscription key (HTTP 429 when exceeded). This is not an open, self-service, unauthenticated public API; it is a documented public API gated by a MediaValet subscription. Pricing is enterprise / contact-sales.
+- [MediaValet Assets API](https://apis.io/apis/mediavalet/mediavalet-assets-api/) — Core digital asset objects, their media files, renditions, versions, comments, history, faces and video clips. The centre of the MediaValet data model. 54…
+- [MediaValet Categories API](https://apis.io/apis/mediavalet/mediavalet-categories-api/) — Hierarchical categories (folders) that organize assets and carry the permission sets granted to user groups. 18 operations.
+- [MediaValet Users API](https://apis.io/apis/mediavalet/mediavalet-users-api/) — Users, their profiles, permissions, entitlements and public self-registration. 18 operations.
+- [MediaValet Lightbox API](https://apis.io/apis/mediavalet/mediavalet-lightbox-api/) — Lightboxes — user-curated collections of assets that can be shared by share code. 15 operations.
+- [MediaValet Integrations API](https://apis.io/apis/mediavalet/mediavalet-integrations-api/) — Third-party integration registration — apps, allowed origins for iframe embedding, subscriptions, users and entitlements. 12 operations.
+- [MediaValet Uploads API](https://apis.io/apis/mediavalet/mediavalet-uploads-api/) — Chunked ingest of new files and new asset versions into a library, via MediaValet-issued Azure blob upload URLs. 11 operations.
+- [MediaValet Attributes API](https://apis.io/apis/mediavalet/mediavalet-attributes-api/) — Custom metadata attribute definitions, their data types (including the Status type added in API version 1.1) and embedded-data mappings. 10 operations.
+- [MediaValet Reports API](https://apis.io/apis/mediavalet/mediavalet-reports-api/) — Usage and activity reporting across the library. 10 operations.
+- [MediaValet Downloads API](https://apis.io/apis/mediavalet/mediavalet-downloads-api/) — Asset download requests, packaged downloads and download presets. 9 operations.
+- [MediaValet Notification API](https://apis.io/apis/mediavalet/mediavalet-notification-api/) — In-product notifications and notification preferences. 9 operations.
+- [MediaValet Sharing API](https://apis.io/apis/mediavalet/mediavalet-sharing-api/) — Sharing of assets and lightboxes with external recipients by share code. 9 operations.
+- [MediaValet Crop API](https://apis.io/apis/mediavalet/mediavalet-crop-api/) — Server-side cropping of image assets, including reusable crop templates. 8 operations.
+- [MediaValet Persons API](https://apis.io/apis/mediavalet/mediavalet-persons-api/) — Person and face recognition records used to tag the people appearing in assets. 8 operations.
+- [MediaValet Webhooks API](https://apis.io/apis/mediavalet/mediavalet-webhooks-api/) — SkyHOOK webhook and Azure Event Grid subscription management for MediaValet events. 5 operations.
+- [MediaValet Authorization API](https://apis.io/apis/mediavalet/mediavalet-authorization-api/) — Authorization and permission checks for the calling user. 3 operations.
+- [MediaValet Keywords API](https://apis.io/apis/mediavalet/mediavalet-keywords-api/) — The controlled keyword vocabulary and per-asset tagging, with keyword approval workflow. 3 operations.
+- [MediaValet Searches API](https://apis.io/apis/mediavalet/mediavalet-searches-api/) — Search across the library, including the filter and facet grammar. 3 operations.
+- [MediaValet Config API](https://apis.io/apis/mediavalet/mediavalet-config-api/) — Library and account configuration. 2 operations.
+- [MediaValet Home API](https://apis.io/apis/mediavalet/mediavalet-home-api/) — The hypermedia entry point and the bulk batching endpoint. 2 operations.
+- [MediaValet Branded Portals API](https://apis.io/apis/mediavalet/mediavalet-brandedportals-api/) — Branded Portals — externally shareable, branded views onto a subset of the library.
+- [MediaValet Introduction And Help API](https://apis.io/apis/mediavalet/mediavalet-introductionandhelp-api/) — Introductory and help resources served by the API.
+- [MediaValet Keyword Groups API](https://apis.io/apis/mediavalet/mediavalet-keywordgroups-api/) — Groupings of controlled-vocabulary keywords.
+- [MediaValet Reports V2 API](https://apis.io/apis/mediavalet/mediavalet-reportsv2-api/) — Version 2 of the usage and activity reporting surface.
+- [MediaValet Attribute Groups API](https://apis.io/apis/mediavalet/mediavalet-attribute-groups-api/) — Groupings of custom metadata attributes.
+- [MediaValet Direct Links API](https://apis.io/apis/mediavalet/mediavalet-direct-links-api/) — Direct/CDN links to assets and renditions for external distribution.
+- [MediaValet Org unit API](https://apis.io/apis/mediavalet/mediavalet-org-unit-api/) — Organizational units (libraries) and their configuration.
+- [MediaValet Saved Searches API](https://apis.io/apis/mediavalet/mediavalet-saved-searches-api/) — Saved searches and their execution.
+- [MediaValet Terms And Conditions API](https://apis.io/apis/mediavalet/mediavalet-terms-and-conditions-api/) — Terms and conditions acceptance.
+- [MediaValet User Groups API](https://apis.io/apis/mediavalet/mediavalet-user-groups-api/) — User groups and group membership.
 
-## Tags
+### Published properties
 
-- Digital Asset Management
-- DAM
-- Media
-- Assets
-- Content
-- Marketing
-- Cloud Storage
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### AsyncAPI (1)
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+Event-driven and webhook contracts.
 
-## APIs
+- [MediaValet SkyHOOK Events](https://apis.io/asyncapis/mediavalet/mediavalet-skyhook-asyncapi/)
 
-### MediaValet Assets API
+#### Event channels (1)
 
-Retrieve, update, search, and inspect digital assets and their derivatives — get an asset and its renditions, list related assets, read comments and history, manage per-asset attributes and keywords, and check video intelligence status.
+Individual events and webhooks the provider emits.
 
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
+- [/](https://apis.io/channels/mediavalet/skyhookevents/)
 
-#### Tags
+#### MCP servers (1)
 
-- Assets
-- Media
-- Search
+Model Context Protocol servers that expose the API to agents.
 
-#### Properties
+- [MediaValet DAM (candidate MCP server)](https://apis.io/servers/mediavalet/mediavalet-dam-candidate-mcp-server/)
 
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Agentic access (1)
 
-### MediaValet Categories API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Create, list, and read the hierarchical categories that organize a MediaValet library, retrieve the assets filed under a category, and manage category permission sets that govern which users and groups can see and act on each branch of the tree.
+- [Mediavalet Agentic Access](https://apis.io/agentic-access/mediavalet/mediavalet-agentic-access/)
 
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
+#### Collections (29)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Categories
-- Organization
-- Taxonomy
+- [MediaValet Assets API](https://apis.io/collections/mediavalet/open-mediavalet-assets-api/)
+- [MediaValet AttributeGroups API](https://apis.io/collections/mediavalet/open-mediavalet-attribute-groups-api/)
+- [MediaValet Attributes API](https://apis.io/collections/mediavalet/open-mediavalet-attributes-api/)
+- [MediaValet Authorization API](https://apis.io/collections/mediavalet/open-mediavalet-authorization-api/)
+- [MediaValet BrandedPortals API](https://apis.io/collections/mediavalet/open-mediavalet-branded-portals-api/)
+- [MediaValet Categories API](https://apis.io/collections/mediavalet/open-mediavalet-categories-api/)
+- [MediaValet Config API](https://apis.io/collections/mediavalet/open-mediavalet-config-api/)
+- [MediaValet Crop API](https://apis.io/collections/mediavalet/open-mediavalet-crop-api/)
+- [MediaValet DirectLinks API](https://apis.io/collections/mediavalet/open-mediavalet-direct-links-api/)
+- [MediaValet Downloads API](https://apis.io/collections/mediavalet/open-mediavalet-downloads-api/)
+- [MediaValet Home API](https://apis.io/collections/mediavalet/open-mediavalet-home-api/)
+- [MediaValet Integrations API](https://apis.io/collections/mediavalet/open-mediavalet-integrations-api/)
+- [MediaValet IntroductionAndHelp API](https://apis.io/collections/mediavalet/open-mediavalet-introduction-and-help-api/)
+- [MediaValet KeywordGroups API](https://apis.io/collections/mediavalet/open-mediavalet-keyword-groups-api/)
+- [MediaValet Keywords API](https://apis.io/collections/mediavalet/open-mediavalet-keywords-api/)
+- [MediaValet Lightbox API](https://apis.io/collections/mediavalet/open-mediavalet-lightbox-api/)
+- [MediaValet Notification API](https://apis.io/collections/mediavalet/open-mediavalet-notification-api/)
+- [MediaValet OrgUnit API](https://apis.io/collections/mediavalet/open-mediavalet-org-unit-api/)
+- [MediaValet Persons API](https://apis.io/collections/mediavalet/open-mediavalet-persons-api/)
+- [MediaValet Reports API](https://apis.io/collections/mediavalet/open-mediavalet-reports-api/)
+- [MediaValet ReportsV2 API](https://apis.io/collections/mediavalet/open-mediavalet-reports-v2-api/)
+- [MediaValet SavedSearches API](https://apis.io/collections/mediavalet/open-mediavalet-saved-searches-api/)
+- [MediaValet Searches API](https://apis.io/collections/mediavalet/open-mediavalet-searches-api/)
+- [MediaValet Sharing API](https://apis.io/collections/mediavalet/open-mediavalet-sharing-api/)
+- [MediaValet TermsAndConditions API](https://apis.io/collections/mediavalet/open-mediavalet-terms-and-conditions-api/)
+- …and 4 more published on APIs.io
 
-#### Properties
+#### Overlays (1)
 
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+OpenAPI overlays, including conversational phrasing for each operation.
 
-### MediaValet Attributes API
+- [Mediavalet Openapi Overlay](https://apis.io/overlays/mediavalet/mediavalet-openapi-overlay/)
 
-Define and read custom metadata fields (attributes) for a library and apply or remove attribute values on individual assets, enabling structured, searchable metadata beyond built-in fields.
+#### Security (3)
 
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Mediavalet Authentication](https://apis.io/security/mediavalet/mediavalet-authentication/)
+- [Mediavalet Domain Security](https://apis.io/security/mediavalet/mediavalet-domain-security/)
+- [Mediavalet Trust Center](https://apis.io/security/mediavalet/mediavalet-trust-center/)
 
-- Attributes
-- Metadata
-- Custom Fields
+#### OAuth scopes (1)
 
-#### Properties
+The permissions the API asks for.
 
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Mediavalet Scopes](https://apis.io/scopes/mediavalet/mediavalet-scopes/)
 
-### MediaValet Keywords API
+#### Plans and pricing (1)
 
-Manage the keyword vocabulary used to tag assets — list and read keywords and keyword groups, and add or remove keywords on assets to power search, filtering, and auto-tagging workflows.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
+- [Mediavalet Plans Pricing](https://apis.io/plans/mediavalet/mediavalet-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Keywords
-- Tagging
-- Metadata
+Published request limits.
 
-#### Properties
+- [Mediavalet Rate Limits](https://apis.io/rate-limits/mediavalet/mediavalet-rate-limits/)
 
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### MediaValet Uploads API
+What the API costs to run, by operation.
 
-Ingest new files into a library through the chunked upload workflow — create an upload session, transfer file chunks to the returned storage location, then commit the upload so MediaValet processes the file into a managed asset with renditions.
+- [Mediavalet Finops](https://apis.io/finops/mediavalet/mediavalet-finops/)
 
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Uploads
-- Ingest
-- Files
-
-#### Properties
-
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### MediaValet Users API
-
-Read users, user groups, the current authenticated user and their permissions, and approvers within an organizational unit — the identity and access context that governs who can view and act on assets across the library.
-
-- **Human URL:** [https://docs.mediavalet.com/](https://docs.mediavalet.com/)
-- **Base URL:** `https://api.mediavalet.com`
-
-#### Tags
-
-- Users
-- Permissions
-- Administration
-
-#### Properties
-
-- [Documentation](https://docs.mediavalet.com/)
-- [API Reference](https://developer.mediavalet.com/)
-- [OpenAPI](openapi/mediavalet-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mediavalet.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mediavalet.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/mediavalet)
 - [Website](https://www.mediavalet.com)
 - [Documentation](https://docs.mediavalet.com/)
-- [Developer Portal](https://developer.mediavalet.com/)
-- [Plans](plans/mediavalet-plans-pricing.yml)
-- [Rate Limits](rate-limits/mediavalet-rate-limits.yml)
-- [Fin Ops](finops/mediavalet-finops.yml)
+- [Getting started](https://developer.mediavalet.com/getting-started)
+- [API reference](https://docs.mediavalet.com/)
+- [Pricing](https://www.mediavalet.com/pricing)
+- [Sign up](https://developer.mediavalet.com/signup)
+- [Support](https://support.mediavalet.com/hc/en-us)
 - [Blog](https://www.mediavalet.com/blog)
+- [Terms of service](https://www.mediavalet.com/terms-and-condition)
+- [Privacy policy](https://www.mediavalet.com/privacy-policy)
+- [GitHub](https://github.com/MediaValet)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 60.2** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 58.9 |
+| Contract governance | 18.2 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 81.6 |
+
+**Agent readiness 33.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mediavalet/](https://apis.io/providers/mediavalet/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for MediaValet: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mediavalet/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
